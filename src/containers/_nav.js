@@ -20,7 +20,7 @@ export default [
     _tag: 'CSidebarNavItem',
     name: 'Assets',
     to: '/theme/colors',
-    icon: 'cil-people',
+    icon: 'cil-print',
   },
   {
     _tag: 'CSidebarNavItem',
@@ -66,9 +66,9 @@ export default [
   },
   {
     _tag: 'CSidebarNavDropdown',
-    name: 'Icons',
+    name: 'Reports',
     route: '/icons',
-    icon: 'cil-star',
+    icon: 'cil-address-book',
     _children: [
       {
         _tag: 'CSidebarNavItem',
