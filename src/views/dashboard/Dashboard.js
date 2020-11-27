@@ -1,28 +1,31 @@
 import React, { lazy } from 'react'
 import {
-  CBadge,
-  CButton,
-  CButtonGroup,
-  CCard,
-  CCardBody,
-  CCardFooter,
-  CCardHeader,
+  // CBadge,
+  // CButton,
+  // CButtonGroup,
+  // CCard,
+  // CCardBody,
+  // CCardFooter,
+  // CCardHeader,
   CCol,
   CProgress,
   CRow,
-  CCallout
+  // CCallout
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 
-import MainChartExample from '../charts/MainChartExample.js'
+// import MainChartExample from '../charts/MainChartExample.js'   (<-- This is for traffic table, commenting out)
 
-const WidgetsDropdown = lazy(() => import('../widgets/WidgetsDropdown.js'))
-const WidgetsBrand = lazy(() => import('../widgets/WidgetsBrand.js'))
+// const WidgetsDropdown = lazy(() => import('../widgets/WidgetsDropdown.js'))    (<-- This is for members online, commenting out)
+// const WidgetsBrand = lazy(() => import('../widgets/WidgetsBrand.js'))     (<-- This is for Traffic & Sales, commenting out)
 
 const Dashboard = () => {
   return (
     <>
-      <WidgetsDropdown />
+
+    {/*----------Traffic Table and Members online (removing/commenting out)------------*/}
+
+      {/* <WidgetsDropdown />
       <CCard>
         <CCardBody>
           <CRow>
@@ -105,9 +108,14 @@ const Dashboard = () => {
             </CCol>
           </CRow>
         </CCardFooter>
-      </CCard>
+      </CCard> */}
 
-      <WidgetsBrand withCharts/>
+    {/*/------------ End of Traffic Table and Members Online------------ */}
+
+
+{/*------------------Traffic & Sales Chart (removing/commenting out)------------------- */}
+
+      {/* <WidgetsBrand withCharts/>
 
       <CRow>
         <CCol>
@@ -318,7 +326,9 @@ const Dashboard = () => {
                 </CCol>
               </CRow>
 
-              <br />
+              <br /> */}
+
+        {/*---------End of Traffic & Sales Chart----------------*/}
 
               <table className="table table-hover table-outline mb-0 d-none d-sm-table">
                 <thead className="thead-light">
@@ -546,10 +556,12 @@ const Dashboard = () => {
                 </tbody>
               </table>
 
-            </CCardBody>
+{/*----------Closing Tags for Traffic & Sales table (removing/commenting out)-------------------*/}
+
+            {/* </CCardBody>
           </CCard>
         </CCol>
-      </CRow>
+      </CRow> */}
     </>
   )
 }
