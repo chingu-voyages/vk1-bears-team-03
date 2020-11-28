@@ -1,9 +1,6 @@
 import React from 'react'
 import CIcon from '@coreui/icons-react'
-import { faBarcode, faPrint, faDatabase, faSave, faTachometerAlt, faFile  } from "@fortawesome/free-solid-svg-icons";
-import { faKeyboard } from "@fortawesome/free-solid-svg-icons";
-import { faTint } from "@fortawesome/free-solid-svg-icons";
-import { faComment } from "@fortawesome/free-solid-svg-icons";
+import { faBarcode, faPrint, faDatabase, faSave, faTachometerAlt, faFile, faKeyboard, faTint, faComment} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "src/containers/_nav.css"
@@ -71,7 +68,7 @@ export default [
         _tag: 'CSidebarNavItem',
         name: 'Location',
         to: '/icons/coreui-icons',
-        icon: '',
+        icon: 'cil-location-pin',
         badge: {
           color: 'success',
           text: '',
@@ -81,25 +78,13 @@ export default [
         _tag: 'CSidebarNavItem',
         name: 'Department',
         to: '/icons/flags',
-        icon: '',
+        icon: 'cil-people',
       },
       {
         _tag: 'CSidebarNavItem',
         name: 'Supplier',
         to: '/icons/brands',
-        icon: '',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Categories',
-        to: '/icons/brands',
-        icon: '',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Status',
-        to: '/icons/brands',
-        icon: '',
+        icon: 'cil-people',
       },
     ],
   },
