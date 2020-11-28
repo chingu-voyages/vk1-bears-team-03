@@ -1,6 +1,7 @@
 import React from 'react'
 import CIcon from '@coreui/icons-react'
 
+
 export default [
   {
     _tag: 'CSidebarNavItem',
@@ -20,20 +21,39 @@ export default [
     _tag: 'CSidebarNavItem',
     name: 'Assets',
     to: '/theme/colors',
-    icon: 'cil-print',
+    icon: 'cil-barcode',
   },
+  {
+    _tag: 'CSidebarNavItem',
+    name: 'Software Licenses',
+    to: '/theme/colors',
+    icon: 'barcode',
+  },
+  {
+    _tag: 'CSidebarNavItem',
+    name: 'Permits',
+    to: '/theme/colors',
+    icon: '',
+  },
+  {
+    _tag: 'CSidebarNavItem',
+    name: 'Accessories',
+    to: '/theme/colors',
+    icon: '',
+  },
+  {
+    _tag: 'CSidebarNavItem',
+    name: 'Consumable',
+    to: '/theme/colors',
+    icon: '',
+  },
+  
   {
     _tag: 'CSidebarNavItem',
     name: 'Manage Request',
     to: '/theme/typography',
     icon: 'cil-people',
   },
-  /*{
-    _tag: 'CSidebarNavItem',
-    name: 'Manage Users',
-    to: '/theme/typography',
-    icon: 'cil-people',
-  },*/
   {
     _tag: 'CSidebarNavDropdown',
     name: 'Background Data',
@@ -68,7 +88,7 @@ export default [
     _tag: 'CSidebarNavDropdown',
     name: 'Reports',
     route: '/icons',
-    icon: 'cil-address-book',
+    icon: 'cil-print',
     _children: [
       {
         _tag: 'CSidebarNavItem',
