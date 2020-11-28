@@ -14,25 +14,55 @@ export default [
   },
   {
     _tag: 'CSidebarNavTitle',
-    _children: ['Background Data']
+    _children: ['info']
   },
   {
     _tag: 'CSidebarNavItem',
-    name: 'Location',
+    name: 'Assets',
     to: '/theme/colors',
-    icon: 'cil-location-pin',
-  },
-  {
-    _tag: 'CSidebarNavItem',
-    name: 'Department',
-    to: '/theme/typography',
     icon: 'cil-people',
   },
   {
     _tag: 'CSidebarNavItem',
-    name: 'Supplier',
+    name: 'Manage Request',
     to: '/theme/typography',
     icon: 'cil-people',
+  },
+  /*{
+    _tag: 'CSidebarNavItem',
+    name: 'Manage Users',
+    to: '/theme/typography',
+    icon: 'cil-people',
+  },*/
+  {
+    _tag: 'CSidebarNavDropdown',
+    name: 'Background Data',
+    route: '/icons',
+    icon: 'cil-storage',
+    _children: [
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Location',
+        to: '/icons/coreui-icons',
+        icon: 'cil-location-pin',
+        badge: {
+          color: 'success',
+          text: '',
+        },
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Department',
+        to: '/icons/flags',
+        icon: 'cil-people',
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Supplier',
+        to: '/icons/brands',
+        icon: 'cil-people',
+      },
+    ],
   },
   {
     _tag: 'CSidebarNavDropdown',
