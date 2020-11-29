@@ -33,7 +33,12 @@ const WidgetsDropdown = () => {
               label="Total Assets"
               labels="months"
             />
-            <CButton>a</CButton>
+            <CButton
+              color = "outline-secondary"
+              className="text-white"
+            >
+              More Info
+            </CButton>
           </>
           }
         >
@@ -57,6 +62,7 @@ const WidgetsDropdown = () => {
           header="25"
           text="Members"
           footerSlot={
+          <>
             <ChartLineSimple
               pointed
               className="mt-3 mx-3"
@@ -67,6 +73,13 @@ const WidgetsDropdown = () => {
               label="Total Members"
               labels="months"
             />
+            <CButton
+              color = "outline-secondary"
+              className="text-white"
+            >
+              More Info
+            </CButton>
+          </>
           }
         >
           {/* <CDropdown>
@@ -89,6 +102,7 @@ const WidgetsDropdown = () => {
           header="2"
           text="Pending Requests"
           footerSlot={
+          <>
             <ChartLineSimple
               className="mt-3"
               style={{height: '70px'}}
@@ -99,6 +113,13 @@ const WidgetsDropdown = () => {
               label="Total Requests"
               labels="months"
             />
+            <CButton
+              color = "outline-secondary"
+              className="text-white"
+            >
+              More Info
+            </CButton>
+          </>
           }
         >
           {/* <CDropdown>
