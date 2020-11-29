@@ -35,6 +35,7 @@ const Modals = React.lazy(() => import('./views/notifications/modals/Modals'));
 const Colors = React.lazy(() => import('./views/theme/colors/Colors'));
 const Typography = React.lazy(() => import('./views/theme/typography/Typography'));
 const Widgets = React.lazy(() => import('./views/widgets/Widgets'));
+const Assets = React.lazy(() => import('./views/assets/Assets'));
 const Users = React.lazy(() => import('./views/users/Users'));
 const User = React.lazy(() => import('./views/users/User'));
 
@@ -43,6 +44,7 @@ const routes = [
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
   { path: '/theme', name: 'Theme', component: Colors, exact: true },
   { path: '/theme/colors', name: 'Colors', component: Colors },
+  { path: './views/assets/Assets', name: 'Assets', component: Assets },
   { path: '/theme/typography', name: 'Typography', component: Typography },
   { path: '/base', name: 'Base', component: Cards, exact: true },
   { path: '/base/breadcrumbs', name: 'Breadcrumbs', component: Breadcrumbs },

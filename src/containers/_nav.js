@@ -1,5 +1,4 @@
 import React from 'react'
-import CIcon from '@coreui/icons-react'
 import { faBarcode, faPrint, faDatabase, faSave, faTachometerAlt, faFile, faKeyboard, faTint, faComment} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -24,7 +23,7 @@ export default [
   {
     _tag: 'CSidebarNavItem',
     name: ' Assets',
-    to: '/theme/colors',
+    to: '/views/assets/Assets',
     icon: <FontAwesomeIcon icon={faBarcode} className="fonticons"/>,
   },
   {
