@@ -1,12 +1,17 @@
 import React from 'react'
 import CIcon from '@coreui/icons-react'
+import { faBarcode, faPrint, faDatabase, faSave, faTachometerAlt, faFile, faKeyboard, faTint, faComment} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import "src/containers/_nav.css"
+
 
 export default [
   {
     _tag: 'CSidebarNavItem',
     name: 'Dashboard',
     to: '/dashboard',
-    icon: <CIcon name="cil-speedometer" customClasses="c-sidebar-nav-icon"/>,
+    icon: <FontAwesomeIcon icon={faTachometerAlt} className="fonticons"/>,
     badge: {
       color: 'info',
       text: '',
@@ -18,27 +23,46 @@ export default [
   },
   {
     _tag: 'CSidebarNavItem',
-    name: 'Assets',
+    name: ' Assets',
     to: '/theme/colors',
-    icon: 'cil-people',
+    icon: <FontAwesomeIcon icon={faBarcode} className="fonticons"/>,
   },
+  {
+    _tag: 'CSidebarNavItem',
+    name: 'Software Licenses',
+    to: '/theme/colors',
+    icon: <FontAwesomeIcon icon={faSave} className="fonticons"/>,
+  },
+  {
+    _tag: 'CSidebarNavItem',
+    name: 'Permits',
+    to: '/theme/colors',
+    icon: <FontAwesomeIcon icon={faFile} className="fonticons"/>,
+  },
+  {
+    _tag: 'CSidebarNavItem',
+    name: 'Accessories',
+    to: '/theme/colors',
+    icon: <FontAwesomeIcon icon={faKeyboard} className="fonticons"/>,
+  },
+  {
+    _tag: 'CSidebarNavItem',
+    name: 'Consumable',
+    to: '/theme/colors',
+    icon: <FontAwesomeIcon icon={faTint} className="fonticons"/>,
+  },
+  
   {
     _tag: 'CSidebarNavItem',
     name: 'Manage Request',
     to: '/theme/typography',
-    icon: 'cil-people',
+    icon: <FontAwesomeIcon icon={faComment} className="fonticons"/>,
   },
-  /*{
-    _tag: 'CSidebarNavItem',
-    name: 'Manage Users',
-    to: '/theme/typography',
-    icon: 'cil-people',
-  },*/
   {
     _tag: 'CSidebarNavDropdown',
     name: 'Background Data',
     route: '/icons',
-    icon: 'cil-storage',
+    icon: <FontAwesomeIcon icon={faDatabase} className="fonticons"/>,
     _children: [
       {
         _tag: 'CSidebarNavItem',
@@ -66,9 +90,9 @@ export default [
   },
   {
     _tag: 'CSidebarNavDropdown',
-    name: 'Icons',
+    name: 'Reports',
     route: '/icons',
-    icon: 'cil-star',
+    icon: <FontAwesomeIcon icon={faPrint} className="fonticons"/>,
     _children: [
       {
         _tag: 'CSidebarNavItem',
