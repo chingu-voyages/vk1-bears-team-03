@@ -3,24 +3,24 @@ import {
   CWidgetDropdown,
   CRow,
   CCol,
-  CDropdown,
-  CDropdownMenu,
-  CDropdownItem,
-  CDropdownToggle
+  // CDropdown,        <--- for Dropdown Gear Icon on the Cards
+  // CDropdownMenu,    <--- for Dropdown Gear Icon on the Cards
+  // CDropdownItem,    <--- for Dropdown Gear Icon on the Cards
+  // CDropdownToggle   <--- for Dropdown Gear Icon on the Cards
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import ChartLineSimple from '../charts/ChartLineSimple'
-import ChartBarSimple from '../charts/ChartBarSimple'
+// import ChartBarSimple from '../charts/ChartBarSimple'
 
 const WidgetsDropdown = () => {
   // render
   return (
     <CRow>
-      <CCol sm="6" lg="3">
+      <CCol sm="6" lg="4">
         <CWidgetDropdown
           color="gradient-primary"
           header="9.823"
-          text="Members online"
+          text="All Assets"
           footerSlot={
             <ChartLineSimple
               pointed
@@ -33,7 +33,7 @@ const WidgetsDropdown = () => {
             />
           }
         >
-          <CDropdown>
+          {/* <CDropdown>
             <CDropdownToggle color="transparent">
               <CIcon name="cil-settings"/>
             </CDropdownToggle>
@@ -43,15 +43,15 @@ const WidgetsDropdown = () => {
               <CDropdownItem>Something else here...</CDropdownItem>
               <CDropdownItem disabled>Disabled action</CDropdownItem>
             </CDropdownMenu>
-          </CDropdown>
+          </CDropdown> */}
         </CWidgetDropdown>
       </CCol>
 
-      <CCol sm="6" lg="3">
+      <CCol sm="6" lg="4">
         <CWidgetDropdown
           color="gradient-info"
           header="9.823"
-          text="Members online"
+          text="Members"
           footerSlot={
             <ChartLineSimple
               pointed
@@ -65,9 +65,9 @@ const WidgetsDropdown = () => {
             />
           }
         >
-          <CDropdown>
+          {/* <CDropdown>
             <CDropdownToggle caret={false} color="transparent">
-              <CIcon name="cil-location-pin"/>
+              <CIcon name="cil-settings"/>
             </CDropdownToggle>
             <CDropdownMenu className="pt-0" placement="bottom-end">
               <CDropdownItem>Action</CDropdownItem>
@@ -75,15 +75,15 @@ const WidgetsDropdown = () => {
               <CDropdownItem>Something else here...</CDropdownItem>
               <CDropdownItem disabled>Disabled action</CDropdownItem>
             </CDropdownMenu>
-          </CDropdown>
+          </CDropdown> */}
         </CWidgetDropdown>
       </CCol>
 
-      {/* <CCol sm="6" lg="3">
+      <CCol sm="6" lg="4">
         <CWidgetDropdown
           color="gradient-warning"
           header="9.823"
-          text="Members online"
+          text="Pending Requests"
           footerSlot={
             <ChartLineSimple
               className="mt-3"
@@ -97,7 +97,7 @@ const WidgetsDropdown = () => {
             />
           }
         >
-          <CDropdown>
+          {/* <CDropdown>
             <CDropdownToggle color="transparent">
               <CIcon name="cil-settings"/>
             </CDropdownToggle>
@@ -107,11 +107,14 @@ const WidgetsDropdown = () => {
               <CDropdownItem>Something else here...</CDropdownItem>
               <CDropdownItem disabled>Disabled action</CDropdownItem>
             </CDropdownMenu>
-          </CDropdown>
+          </CDropdown> */}
         </CWidgetDropdown>
       </CCol>
 
-      <CCol sm="6" lg="3">
+
+{/*----------Removing Fourth Card-------------------*/}
+
+      {/* <CCol sm="6" lg="3">
         <CWidgetDropdown
           color="gradient-danger"
           header="9.823"
@@ -138,8 +141,8 @@ const WidgetsDropdown = () => {
             </CDropdownMenu>
           </CDropdown>
         </CWidgetDropdown>
-      </CCol>
-    </CRow> */}
+      </CCol> */}
+    </CRow>
   )
 }
 

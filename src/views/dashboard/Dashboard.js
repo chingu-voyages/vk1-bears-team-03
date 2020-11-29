@@ -1,5 +1,6 @@
 import React, { lazy } from 'react'
 import {
+  CProgress,
   // CBadge,
   // CButton,
   // CButtonGroup,
@@ -7,26 +8,23 @@ import {
   // CCardBody,
   // CCardFooter,
   // CCardHeader,
-  CCol,
-  CProgress,
-  CRow,
+  // CCol,
+  // CRow,
   // CCallout
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 
+const WidgetsDropdown = lazy(() => import('../widgets/WidgetsDropdown.js'))   // <-- This is for the cards at the top portion of the Dashboard
 // import MainChartExample from '../charts/MainChartExample.js'   (<-- This is for traffic table, commenting out)
-
-// const WidgetsDropdown = lazy(() => import('../widgets/WidgetsDropdown.js'))    (<-- This is for members online, commenting out)
 // const WidgetsBrand = lazy(() => import('../widgets/WidgetsBrand.js'))     (<-- This is for Facebook, Twitter, LinkedIn cards, commenting out)
 
 const Dashboard = () => {
   return (
     <>
-
+      <WidgetsDropdown />
     {/*----------Traffic Table and Members online (removing/commenting out)------------*/}
 
-      {/* <WidgetsDropdown />
-      <CCard>
+    {/*<CCard>
         <CCardBody>
           <CRow>
             <CCol sm="5">
@@ -330,7 +328,10 @@ const Dashboard = () => {
 
         {/*---------End of Traffic & Sales Chart----------------*/}
 
-              <table className="table table-hover table-outline mb-0 d-none d-sm-table">
+
+        {/*--------------Users Table (removing/commenting out)-------------------*/}
+
+              {/* <table className="table table-hover table-outline mb-0 d-none d-sm-table">
                 <thead className="thead-light">
                   <tr>
                     <th className="text-center"><CIcon name="cil-people" /></th>
@@ -554,7 +555,10 @@ const Dashboard = () => {
                     </td>
                   </tr>
                 </tbody>
-              </table>
+              </table> */}
+
+{/*------------------End of Users Table-------------------*/}
+
 
 {/*----------Closing Tags for Traffic & Sales table (removing/commenting out)-------------------*/}
 
