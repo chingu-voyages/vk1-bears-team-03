@@ -79,7 +79,7 @@ const WidgetsDropdown = () => {
         </CWidgetDropdown>
       </CCol>
 
-      <CCol sm="6" lg="3">
+      {/* <CCol sm="6" lg="3">
         <CWidgetDropdown
           color="gradient-warning"
           header="9.823"
@@ -139,7 +139,7 @@ const WidgetsDropdown = () => {
           </CDropdown>
         </CWidgetDropdown>
       </CCol>
-    </CRow>
+    </CRow> */}
   )
 }
 

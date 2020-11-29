@@ -17,7 +17,7 @@ import CIcon from '@coreui/icons-react'
 // import MainChartExample from '../charts/MainChartExample.js'   (<-- This is for traffic table, commenting out)
 
 // const WidgetsDropdown = lazy(() => import('../widgets/WidgetsDropdown.js'))    (<-- This is for members online, commenting out)
-// const WidgetsBrand = lazy(() => import('../widgets/WidgetsBrand.js'))     (<-- This is for Traffic & Sales, commenting out)
+// const WidgetsBrand = lazy(() => import('../widgets/WidgetsBrand.js'))     (<-- This is for Facebook, Twitter, LinkedIn cards, commenting out)
 
 const Dashboard = () => {
   return (
