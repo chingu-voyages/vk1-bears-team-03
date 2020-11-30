@@ -1,5 +1,20 @@
 import React, { lazy } from 'react'
-<<<<<<< HEAD
+// <<<<<<< HEAD
+// // import {
+// //   CProgress,
+// //   // CBadge,
+// //   // CButton,
+// //   // CButtonGroup,
+// //   // CCard,
+// //   // CCardBody,
+// //   // CCardFooter,
+// //   // CCardHeader,
+// //   // CCol,
+// //   // CRow,
+// //   // CCallout
+// // } from '@coreui/react'
+// // import CIcon from '@coreui/icons-react'
+// =======
 // import {
 //   CProgress,
 //   // CBadge,
@@ -13,23 +28,8 @@ import React, { lazy } from 'react'
 //   // CRow,
 //   // CCallout
 // } from '@coreui/react'
-// import CIcon from '@coreui/icons-react'
-=======
-import {
-  CProgress,
-  // CBadge,
-  // CButton,
-  // CButtonGroup,
-  // CCard,
-  // CCardBody,
-  // CCardFooter,
-  // CCardHeader,
-  // CCol,
-  // CRow,
-  // CCallout
-} from '@coreui/react'
-import CIcon from '@coreui/icons-react'
->>>>>>> devRoxanne
+// // import CIcon from '@coreui/icons-react'
+// // >>>>>>> devRoxanne
 
 const WidgetsDropdown = lazy(() => import('../widgets/WidgetsDropdown.js'))   // <-- This is for the cards at the top portion of the Dashboard
 // import MainChartExample from '../charts/MainChartExample.js'   (<-- This is for traffic table, commenting out)
