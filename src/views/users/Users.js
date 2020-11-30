@@ -6,7 +6,7 @@ import {
   CCardBody,
   CDataTable,
   CButton, 
-  CCollapse
+  CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
 } from '@coreui/react'
 
 import usersData from "./UsersData"
@@ -48,6 +48,12 @@ const getBadge = (status)=>{
     case 'Banned': return 'danger'
     default: return 'primary'
   }
+}
+
+const [modal, setModal] = useState(false)
+
+const toggle = () => {
+  setModal(!modal);
 }
 
 return (
@@ -99,9 +105,23 @@ return (
                 <CButton size="sm" color="info">
                   Update
                 </CButton>
-                <CButton size="sm" color="danger" className="ml-1">
-                  Delete
-                </CButton>
+                <CButton size="sm" color="danger" className="ml-1" onClick={toggle}>Delete</CButton>
+                <CModal
+                  show={modal}
+                  onClose={toggle}
+                >
+                  <CModalHeader closeButton>Delete User</CModalHeader>
+                  <CModalBody>
+                    Are you sure you want to delete User?
+                  </CModalBody>
+                  <CModalFooter>
+                    <CButton color="primary">Yes</CButton>{' '}
+                    <CButton
+                      color="secondary"
+                      onClick={toggle}
+                    >Cancel</CButton>
+                  </CModalFooter>
+                </CModal>
               </CCardBody>
             </CCollapse>
           )
