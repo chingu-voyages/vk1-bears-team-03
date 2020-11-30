@@ -24,38 +24,38 @@ export default [
   {
     _tag: 'CSidebarNavItem',
     name: ' Assets',
-    to: '/theme/colors',
+    to: '/views/assets',
     icon: <FontAwesomeIcon icon={faBarcode} className="fonticons"/>,
   },
   {
     _tag: 'CSidebarNavItem',
     name: 'Software Licenses',
-    to: '/theme/colors',
+    to: '/views/software',
     icon: <FontAwesomeIcon icon={faSave} className="fonticons"/>,
   },
   {
     _tag: 'CSidebarNavItem',
     name: 'Permits',
-    to: '/theme/colors',
+    to: '/views/permits',
     icon: <FontAwesomeIcon icon={faFile} className="fonticons"/>,
   },
   {
     _tag: 'CSidebarNavItem',
     name: 'Accessories',
-    to: '/theme/colors',
+    to: '/views/accessories',
     icon: <FontAwesomeIcon icon={faKeyboard} className="fonticons"/>,
   },
   {
     _tag: 'CSidebarNavItem',
     name: 'Consumable',
-    to: '/theme/colors',
+    to: '/views/consumable',
     icon: <FontAwesomeIcon icon={faTint} className="fonticons"/>,
   },
   
   {
     _tag: 'CSidebarNavItem',
     name: 'Manage Request',
-    to: '/theme/typography',
+    to: '/views/request',
     icon: <FontAwesomeIcon icon={faComment} className="fonticons"/>,
   },
   {
@@ -67,8 +67,8 @@ export default [
       {
         _tag: 'CSidebarNavItem',
         name: 'Location',
-        to: '/icons/coreui-icons',
-        icon: 'cil-location-pin',
+        to: '/views/location',
+        icon: '',
         badge: {
           color: 'success',
           text: '',
@@ -77,14 +77,14 @@ export default [
       {
         _tag: 'CSidebarNavItem',
         name: 'Department',
-        to: '/icons/flags',
-        icon: 'cil-people',
+        to: '/views/department',
+        icon: '',
       },
       {
         _tag: 'CSidebarNavItem',
         name: 'Supplier',
-        to: '/icons/brands',
-        icon: 'cil-people',
+        to: '/views/supplier',
+        icon: '',
       },
     ],
   },
