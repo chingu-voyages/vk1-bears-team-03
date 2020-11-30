@@ -37,6 +37,15 @@ const Typography = React.lazy(() => import('./views/theme/typography/Typography'
 const Widgets = React.lazy(() => import('./views/widgets/Widgets'));
 const Users = React.lazy(() => import('./views/users/Users'));
 const User = React.lazy(() => import('./views/users/User'));
+const Asset = React.lazy(() => import('./views/assets/Assets'));
+const Software = React.lazy(() => import('./views/software/Software'));
+const Permits = React.lazy(() => import('./views/permits/Permits'));
+const Accessories = React.lazy(() => import('./views/accessories/Accessories'));
+const Consumable = React.lazy(() => import('./views/consumable/Consumable'));
+const ManageRequest = React.lazy(() => import('./views/request/Request'));
+const Location = React.lazy(() => import('./views/location/Location'));
+const Department = React.lazy(() => import('./views/department/Department'));
+const Supplier = React.lazy(() => import('./views/supplier/Supplier'));
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -79,6 +88,15 @@ const routes = [
   { path: '/widgets', name: 'Widgets', component: Widgets },
   { path: '/users', exact: true,  name: 'Users', component: Users },
   { path: '/users/:id', exact: true, name: 'User Details', component: User },
+  { path: '/views/assets', exact: true, name: 'Assets', component: Asset },
+  { path: '/views/software', exact: true, name: 'Software', component: Software },
+  { path: '/views/permits', exact: true, name: 'Permits', component: Permits },
+  { path: '/views/accessories', exact: true, name: 'Accessories', component: Accessories },
+  { path: '/views/consumable', exact: true, name: 'Consumable', component: Consumable },
+  { path: '/views/request', exact: true, name: 'ManageRequest', component: ManageRequest },
+  { path: '/views/location', exact: true, name: 'Location', component: Location },
+  { path: '/views/department', exact: true, name: 'Department', component: Department },
+  { path: '/views/supplier', exact: true, name: 'Supplier', component: Supplier },
 ];
 
 export default routes;
