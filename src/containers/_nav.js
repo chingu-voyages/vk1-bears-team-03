@@ -1,5 +1,5 @@
 import React from 'react'
-import CIcon from '@coreui/icons-react'
+// import CIcon from '@coreui/icons-react'
 import { faBarcode, faPrint, faDatabase, faSave, faTachometerAlt, faFile, faKeyboard, faTint, faComment} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
