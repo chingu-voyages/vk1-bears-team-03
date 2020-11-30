@@ -63,7 +63,7 @@ return (
     // columnFilter
     tableFilter = {{placeholder : "Type here...", label : "Search "}}
     // footer
-    itemsPerPageSelect = {{values: [10, 50, 100, 'See All']}}
+    itemsPerPageSelect = {{values: [5,10,20,30,40,50, 100, 'See All']}}
     itemsPerPage={10}
     hover
     sorter
