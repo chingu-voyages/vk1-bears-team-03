@@ -61,7 +61,7 @@ export default [
   {
     _tag: 'CSidebarNavDropdown',
     name: 'Background Data',
-    route: '/icons',
+    route: '/views',
     icon: <FontAwesomeIcon icon={faDatabase} className="fonticons"/>,
     _children: [
       {
