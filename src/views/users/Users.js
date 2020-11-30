@@ -60,11 +60,11 @@ return (
   <CDataTable
     items={usersData}
     fields={fields}
-    columnFilter
-    tableFilter
+    // columnFilter
+    tableFilter = {{placeholder : "Type here...", label : "Search "}}
     // footer
-    itemsPerPageSelect
-    itemsPerPage={5}
+    itemsPerPageSelect = {{values: [5,10,20,30,40,50, 100, 'See All']}}
+    itemsPerPage={10}
     hover
     sorter
     pagination
@@ -102,10 +102,13 @@ return (
                   {item.name}
                 </h4>
                 <p className="text-muted">Role: {item.user_role}</p>
-                <CButton size="sm" color="info">
+                <CButton size="sm" color="info" className="mr-1">
+                  See All Assets
+                </CButton>
+                <CButton size="sm" color="info" className="mr-1">
                   Update
                 </CButton>
-                <CButton size="sm" color="danger" className="ml-1" onClick={toggle}>Delete</CButton>
+                <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>
                 <CModal
                   show={modal}
                   onClose={toggle}
