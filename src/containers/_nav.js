@@ -1,12 +1,17 @@
 import React from 'react'
-import CIcon from '@coreui/icons-react'
+// import CIcon from '@coreui/icons-react'
+import { faBarcode, faPrint, faDatabase, faSave, faTachometerAlt, faFile, faKeyboard, faTint, faComment} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import "src/containers/_nav.css"
+
 
 export default [
   {
     _tag: 'CSidebarNavItem',
     name: 'Dashboard',
     to: '/dashboard',
-    icon: <CIcon name="cil-speedometer" customClasses="c-sidebar-nav-icon"/>,
+    icon: <FontAwesomeIcon icon={faTachometerAlt} className="fonticons"/>,
     badge: {
       color: 'info',
       text: '',
@@ -14,31 +19,80 @@ export default [
   },
   {
     _tag: 'CSidebarNavTitle',
-    _children: ['Background Data']
+    _children: ['info']
   },
   {
     _tag: 'CSidebarNavItem',
-    name: 'Location',
+    name: ' Assets',
     to: '/theme/colors',
-    icon: 'cil-location-pin',
+    icon: <FontAwesomeIcon icon={faBarcode} className="fonticons"/>,
   },
   {
     _tag: 'CSidebarNavItem',
-    name: 'Department',
-    to: '/theme/typography',
-    icon: 'cil-people',
+    name: 'Software Licenses',
+    to: '/theme/colors',
+    icon: <FontAwesomeIcon icon={faSave} className="fonticons"/>,
   },
   {
     _tag: 'CSidebarNavItem',
-    name: 'Supplier',
+    name: 'Permits',
+    to: '/theme/colors',
+    icon: <FontAwesomeIcon icon={faFile} className="fonticons"/>,
+  },
+  {
+    _tag: 'CSidebarNavItem',
+    name: 'Accessories',
+    to: '/theme/colors',
+    icon: <FontAwesomeIcon icon={faKeyboard} className="fonticons"/>,
+  },
+  {
+    _tag: 'CSidebarNavItem',
+    name: 'Consumable',
+    to: '/theme/colors',
+    icon: <FontAwesomeIcon icon={faTint} className="fonticons"/>,
+  },
+  
+  {
+    _tag: 'CSidebarNavItem',
+    name: 'Manage Request',
     to: '/theme/typography',
-    icon: 'cil-people',
+    icon: <FontAwesomeIcon icon={faComment} className="fonticons"/>,
   },
   {
     _tag: 'CSidebarNavDropdown',
-    name: 'Icons',
+    name: 'Background Data',
     route: '/icons',
-    icon: 'cil-star',
+    icon: <FontAwesomeIcon icon={faDatabase} className="fonticons"/>,
+    _children: [
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Location',
+        to: '/icons/coreui-icons',
+        icon: 'cil-location-pin',
+        badge: {
+          color: 'success',
+          text: '',
+        },
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Department',
+        to: '/icons/flags',
+        icon: 'cil-people',
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Supplier',
+        to: '/icons/brands',
+        icon: 'cil-people',
+      },
+    ],
+  },
+  {
+    _tag: 'CSidebarNavDropdown',
+    name: 'Reports',
+    route: '/icons',
+    icon: <FontAwesomeIcon icon={faPrint} className="fonticons"/>,
     _children: [
       {
         _tag: 'CSidebarNavItem',
