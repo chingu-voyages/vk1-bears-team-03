@@ -36,6 +36,7 @@ const WidgetsDropdown = () => {
             <CButton
               color = "outline-secondary"
               className="text-white"
+              to="/views/assets"
             >
               More Info
             </CButton>
@@ -76,6 +77,7 @@ const WidgetsDropdown = () => {
             <CButton
               color = "outline-secondary"
               className="text-white"
+              to="/users"
             >
               More Info
             </CButton>
@@ -116,6 +118,7 @@ const WidgetsDropdown = () => {
             <CButton
               color = "outline-secondary"
               className="text-white"
+              to="/views/request"
             >
               More Info
             </CButton>
