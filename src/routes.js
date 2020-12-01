@@ -46,6 +46,7 @@ const ManageRequest = React.lazy(() => import('./views/request/Request'));
 const Location = React.lazy(() => import('./views/location/Location'));
 const Department = React.lazy(() => import('./views/department/Department'));
 const Supplier = React.lazy(() => import('./views/supplier/Supplier'));
+const Reports = React.lazy(() => import('./views/reports/Reports'));
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -97,6 +98,7 @@ const routes = [
   { path: '/views/location', exact: true, name: 'Location', component: Location },
   { path: '/views/department', exact: true, name: 'Department', component: Department },
   { path: '/views/supplier', exact: true, name: 'Supplier', component: Supplier },
+  { path: '/views/reports', exact: true, name: 'Reports', component: Reports },
 ];
 
 export default routes;

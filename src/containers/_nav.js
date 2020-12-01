@@ -61,7 +61,6 @@ export default [
   {
     _tag: 'CSidebarNavDropdown',
     name: 'Background Data',
-    route: '/views',
     icon: <FontAwesomeIcon icon={faDatabase} className="fonticons"/>,
     _children: [
       {
@@ -89,32 +88,38 @@ export default [
     ],
   },
   {
-    _tag: 'CSidebarNavDropdown',
+    _tag: 'CSidebarNavItem',
     name: 'Reports',
-    route: '/icons',
+    to: '/views/reports',
     icon: <FontAwesomeIcon icon={faPrint} className="fonticons"/>,
-    _children: [
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'CoreUI Free',
-        to: '/icons/coreui-icons',
-        badge: {
-          color: 'success',
-          text: 'NEW',
-        },
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'CoreUI Flags',
-        to: '/icons/flags',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'CoreUI Brands',
-        to: '/icons/brands',
-      },
-    ],
-  },
+  }
+  // {
+  //   _tag: 'CSidebarNavDropdown',
+  //   name: 'Reports',
+  //   route: '/icons',
+  //   icon: <FontAwesomeIcon icon={faPrint} className="fonticons"/>,
+  //   _children: [
+  //     {
+  //       _tag: 'CSidebarNavItem',
+  //       name: 'CoreUI Free',
+  //       to: '/icons/coreui-icons',
+  //       badge: {
+  //         color: 'success',
+  //         text: 'NEW',
+  //       },
+  //     },
+  //     {
+  //       _tag: 'CSidebarNavItem',
+  //       name: 'CoreUI Flags',
+  //       to: '/icons/flags',
+  //     },
+  //     {
+  //       _tag: 'CSidebarNavItem',
+  //       name: 'CoreUI Brands',
+  //       to: '/icons/brands',
+  //     },
+  //   ],
+  // },
   
 
   // {
