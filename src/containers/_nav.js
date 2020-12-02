@@ -1,6 +1,6 @@
 import React from 'react'
 // import CIcon from '@coreui/icons-react'
-import { faBarcode, faPrint, faDatabase, faSave, faTachometerAlt, faFile, faKeyboard, faTint, faComment} from "@fortawesome/free-solid-svg-icons";
+import { faBarcode, faPrint, faDatabase, faSave, faTachometerAlt, faFile, faKeyboard, faTint, faComment, faTags} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "src/containers/_nav.css"
@@ -57,6 +57,12 @@ export default [
     name: 'Manage Request',
     to: '/views/request',
     icon: <FontAwesomeIcon icon={faComment} className="fonticons"/>,
+  },
+  {
+    _tag: 'CSidebarNavItem',
+    name: 'Generate Labels',
+    to: '/views/request',
+    icon: <FontAwesomeIcon icon={faTags} className="fonticons"/>,
   },
   {
     _tag: 'CSidebarNavDropdown',
