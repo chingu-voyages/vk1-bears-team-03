@@ -5,11 +5,15 @@ import {
   CBadge,
   CCardBody,
   CDataTable,
-  CButton, 
+  CButton,
+  CRow, CCol, 
   CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
 } from '@coreui/react'
 
 import assetsData from "./AssetsData"
+import Search from "../search/Search"
+import Itemspage from '../itemspage/Itemspage'
+
 
 const Assets = () => {
 const [details, setDetails] = useState([])
@@ -28,8 +32,8 @@ const toggleDetails = (index) => {
 
 
 const fields = [
-  { key: 'id', _classes: 'font-weight-bold' },
-  { key: 'name', _classes: 'font-weight-bold' },
+  { key: 'id'},
+  { key: 'name'},
    'serial_number', 'asset_tag', 'status',
   {
     key: 'show_details',
@@ -59,21 +63,25 @@ const toggle = () => {
 return (
   <>
   <CDataTable
-    overTableSlot = {
-      
-      <CButton size="lg" color="primary" variant = "ghost" className="m-1 p-2" >
-                Add Asset
-      </CButton>
+    overTableSlot = { 
+          <CRow>
+              <CCol>
+              {/* <Route render={({ history}) => ( */}
+                <CButton size="lg" color="primary" className="m-1 px-4 py-1">
+                      + Add Asset
+                </CButton>
+              {/* // )} /> */}
+              </CCol>
+              <CCol className="d-flex justify-content-sm-end">
+                  <Search />
+                  <Itemspage />
+              </CCol>
+          </CRow>
     }
     items={assetsData}
     header
     fields={fields}
-    tableFilter = {{placeholder : "Type here...", label : "Search "}}
-    // footer
-    itemsPerPageSelect= {{values: [5,10,20,30,40,50, 100, 'See All']}}
-    itemsPerPage={5}
     hover
-    // sorter
     pagination
     
     scopedSlots = {{

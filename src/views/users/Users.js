@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 // import { CIcon } from '@coreui/icons-react'
 import {
   CBadge,
+  CRow, CCol,
   CCardBody,
   CDataTable,
   CButton, 
@@ -11,6 +12,9 @@ import {
 import { Route } from 'react-router-dom'
 
 import usersData from "./UsersData"
+import Search from "../search/Search"
+import Itemspage from '../itemspage/Itemspage'
+
 
 const Users = () => {
 const [details, setDetails] = useState([])
@@ -29,8 +33,8 @@ const toggleDetails = (index) => {
 
 
 const fields = [
-  { key: 'id', _classes: 'font-weight-bold' },
-  { key: 'name', _classes: 'font-weight-bold' },
+  { key: 'id'},
+  { key: 'name' },
    'user_name', 'user_role', 'email_address',
   {
     key: 'show_details',
@@ -41,15 +45,15 @@ const fields = [
   }
 ]
 
-const getBadge = (status)=>{
-  switch (status) {
-    case 'Active': return 'success'
-    case 'Inactive': return 'secondary'
-    case 'Pending': return 'warning'
-    case 'Banned': return 'danger'
-    default: return 'primary'
-  }
-}
+// const getBadge = (status)=>{
+//   switch (status) {
+//     case 'Active': return 'success'
+//     case 'Inactive': return 'secondary'
+//     case 'Pending': return 'warning'
+//     case 'Banned': return 'danger'
+//     default: return 'primary'
+//   }
+// }
 
 const [modal, setModal] = useState(false)
 
@@ -59,39 +63,34 @@ const toggle = () => {
 
 return (
   <CDataTable
-    overTableSlot = {  
-      <Route render={({ history}) => (
-        <CButton size="lg" color="primary" variant = "ghost" className="m-1 p-2" onClick= {() => { history.push('/user/register') }}>
-              Add User
-        </CButton>
-      //   <button
-      //   type='button'
-      //   onClick={() => { history.push('/new-location') }}
-      // >
-      //   Click Me!
-      // </button>
-      )} />
-    
+    overTableSlot = { 
+        <CRow>
+            <CCol>
+            <Route render={({ history}) => (
+              <CButton size="lg" color="primary" className="m-1 px-4 py-1" onClick= {() => { history.push('/user/register') }}>
+                    + Add User
+              </CButton>
+            )} />
+            </CCol>
+            <CCol className="d-flex justify-content-sm-end">
+                <Search />
+                <Itemspage />
+            </CCol>
+        </CRow>
     }
     items={usersData}
     fields={fields}
-    // columnFilter
-    tableFilter = {{placeholder : "Type here...", label : "Search "}}
-    // footer
-    itemsPerPageSelect = {{values: [5, 10,20,30,40,50, 100, 'See All']}}
-    itemsPerPage={5}
     hover
-    // sorter
     pagination
     scopedSlots = {{
-      'status':
-        (item)=>(
-          <td>
-            <CBadge color={getBadge(item.status)}>
-              {item.status}
-            </CBadge>
-          </td>
-        ),
+      // 'status':
+      //   (item)=>(
+      //     <td>
+      //       <CBadge color={getBadge(item.status)}>
+      //         {item.status}
+      //       </CBadge>
+      //     </td>
+      //   ),
       'show_details':
         (item, index)=>{
           return (
