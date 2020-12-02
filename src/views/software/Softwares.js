@@ -26,7 +26,8 @@ const Softwares = () => {
   }
 
   const fields = [
-    { key: 'id', _classes: 'font-weight-bold' },
+    // { key: 'id', _classes: 'font-weight-bold' },
+    'id',
     { key: 'name', _classes: 'font-weight-bold' },
      'user_name', 'user_role', 'email_address',
     {

@@ -5,8 +5,12 @@ import CIcon from '@coreui/icons-react'
 
 import softwaresData from './SoftwaresData'
 
+// softwaresData.forEach(software => console.log(software))
+
 const Software = ({match}) => {
+
   const software = softwaresData.find( software => software.id.toString() === match.params.id)
+
   const softwareDetails = software ? Object.entries(software) : 
     [['id', (<span><CIcon className="text-muted" name="cui-icon-ban" /> Not found</span>)]]
 
