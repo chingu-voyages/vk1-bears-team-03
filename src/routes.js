@@ -46,6 +46,8 @@ const ManageRequest = React.lazy(() => import('./views/request/Request'));
 const Location = React.lazy(() => import('./views/location/Location'));
 const Department = React.lazy(() => import('./views/department/Department'));
 const Supplier = React.lazy(() => import('./views/supplier/Supplier'));
+const AddUser = React.lazy(() => import('./views/addUser/AddUser'));
+
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -88,6 +90,7 @@ const routes = [
   { path: '/widgets', name: 'Widgets', component: Widgets },
   { path: '/users', exact: true,  name: 'Users', component: Users },
   { path: '/users/:id', exact: true, name: 'User Details', component: User },
+  { path: '/user/register', exact: true, name: 'User Registration', component: AddUser },
   { path: '/views/assets', exact: true, name: 'Assets', component: Asset },
   { path: '/views/software', exact: true, name: 'Software', component: Software },
   { path: '/views/permits', exact: true, name: 'Permits', component: Permits },

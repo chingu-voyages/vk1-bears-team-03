@@ -57,17 +57,25 @@ const toggle = () => {
 }
 
 return (
+  <>
   <CDataTable
+    overTableSlot = {
+      
+      <CButton size="lg" color="primary" variant = "ghost" className="m-1 p-2" >
+                Add Asset
+      </CButton>
+    }
     items={assetsData}
+    header
     fields={fields}
-    // columnFilter
     tableFilter = {{placeholder : "Type here...", label : "Search "}}
     // footer
-    itemsPerPageSelect = {{values: [5,10,20,30,40,50, 100, 'See All']}}
-    itemsPerPage={10}
+    itemsPerPageSelect= {{values: [5,10,20,30,40,50, 100, 'See All']}}
+    itemsPerPage={5}
     hover
-    sorter
+    // sorter
     pagination
+    
     scopedSlots = {{
       'status':
         (item)=>(
@@ -129,8 +137,13 @@ return (
             </CCollapse>
           )
         }
+        
     }}
+        
   />
+
+          
+  </>
 )
 }
 export default Assets

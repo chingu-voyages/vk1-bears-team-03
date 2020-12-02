@@ -8,6 +8,7 @@ import {
   CButton, 
   CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
 } from '@coreui/react'
+import { Route } from 'react-router-dom'
 
 import usersData from "./UsersData"
 
@@ -58,15 +59,29 @@ const toggle = () => {
 
 return (
   <CDataTable
+    overTableSlot = {  
+      <Route render={({ history}) => (
+        <CButton size="lg" color="primary" variant = "ghost" className="m-1 p-2" onClick= {() => { history.push('/user/register') }}>
+              Add User
+        </CButton>
+      //   <button
+      //   type='button'
+      //   onClick={() => { history.push('/new-location') }}
+      // >
+      //   Click Me!
+      // </button>
+      )} />
+    
+    }
     items={usersData}
     fields={fields}
     // columnFilter
     tableFilter = {{placeholder : "Type here...", label : "Search "}}
     // footer
-    itemsPerPageSelect = {{values: [5,10,20,30,40,50, 100, 'See All']}}
-    itemsPerPage={10}
+    itemsPerPageSelect = {{values: [5, 10,20,30,40,50, 100, 'See All']}}
+    itemsPerPage={5}
     hover
-    sorter
+    // sorter
     pagination
     scopedSlots = {{
       'status':
