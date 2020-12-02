@@ -30,7 +30,7 @@ const toggleDetails = (index) => {
 const fields = [
   { key: 'id', _classes: 'font-weight-bold' },
   { key: 'name', _classes: 'font-weight-bold' },
-   'user_name', 'user_role', 'email_address',
+   'serial_number', 'asset_tag', 'status',
   {
     key: 'show_details',
     label: '',
