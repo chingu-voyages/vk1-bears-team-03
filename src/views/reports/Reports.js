@@ -64,7 +64,7 @@ import {
                         pointHoverBackgroundColor: '#fff',
                         pointHoverBorderColor: 'rgba(179,181,198,1)',
                         tooltipLabelColor: 'rgba(179,181,198,1)',
-                        data: [65, 59, 90, 81, 56, 55, 40]
+                        data: [65, 59, 90, 81, 56, 55, 40,54,67,87,63,90]
                         },
                         {
                         label: '2020',
@@ -75,7 +75,7 @@ import {
                         pointHoverBackgroundColor: '#fff',
                         pointHoverBorderColor: 'rgba(255,99,132,1)',
                         tooltipLabelColor: 'rgba(255,99,132,1)',
-                        data: [28, 48, 40, 19, 96, 27, 100]
+                        data: [28, 48, 40, 19, 96, 27, 100,65,87,64,34,78]
                         }
                     ]}
                     options={{
@@ -86,7 +86,8 @@ import {
                     }}
                     labels={[
                         'January', 'February', 'March', 'April',
-                        'May', 'June', 'July'
+                        'May', 'June', 'July','August','September',
+                        'October','November','December'
                     ]}></CChartBar>
                 </CCol>
 {/*-------End of Assets Chart----------*/}
@@ -95,10 +96,11 @@ import {
 
                 <CCol sm="12" lg="6">
                     <h3>Members</h3>
-                    <CChartDoughnut
+                    <CChartLine
                     datasets={[
                         {
                         label: '2020',
+                        fill: false,
                         backgroundColor: ["#044BF","#A9FDAC","#44CF6C","#32A287","#6C464E","#2B4162","#E0E0E2"],
                         borderColor: 'rgba(255,99,132,1)',
                         pointBackgroundColor: ['rgba(255,99,132,1)'],
@@ -106,7 +108,7 @@ import {
                         pointHoverBackgroundColor: '#fff',
                         pointHoverBorderColor: 'rgba(255,99,132,1)',
                         tooltipLabelColor: 'rgba(255,99,132,1)',
-                        data: [28, 48, 40, 19, 96, 27, 100]
+                        data: [28, 48, 40, 30, 60, 35, 60,54,78,81,55,80]
                         }
                     ]}
                     options={{
@@ -117,8 +119,9 @@ import {
                     }}
                     labels={[
                         'January', 'February', 'March', 'April',
-                        'May', 'June', 'July'
-                    ]}></CChartDoughnut>
+                        'May', 'June', 'July','August','September',
+                        'October','November','December'
+                    ]}></CChartLine>
                 </CCol>
 {/*-------End of Members Chart----------*/}
 
