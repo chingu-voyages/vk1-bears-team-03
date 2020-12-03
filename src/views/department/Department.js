@@ -3,15 +3,15 @@ import { CCard, CCardBody, CCardHeader, CCol, CRow } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 
 
-import departmentData from './DepartmentsData'
+import departmentsData from './DepartmentsData'
 
 // softwaresData.forEach(software => console.log(software))
 
 const Department = ({match}) => {
 
-  const department = departmentData.find( department => department.id.toString() === match.params.id)
+  const department = departmentsData.find( department => department.id.toString() === match.params.id)
 
-  const departmentsDetails = department ? Object.entries(department) : 
+  const departmentDetails = department ? Object.entries(department) : 
     [['id', (<span><CIcon className="text-muted" name="cui-icon-ban" /> Not found</span>)]]
 
   return (
@@ -25,7 +25,7 @@ const Department = ({match}) => {
           <table className="table table-striped table-hover">
                 <tbody>
                   {
-                    departmentsDetails.map(([key, value], index) => {
+                    departmentDetails.map(([key, value], index) => {
                       return (
                         <tr key={index.toString()}>
                           <td>{`${key}:`}</td>

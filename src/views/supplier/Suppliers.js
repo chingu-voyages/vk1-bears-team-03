@@ -45,16 +45,6 @@ const fields = [
   }
 ]
 
-// const getBadge = (status)=>{
-//   switch (status) {
-//     case 'Active': return 'success'
-//     case 'Inactive': return 'secondary'
-//     case 'Pending': return 'warning'
-//     case 'Banned': return 'danger'
-//     default: return 'primary'
-//   }
-// }
-
 const [modal, setModal] = useState(false)
 
 const toggle = () => {
@@ -68,7 +58,7 @@ return (
             <CCol>
             <Route render={({ history}) => (
               <CButton size="lg" color="primary" className="m-1 px-4 py-1" onClick= {() => { history.push('/user/register') }}>
-                    + Add User
+                    + Add Supplier
               </CButton>
             )} />
             </CCol>
@@ -78,7 +68,7 @@ return (
             </CCol>
         </CRow>
     }
-    items={supplierData}
+    items={suppliersData}
     fields={fields}
     hover
     pagination
@@ -117,7 +107,7 @@ return (
                 </h4>
                 <p className="text-muted">Role: {item.user_role}</p>
                 <CButton size="sm" color="info" className="mr-1">
-                  See All Assets
+                  See All Suppliers
                 </CButton>
                 <CButton size="sm" color="info" className="mr-1">
                   Update

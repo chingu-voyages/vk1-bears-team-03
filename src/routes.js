@@ -44,10 +44,14 @@ const Softwares = React.lazy(() => import('./views/software/Softwares'));
 const Permits = React.lazy(() => import('./views/permits/Permits'));
 const Accessories = React.lazy(() => import('./views/accessories/Accessories'));
 const Consumable = React.lazy(() => import('./views/consumable/Consumable'));
-const ManageRequest = React.lazy(() => import('./views/request/MRequest'));
+const Requests = React.lazy(() => import('./views/request/Requests'));
+const Request = React.lazy(() => import('./views/request/Request'));
+const Locations = React.lazy(() => import('./views/location/Locations'));
 const Location = React.lazy(() => import('./views/location/Location'));
+const Departments = React.lazy(() => import('./views/department/Departments'));
 const Department = React.lazy(() => import('./views/department/Department'));
 const Supplier = React.lazy(() => import('./views/supplier/Supplier'));
+const Suppliers = React.lazy(() => import('./views/supplier/Suppliers'));
 const AddUser = React.lazy(() => import('./views/addUser/AddUser'));
 
 
@@ -100,10 +104,14 @@ const routes = [
   { path: '/views/permits', exact: true, name: 'Permits', component: Permits },
   { path: '/views/accessories', exact: true, name: 'Accessories', component: Accessories },
   { path: '/views/consumable', exact: true, name: 'Consumable', component: Consumable },
-  { path: '/views/request', exact: true, name: 'ManageRequest', component: ManageRequest },
-  { path: '/views/location', exact: true, name: 'Location', component: Location },
-  { path: '/views/department', exact: true, name: 'Department', component: Department },
-  { path: '/views/supplier', exact: true, name: 'Supplier', component: Supplier },
+  { path: '/views/requests', exact: true, name: 'Requests', component: Requests },
+  { path: '/views/requests/:id', exact: true, name: 'Request', component: Request },
+  { path: '/views/locations', exact: true, name: 'Locations', component: Locations },
+  { path: '/views/locations/:id', exact: true, name: 'Location', component: Location },
+  { path: '/views/departments', exact: true, name: 'Departments', component: Departments },
+  { path: '/views/departments/:id', exact: true, name: 'Department', component: Department },
+  { path: '/views/suppliers', exact: true, name: 'Suppliers', component: Suppliers },
+  { path: '/views/suppliers/:id', exact: true, name: 'Supplier', component: Supplier },
 ];
 
 export default routes;

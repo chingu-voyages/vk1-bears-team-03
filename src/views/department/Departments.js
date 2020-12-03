@@ -12,11 +12,8 @@ import {
 import departmentsData from './DepartmentsData'
 import Search from "../search/Search"
 import Itemspage from '../itemspage/Itemspage'
-import Department from './Department'
 
-
-
-const Requests = () => {
+const Departments = () => {
   const [details, setDetails] = useState([])
 
   const toggleDetails = (index) => {
@@ -42,17 +39,7 @@ const Requests = () => {
       filter: false
     }
   ]
-  
-  // const getBadge = (status)=>{
-  //   switch (status) {
-  //     case 'Active': return 'success'
-  //     case 'Inactive': return 'secondary'
-  //     case 'Pending': return 'warning'
-  //     case 'Banned': return 'danger'
-  //     default: return 'primary'
-  //   }
-  // }
-  
+
   const [modal, setModal] = useState(false)
   
   const toggle = () => {
@@ -115,7 +102,7 @@ const Requests = () => {
                   </h4>
                   <p className="text-muted">Role: {item.user_role}</p>
                   <CButton size="sm" color="info" className="mr-1">
-                    See All Assets
+                    See All Departments
                   </CButton>
                   <CButton size="sm" color="info" className="mr-1">
                     Update

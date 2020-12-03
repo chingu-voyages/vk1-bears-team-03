@@ -3,15 +3,15 @@ import { CCard, CCardBody, CCardHeader, CCol, CRow } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 
 
-import requestsData from './RequestData'
+import requestsData from './RequestsData'
 
 // softwaresData.forEach(software => console.log(software))
 
-const MRequest = ({match}) => {
+const Request = ({match}) => {
 
-  const Mrequest = requestsData.find( Mrequest => Mrequest.id.toString() === match.params.id)
+  const request = requestsData.find( request => request.id.toString() === match.params.id)
 
-  const requestDetails = Mrequest ? Object.entries(Mrequest) : 
+  const requestDetails = request ? Object.entries(request) : 
     [['id', (<span><CIcon className="text-muted" name="cui-icon-ban" /> Not found</span>)]]
 
   return (
@@ -44,4 +44,4 @@ const MRequest = ({match}) => {
   )
 }
 
-export default MRequest
+export default Request
