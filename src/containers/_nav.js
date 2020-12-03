@@ -48,7 +48,7 @@ export default [
   {
     _tag: 'CSidebarNavItem',
     name: 'Consumable',
-    to: '/views/consumable',
+    to: '/views/consumables',
     icon: <FontAwesomeIcon icon={faTint} className="fonticons"/>,
   },
   
@@ -115,21 +115,5 @@ export default [
       },
     ],
   },
-  
-
-  // {
-  //   _tag: 'CSidebarNavItem',
-  //   name: 'Label warning',
-  //   to: '',
-  //   icon: {
-  //     name: 'cil-star',
-  //     className: 'text-warning'
-  //   },
-  //   label: true
-  // },
-  // {
-  //   _tag: 'CSidebarNavDivider',
-  //   className: 'm-2'
-  // }
 ]
 

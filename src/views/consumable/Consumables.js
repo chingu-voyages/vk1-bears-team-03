@@ -8,12 +8,12 @@ import {
   CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
 } from '@coreui/react'
 
-import permitsData from "./PermitsData"
+import consumablesData from "./ConsumablesData"
 import Search from "../search/Search"
 import Itemspage from '../itemspage/Itemspage'
 
 
-const Permits = () => {
+const Consumables = () => {
 const [details, setDetails] = useState([])
 
 const toggleDetails = (index) => {
@@ -65,7 +65,7 @@ return (
               <CCol>
               {/* <Route render={({ history}) => ( */}
                 <CButton size="lg" color="primary" className="m-1 px-4 py-1">
-                      + Add Permit
+                      + Add Consumable
                 </CButton>
               {/* // )} /> */}
               </CCol>
@@ -75,7 +75,7 @@ return (
               </CCol>
           </CRow>
     }
-    items={permitsData}
+    items={consumablesData}
     header
     fields={fields}
     hover
@@ -116,7 +116,7 @@ return (
                 </h4>
                 <p className="text-muted">Role: {item.user_role}</p>
                 <CButton size="sm" color="info" className="mr-1">
-                  See All Permits
+                  See All Consumables
                 </CButton>
                 <CButton size="sm" color="info" className="mr-1">
                   Update
@@ -151,4 +151,4 @@ return (
   </>
 )
 }
-export default Permits
+export default Consumables

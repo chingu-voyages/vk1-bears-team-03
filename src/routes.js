@@ -42,6 +42,8 @@ const Software = React.lazy(() => import('./views/software/Software'));
 const Softwares = React.lazy(() => import('./views/software/Softwares'));
 const Permits = React.lazy(() => import('./views/permits/Permits'));
 const Accessories = React.lazy(() => import('./views/accessories/Accessories'));
+const Accessory = React.lazy(() => import('./views/accessories/Accessory'));
+const Consumables = React.lazy(() => import('./views/consumable/Consumables'));
 const Consumable = React.lazy(() => import('./views/consumable/Consumable'));
 const ManageRequest = React.lazy(() => import('./views/request/Request'));
 const Location = React.lazy(() => import('./views/location/Location'));
@@ -97,7 +99,9 @@ const routes = [
   { path: '/views/softwares/:id', exact: true, name: 'Software', component: Software },
   { path: '/views/permits', exact: true, name: 'Permits', component: Permits },
   { path: '/views/accessories', exact: true, name: 'Accessories', component: Accessories },
-  { path: '/views/consumable', exact: true, name: 'Consumable', component: Consumable },
+  { path: '/views/accessories/:id', exact: true, name: 'Accessories', component: Accessory },
+  { path: '/views/consumables', exact: true, name: 'Consumables', component: Consumables },
+  { path: '/views/consumables/:id', exact: true, name: 'Consumable', component: Consumable },
   { path: '/views/request', exact: true, name: 'ManageRequest', component: ManageRequest },
   { path: '/views/location', exact: true, name: 'Location', component: Location },
   { path: '/views/department', exact: true, name: 'Department', component: Department },
