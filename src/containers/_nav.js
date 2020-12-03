@@ -1,8 +1,5 @@
 import React from 'react'
-<<<<<<< HEAD
-=======
 // import CIcon from '@coreui/icons-react'
->>>>>>> devAubrey
 import { faBarcode, faPrint, faDatabase, faSave, faTachometerAlt, faFile, faKeyboard, faTint, faComment} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -27,11 +24,7 @@ export default [
   {
     _tag: 'CSidebarNavItem',
     name: ' Assets',
-<<<<<<< HEAD
-    to: '/views/assets/Assets',
-=======
     to: '/views/assets',
->>>>>>> devAubrey
     icon: <FontAwesomeIcon icon={faBarcode} className="fonticons"/>,
   },
   {

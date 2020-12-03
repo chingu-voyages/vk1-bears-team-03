@@ -1,5 +1,5 @@
 import React from 'react'
-import {CContainer, CRow, CCol, CForm, CFormGroup, CLabel, CInput, CFormText, CButton} from '@coreui/react'
+import {CContainer, CRow, CCol, CForm, CFormGroup, CLabel, CInput, CButton} from '@coreui/react'
 
 const AddUser = () =>{
     return (

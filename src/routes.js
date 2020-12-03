@@ -44,7 +44,7 @@ const Softwares = React.lazy(() => import('./views/software/Softwares'));
 const Permits = React.lazy(() => import('./views/permits/Permits'));
 const Accessories = React.lazy(() => import('./views/accessories/Accessories'));
 const Consumable = React.lazy(() => import('./views/consumable/Consumable'));
-const ManageRequest = React.lazy(() => import('./views/request/Request'));
+const ManageRequest = React.lazy(() => import('./views/request/MRequest'));
 const Location = React.lazy(() => import('./views/location/Location'));
 const Department = React.lazy(() => import('./views/department/Department'));
 const Supplier = React.lazy(() => import('./views/supplier/Supplier'));

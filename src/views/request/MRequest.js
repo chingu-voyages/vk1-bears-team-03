@@ -3,15 +3,15 @@ import { CCard, CCardBody, CCardHeader, CCol, CRow } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 
 
-import departmentData from './DepartmentData'
+import requestsData from './RequestsData'
 
 // softwaresData.forEach(software => console.log(software))
 
-const Department = ({match}) => {
+const MRequest = ({match}) => {
 
-  const department = departmentData.find( department => department.id.toString() === match.params.id)
+  const Mrequest = requestsData.find( Mrequest => Mrequest.id.toString() === match.params.id)
 
-  const departmentsDetails = department ? Object.entries(department) : 
+  const requestDetails = Mrequest ? Object.entries(Mrequest) : 
     [['id', (<span><CIcon className="text-muted" name="cui-icon-ban" /> Not found</span>)]]
 
   return (
@@ -19,13 +19,13 @@ const Department = ({match}) => {
       <CCol lg={12}>
         <CCard>
           <CCardHeader>
-            Departments Page {match.params.id}
+            Manage Request {match.params.id}
           </CCardHeader>
           <CCardBody>
           <table className="table table-striped table-hover">
                 <tbody>
                   {
-                    departmentDetails.map(([key, value], index) => {
+                    RequestsDetails.map(([key, value], index) => {
                       return (
                         <tr key={index.toString()}>
                           <td>{`${key}:`}</td>
@@ -44,4 +44,4 @@ const Department = ({match}) => {
   )
 }
 
-export default Department
+export default MRequest

@@ -15,7 +15,7 @@ import Itemspage from '../itemspage/Itemspage'
 
 
 
-const Softwares = () => {
+const Requests = () => {
   const [details, setDetails] = useState([])
 
   const toggleDetails = (index) => {
@@ -75,7 +75,7 @@ const Softwares = () => {
           </CCol>
       </CRow>
     }
-      items={softwaresData}
+      items={requestsData}
       fields={fields}
       hover
       pagination
@@ -145,4 +145,4 @@ const Softwares = () => {
   )
   }
   
-  export default Softwares
+  export default Requests
