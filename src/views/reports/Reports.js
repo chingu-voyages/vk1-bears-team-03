@@ -16,6 +16,8 @@ import {
     CChartPie,
   } from '@coreui/react-chartjs'
 
+import MainChartExample from '../charts/MainChartExample.js'
+
 
 
 
@@ -28,12 +30,12 @@ import {
           </CCardHeader>
           <CCardBody>
 
-{/*-------Start of Callout (New Assets and New Members)----------*/}
+{/*-------Start of Callout (New Requests and New Members)----------*/}
 
             <CRow className="mb-5">
                 <CCol col="12" sm="6">
                     <CCallout color="info" className={'bg-secondary'}>
-                        <small className="text-muted">New Assets (past 30 days)</small><br />
+                        <small className="text-muted">New Requests (past 30 days)</small><br />
                         <strong className="h4">29,123</strong>
                     </CCallout>
                 </CCol>
@@ -45,27 +47,16 @@ import {
                 </CCol>
             </CRow>
 
-{/*-------End of Callout (New Assets and New Members)----------*/}
+{/*-------End of Callout (New Requests and New Members)----------*/}
 
-{/*-------Start of Assets Chart----------*/}
+{/*-------Start of Requests Chart----------*/}
 
             <CRow>
                 <CCol sm="12" lg="6">
-                    <h3>Assets</h3>
+                    <h3>Requests</h3>
                     <CChartBar
                     type="doughnut"
                     datasets={[
-                        {
-                        label: '2019',
-                        backgroundColor: 'rgba(179,181,198,0.2)',
-                        borderColor: 'rgba(179,181,198,1)',
-                        pointBackgroundColor: 'rgba(179,181,198,1)',
-                        pointBorderColor: '#fff',
-                        pointHoverBackgroundColor: '#fff',
-                        pointHoverBorderColor: 'rgba(179,181,198,1)',
-                        tooltipLabelColor: 'rgba(179,181,198,1)',
-                        data: [65, 59, 90, 81, 56, 55, 40,54,67,87,63,90]
-                        },
                         {
                         label: '2020',
                         backgroundColor: 'rgba(255,99,132,0.2)',
@@ -90,7 +81,7 @@ import {
                         'October','November','December'
                     ]}></CChartBar>
                 </CCol>
-{/*-------End of Assets Chart----------*/}
+{/*-------End of Requests Chart----------*/}
 
 {/*-------Start of Members Chart----------*/}
 
@@ -127,6 +118,14 @@ import {
 
             </CRow>
           </CCardBody>
+        </CCard>
+        <CCard className="mt-3">
+            <CCardBody>
+            <CRow>
+                <CCol><h3>Inventory</h3></CCol>
+            </CRow>
+        <MainChartExample style={{height: '300px', marginTop: '40px'}}/>
+        </CCardBody>
         </CCard>
       </>
     )
