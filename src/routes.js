@@ -105,16 +105,9 @@ const routes = [
   { path: '/views/softwares/:id', exact: true, name: 'Software', component: Software },
   { path: '/views/permits', exact: true, name: 'Permits', component: Permits },
   { path: '/views/accessories', exact: true, name: 'Accessories', component: Accessories },
-<<<<<<< HEAD
   { path: '/views/accessories/:id', exact: true, name: 'Accessories', component: Accessory },
   { path: '/views/consumables', exact: true, name: 'Consumables', component: Consumables },
   { path: '/views/consumables/:id', exact: true, name: 'Consumable', component: Consumable },
-  { path: '/views/request', exact: true, name: 'ManageRequest', component: ManageRequest },
-  { path: '/views/location', exact: true, name: 'Location', component: Location },
-  { path: '/views/department', exact: true, name: 'Department', component: Department },
-  { path: '/views/supplier', exact: true, name: 'Supplier', component: Supplier },
-=======
-  { path: '/views/consumable', exact: true, name: 'Consumable', component: Consumable },
   { path: '/views/requests', exact: true, name: 'Requests', component: Requests },
   { path: '/views/requests/:id', exact: true, name: 'Request', component: Request },
   { path: '/views/locations', exact: true, name: 'Locations', component: Locations },
@@ -123,7 +116,6 @@ const routes = [
   { path: '/views/departments/:id', exact: true, name: 'Department', component: Department },
   { path: '/views/suppliers', exact: true, name: 'Suppliers', component: Suppliers },
   { path: '/views/suppliers/:id', exact: true, name: 'Supplier', component: Supplier },
->>>>>>> test1
 ];
 
 export default routes;
