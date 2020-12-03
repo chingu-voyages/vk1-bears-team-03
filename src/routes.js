@@ -35,6 +35,7 @@ const Modals = React.lazy(() => import('./views/notifications/modals/Modals'));
 const Colors = React.lazy(() => import('./views/theme/colors/Colors'));
 const Typography = React.lazy(() => import('./views/theme/typography/Typography'));
 const Widgets = React.lazy(() => import('./views/widgets/Widgets'));
+const Assets = React.lazy(() => import('./views/assets/Assets'));
 const Users = React.lazy(() => import('./views/users/Users'));
 const User = React.lazy(() => import('./views/users/User'));
 const Asset = React.lazy(() => import('./views/assets/Assets'));
@@ -45,10 +46,14 @@ const Accessories = React.lazy(() => import('./views/accessories/Accessories'));
 const Accessory = React.lazy(() => import('./views/accessories/Accessory'));
 const Consumables = React.lazy(() => import('./views/consumable/Consumables'));
 const Consumable = React.lazy(() => import('./views/consumable/Consumable'));
-const ManageRequest = React.lazy(() => import('./views/request/Request'));
+const Requests = React.lazy(() => import('./views/request/Requests'));
+const Request = React.lazy(() => import('./views/request/Request'));
+const Locations = React.lazy(() => import('./views/location/Locations'));
 const Location = React.lazy(() => import('./views/location/Location'));
+const Departments = React.lazy(() => import('./views/department/Departments'));
 const Department = React.lazy(() => import('./views/department/Department'));
 const Supplier = React.lazy(() => import('./views/supplier/Supplier'));
+const Suppliers = React.lazy(() => import('./views/supplier/Suppliers'));
 const AddUser = React.lazy(() => import('./views/addUser/AddUser'));
 
 
@@ -57,6 +62,7 @@ const routes = [
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
   { path: '/theme', name: 'Theme', component: Colors, exact: true },
   { path: '/theme/colors', name: 'Colors', component: Colors },
+  { path: './views/assets/Assets', name: 'Assets', component: Assets },
   { path: '/theme/typography', name: 'Typography', component: Typography },
   { path: '/base', name: 'Base', component: Cards, exact: true },
   { path: '/base/breadcrumbs', name: 'Breadcrumbs', component: Breadcrumbs },
@@ -99,6 +105,7 @@ const routes = [
   { path: '/views/softwares/:id', exact: true, name: 'Software', component: Software },
   { path: '/views/permits', exact: true, name: 'Permits', component: Permits },
   { path: '/views/accessories', exact: true, name: 'Accessories', component: Accessories },
+<<<<<<< HEAD
   { path: '/views/accessories/:id', exact: true, name: 'Accessories', component: Accessory },
   { path: '/views/consumables', exact: true, name: 'Consumables', component: Consumables },
   { path: '/views/consumables/:id', exact: true, name: 'Consumable', component: Consumable },
@@ -106,6 +113,17 @@ const routes = [
   { path: '/views/location', exact: true, name: 'Location', component: Location },
   { path: '/views/department', exact: true, name: 'Department', component: Department },
   { path: '/views/supplier', exact: true, name: 'Supplier', component: Supplier },
+=======
+  { path: '/views/consumable', exact: true, name: 'Consumable', component: Consumable },
+  { path: '/views/requests', exact: true, name: 'Requests', component: Requests },
+  { path: '/views/requests/:id', exact: true, name: 'Request', component: Request },
+  { path: '/views/locations', exact: true, name: 'Locations', component: Locations },
+  { path: '/views/locations/:id', exact: true, name: 'Location', component: Location },
+  { path: '/views/departments', exact: true, name: 'Departments', component: Departments },
+  { path: '/views/departments/:id', exact: true, name: 'Department', component: Department },
+  { path: '/views/suppliers', exact: true, name: 'Suppliers', component: Suppliers },
+  { path: '/views/suppliers/:id', exact: true, name: 'Supplier', component: Supplier },
+>>>>>>> test1
 ];
 
 export default routes;

@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-// import { useHistory, useLocation } from 'react-router-dom'
-// import { CIcon } from '@coreui/icons-react'
 import {
   CCardBody,
   CDataTable,
@@ -9,13 +7,13 @@ import {
   CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
 } from '@coreui/react'
 
-import softwaresData from './SoftwaresData'
+import requestsData from './RequestsData'
 import Search from "../search/Search"
 import Itemspage from '../itemspage/Itemspage'
 
 
 
-const Softwares = () => {
+const Requests = () => {
   const [details, setDetails] = useState([])
 
   const toggleDetails = (index) => {
@@ -65,7 +63,7 @@ const Softwares = () => {
           <CCol>
           {/* <Route render={({ history}) => ( */}
             <CButton size="lg" color="primary" className="m-1 px-4 py-1">
-                  + Add Software
+                  + Add Request
             </CButton>
           {/* // )} /> */}
           </CCol>
@@ -75,7 +73,7 @@ const Softwares = () => {
           </CCol>
       </CRow>
     }
-      items={softwaresData}
+      items={requestsData}
       fields={fields}
       hover
       pagination
@@ -145,4 +143,4 @@ const Softwares = () => {
   )
   }
   
-  export default Softwares
+  export default Requests

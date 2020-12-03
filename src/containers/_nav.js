@@ -54,8 +54,8 @@ export default [
   
   {
     _tag: 'CSidebarNavItem',
-    name: 'Manage Request',
-    to: '/views/request',
+    name: 'Requests',
+    to: '/views/requests',
     icon: <FontAwesomeIcon icon={faComment} className="fonticons"/>,
   },
   {
@@ -67,7 +67,7 @@ export default [
       {
         _tag: 'CSidebarNavItem',
         name: 'Location',
-        to: '/views/location',
+        to: '/views/locations',
         icon: '',
         badge: {
           color: 'success',
@@ -77,13 +77,13 @@ export default [
       {
         _tag: 'CSidebarNavItem',
         name: 'Department',
-        to: '/views/department',
+        to: '/views/departments',
         icon: '',
       },
       {
         _tag: 'CSidebarNavItem',
         name: 'Supplier',
-        to: '/views/supplier',
+        to: '/views/suppliers',
         icon: '',
       },
     ],

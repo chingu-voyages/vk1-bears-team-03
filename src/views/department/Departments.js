@@ -9,13 +9,11 @@ import {
   CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
 } from '@coreui/react'
 
-import softwaresData from './SoftwaresData'
+import departmentsData from './DepartmentsData'
 import Search from "../search/Search"
 import Itemspage from '../itemspage/Itemspage'
 
-
-
-const Softwares = () => {
+const Departments = () => {
   const [details, setDetails] = useState([])
 
   const toggleDetails = (index) => {
@@ -41,17 +39,7 @@ const Softwares = () => {
       filter: false
     }
   ]
-  
-  // const getBadge = (status)=>{
-  //   switch (status) {
-  //     case 'Active': return 'success'
-  //     case 'Inactive': return 'secondary'
-  //     case 'Pending': return 'warning'
-  //     case 'Banned': return 'danger'
-  //     default: return 'primary'
-  //   }
-  // }
-  
+
   const [modal, setModal] = useState(false)
   
   const toggle = () => {
@@ -65,7 +53,7 @@ const Softwares = () => {
           <CCol>
           {/* <Route render={({ history}) => ( */}
             <CButton size="lg" color="primary" className="m-1 px-4 py-1">
-                  + Add Software
+                  + Add Department
             </CButton>
           {/* // )} /> */}
           </CCol>
@@ -75,7 +63,7 @@ const Softwares = () => {
           </CCol>
       </CRow>
     }
-      items={softwaresData}
+      items={departmentsData}
       fields={fields}
       hover
       pagination
@@ -114,7 +102,7 @@ const Softwares = () => {
                   </h4>
                   <p className="text-muted">Role: {item.user_role}</p>
                   <CButton size="sm" color="info" className="mr-1">
-                    See All Assets
+                    See All Departments
                   </CButton>
                   <CButton size="sm" color="info" className="mr-1">
                     Update
@@ -145,4 +133,4 @@ const Softwares = () => {
   )
   }
   
-  export default Softwares
+  export default Departments
