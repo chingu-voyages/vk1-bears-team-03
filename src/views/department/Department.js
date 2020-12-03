@@ -3,7 +3,7 @@ import { CCard, CCardBody, CCardHeader, CCol, CRow } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 
 
-import departmentData from './DepartmentData'
+import departmentData from './DepartmentsData'
 
 // softwaresData.forEach(software => console.log(software))
 
@@ -25,7 +25,7 @@ const Department = ({match}) => {
           <table className="table table-striped table-hover">
                 <tbody>
                   {
-                    departmentDetails.map(([key, value], index) => {
+                    departmentsDetails.map(([key, value], index) => {
                       return (
                         <tr key={index.toString()}>
                           <td>{`${key}:`}</td>

@@ -3,7 +3,7 @@ import { CCard, CCardBody, CCardHeader, CCol, CRow } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 
 
-import requestsData from './RequestsData'
+import requestsData from './RequestData'
 
 // softwaresData.forEach(software => console.log(software))
 
@@ -25,7 +25,7 @@ const MRequest = ({match}) => {
           <table className="table table-striped table-hover">
                 <tbody>
                   {
-                    RequestsDetails.map(([key, value], index) => {
+                    requestDetails.map(([key, value], index) => {
                       return (
                         <tr key={index.toString()}>
                           <td>{`${key}:`}</td>
