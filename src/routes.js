@@ -57,7 +57,7 @@ const Supplier = React.lazy(() => import('./views/supplier/Supplier'));
 const Suppliers = React.lazy(() => import('./views/supplier/Suppliers'));
 const AddUser = React.lazy(() => import('./views/addUser/AddUser'));
 const ReportsChart = React.lazy(() => import('./views/reports/Reports'));
-// const SeeAllAssets = React.lazy(() => import('./views/seeallassets/SeeAllAssets'));
+const SeeAllAssets = React.lazy(() => import('./views/seeallassets/SeeAllAssets'));
 
 
 const routes = [
@@ -120,7 +120,7 @@ const routes = [
   { path: '/views/suppliers', exact: true, name: 'Suppliers', component: Suppliers },
   { path: '/views/suppliers/:id', exact: true, name: 'Supplier', component: Supplier },
   { path: '/views/reports', exact: true, name: 'Charts', component: ReportsChart },
-  // { path: '/src/views/seeallassets', exact: true, name: 'See All Assets', component: SeeAllAssets },
+  { path: '/views/seeallassets', exact: true, name: 'See All Assets', component: SeeAllAssets },
 ];
 
 export default routes;

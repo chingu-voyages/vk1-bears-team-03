@@ -37,7 +37,7 @@ export default [
   },
   {
     _tag: 'CSidebarNavItem',
-    name: 'Permits',
+    name: 'Government Permits',
     to: '/views/permits',
     icon: <FontAwesomeIcon icon={faFile} className="fonticons"/>,
   },
