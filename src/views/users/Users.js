@@ -116,9 +116,11 @@ return (
                   {item.name}
                 </h4>
                 <p className="text-muted">Role: {item.user_role}</p>
+                <a href="/src/views/seeallassets/SeeAllAssets">
                 <CButton size="sm" color="info" className="mr-1">
                   See All Assets
                 </CButton>
+                </a>
                 <CButton size="sm" color="info" className="mr-1">
                   Update
                 </CButton>

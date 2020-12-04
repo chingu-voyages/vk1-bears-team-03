@@ -9,11 +9,11 @@ import {
 } from '@coreui/react'
 
 import {
-    CChart,
+    // CChart,
     CChartBar,
     CChartLine,
-    CChartDoughnut,
-    CChartPie,
+    // CChartDoughnut,
+    // CChartPie,
   } from '@coreui/react-chartjs'
 
 import MainChartExample from '../charts/MainChartExample.js'
@@ -21,7 +21,7 @@ import MainChartExample from '../charts/MainChartExample.js'
 
 
 
-  const Reports = () => {
+  const ReportsCharts = () => {
     return (
       <>
         <CCard>
@@ -131,5 +131,5 @@ import MainChartExample from '../charts/MainChartExample.js'
     )
   }
   
-  export default Reports
+  export default ReportsCharts
   

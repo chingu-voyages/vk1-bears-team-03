@@ -6,6 +6,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "src/containers/_nav.css"
 
 
+
+// import { dom } from '@fortawesome/fontawesome-svg-core';
 export default [
   {
     _tag: 'CSidebarNavItem',
@@ -103,7 +105,7 @@ export default [
       {
         _tag: 'CSidebarNavItem',
         name: 'CoreUI Free',
-        to: '/icons/coreui-icons',
+        to: '/src/views/reports/Reports',
         badge: {
           color: 'success',
           text: 'NEW',

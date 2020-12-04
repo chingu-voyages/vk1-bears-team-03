@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const Toaster = React.lazy(() => import('./views/notifications/toaster/Toaster'));
 const Tables = React.lazy(() => import('./views/base/tables/Tables'));
 
@@ -55,6 +56,8 @@ const Department = React.lazy(() => import('./views/department/Department'));
 const Supplier = React.lazy(() => import('./views/supplier/Supplier'));
 const Suppliers = React.lazy(() => import('./views/supplier/Suppliers'));
 const AddUser = React.lazy(() => import('./views/addUser/AddUser'));
+const ReportsChart = React.lazy(() => import('./views/reports/Reports'));
+// const SeeAllAssets = React.lazy(() => import('./views/seeallassets/SeeAllAssets'));
 
 
 const routes = [
@@ -116,6 +119,8 @@ const routes = [
   { path: '/views/departments/:id', exact: true, name: 'Department', component: Department },
   { path: '/views/suppliers', exact: true, name: 'Suppliers', component: Suppliers },
   { path: '/views/suppliers/:id', exact: true, name: 'Supplier', component: Supplier },
+  { path: '/views/reports', exact: true, name: 'Charts', component: ReportsChart },
+  // { path: '/src/views/seeallassets', exact: true, name: 'See All Assets', component: SeeAllAssets },
 ];
 
 export default routes;
