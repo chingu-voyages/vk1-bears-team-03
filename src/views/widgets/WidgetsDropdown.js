@@ -114,7 +114,7 @@ const WidgetsDropdown = () => {
       <CCol sm="6" lg="4">
         <CWidgetDropdown
           color="gradient-success"
-          header="923"
+          header="650"
           text="All Software Licenses"
           footerSlot={
           <>
@@ -143,7 +143,7 @@ const WidgetsDropdown = () => {
       <CCol sm="6" lg="4">
         <CWidgetDropdown
           color="gradient-danger"
-          header="25"
+          header="90"
           text="All Permits"
           footerSlot={
           <>
@@ -173,7 +173,7 @@ const WidgetsDropdown = () => {
       <CCol sm="6" lg="4">
         <CWidgetDropdown
           color="gradient-dark"
-          header="2"
+          header="205"
           text="All Consumables"
           footerSlot={
           <>
