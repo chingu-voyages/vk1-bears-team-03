@@ -130,7 +130,7 @@ const WidgetsDropdown = () => {
             <CButton
               color = "outline-secondary"
               className="text-white"
-              to="/views/assets"
+              to="/views/softwares"
             >
               More Info
             </CButton>
@@ -160,7 +160,7 @@ const WidgetsDropdown = () => {
             <CButton
               color = "outline-secondary"
               className="text-white"
-              to="/users"
+              to="/views/permits"
             >
               More Info
             </CButton>
@@ -190,7 +190,7 @@ const WidgetsDropdown = () => {
             <CButton
               color = "outline-secondary"
               className="text-white"
-              to="/views/request"
+              to="/views/consumable"
             >
               More Info
             </CButton>
