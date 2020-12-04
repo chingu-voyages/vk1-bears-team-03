@@ -2,30 +2,25 @@ import React from 'react'
 import { CCard, CCardBody, CCardHeader, CCol, CRow } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 
+import assetsData from './AssetsData'
 
-import softwaresData from './SoftwaresData'
-
-// softwaresData.forEach(software => console.log(software))
-
-const Software = ({match}) => {
-
-  const software = softwaresData.find( software => software.id.toString() === match.params.id)
-
-  const softwareDetails = software ? Object.entries(software) : 
+const Asset = ({match}) => {
+  const asset = assetsData.find( asset => asset.id.toString() === match.params.id)
+  const assetDetails = asset ? Object.entries(asset) : 
     [['id', (<span><CIcon className="text-muted" name="cui-icon-ban" /> Not found</span>)]]
 
   return (
     <CRow>
-      <CCol lg={12}>
+      <CCol lg={6}>
         <CCard>
           <CCardHeader>
-            Software Licenses {match.params.id}
+            Asset id: {match.params.id}
           </CCardHeader>
           <CCardBody>
-          <table className="table table-striped table-hover">
+              <table className="table table-striped table-hover">
                 <tbody>
                   {
-                    softwareDetails.map(([key, value], index) => {
+                    assetDetails.map(([key, value], index) => {
                       return (
                         <tr key={index.toString()}>
                           <td>{`${key}:`}</td>
@@ -35,13 +30,12 @@ const Software = ({match}) => {
                     })
                   }
                 </tbody>
-              </table>     
-                       
-        </CCardBody>
+              </table>
+          </CCardBody>
         </CCard>
       </CCol>
     </CRow>
   )
 }
 
-export default Software
+export default Asset

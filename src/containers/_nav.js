@@ -30,7 +30,7 @@ export default [
   {
     _tag: 'CSidebarNavItem',
     name: 'Software Licenses',
-    to: '/views/software',
+    to: '/views/softwares',
     icon: <FontAwesomeIcon icon={faSave} className="fonticons"/>,
   },
   {

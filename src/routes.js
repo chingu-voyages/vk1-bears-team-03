@@ -39,6 +39,7 @@ const Users = React.lazy(() => import('./views/users/Users'));
 const User = React.lazy(() => import('./views/users/User'));
 const Asset = React.lazy(() => import('./views/assets/Assets'));
 const Software = React.lazy(() => import('./views/software/Software'));
+const Softwares = React.lazy(() => import('./views/software/Softwares'));
 const Permits = React.lazy(() => import('./views/permits/Permits'));
 const Accessories = React.lazy(() => import('./views/accessories/Accessories'));
 const Consumable = React.lazy(() => import('./views/consumable/Consumable'));
@@ -47,6 +48,8 @@ const Location = React.lazy(() => import('./views/location/Location'));
 const Department = React.lazy(() => import('./views/department/Department'));
 const Supplier = React.lazy(() => import('./views/supplier/Supplier'));
 const Reports = React.lazy(() => import('./views/reports/Reports'));
+const AddUser = React.lazy(() => import('./views/addUser/AddUser'));
+
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -89,8 +92,10 @@ const routes = [
   { path: '/widgets', name: 'Widgets', component: Widgets },
   { path: '/users', exact: true,  name: 'Users', component: Users },
   { path: '/users/:id', exact: true, name: 'User Details', component: User },
+  { path: '/user/register', exact: true, name: 'User Registration', component: AddUser },
   { path: '/views/assets', exact: true, name: 'Assets', component: Asset },
-  { path: '/views/software', exact: true, name: 'Software', component: Software },
+  { path: '/views/softwares', exact: true, name: 'Softwares', component: Softwares },
+  { path: '/views/softwares/:id', exact: true, name: 'Software', component: Software },
   { path: '/views/permits', exact: true, name: 'Permits', component: Permits },
   { path: '/views/accessories', exact: true, name: 'Accessories', component: Accessories },
   { path: '/views/consumable', exact: true, name: 'Consumable', component: Consumable },
