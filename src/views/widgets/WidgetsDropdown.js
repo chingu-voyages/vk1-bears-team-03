@@ -16,6 +16,7 @@ import ChartLineSimple from '../charts/ChartLineSimple'
 const WidgetsDropdown = () => {
   // render
   return (
+    <>
     <CRow>
       <CCol sm="6" lg="4">
         <CWidgetDropdown
@@ -43,17 +44,6 @@ const WidgetsDropdown = () => {
           </>
           }
         >
-          {/* <CDropdown>
-            <CDropdownToggle color="transparent">
-              <CIcon name="cil-settings"/>
-            </CDropdownToggle>
-            <CDropdownMenu className="pt-0" placement="bottom-end">
-              <CDropdownItem>Action</CDropdownItem>
-              <CDropdownItem>Another action</CDropdownItem>
-              <CDropdownItem>Something else here...</CDropdownItem>
-              <CDropdownItem disabled>Disabled action</CDropdownItem>
-            </CDropdownMenu>
-          </CDropdown> */}
         </CWidgetDropdown>
       </CCol>
 
@@ -84,17 +74,6 @@ const WidgetsDropdown = () => {
           </>
           }
         >
-          {/* <CDropdown>
-            <CDropdownToggle caret={false} color="transparent">
-              <CIcon name="cil-settings"/>
-            </CDropdownToggle>
-            <CDropdownMenu className="pt-0" placement="bottom-end">
-              <CDropdownItem>Action</CDropdownItem>
-              <CDropdownItem>Another action</CDropdownItem>
-              <CDropdownItem>Something else here...</CDropdownItem>
-              <CDropdownItem disabled>Disabled action</CDropdownItem>
-            </CDropdownMenu>
-          </CDropdown> */}
         </CWidgetDropdown>
       </CCol>
 
@@ -125,52 +104,103 @@ const WidgetsDropdown = () => {
           </>
           }
         >
-          {/* <CDropdown>
-            <CDropdownToggle color="transparent">
-              <CIcon name="cil-settings"/>
-            </CDropdownToggle>
-            <CDropdownMenu className="pt-0" placement="bottom-end">
-              <CDropdownItem>Action</CDropdownItem>
-              <CDropdownItem>Another action</CDropdownItem>
-              <CDropdownItem>Something else here...</CDropdownItem>
-              <CDropdownItem disabled>Disabled action</CDropdownItem>
-            </CDropdownMenu>
-          </CDropdown> */}
+        </CWidgetDropdown>
+      </CCol>
+    </CRow>
+
+{/*-------2nd Row-------*/}
+
+    <CRow>
+      <CCol sm="6" lg="4">
+        <CWidgetDropdown
+          color="gradient-success"
+          header="923"
+          text="All Software Licenses"
+          footerSlot={
+          <>
+            <ChartLineSimple
+              pointed
+              className="c-chart-wrapper mt-3 mx-3"
+              style={{height: '70px'}}
+              dataPoints={[65, 59, 84, 84, 120, 125, 132]}
+              pointHoverBackgroundColor="success"
+              label="Total Assets"
+              labels="months"
+            />
+            <CButton
+              color = "outline-secondary"
+              className="text-white"
+              to="/views/assets"
+            >
+              More Info
+            </CButton>
+          </>
+          }
+        >
         </CWidgetDropdown>
       </CCol>
 
-
-{/*----------Removing Fourth Card-------------------*/}
-
-      {/* <CCol sm="6" lg="3">
+      <CCol sm="6" lg="4">
         <CWidgetDropdown
           color="gradient-danger"
-          header="9.823"
-          text="Members online"
+          header="25"
+          text="All Permits"
           footerSlot={
-            <ChartBarSimple
+          <>
+            <ChartLineSimple
+              pointed
               className="mt-3 mx-3"
               style={{height: '70px'}}
-              backgroundColor="rgb(250, 152, 152)"
-              label="Members"
+              dataPoints={[1, 15, 9, 22, 14, 20, 25]}
+              pointHoverBackgroundColor="danger"
+              options={{ elements: { line: { tension: 0.00001 }}}}
+              label="Total Members"
               labels="months"
             />
+            <CButton
+              color = "outline-secondary"
+              className="text-white"
+              to="/users"
+            >
+              More Info
+            </CButton>
+          </>
           }
         >
-          <CDropdown>
-            <CDropdownToggle caret className="text-white" color="transparent">
-              <CIcon name="cil-settings"/>
-            </CDropdownToggle>
-            <CDropdownMenu className="pt-0" placement="bottom-end">
-              <CDropdownItem>Action</CDropdownItem>
-              <CDropdownItem>Another action</CDropdownItem>
-              <CDropdownItem>Something else here...</CDropdownItem>
-              <CDropdownItem disabled>Disabled action</CDropdownItem>
-            </CDropdownMenu>
-          </CDropdown>
         </CWidgetDropdown>
-      </CCol> */}
+      </CCol>
+
+      <CCol sm="6" lg="4">
+        <CWidgetDropdown
+          color="gradient-dark"
+          header="2"
+          text="All Consumables"
+          footerSlot={
+          <>
+            <ChartLineSimple
+              className="mt-3"
+              style={{height: '70px'}}
+              backgroundColor="rgba(255,255,255,.2)"
+              dataPoints={[55, 50, 45, 30, 24, 12, 10]}
+              options={{ elements: { line: { borderWidth: 2.5 }}}}
+              pointHoverBackgroundColor="dark"
+              label="Total Requests"
+              labels="months"
+            />
+            <CButton
+              color = "outline-secondary"
+              className="text-white"
+              to="/views/request"
+            >
+              More Info
+            </CButton>
+          </>
+          }
+        >
+        </CWidgetDropdown>
+      </CCol>
     </CRow>
+    </>
   )
 }
 
