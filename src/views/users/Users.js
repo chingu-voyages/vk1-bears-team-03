@@ -14,7 +14,7 @@ import { Route } from 'react-router-dom'
 import usersData from "./UsersData"
 import Search from "../search/Search"
 import Itemspage from '../itemspage/Itemspage'
-
+import Button from '../addButton/AddButton'
 
 const Users = () => {
 const [details, setDetails] = useState([])
@@ -45,16 +45,6 @@ const fields = [
   }
 ]
 
-// const getBadge = (status)=>{
-//   switch (status) {
-//     case 'Active': return 'success'
-//     case 'Inactive': return 'secondary'
-//     case 'Pending': return 'warning'
-//     case 'Banned': return 'danger'
-//     default: return 'primary'
-//   }
-// }
-
 const [modal, setModal] = useState(false)
 
 const toggle = () => {
@@ -65,17 +55,16 @@ return (
   <CDataTable
     overTableSlot = { 
         <CRow>
-            <CCol>
-            <Route render={({ history}) => (
-              <CButton size="lg" color="primary" className="m-1 px-4 py-1" onClick= {() => { history.push('/user/register') }}>
-                    + Add User
-              </CButton>
-            )} />
-            </CCol>
-            <CCol className="d-flex justify-content-sm-end">
+          <CCol className="d-flex justify-content-sm-start">
                 <Search />
                 <Itemspage />
             </CCol>
+            <CCol className="d-flex justify-content-sm-end">
+            <Route render={({ history}) => (
+              <Button label = "+ Add User" onClick= {() => { history.push('/user/register')}}/>
+            )} />
+            </CCol>
+            
         </CRow>
     }
     items={usersData}
@@ -83,14 +72,6 @@ return (
     hover
     pagination
     scopedSlots = {{
-      // 'status':
-      //   (item)=>(
-      //     <td>
-      //       <CBadge color={getBadge(item.status)}>
-      //         {item.status}
-      //       </CBadge>
-      //     </td>
-      //   ),
       'show_details':
         (item, index)=>{
           return (
