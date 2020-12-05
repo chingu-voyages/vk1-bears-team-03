@@ -121,7 +121,7 @@ export default [
       {
         _tag: 'CSidebarNavItem',
         name: 'CoreUI Flags',
-        to: '/icons/flags',
+        to: '/views/base/forms',
       },
       {
         _tag: 'CSidebarNavItem',

@@ -103,8 +103,12 @@ return (
               </CButton>
                 )}/>
                 <CButton size="sm" color="info" className="mr-1">
+                  View Profile
+                </CButton>
+                <CButton size="sm" color="info" className="mr-1">
                   Update
                 </CButton>
+                
                 <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>
                 <CModal
                   show={modal}

@@ -1,15 +1,19 @@
-import React from 'react'
+import React, { useState }from 'react'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import PrintButton from '../printbutton/PrintButton'
+import UploadFileButton from '../uploadfilebutton/UploadFilebButton'
+import { faBarcode, faSave, faFile, faKeyboard, faTint, faHistory, faUpload} from "@fortawesome/free-solid-svg-icons";
 // import { useHistory, useLocation } from 'react-router-dom'
 // import { CIcon } from '@coreui/icons-react'
 import {
-  CCardBody, CCol, CCard, CCardHeader, CTabs, CNav, CTabContent, CTabPane, CNavItem, CNavLink, CButton
-// CCardHeader,
+  CCardBody, CCol, CCard, CCardHeader, CTabs, CNav, CTabContent, CTabPane, CNavItem, CNavLink,
+
 } from '@coreui/react'
-import { Route } from 'react-router-dom'
+// import { Route } from 'react-router-dom'
 
 const SeeAllAssets = () => {
     
-    // const [active, setActive] = useState(1)
+  const [active, setActive] = useState(1)
   const lorem = ''
 
     return(
@@ -17,79 +21,97 @@ const SeeAllAssets = () => {
         <CCol xs="12" md="6" lg="12" className="mb-4">
         <CCard>
           <CCardHeader>
-          <Route render={({ history}) => (
-              <CButton size="sm" color="info" className="mr-1" onClick= {() => { history.push('/views/seeallassets') }}>
-                    Print All
-              </CButton>
-                )}/>
+                <PrintButton/>
           </CCardHeader>
           <CCardBody>
-            <CTabs>
+          <CTabs activeTab={active} onActiveTabChange={idx => setActive(idx)}>
               <CNav variant="tabs">
                 <CNavItem>
                   <CNavLink>    
-                    Assets
+                    <FontAwesomeIcon icon={faBarcode} className="fonticons"/>
+                    { active === 0 && 'Assets'}
                   </CNavLink>
                 </CNavItem>
                 <CNavItem>
                   <CNavLink>
-                    Software Licenses
+                  <FontAwesomeIcon icon={faSave} className="fonticons"/>,
+                    { active === 1 && 'Software Licenses'}
                   </CNavLink>
                 </CNavItem>
                 <CNavItem>
                   <CNavLink>
-                    Government Permits
+                    
+                    <FontAwesomeIcon icon={faFile} className="fonticons"/>
+                    { active === 2 && 'Government Permits'}
                   </CNavLink>
                 </CNavItem>
                 <CNavItem>
                   <CNavLink>
-                    Accessories
+                  <FontAwesomeIcon icon={faKeyboard} className="fonticons"/>
+                  { active === 3 && 'Accessories'}
+                    
                   </CNavLink>
                 </CNavItem>
                 <CNavItem>
                   <CNavLink>
-                    Consumable
+                  <FontAwesomeIcon icon={faTint} className="fonticons"/>
+                  { active === 4 && 'Consumable'}
+                    
                   </CNavLink>
                 </CNavItem>
               <CNavItem>
                   <CNavLink>
-                    History
+                  <FontAwesomeIcon icon={faHistory} className="fonticons"/>
+                  { active === 5 && 'History'}
+                    
                   </CNavLink>
                 </CNavItem>
                 <CNavItem>
                   <CNavLink>
-                    File Upload
+                  <FontAwesomeIcon icon={faUpload} className="fonticons"/>
+                  { active === 6 && 'File Upload'}
+                    
                   </CNavLink>
                 </CNavItem>
               </CNav>
               <CTabContent>
                 <CTabPane>
+                  <br/>
                   {` ${lorem}`}
                   
                 </CTabPane>
                 <CTabPane>
+                  <br/>
                   {` ${lorem}`}
                 </CTabPane>
                 <CTabPane>
+                  <br/>
                   {` ${lorem}`}
                 </CTabPane>
                 <CTabPane>
+                  <br/>
                   {` ${lorem}`}
                 </CTabPane>
                 <CTabPane>
+                  <br/>
                   {` ${lorem}`}
                 </CTabPane>
                 <CTabPane>
+                  <br/>
                   {` ${lorem}`}
                 </CTabPane>
                 <CTabPane>
-                  {` ${lorem}`}
+                  <br/>
+                <UploadFileButton/>
+            
                 </CTabPane>
               </CTabContent>
             </CTabs>
           </CCardBody>
         </CCard>
       </CCol>
+
+      
     )
 }
 
