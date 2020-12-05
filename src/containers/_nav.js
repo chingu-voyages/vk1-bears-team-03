@@ -101,6 +101,7 @@ export default [
     name: 'Reports',
     route: '/icons/',
     icon: <FontAwesomeIcon icon={faPrint} className="fonticons"/>,
+
     _children: [
       {
         _tag: 'CSidebarNavItem',

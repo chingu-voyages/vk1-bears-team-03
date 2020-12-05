@@ -9,7 +9,7 @@ import {
   CButton, 
   CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
 } from '@coreui/react'
-import { Route } from 'react-router-dom'
+// import { Route } from 'react-router-dom'
 
 import suppliersData from "./SuppliersData"
 import Search from "../search/Search"
@@ -38,7 +38,7 @@ const fields = [
    'user_name', 'user_role', 'email_address',
   {
     key: 'show_details',
-    label: '',
+    label: 'Actions',
     _style: { width: '1%' },
     sorter: false,
     filter: false

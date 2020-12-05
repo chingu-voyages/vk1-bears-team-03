@@ -35,7 +35,7 @@ const Requests = () => {
      'user_name', 'user_role', 'email_address',
     {
       key: 'show_details',
-      label: '',
+      label: 'Actions',
       _style: { width: '1%' },
       sorter: false,
       filter: false

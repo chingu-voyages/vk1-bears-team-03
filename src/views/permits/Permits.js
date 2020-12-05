@@ -34,7 +34,7 @@ const fields = [
    'serial_number', 'asset_tag', 'status',
   {
     key: 'show_details',
-    label: '',
+    label: 'Actions',
     _style: { width: '1%' },
     sorter: false,
     filter: false
