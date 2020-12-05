@@ -1,7 +1,9 @@
 import React, { useState }from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import PrintButton from '../printbutton/PrintButton'
 import UploadFileButton from '../uploadfilebutton/UploadFilebButton'
+import BackButton from '../backbutton/BackButton';
+import SinglePrintButton from '../printbutton/singleprint/SinglePrintButton';
+
 import { faBarcode, faSave, faFile, faKeyboard, faTint, faHistory, faUpload} from "@fortawesome/free-solid-svg-icons";
 // import { useHistory, useLocation } from 'react-router-dom'
 // import { CIcon } from '@coreui/icons-react'
@@ -9,7 +11,6 @@ import {
   CCardBody, CCol, CCard, CCardHeader, CTabs, CNav, CTabContent, CTabPane, CNavItem, CNavLink,
 
 } from '@coreui/react'
-// import { Route } from 'react-router-dom'
 
 const SeeAllAssets = () => {
     
@@ -21,7 +22,8 @@ const SeeAllAssets = () => {
         <CCol xs="12" md="6" lg="12" className="mb-4">
         <CCard>
           <CCardHeader>
-                <PrintButton/>
+                <BackButton/>
+                
           </CCardHeader>
           <CCardBody>
           <CTabs activeTab={active} onActiveTabChange={idx => setActive(idx)}>
@@ -78,27 +80,32 @@ const SeeAllAssets = () => {
                 <CTabPane>
                   <br/>
                   {` ${lorem}`}
-                  
+                  <SinglePrintButton/>
                 </CTabPane>
                 <CTabPane>
                   <br/>
                   {` ${lorem}`}
+                  <SinglePrintButton/>
                 </CTabPane>
                 <CTabPane>
                   <br/>
                   {` ${lorem}`}
+                  <SinglePrintButton/>
                 </CTabPane>
                 <CTabPane>
                   <br/>
                   {` ${lorem}`}
+                  <SinglePrintButton/>
                 </CTabPane>
                 <CTabPane>
                   <br/>
                   {` ${lorem}`}
+                  <SinglePrintButton/>
                 </CTabPane>
                 <CTabPane>
                   <br/>
                   {` ${lorem}`}
+                  <SinglePrintButton/>
                 </CTabPane>
                 <CTabPane>
                   <br/>

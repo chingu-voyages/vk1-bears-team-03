@@ -15,6 +15,7 @@ import usersData from "./UsersData"
 import Search from "../search/Search"
 import Itemspage from '../itemspage/Itemspage'
 import Button from '../addButton/AddButton'
+import PrintButton from '../printbutton/PrintButton'
 
 const Users = () => {
 const [details, setDetails] = useState([])
@@ -61,7 +62,7 @@ return (
             </CCol>
             <CCol className="d-flex justify-content-sm-end">
             <Route render={({ history}) => (
-              <Button label = "+ Add User" onClick= {() => { history.push('/views/addUser')}}/>
+              <Button label = "Create New" onClick= {() => { history.push('/views/addUser')}}/>
             )} />
             </CCol>
             
@@ -102,6 +103,7 @@ return (
                     See All Assets
               </CButton>
                 )}/>
+                <PrintButton/>
                 <CButton size="sm" color="info" className="mr-1">
                   View Profile
                 </CButton>
