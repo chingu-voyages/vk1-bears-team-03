@@ -61,7 +61,7 @@ return (
             </CCol>
             <CCol className="d-flex justify-content-sm-end">
             <Route render={({ history}) => (
-              <Button label = "+ Add User" onClick= {() => { history.push('/user/register')}}/>
+              <Button label = "+ Add User" onClick= {() => { history.push('/views/addUser')}}/>
             )} />
             </CCol>
             
