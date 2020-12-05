@@ -97,9 +97,11 @@ return (
                   {item.name}
                 </h4>
                 <p className="text-muted">Role: {item.user_role}</p>
-                <CButton size="sm" color="info" className="mr-1">
-                  See All Assets
-                </CButton>
+                <Route render={({ history}) => (
+              <CButton size="sm" color="info" className="mr-1" onClick= {() => { history.push('/views/seeallassets') }}>
+                    See All Assets
+              </CButton>
+                )}/>
                 <CButton size="sm" color="info" className="mr-1">
                   Update
                 </CButton>
