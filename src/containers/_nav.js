@@ -94,6 +94,12 @@ export default [
         to: '/views/suppliers',
         icon: '',
       },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Categories',
+        to: '/views/categories',
+        icon: '',
+      },
     ],
   },
   {

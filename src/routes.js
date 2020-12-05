@@ -1,4 +1,6 @@
+// import { Category } from '@material-ui/icons';
 import React from 'react';
+// import Categories from './views/categories/Categories';
 
 
 const Toaster = React.lazy(() => import('./views/notifications/toaster/Toaster'));
@@ -58,6 +60,8 @@ const Suppliers = React.lazy(() => import('./views/supplier/Suppliers'));
 const AddUser = React.lazy(() => import('./views/addUser/AddUser'));
 const ReportsChart = React.lazy(() => import('./views/reports/Reports'));
 const SeeAllAssets = React.lazy(() => import('./views/seeallassets/SeeAllAssets'));
+const Category = React.lazy(() => import('./views/categories/Category'));
+const Categories = React.lazy(() => import('./views/categories/Categories'));
 
 
 const routes = [
@@ -121,6 +125,8 @@ const routes = [
   { path: '/views/suppliers/:id', exact: true, name: 'Supplier', component: Supplier },
   { path: '/views/reports', exact: true, name: 'Charts', component: ReportsChart },
   { path: '/views/seeallassets', exact: true, name: 'See All Assets', component: SeeAllAssets },
+  { path: '/views/categories', exact: true, name: 'Categories', component: Categories },
+  { path: '/views/categories/:id', exact: true, name: 'Category', component: Category },
 ];
 
 export default routes;
