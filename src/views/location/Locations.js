@@ -96,10 +96,10 @@ const Requests = () => {
                     {item.name}
                   </h4>
                   <p className="text-muted">Role: {item.user_role}</p>
-                  <CButton size="sm" color="info" className="mr-1">
-                    See All Assets
+                  <CButton size="sm" color="dark" className="mr-1">
+                    View More
                   </CButton>
-                  <CButton size="sm" color="info" className="mr-1">
+                  <CButton size="sm" color="primary" className="mr-1">
                     Update
                   </CButton>
                   <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>

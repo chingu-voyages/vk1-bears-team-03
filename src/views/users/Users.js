@@ -99,19 +99,19 @@ return (
                 </h4>
                 <p className="text-muted">Role: {item.user_role}</p>
                 <Route render={({ history}) => (
-              <CButton size="sm" color="info" className="mr-1" onClick= {() => { history.push('/views/seeallassets') }}>
-                    See All Assets
+              <CButton size="sm" color="dark" className="mr-1" onClick= {() => { history.push('/views/seeallassets') }}>
+                    See All Issued
               </CButton>
                 )}/>
-                <PrintButton/>
                 <CButton size="sm" color="info" className="mr-1">
                   View Profile
                 </CButton>
-                <CButton size="sm" color="info" className="mr-1">
+                <CButton size="sm" color="primary" className="mr-1">
                   Update
                 </CButton>
                 
                 <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>
+                <PrintButton/>
                 <CModal
                   show={modal}
                   onClose={toggle}
