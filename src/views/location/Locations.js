@@ -59,7 +59,7 @@ const Requests = () => {
           </CCol>
           <CCol className="d-flex justify-content-sm-end">
           {/* <Route render={({ history}) => ( */}
-            <Button label = "+ Add Location"/>
+            <Button label = "Create New"/>
           {/* // )} /> */}
           </CCol>
           

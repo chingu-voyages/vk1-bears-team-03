@@ -56,7 +56,7 @@ const Departments = () => {
           </CCol>
           <CCol className="d-flex justify-content-sm-end">
           {/* <Route render={({ history}) => ( */}
-            <Button label = "+ Add Department"/>
+            <Button label = "Create New"/>
           {/* // )} /> */}
           </CCol>
           

@@ -68,7 +68,7 @@ const Softwares = () => {
           </CCol>
           <CCol className="d-flex justify-content-sm-end">
           {/* <Route render={({ history}) => ( */}
-            <Button label = "+ Add Software"/>
+            <Button label = "Create New"/>
           {/* // )} /> */}
           </CCol>
           

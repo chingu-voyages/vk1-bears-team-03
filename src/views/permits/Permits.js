@@ -68,7 +68,7 @@ return (
               </CCol>
               <CCol className="d-flex justify-content-sm-end">
               {/* <Route render={({ history}) => ( */}
-                <Button label = "+ Add Permit"/>
+                <Button label = "Create New"/>
               {/* // )} /> */}
               </CCol>
               
