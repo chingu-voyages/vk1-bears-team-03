@@ -10,10 +10,10 @@ import {
   CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
 } from '@coreui/react'
 
-import assetsData from "./AssetsData"
-import Search from "../search/Search"
+import assetsData from './AssetsData'
+import Search from '../search/Search'
 import Itemspage from '../itemspage/Itemspage'
-
+import Button from '../addButton/AddButton'
 
 const Assets = () => {
 const [details, setDetails] = useState([])
@@ -65,17 +65,16 @@ return (
   <CDataTable
     overTableSlot = { 
           <CRow>
-              <CCol>
-              {/* <Route render={({ history}) => ( */}
-                <CButton size="lg" color="primary" className="m-1 px-4 py-1">
-                      Add Asset
-                </CButton>
-              {/* // )} /> */}
-              </CCol>
-              <CCol className="d-flex justify-content-sm-end">
+              <CCol className="d-flex justify-content-sm-start">
                   <Search />
                   <Itemspage />
               </CCol>
+              <CCol className="d-flex justify-content-sm-end">
+              {/* <Route render={({ history}) => ( */}
+                <Button label = "+ Add Asset"/>
+              {/* // )} /> */}
+              </CCol>
+              
           </CRow>
     }
     items={assetsData}

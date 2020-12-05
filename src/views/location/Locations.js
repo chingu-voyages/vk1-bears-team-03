@@ -12,7 +12,7 @@ import {
 import locationsData from './LocationsData'
 import Search from "../search/Search"
 import Itemspage from '../itemspage/Itemspage'
-
+import Button from '../addButton/AddButton'
 
 
 const Requests = () => {
@@ -41,16 +41,7 @@ const Requests = () => {
       filter: false
     }
   ]
-  
-  // const getBadge = (status)=>{
-  //   switch (status) {
-  //     case 'Active': return 'success'
-  //     case 'Inactive': return 'secondary'
-  //     case 'Pending': return 'warning'
-  //     case 'Banned': return 'danger'
-  //     default: return 'primary'
-  //   }
-  // }
+ 
   
   const [modal, setModal] = useState(false)
   
@@ -62,17 +53,16 @@ const Requests = () => {
     <CDataTable
       overTableSlot = { 
       <CRow>
-          <CCol>
-          {/* <Route render={({ history}) => ( */}
-            <CButton size="lg" color="primary" className="m-1 px-4 py-1">
-                  + Add Location
-            </CButton>
-          {/* // )} /> */}
-          </CCol>
-          <CCol className="d-flex justify-content-sm-end">
+        <CCol className="d-flex justify-content-sm-start">
               <Search />
               <Itemspage />
           </CCol>
+          <CCol className="d-flex justify-content-sm-end">
+          {/* <Route render={({ history}) => ( */}
+            <Button label = "+ Add Location"/>
+          {/* // )} /> */}
+          </CCol>
+          
       </CRow>
     }
       items={locationsData}
@@ -80,14 +70,7 @@ const Requests = () => {
       hover
       pagination
       scopedSlots = {{
-        // 'status':
-        //   (item)=>(
-        //     <td>
-        //       <CBadge color={getBadge(item.status)}>
-        //         {item.status}
-        //       </CBadge>
-        //     </td>
-        //   ),
+
         'show_details':
           (item, index)=>{
             return (
