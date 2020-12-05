@@ -68,7 +68,7 @@ return (
               <CCol>
               {/* <Route render={({ history}) => ( */}
                 <CButton size="lg" color="primary" className="m-1 px-4 py-1">
-                      + Add Asset
+                      Add Asset
                 </CButton>
               {/* // )} /> */}
               </CCol>
