@@ -99,16 +99,16 @@ export default [
   {
     _tag: 'CSidebarNavDropdown',
     name: 'Reports',
-    route: '/icons',
+    route: '/icons/',
     icon: <FontAwesomeIcon icon={faPrint} className="fonticons"/>,
     _children: [
       {
         _tag: 'CSidebarNavItem',
-        name: 'CoreUI Free',
-        to: '/src/views/reports/Reports',
+        name: 'Charts',
+        to: '/views/reports',
         badge: {
           color: 'success',
-          text: 'NEW',
+          text: '',
         },
       },
       {

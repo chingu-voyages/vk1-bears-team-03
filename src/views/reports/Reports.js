@@ -9,11 +9,8 @@ import {
 } from '@coreui/react'
 
 import {
-    // CChart,
     CChartBar,
     CChartLine,
-    // CChartDoughnut,
-    // CChartPie,
   } from '@coreui/react-chartjs'
 
 import MainChartExample from '../charts/MainChartExample.js'
@@ -21,7 +18,7 @@ import MainChartExample from '../charts/MainChartExample.js'
 
 
 
-  const ReportsCharts = () => {
+  const Reports = () => {
     return (
       <>
         <CCard>
@@ -35,13 +32,13 @@ import MainChartExample from '../charts/MainChartExample.js'
             <CRow className="mb-5">
                 <CCol col="12" sm="6">
                     <CCallout color="info" className={'bg-secondary'}>
-                        <small className="text-muted">New Requests (past 30 days)</small><br />
+                        <small className="text-muted">Total Requests</small><br />
                         <strong className="h4">29,123</strong>
                     </CCallout>
                 </CCol>
                 <CCol col="12" sm="6">
                     <CCallout color="info" className={'bg-secondary'}>
-                        <small className="text-muted">New Members (past 30 days)</small><br />
+                        <small className="text-muted">Total Members</small><br />
                         <strong className="h4">2,643</strong>
                     </CCallout>
                 </CCol>
@@ -131,5 +128,5 @@ import MainChartExample from '../charts/MainChartExample.js'
     )
   }
   
-  export default ReportsCharts
+  export default Reports
   

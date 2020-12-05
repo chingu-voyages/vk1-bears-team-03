@@ -6,7 +6,6 @@ const Itemspage = () => {
             <label class="mr-2">Items per page:</label>
             <select class="form-control" aria-label="changes number of visible items">
                 <option value="" disabled="" hidden="">5</option>
-                <option val="5">5</option>
                 <option val="10">10</option>
                 <option val="20">20</option>
                 <option val="30">30</option>

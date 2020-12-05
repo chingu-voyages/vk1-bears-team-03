@@ -1,5 +1,5 @@
 import React, { lazy } from 'react'
-//  HEAD
+// <<<<<<< HEAD
 // // import {
 // //   CProgress,
 // //   // CBadge,
