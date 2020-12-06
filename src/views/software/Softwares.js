@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Route } from 'react-router-dom'
 // import { useHistory, useLocation } from 'react-router-dom'
 // import { CIcon } from '@coreui/icons-react'
 import {
@@ -12,7 +13,7 @@ import {
 import softwaresData from './SoftwaresData'
 import Search from "../search/Search"
 import Itemspage from '../itemspage/Itemspage'
-import Button from '../addButton/AddButton'
+// import Button from '../addButton/AddButton'
 
 
 const Softwares = () => {
@@ -67,9 +68,11 @@ const Softwares = () => {
               <Itemspage />
           </CCol>
           <CCol className="d-flex justify-content-sm-end">
-          {/* <Route render={({ history}) => ( */}
-            <Button label = "Create New"/>
-          {/* // )} /> */}
+          <Route render={({ history}) => (
+              <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/software/createnewsoftware') }}>
+                    Create New
+              </CButton>
+                )}/>
           </CCol>
           
       </CRow>

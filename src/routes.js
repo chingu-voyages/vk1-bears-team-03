@@ -63,6 +63,9 @@ const SeeAllAssets = React.lazy(() => import('./views/seeallassets/SeeAllAssets'
 const Category = React.lazy(() => import('./views/categories/Category'));
 const Categories = React.lazy(() => import('./views/categories/Categories'));
 const Profile = React.lazy(() => import('./views/users/profile/ViewProfile'));
+const UpdateUser = React.lazy(() => import('./views/users/profile/updateuser/UpdateUser'));
+const CreateNewUser = React.lazy(() => import('./views/users/profile/createnewuser/CreateNewUser'));
+const CreateNewSoftware = React.lazy(() => import('./views/software/createnewsoftware/CreateNewSoftware'));
 
 
 const routes = [
@@ -107,7 +110,7 @@ const routes = [
   { path: '/widgets', name: 'Widgets', component: Widgets },
   { path: '/users', exact: true,  name: 'Users', component: Users },
   { path: '/users/:id', exact: true, name: 'User Details', component: User },
-  { path: '/user/register', exact: true, name: 'User Registration', component: AddUser },
+  { path: '/views/addUser/', exact: true, name: 'User Registration', component: AddUser },
   { path: '/views/assets', exact: true, name: 'Assets', component: Asset },
   { path: '/views/softwares', exact: true, name: 'Softwares', component: Softwares },
   { path: '/views/softwares/:id', exact: true, name: 'Software', component: Software },
@@ -129,6 +132,9 @@ const routes = [
   { path: '/views/categories', exact: true, name: 'Categories', component: Categories },
   { path: '/views/categories/:id', exact: true, name: 'Category', component: Category },
   { path: '/views/users/profile', exact: true, name: 'Profile', component: Profile },
+  { path: '/views/users/profile/updateuser', exact: true, name: 'Update User', component: UpdateUser },
+  { path: '/views/users/profile/createnewuser', exact: true, name: 'Create New User', component: CreateNewUser },
+  { path: '/views/software/createnewsoftware', exact: true, name: 'Create New Software', component: CreateNewSoftware },
 ];
 
 export default routes;

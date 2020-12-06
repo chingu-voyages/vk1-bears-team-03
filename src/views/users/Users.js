@@ -62,8 +62,10 @@ return (
             </CCol>
             <CCol className="d-flex justify-content-sm-end">
             <Route render={({ history}) => (
-              <Button label = "Create New" onClick= {() => { history.push('/views/addUser')}}/>
-            )} />
+              <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/users/profile/createnewuser') }}>
+                    Create New
+              </CButton>
+                )}/>
             </CCol>
             
         </CRow>
@@ -108,9 +110,12 @@ return (
                 View Profile
               </CButton>
                 )}/>
-                <CButton size="sm" color="primary" className="mr-1">
-                  Update
-                </CButton>
+                <Route render={({ history}) => (
+                <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/users/profile') }}>
+                Update
+              </CButton>
+                )}/>
+               
                 
                 <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>
                 <PrintButton/>

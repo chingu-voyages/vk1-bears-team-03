@@ -8,7 +8,7 @@ const PrintButton = () => {
     
     return (
         <Route render={({ history}) => (
-            <CButton size="sm" color="info" className="mr-1" onClick= {() => { history.push('/views/seeallassets') }}>
+            <CButton size="sm" color="info" className="mr-1" onClick= {() => { history.push('/views/users') }}>
                   Print All
             </CButton>
               )}/>
