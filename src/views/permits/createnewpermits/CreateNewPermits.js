@@ -10,7 +10,7 @@ import {
 } from '@coreui/react'
 import BackButton from 'src/views/users/backbutton/BackButton'
 
-const ViewProfile = () => {
+const CreateNewPermits = () => {
     
 //   const [active, setActive] = useState(1)
 //   const lorem = ''
@@ -33,4 +33,4 @@ const ViewProfile = () => {
     )
 }
 
-export default ViewProfile
+export default CreateNewPermits

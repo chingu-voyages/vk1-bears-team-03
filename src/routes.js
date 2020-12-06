@@ -23,10 +23,6 @@ const Switches = React.lazy(() => import('./views/base/switches/Switches'));
 
 const Tabs = React.lazy(() => import('./views/base/tabs/Tabs'));
 const Tooltips = React.lazy(() => import('./views/base/tooltips/Tooltips'));
-const BrandButtons = React.lazy(() => import('./views/buttons/brand-buttons/BrandButtons'));
-const ButtonDropdowns = React.lazy(() => import('./views/buttons/button-dropdowns/ButtonDropdowns'));
-const ButtonGroups = React.lazy(() => import('./views/buttons/button-groups/ButtonGroups'));
-const Buttons = React.lazy(() => import('./views/buttons/buttons/Buttons'));
 const Charts = React.lazy(() => import('./views/charts/Charts'));
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'));
 const CoreUIIcons = React.lazy(() => import('./views/icons/coreui-icons/CoreUIIcons'));
@@ -66,6 +62,7 @@ const Profile = React.lazy(() => import('./views/users/profile/ViewProfile'));
 const UpdateUser = React.lazy(() => import('./views/users/profile/updateuser/UpdateUser'));
 const CreateNewUser = React.lazy(() => import('./views/users/profile/createnewuser/CreateNewUser'));
 const CreateNewSoftware = React.lazy(() => import('./views/software/createnewsoftware/CreateNewSoftware'));
+const CreateNewPermits = React.lazy(() => import('./views/permits/createnewpermits/CreateNewPermits'));
 
 
 const routes = [
@@ -92,11 +89,6 @@ const routes = [
   { path: '/base/tables', name: 'Tables', component: Tables },
   { path: '/base/tabs', name: 'Tabs', component: Tabs },
   { path: '/base/tooltips', name: 'Tooltips', component: Tooltips },
-  { path: '/buttons', name: 'Buttons', component: Buttons, exact: true },
-  { path: '/buttons/buttons', name: 'Buttons', component: Buttons },
-  { path: '/buttons/button-dropdowns', name: 'Dropdowns', component: ButtonDropdowns },
-  { path: '/buttons/button-groups', name: 'Button Groups', component: ButtonGroups },
-  { path: '/buttons/brand-buttons', name: 'Brand Buttons', component: BrandButtons },
   { path: '/charts', name: 'Charts', component: Charts },
   { path: '/icons', exact: true, name: 'Icons', component: CoreUIIcons },
   { path: '/icons/coreui-icons', name: 'CoreUI Icons', component: CoreUIIcons },
@@ -135,6 +127,7 @@ const routes = [
   { path: '/views/users/profile/updateuser', exact: true, name: 'Update User', component: UpdateUser },
   { path: '/views/users/profile/createnewuser', exact: true, name: 'Create New User', component: CreateNewUser },
   { path: '/views/software/createnewsoftware', exact: true, name: 'Create New Software', component: CreateNewSoftware },
+  { path: '/views/permits/createnewpermits', exact: true, name: 'Create New Permits', component: CreateNewPermits },
 ];
 
 export default routes;

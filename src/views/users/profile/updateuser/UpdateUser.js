@@ -8,7 +8,7 @@ import {
   CCardBody, CCol, CCard, CCardHeader,
 
 } from '@coreui/react'
-import BackButton from 'src/views/backbutton/BackButton'
+import BackButton from 'src/views/users/backbutton/BackButton'
 
 const UpdateUser = () => {
     

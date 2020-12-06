@@ -14,7 +14,6 @@ import { Route } from 'react-router-dom'
 import usersData from "./UsersData"
 import Search from "../search/Search"
 import Itemspage from '../itemspage/Itemspage'
-import Button from '../addButton/AddButton'
 import PrintButton from '../printbutton/PrintButton'
 
 const Users = () => {
