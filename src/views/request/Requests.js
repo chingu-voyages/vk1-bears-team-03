@@ -29,8 +29,8 @@ const Requests = () => {
 
   const fields = [
     { key: 'id'},
-    { key: 'name'},
-     'user_name', 'user_role', 'email_address',
+    { key: 'user'},
+     'item_name', 'request_type', 'request_date',
     {
       key: 'show_details',
       label: 'Actions',
@@ -100,20 +100,20 @@ const Requests = () => {
                     {item.name}
                   </h4>
                   <p className="text-muted">Role: {item.user_role}</p>
-                  <CButton size="sm" color="dark" className="mr-1">
-                    View More
-                  </CButton>
                   <CButton size="sm" color="primary" className="mr-1">
-                    Update
+                    Approve
                   </CButton>
-                  <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>
+                  <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Deny</CButton>
+                  <CButton size="sm" color="dark" className="mr-1">
+                    View Request Details
+                  </CButton>
                   <CModal
                     show={modal}
                     onClose={toggle}
                   >
-                    <CModalHeader closeButton>Delete User</CModalHeader>
+                    <CModalHeader closeButton>Deny Request</CModalHeader>
                     <CModalBody>
-                      Are you sure you want to delete User?
+                      Are you sure you want to deny the request?
                     </CModalBody>
                     <CModalFooter>
                       <CButton color="primary">Yes</CButton>{' '}
