@@ -99,13 +99,15 @@ return (
                 </h4>
                 <p className="text-muted">Role: {item.user_role}</p>
                 <Route render={({ history}) => (
-              <CButton size="sm" color="dark" className="mr-1" onClick= {() => { history.push('/views/seeallassets') }}>
+              <CButton size="sm" color="info" className="mr-1" onClick= {() => { history.push('/views/seeallassets') }}>
                     See All Issued
               </CButton>
                 )}/>
-                <CButton size="sm" color="info" className="mr-1">
-                  View Profile
-                </CButton>
+                <Route render={({ history}) => (
+                <CButton size="sm" color="dark" className="mr-1" onClick= {() => { history.push('/views/users/profile') }}>
+                View Profile
+              </CButton>
+                )}/>
                 <CButton size="sm" color="primary" className="mr-1">
                   Update
                 </CButton>

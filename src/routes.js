@@ -62,6 +62,7 @@ const ReportsChart = React.lazy(() => import('./views/reports/Reports'));
 const SeeAllAssets = React.lazy(() => import('./views/seeallassets/SeeAllAssets'));
 const Category = React.lazy(() => import('./views/categories/Category'));
 const Categories = React.lazy(() => import('./views/categories/Categories'));
+const Profile = React.lazy(() => import('./views/users/profile/ViewProfile'));
 
 
 const routes = [
@@ -127,6 +128,7 @@ const routes = [
   { path: '/views/seeallassets', exact: true, name: 'See All Assets', component: SeeAllAssets },
   { path: '/views/categories', exact: true, name: 'Categories', component: Categories },
   { path: '/views/categories/:id', exact: true, name: 'Category', component: Category },
+  { path: '/views/users/profile', exact: true, name: 'Profile', component: Profile },
 ];
 
 export default routes;
