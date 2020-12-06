@@ -7,7 +7,7 @@ import {
 import BackButtonAssets from 'src/views/assets/backbuttonassets/BackButtonAssets'
 
 
-const CreateNewAssets = () => {
+const ViewMoreAssets = () => {
     
 //   const [active, setActive] = useState(1)
 //   const lorem = ''
@@ -31,4 +31,4 @@ const CreateNewAssets = () => {
     )
 }
 
-export default CreateNewAssets
+export default ViewMoreAssets
