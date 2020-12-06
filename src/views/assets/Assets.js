@@ -10,8 +10,9 @@ import {
   CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
 } from '@coreui/react'
 
-import assetsData from "./AssetsData"
-import Search from "../search/Search"
+import { Route } from 'react-router-dom'
+import assetsData from './AssetsData'
+import Search from '../search/Search'
 import Itemspage from '../itemspage/Itemspage'
 
 
@@ -37,7 +38,7 @@ const fields = [
    'serial_number', 'asset_tag', 'status',
   {
     key: 'show_details',
-    label: '',
+    label: 'Actions',
     _style: { width: '1%' },
     sorter: false,
     filter: false
@@ -65,17 +66,18 @@ return (
   <CDataTable
     overTableSlot = { 
           <CRow>
-              <CCol>
-              {/* <Route render={({ history}) => ( */}
-                <CButton size="lg" color="primary" className="m-1 px-4 py-1">
-                      + Add Asset
-                </CButton>
-              {/* // )} /> */}
-              </CCol>
-              <CCol className="d-flex justify-content-sm-end">
+              <CCol className="d-flex justify-content-sm-start">
                   <Search />
                   <Itemspage />
               </CCol>
+              <CCol className="d-flex justify-content-sm-end">
+              <Route render={({ history}) => (
+              <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/assets/createnewassets') }}>
+                    Create New
+              </CButton>
+                )}/>
+              </CCol>
+              
           </CRow>
     }
     items={assetsData}
@@ -118,13 +120,20 @@ return (
                   {item.name}
                 </h4>
                 <p className="text-muted">Role: {item.user_role}</p>
-                <CButton size="sm" color="info" className="mr-1">
-                  See All Assets
+                <CButton size="sm" color="dark" className="mr-1">
+                  View More
                 </CButton>
-                <CButton size="sm" color="info" className="mr-1">
+                <CButton size="sm" color="primary" className="mr-1">
                   Update
                 </CButton>
+                
                 <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>
+                <CButton size="sm" color="success" className="mr-1">
+                  Borrow
+                </CButton>
+                <CButton size="sm" color="warning" className="mr-1">
+                  Return
+                </CButton>
                 <CModal
                   show={modal}
                   onClose={toggle}

@@ -2,22 +2,23 @@ import React, { useState } from 'react'
 // import { useHistory, useLocation } from 'react-router-dom'
 // import { CIcon } from '@coreui/icons-react'
 import {
-  CBadge,
+  // CBadge,
+  CRow, CCol,
   CCardBody,
   CDataTable,
-  CButton,
-  CRow, CCol, 
+  CButton, 
   CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
 } from '@coreui/react'
+// import { Route } from 'react-router-dom'
 
-import accessoriesData from "./AccessoriesData"
+import suppliersData from "./SuppliersData"
 import Search from "../search/Search"
 import Itemspage from '../itemspage/Itemspage'
-import Button from "../addButton/AddButton"
+import Button from '../addButton/AddButton'
 
-const Accessories = () => {
+const Suppliers = () => {
 const [details, setDetails] = useState([])
-// const [items, setItems] = useState(accessoriesData)
+// const [items, setItems] = useState(usersData)
 
 const toggleDetails = (index) => {
   const position = details.indexOf(index)
@@ -33,8 +34,8 @@ const toggleDetails = (index) => {
 
 const fields = [
   { key: 'id'},
-  { key: 'name'},
-   'serial_number', 'asset_tag', 'status',
+  { key: 'name' },
+   'user_name', 'user_role', 'email_address',
   {
     key: 'show_details',
     label: 'Actions',
@@ -44,16 +45,6 @@ const fields = [
   }
 ]
 
-const getBadge = (status)=>{
-  switch (status) {
-    case 'Active': return 'success'
-    case 'Inactive': return 'secondary'
-    case 'Pending': return 'warning'
-    case 'Banned': return 'danger'
-    default: return 'primary'
-  }
-}
-
 const [modal, setModal] = useState(false)
 
 const toggle = () => {
@@ -61,37 +52,34 @@ const toggle = () => {
 }
 
 return (
-  <>
   <CDataTable
     overTableSlot = { 
-          <CRow>
-            <CCol className="d-flex justify-content-sm-start">
-                  <Search />
-                  <Itemspage />
-              </CCol>
-              <CCol className="d-flex justify-content-sm-end">
-              {/* <Route render={({ history}) => ( */}
-                <Button label = "Create New"/> 
-              {/* // )} /> */}
-              </CCol>
-              
-          </CRow>
+        <CRow>
+          <CCol className="d-flex justify-content-sm-start">
+                <Search />
+                <Itemspage />
+            </CCol>
+            <CCol className="d-flex justify-content-sm-end">
+            {/* <Route render={({ history}) => ( */}
+              <Button label = "Create New"/>
+            {/* )} /> */}
+            </CCol>
+            
+        </CRow>
     }
-    items={accessoriesData}
-    header
+    items={suppliersData}
     fields={fields}
     hover
     pagination
-    
     scopedSlots = {{
-      'status':
-        (item)=>(
-          <td>
-            <CBadge color={getBadge(item.status)}>
-              {item.status}
-            </CBadge>
-          </td>
-        ),
+      // 'status':
+      //   (item)=>(
+      //     <td>
+      //       <CBadge color={getBadge(item.status)}>
+      //         {item.status}
+      //       </CBadge>
+      //     </td>
+      //   ),
       'show_details':
         (item, index)=>{
           return (
@@ -118,18 +106,12 @@ return (
                 </h4>
                 <p className="text-muted">Role: {item.user_role}</p>
                 <CButton size="sm" color="dark" className="mr-1">
-                 View More
+                  View More
                 </CButton>
                 <CButton size="sm" color="primary" className="mr-1">
                   Update
                 </CButton>
                 <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>
-                <CButton size="sm" color="success" className="mr-1">
-                  Borrow
-                </CButton>
-                <CButton size="sm" color="warning" className="mr-1">
-                  Return
-                </CButton>
                 <CModal
                   show={modal}
                   onClose={toggle}
@@ -150,13 +132,8 @@ return (
             </CCollapse>
           )
         }
-        
     }}
-        
   />
-
-          
-  </>
 )
 }
-export default Accessories
+export default Suppliers

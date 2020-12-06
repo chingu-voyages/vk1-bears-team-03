@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 // import { useHistory, useLocation } from 'react-router-dom'
 // import { CIcon } from '@coreui/icons-react'
 import {
-  CBadge,
+  // CBadge,
   CRow, CCol,
   CCardBody,
   CDataTable,
@@ -14,7 +14,7 @@ import { Route } from 'react-router-dom'
 import usersData from "./UsersData"
 import Search from "../search/Search"
 import Itemspage from '../itemspage/Itemspage'
-
+import PrintButton from '../printbutton/PrintButton'
 
 const Users = () => {
 const [details, setDetails] = useState([])
@@ -38,22 +38,12 @@ const fields = [
    'user_name', 'user_role', 'email_address',
   {
     key: 'show_details',
-    label: '',
+    label: 'Actions',
     _style: { width: '1%' },
     sorter: false,
     filter: false
   }
 ]
-
-// const getBadge = (status)=>{
-//   switch (status) {
-//     case 'Active': return 'success'
-//     case 'Inactive': return 'secondary'
-//     case 'Pending': return 'warning'
-//     case 'Banned': return 'danger'
-//     default: return 'primary'
-//   }
-// }
 
 const [modal, setModal] = useState(false)
 
@@ -65,17 +55,18 @@ return (
   <CDataTable
     overTableSlot = { 
         <CRow>
-            <CCol>
-            <Route render={({ history}) => (
-              <CButton size="lg" color="primary" className="m-1 px-4 py-1" onClick= {() => { history.push('/user/register') }}>
-                    + Add User
-              </CButton>
-            )} />
-            </CCol>
-            <CCol className="d-flex justify-content-sm-end">
+          <CCol className="d-flex justify-content-sm-start">
                 <Search />
                 <Itemspage />
             </CCol>
+            <CCol className="d-flex justify-content-sm-end">
+            <Route render={({ history}) => (
+              <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/users/profile/createnewuser') }}>
+                    Create New
+              </CButton>
+                )}/>
+            </CCol>
+            
         </CRow>
     }
     items={usersData}
@@ -83,14 +74,6 @@ return (
     hover
     pagination
     scopedSlots = {{
-      // 'status':
-      //   (item)=>(
-      //     <td>
-      //       <CBadge color={getBadge(item.status)}>
-      //         {item.status}
-      //       </CBadge>
-      //     </td>
-      //   ),
       'show_details':
         (item, index)=>{
           return (
@@ -116,13 +99,25 @@ return (
                   {item.name}
                 </h4>
                 <p className="text-muted">Role: {item.user_role}</p>
-                <CButton size="sm" color="info" className="mr-1">
-                  See All Assets
-                </CButton>
-                <CButton size="sm" color="info" className="mr-1">
-                  Update
-                </CButton>
+                <Route render={({ history}) => (
+              <CButton size="sm" color="info" className="mr-1" onClick= {() => { history.push('/views/seeallassets') }}>
+                    See All Issued
+              </CButton>
+                )}/>
+                <Route render={({ history}) => (
+                <CButton size="sm" color="dark" className="mr-1" onClick= {() => { history.push('/views/users/profile') }}>
+                View Profile
+              </CButton>
+                )}/>
+                <Route render={({ history}) => (
+                <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/users/profile') }}>
+                Update
+              </CButton>
+                )}/>
+               
+                
                 <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>
+                <PrintButton/>
                 <CModal
                   show={modal}
                   onClose={toggle}

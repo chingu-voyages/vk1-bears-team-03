@@ -1,22 +1,28 @@
 import React from 'react'
 import { CCard, CCardBody, CCardHeader, CCol, CRow } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
+
+
 import requestsData from './RequestsData'
 
+// softwaresData.forEach(software => console.log(software))
+
 const Request = ({match}) => {
+
   const request = requestsData.find( request => request.id.toString() === match.params.id)
+
   const requestDetails = request ? Object.entries(request) : 
     [['id', (<span><CIcon className="text-muted" name="cui-icon-ban" /> Not found</span>)]]
 
   return (
     <CRow>
-      <CCol lg={6}>
+      <CCol lg={12}>
         <CCard>
           <CCardHeader>
-            Request id: {match.params.id}
+            Manage Request {match.params.id}
           </CCardHeader>
           <CCardBody>
-              <table className="table table-striped table-hover">
+          <table className="table table-striped table-hover">
                 <tbody>
                   {
                     requestDetails.map(([key, value], index) => {
@@ -29,8 +35,9 @@ const Request = ({match}) => {
                     })
                   }
                 </tbody>
-              </table>
-          </CCardBody>
+              </table>     
+                       
+        </CCardBody>
         </CCard>
       </CCol>
     </CRow>

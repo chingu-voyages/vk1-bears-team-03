@@ -51,7 +51,7 @@ const WidgetsDropdown = () => {
         <CWidgetDropdown
           color="gradient-info"
           header="25"
-          text="Members"
+          text="Users"
           footerSlot={
           <>
             <ChartLineSimple

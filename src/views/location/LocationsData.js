@@ -1,4 +1,4 @@
-const requestsData = [
+const locationsData = [
     {id: 0, name: 'John Doe', username: '2018/01/01', user_role: 'Guest', email_address: 'Pending'},
     {id: 1, name: 'Samppa Nori', username: '2018/01/01', user_role: 'Member', email_address: 'Active'},
     {id: 2, name: 'Estavan Lykos', username: '2018/02/01', user_role: 'Staff', email_address: 'Banned'},
@@ -26,5 +26,5 @@ const requestsData = [
     {id: 42, name: 'Ford Prefect', username: '2001/05/25', user_role: 'Alien', email_address: 'Don\'t panic!'}
   ]
   
-  export default requestsData
+  export default locationsData
   

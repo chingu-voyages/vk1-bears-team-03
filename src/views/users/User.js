@@ -16,7 +16,9 @@ const User = ({match}) => {
           <CCardHeader>
             User id: {match.params.id}
           </CCardHeader>
+         
           <CCardBody>
+          
               <table className="table table-striped table-hover">
                 <tbody>
                   {

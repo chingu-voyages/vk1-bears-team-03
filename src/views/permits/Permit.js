@@ -2,11 +2,11 @@ import React from 'react'
 import { CCard, CCardBody, CCardHeader, CCol, CRow } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 
-import consumablesData from './ConsumablesData'
+import permitsData from './PermitsData'
 
-const Consumable = ({match}) => {
-  const consumable = consumablesData.find( consumable => consumable.id.toString() === match.params.id)
-  const consumableDetails = consumable ? Object.entries(consumable) : 
+const Permit = ({match}) => {
+  const permit = permitsData.find( permit => permit.id.toString() === match.params.id)
+  const permitDetails = permit ? Object.entries(permit) : 
     [['id', (<span><CIcon className="text-muted" name="cui-icon-ban" /> Not found</span>)]]
 
   return (
@@ -14,13 +14,13 @@ const Consumable = ({match}) => {
       <CCol lg={6}>
         <CCard>
           <CCardHeader>
-            Consumable id: {match.params.id}
+            Permit id: {match.params.id}
           </CCardHeader>
           <CCardBody>
               <table className="table table-striped table-hover">
                 <tbody>
                   {
-                    consumableDetails.map(([key, value], index) => {
+                    permitDetails.map(([key, value], index) => {
                       return (
                         <tr key={index.toString()}>
                           <td>{`${key}:`}</td>
@@ -38,4 +38,4 @@ const Consumable = ({match}) => {
   )
 }
 
-export default Consumable
+export default Permit

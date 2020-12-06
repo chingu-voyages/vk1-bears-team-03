@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Route } from 'react-router-dom'
 // import { useHistory, useLocation } from 'react-router-dom'
 // import { CIcon } from '@coreui/icons-react'
 import {
@@ -10,13 +9,11 @@ import {
   CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
 } from '@coreui/react'
 
-import softwaresData from './SoftwaresData'
+import departmentsData from './DepartmentsData'
 import Search from "../search/Search"
 import Itemspage from '../itemspage/Itemspage'
-// import Button from '../addButton/AddButton'
-
-
-const Softwares = () => {
+import Button from '../addButton/AddButton'
+const Departments = () => {
   const [details, setDetails] = useState([])
 
   const toggleDetails = (index) => {
@@ -42,17 +39,7 @@ const Softwares = () => {
       filter: false
     }
   ]
-  
-  // const getBadge = (status)=>{
-  //   switch (status) {
-  //     case 'Active': return 'success'
-  //     case 'Inactive': return 'secondary'
-  //     case 'Pending': return 'warning'
-  //     case 'Banned': return 'danger'
-  //     default: return 'primary'
-  //   }
-  // }
-  
+
   const [modal, setModal] = useState(false)
   
   const toggle = () => {
@@ -68,20 +55,26 @@ const Softwares = () => {
               <Itemspage />
           </CCol>
           <CCol className="d-flex justify-content-sm-end">
-          <Route render={({ history}) => (
-              <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/software/createnewsoftware') }}>
-                    Create New
-              </CButton>
-                )}/>
+          {/* <Route render={({ history}) => ( */}
+            <Button label = "Create New"/>
+          {/* // )} /> */}
           </CCol>
           
       </CRow>
     }
-      items={softwaresData}
+      items={departmentsData}
       fields={fields}
       hover
       pagination
       scopedSlots = {{
+        // 'status':
+        //   (item)=>(
+        //     <td>
+        //       <CBadge color={getBadge(item.status)}>
+        //         {item.status}
+        //       </CBadge>
+        //     </td>
+        //   ),
         'show_details':
           (item, index)=>{
             return (
@@ -114,12 +107,6 @@ const Softwares = () => {
                     Update
                   </CButton>
                   <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>
-                  <CButton size="sm" color="success" className="mr-1">
-                  Borrow
-                </CButton>
-                <CButton size="sm" color="warning" className="mr-1">
-                  Return
-                </CButton>
                   <CModal
                     show={modal}
                     onClose={toggle}
@@ -145,4 +132,4 @@ const Softwares = () => {
   )
   }
   
-  export default Softwares
+  export default Departments

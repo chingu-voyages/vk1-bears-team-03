@@ -1,11 +1,13 @@
 import React from 'react'
 // import CIcon from '@coreui/icons-react'
-import { faBarcode, faPrint, faDatabase, faSave, faTachometerAlt, faFile, faKeyboard, faTint, faComment} from "@fortawesome/free-solid-svg-icons";
+import { faBarcode, faPrint, faDatabase, faSave, faTachometerAlt, faFile, faKeyboard, faTint, faComment, faTags} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "src/containers/_nav.css"
 
 
+
+// import { dom } from '@fortawesome/fontawesome-svg-core';
 export default [
   {
     _tag: 'CSidebarNavItem',
@@ -35,7 +37,7 @@ export default [
   },
   {
     _tag: 'CSidebarNavItem',
-    name: 'Permits',
+    name: 'Government Permits',
     to: '/views/permits',
     icon: <FontAwesomeIcon icon={faFile} className="fonticons"/>,
   },
@@ -48,15 +50,21 @@ export default [
   {
     _tag: 'CSidebarNavItem',
     name: 'Consumable',
-    to: '/views/consumable',
+    to: '/views/consumables',
     icon: <FontAwesomeIcon icon={faTint} className="fonticons"/>,
   },
   
   {
     _tag: 'CSidebarNavItem',
-    name: 'Manage Request',
-    to: '/views/request',
+    name: 'Requests',
+    to: '/views/requests',
     icon: <FontAwesomeIcon icon={faComment} className="fonticons"/>,
+  },
+  {
+    _tag: 'CSidebarNavItem',
+    name: 'Generate Labels',
+    to: '/views/request',
+    icon: <FontAwesomeIcon icon={faTags} className="fonticons"/>,
   },
   {
     _tag: 'CSidebarNavDropdown',
@@ -66,7 +74,7 @@ export default [
       {
         _tag: 'CSidebarNavItem',
         name: 'Location',
-        to: '/views/location',
+        to: '/views/locations',
         icon: '',
         badge: {
           color: 'success',
@@ -76,13 +84,19 @@ export default [
       {
         _tag: 'CSidebarNavItem',
         name: 'Department',
-        to: '/views/department',
+        to: '/views/departments',
         icon: '',
       },
       {
         _tag: 'CSidebarNavItem',
         name: 'Supplier',
-        to: '/views/supplier',
+        to: '/views/suppliers',
+        icon: '',
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Categories',
+        to: '/views/categories',
         icon: '',
       },
     ],
