@@ -9,11 +9,8 @@ import {
 } from '@coreui/react'
 
 import {
-    CChart,
     CChartBar,
     CChartLine,
-    CChartDoughnut,
-    CChartPie,
   } from '@coreui/react-chartjs'
 
 import MainChartExample from '../charts/MainChartExample.js'
