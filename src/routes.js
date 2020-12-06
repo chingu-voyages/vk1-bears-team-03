@@ -1,5 +1,6 @@
 // import { Category } from '@material-ui/icons';
 import React from 'react';
+// import BackButton from './views/users/backbutton/BackButton';
 // import Categories from './views/categories/Categories';
 
 
@@ -45,9 +46,13 @@ const Accessories = React.lazy(() => import('./views/accessories/Accessories'));
 const Accessory = React.lazy(() => import('./views/accessories/Accessory'));
 const Consumables = React.lazy(() => import('./views/consumable/Consumables'));
 const Consumable = React.lazy(() => import('./views/consumable/Consumable'));
+const Requests = React.lazy(() => import('./views/request/Requests'));
+const Request = React.lazy(() => import('./views/request/Request'));
+const Locations = React.lazy(() => import('./views/location/Locations'));
 const Location = React.lazy(() => import('./views/location/Location'));
 const Departments = React.lazy(() => import('./views/department/Departments'));
 const Department = React.lazy(() => import('./views/department/Department'));
+const Supplier = React.lazy(() => import('./views/supplier/Supplier'));
 const Suppliers = React.lazy(() => import('./views/supplier/Suppliers'));
 const AddUser = React.lazy(() => import('./views/addUser/AddUser'));
 const ReportsChart = React.lazy(() => import('./views/reports/Reports'));
@@ -60,6 +65,8 @@ const CreateNewUser = React.lazy(() => import('./views/users/profile/createnewus
 const CreateNewSoftware = React.lazy(() => import('./views/software/createnewsoftware/CreateNewSoftware'));
 const CreateNewPermits = React.lazy(() => import('./views/permits/createnewpermits/CreateNewPermits'));
 const CreateNewAssets = React.lazy(() => import('./views/assets/createnewassets/CreateNewAssets'));
+
+
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -125,6 +132,7 @@ const routes = [
   { path: '/views/software/createnewsoftware', exact: true, name: 'Create New Software', component: CreateNewSoftware },
   { path: '/views/permits/createnewpermits', exact: true, name: 'Create New Permits', component: CreateNewPermits },
   { path: '/views/assets/createnewassets', exact: true, name: 'Create New Assets', component: CreateNewAssets },
+  
 ];
 
 export default routes;
