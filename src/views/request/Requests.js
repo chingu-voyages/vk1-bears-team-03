@@ -62,13 +62,7 @@ return (
       <CCol className="d-flex justify-content-sm-start">
             <Search />
             <Itemspage />
-        </CCol>
-        <CCol className="d-flex justify-content-sm-end">
-        {/* <Route render={({ history}) => ( */}
-          <Button label = "+ Add Request"/>
-        {/* // )} /> */}
-        </CCol>
-        
+        </CCol>        
     </CRow>
     }
     items={requestsData}
@@ -112,12 +106,9 @@ return (
               </h4>
               <p className="text-muted">Role: {item.user_role}</p>
               <CButton size="sm" color="info" className="mr-1">
-                See All Requests
+                Approve
               </CButton>
-              <CButton size="sm" color="info" className="mr-1">
-                Update
-              </CButton>
-              <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>
+              <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Deny</CButton>
               <CModal
                 show={modal}
                 onClose={toggle}

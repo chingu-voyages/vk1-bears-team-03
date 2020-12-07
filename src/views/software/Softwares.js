@@ -6,7 +6,7 @@ import {
   CDataTable,
   CButton,
   CRow, CCol, 
-  CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
+  CCollapse, CModal, CModalHeader,CModalBody, CModalFooter, CBadge
 } from '@coreui/react'
 
 import softwaresData from './SoftwaresData'
@@ -32,7 +32,7 @@ const Softwares = () => {
   const fields = [
     { key: 'id'},
     { key: 'name'},
-     'user_name', 'user_role', 'email_address',
+     'serial_number', 'asset_tag', 'status',
     {
       key: 'show_details',
       label: '',
@@ -42,15 +42,15 @@ const Softwares = () => {
     }
   ]
   
-  // const getBadge = (status)=>{
-  //   switch (status) {
-  //     case 'Active': return 'success'
-  //     case 'Inactive': return 'secondary'
-  //     case 'Pending': return 'warning'
-  //     case 'Banned': return 'danger'
-  //     default: return 'primary'
-  //   }
-  // }
+  const getBadge = (status)=>{
+    switch (status) {
+      case 'Active': return 'success'
+      case 'Inactive': return 'secondary'
+      case 'Pending': return 'warning'
+      case 'Banned': return 'danger'
+      default: return 'primary'
+    }
+  }
   
   const [modal, setModal] = useState(false)
   
@@ -79,6 +79,14 @@ const Softwares = () => {
       hover
       pagination
       scopedSlots = {{
+        'status':
+        (item)=>(
+          <td>
+            <CBadge color={getBadge(item.status)}>
+              {item.status}
+            </CBadge>
+          </td>
+        ),
         'show_details':
           (item, index)=>{
             return (

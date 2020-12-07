@@ -55,7 +55,7 @@ const Department = React.lazy(() => import('./views/department/Department'));
 const Supplier = React.lazy(() => import('./views/supplier/Supplier'));
 const Suppliers = React.lazy(() => import('./views/supplier/Suppliers'));
 const AddUser = React.lazy(() => import('./views/addUser/AddUser'));
-
+const Profile = React.lazy(() => import('./views/profile/Profile'));
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -116,6 +116,7 @@ const routes = [
   { path: '/views/departments/:id', exact: true, name: 'Department', component: Department },
   { path: '/views/suppliers', exact: true, name: 'Suppliers', component: Suppliers },
   { path: '/views/suppliers/:id', exact: true, name: 'Supplier', component: Supplier },
+  { path: '/views/profile', exact: true, name: 'Profile', component: Profile },
 ];
 
 export default routes;
