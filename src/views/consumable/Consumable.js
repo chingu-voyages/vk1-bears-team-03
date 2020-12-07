@@ -23,6 +23,8 @@ const Consumable = ({match}) => {
                     consumableDetails.map(([key, value], index) => {
                       return (
                         <tr key={index.toString()}>
+                          <td>
+                        </td>
                           <td>{`${key}:`}</td>
                           <td><strong>{value}</strong></td>
                         </tr>

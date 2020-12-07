@@ -11,7 +11,7 @@ import {
 import consumablesData from "./ConsumablesData"
 import Search from "../search/Search"
 import Itemspage from '../itemspage/Itemspage'
-import Button from '../addButton/AddButton'
+import { Route } from 'react-router-dom'
 
 const Consumables = () => {
 const [details, setDetails] = useState([])
@@ -29,7 +29,9 @@ const toggleDetails = (index) => {
 
 
 const fields = [
+  'select all',
   { key: 'id'},
+  
   { key: 'name'},
    'serial_number', 'asset_tag', 'status',
   {
@@ -67,10 +69,13 @@ return (
                   <Itemspage />
               </CCol>
               <CCol className="d-flex justify-content-sm-end">
-              {/* <Route render={({ history}) => ( */}
-                <Button label = "Create New"/>
-              {/* // )} /> */}
+              <Route render={({ history}) => (
+              <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/consumables/createnewconsumable') }}>
+                    Create New
+              </CButton>
+              )}/>
               </CCol>
+              
               
           </CRow>
     }

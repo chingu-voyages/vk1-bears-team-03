@@ -65,6 +65,7 @@ const CreateNewUser = React.lazy(() => import('./views/users/profile/createnewus
 const CreateNewSoftware = React.lazy(() => import('./views/software/createnewsoftware/CreateNewSoftware'));
 const CreateNewPermits = React.lazy(() => import('./views/permits/createnewpermits/CreateNewPermits'));
 const CreateNewAssets = React.lazy(() => import('./views/assets/createnewassets/CreateNewAssets'));
+const CreateNewAccessory = React.lazy(() => import('./views/accessories/createnewaccessory/CreateNewAccessory'));
 
 
 
@@ -132,7 +133,7 @@ const routes = [
   { path: '/views/software/createnewsoftware', exact: true, name: 'Create New Software', component: CreateNewSoftware },
   { path: '/views/permits/createnewpermits', exact: true, name: 'Create New Permits', component: CreateNewPermits },
   { path: '/views/assets/createnewassets', exact: true, name: 'Create New Assets', component: CreateNewAssets },
-  
+  { path: '/views/accessories/createnewaccessory', exact: true, name: 'Create New Accessory', component: CreateNewAccessory },
 ];
 
 export default routes;

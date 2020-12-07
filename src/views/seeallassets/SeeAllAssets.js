@@ -1,6 +1,6 @@
 import React, { useState }from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import UploadFileButton from '../uploadfilebutton/UploadFilebButton'
+// import UploadFileButton from '../uploadfilebutton/UploadFilebButton'
 import BackButton from '../users/backbutton/BackButton';
 import SinglePrintButton from '../printbutton/singleprint/SinglePrintButton';
 
@@ -8,7 +8,7 @@ import { faBarcode, faSave, faFile, faKeyboard, faTint, faHistory, faUpload} fro
 // import { useHistory, useLocation } from 'react-router-dom'
 // import { CIcon } from '@coreui/icons-react'
 import {
-  CCardBody, CCol, CCard, CCardHeader, CTabs, CNav, CTabContent, CTabPane, CNavItem, CNavLink,
+  CCardBody, CCol, CCard, CCardHeader, CTabs, CNav, CTabContent, CTabPane, CNavItem, CNavLink, CInputFile
 
 } from '@coreui/react'
 
@@ -109,7 +109,7 @@ const SeeAllAssets = () => {
                 </CTabPane>
                 <CTabPane>
                   <br/>
-                <UploadFileButton/>
+                  <CInputFile id="file-input" name="file-input"/>
             
                 </CTabPane>
               </CTabContent>

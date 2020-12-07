@@ -7,7 +7,7 @@ import {
   CDataTable,
   CButton,
   CRow, CCol, 
-  CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
+  CCollapse, CModal, CModalHeader,CModalBody, CModalFooter,
 } from '@coreui/react'
 
 import { Route } from 'react-router-dom'
@@ -99,6 +99,7 @@ return (
         (item, index)=>{
           return (
             <td className="py-2">
+              
               <CButton
                 color="primary"
                 variant="outline"
