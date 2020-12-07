@@ -19,7 +19,7 @@ const Software = ({match}) => {
       <CCol lg={12}>
         <CCard>
           <CCardHeader>
-            Software Licenses {match.params.id}
+            Software License {match.params.id}
           </CCardHeader>
           <CCardBody>
           <table className="table table-striped table-hover">

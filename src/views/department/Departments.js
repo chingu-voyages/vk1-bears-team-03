@@ -30,7 +30,7 @@ const Departments = () => {
   const fields = [
     { key: 'id'},
     { key: 'name'},
-     'user_name', 'user_role', 'email_address',
+     'location',
     {
       key: 'show_details',
       label: 'Actions',

@@ -29,11 +29,10 @@ const toggleDetails = (index) => {
 
 
 const fields = [
-  'select all',
   { key: 'id'},
   
   { key: 'name'},
-   'serial_number', 'asset_tag', 'status',
+   'category', 'quantity', 'remaining',
   {
     key: 'show_details',
     label: 'Actions',

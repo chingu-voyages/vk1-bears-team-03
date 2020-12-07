@@ -32,7 +32,7 @@ const Requests = () => {
   const fields = [
     { key: 'id'},
     { key: 'name'},
-     'user_name', 'user_role', 'email_address',
+     'address', 'city', 'state',
     {
       key: 'show_details',
       label: 'Actions',

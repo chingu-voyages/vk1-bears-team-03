@@ -35,7 +35,7 @@ const toggleDetails = (index) => {
 const fields = [
   { key: 'id'},
   { key: 'name' },
-   'user_name', 'user_role', 'email_address',
+   'contact_name', 'phone_number', 'email_address',
   {
     key: 'show_details',
     label: 'Actions',

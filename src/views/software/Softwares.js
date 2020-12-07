@@ -33,7 +33,7 @@ const Softwares = () => {
   const fields = [
     { key: 'id'},
     { key: 'name'},
-     'user_name', 'user_role', 'email_address',
+     'license_key', 'category', 'expiration_date',
     {
       key: 'show_details',
       label: 'Actions',
