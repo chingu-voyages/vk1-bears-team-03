@@ -100,6 +100,12 @@ export default [
         to: '/views/categories',
         icon: '',
       },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Status',
+        to: '/views/categories',
+        icon: '',
+      },
     ],
   },
   {
