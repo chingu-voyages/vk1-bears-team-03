@@ -1,6 +1,6 @@
 import React, { useState }from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import UploadFileButton from '../uploadfilebutton/UploadFilebButton'
+// import UploadFileButton from '../uploadfilebutton/UploadFilebButton'
 import BackButton from '../users/backbutton/BackButton';
 import SinglePrintButton from '../printbutton/singleprint/SinglePrintButton';
 

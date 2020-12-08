@@ -1,5 +1,7 @@
 // import { Category } from '@material-ui/icons';
 import React from 'react';
+// import Component from './views/component/Component';
+// import Components from './views/component/Components';
 // import BackButton from './views/users/backbutton/BackButton';
 // import Categories from './views/categories/Categories';
 
@@ -54,6 +56,9 @@ const Departments = React.lazy(() => import('./views/department/Departments'));
 const Department = React.lazy(() => import('./views/department/Department'));
 const Supplier = React.lazy(() => import('./views/supplier/Supplier'));
 const Suppliers = React.lazy(() => import('./views/supplier/Suppliers'));
+
+const ComponentAsset = React.lazy(() => import('./views/component/ComponentAsset'));
+const Components = React.lazy(() => import('./views/component/Components'));
 const AddUser = React.lazy(() => import('./views/addUser/AddUser'));
 const ReportsChart = React.lazy(() => import('./views/reports/Reports'));
 const SeeAllAssets = React.lazy(() => import('./views/seeallassets/SeeAllAssets'));
@@ -110,6 +115,9 @@ const routes = [
   { path: '/views/assets', exact: true, name: 'Assets', component: Asset },
   { path: '/views/softwares', exact: true, name: 'Softwares', component: Softwares },
   { path: '/views/softwares/:id', exact: true, name: 'Software', component: Software },
+  { path: '/views/component', exact: true, name: 'Components', component: Components },
+  { path: '/views/component/:id', exact: true, name: 'Component', component: ComponentAsset },
+
   { path: '/views/permits', exact: true, name: 'Permits', component: Permits },
   { path: '/views/accessories', exact: true, name: 'Accessories', component: Accessories },
   { path: '/views/accessories/:id', exact: true, name: 'Accessories', component: Accessory },
