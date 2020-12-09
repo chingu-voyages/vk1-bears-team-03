@@ -14,7 +14,11 @@ import { Route } from 'react-router-dom'
 import usersData from "./UsersData"
 import Search from "../search/Search"
 import Itemspage from '../itemspage/Itemspage'
+<<<<<<< HEAD
 import Button from '../addButton/AddButton'
+=======
+import PrintButton from '../printbutton/PrintButton'
+>>>>>>> dev
 
 const Users = () => {
 const [details, setDetails] = useState([])
@@ -38,7 +42,7 @@ const fields = [
    'user_name', 'user_role', 'email_address',
   {
     key: 'show_details',
-    label: '',
+    label: 'Actions',
     _style: { width: '1%' },
     sorter: false,
     filter: false
@@ -61,8 +65,15 @@ return (
             </CCol>
             <CCol className="d-flex justify-content-sm-end">
             <Route render={({ history}) => (
+<<<<<<< HEAD
               <Button label = "+ Add User" onClick= {() => { history.push('/user/register')}}/>
             )} />
+=======
+              <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/users/profile/createnewuser') }}>
+                    Create New
+              </CButton>
+                )}/>
+>>>>>>> dev
             </CCol>
             
         </CRow>
@@ -97,13 +108,25 @@ return (
                   {item.name}
                 </h4>
                 <p className="text-muted">Role: {item.user_role}</p>
-                <CButton size="sm" color="info" className="mr-1">
-                  See All Assets
-                </CButton>
-                <CButton size="sm" color="info" className="mr-1">
-                  Update
-                </CButton>
+                <Route render={({ history}) => (
+              <CButton size="sm" color="info" className="mr-1" onClick= {() => { history.push('/views/seeallassets') }}>
+                    See All Issued
+              </CButton>
+                )}/>
+                <Route render={({ history}) => (
+                <CButton size="sm" color="dark" className="mr-1" onClick= {() => { history.push('/views/users/profile') }}>
+                View Profile
+              </CButton>
+                )}/>
+                <Route render={({ history}) => (
+                <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/users/profile') }}>
+                Update
+              </CButton>
+                )}/>
+               
+                
                 <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>
+                <PrintButton/>
                 <CModal
                   show={modal}
                   onClose={toggle}

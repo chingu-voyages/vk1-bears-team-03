@@ -32,10 +32,10 @@ const Requests = () => {
   const fields = [
     { key: 'id'},
     { key: 'name'},
-     'user_name', 'user_role', 'email_address',
+     'address', 'city', 'state',
     {
       key: 'show_details',
-      label: '',
+      label: 'Actions',
       _style: { width: '1%' },
       sorter: false,
       filter: false
@@ -59,7 +59,7 @@ const Requests = () => {
           </CCol>
           <CCol className="d-flex justify-content-sm-end">
           {/* <Route render={({ history}) => ( */}
-            <Button label = "+ Add Location"/>
+            <Button label = "Create New"/>
           {/* // )} /> */}
           </CCol>
           
@@ -96,10 +96,10 @@ const Requests = () => {
                     {item.name}
                   </h4>
                   <p className="text-muted">Role: {item.user_role}</p>
-                  <CButton size="sm" color="info" className="mr-1">
-                    See All Assets
+                  <CButton size="sm" color="dark" className="mr-1">
+                    View More
                   </CButton>
-                  <CButton size="sm" color="info" className="mr-1">
+                  <CButton size="sm" color="primary" className="mr-1">
                     Update
                   </CButton>
                   <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>

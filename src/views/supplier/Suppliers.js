@@ -9,7 +9,7 @@ import {
   CButton, 
   CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
 } from '@coreui/react'
-import { Route } from 'react-router-dom'
+// import { Route } from 'react-router-dom'
 
 import suppliersData from "./SuppliersData"
 import Search from "../search/Search"
@@ -35,10 +35,10 @@ const toggleDetails = (index) => {
 const fields = [
   { key: 'id'},
   { key: 'name' },
-   'user_name', 'user_role', 'email_address',
+   'contact_name', 'phone_number', 'email_address',
   {
     key: 'show_details',
-    label: '',
+    label: 'Actions',
     _style: { width: '1%' },
     sorter: false,
     filter: false
@@ -61,7 +61,7 @@ return (
             </CCol>
             <CCol className="d-flex justify-content-sm-end">
             {/* <Route render={({ history}) => ( */}
-              <Button label = "+ Add Supplier"/>
+              <Button label = "Create New"/>
             {/* )} /> */}
             </CCol>
             
@@ -105,10 +105,10 @@ return (
                   {item.name}
                 </h4>
                 <p className="text-muted">Role: {item.user_role}</p>
-                <CButton size="sm" color="info" className="mr-1">
-                  See All Suppliers
+                <CButton size="sm" color="dark" className="mr-1">
+                  View More
                 </CButton>
-                <CButton size="sm" color="info" className="mr-1">
+                <CButton size="sm" color="primary" className="mr-1">
                   Update
                 </CButton>
                 <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>

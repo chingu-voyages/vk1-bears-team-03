@@ -1,11 +1,13 @@
 import React from 'react'
 // import CIcon from '@coreui/icons-react'
-import { faBarcode, faPrint, faDatabase, faSave, faTachometerAlt, faFile, faKeyboard, faTint, faComment, faTags} from "@fortawesome/free-solid-svg-icons";
+import { faBarcode, faPrint, faDatabase, faSave, faTachometerAlt, faFile, faKeyboard, faTint, faComment, faTags, faHdd} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "src/containers/_nav.css"
 
 
+
+// import { dom } from '@fortawesome/fontawesome-svg-core';
 export default [
   {
     _tag: 'CSidebarNavItem',
@@ -29,13 +31,19 @@ export default [
   },
   {
     _tag: 'CSidebarNavItem',
+    name: 'Component',
+    to: '/views/component',
+    icon: <FontAwesomeIcon icon={faHdd} className="fonticons"/>,
+  },
+  {
+    _tag: 'CSidebarNavItem',
     name: 'Software Licenses',
     to: '/views/softwares',
     icon: <FontAwesomeIcon icon={faSave} className="fonticons"/>,
   },
   {
     _tag: 'CSidebarNavItem',
-    name: 'Permits',
+    name: 'Government Permits',
     to: '/views/permits',
     icon: <FontAwesomeIcon icon={faFile} className="fonticons"/>,
   },
@@ -92,27 +100,40 @@ export default [
         to: '/views/suppliers',
         icon: '',
       },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Categories',
+        to: '/views/categories',
+        icon: '',
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Status',
+        to: '/views/categories',
+        icon: '',
+      },
     ],
   },
   {
     _tag: 'CSidebarNavDropdown',
     name: 'Reports',
-    route: '/icons',
+    route: '/icons/',
     icon: <FontAwesomeIcon icon={faPrint} className="fonticons"/>,
+
     _children: [
       {
         _tag: 'CSidebarNavItem',
-        name: 'CoreUI Free',
-        to: '/icons/coreui-icons',
+        name: 'Charts',
+        to: '/views/reports',
         badge: {
           color: 'success',
-          text: 'NEW',
+          text: '',
         },
       },
       {
         _tag: 'CSidebarNavItem',
         name: 'CoreUI Flags',
-        to: '/icons/flags',
+        to: '/views/base/forms',
       },
       {
         _tag: 'CSidebarNavItem',

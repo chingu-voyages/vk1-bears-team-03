@@ -11,7 +11,11 @@ import {
 import permitsData from "./PermitsData"
 import Search from "../search/Search"
 import Itemspage from '../itemspage/Itemspage'
+<<<<<<< HEAD
 import Button from '../addButton/AddButton'
+=======
+import { Route } from 'react-router-dom'
+>>>>>>> dev
 
 const Permits = () => {
 const [details, setDetails] = useState([])
@@ -31,10 +35,10 @@ const toggleDetails = (index) => {
 const fields = [
   { key: 'id'},
   { key: 'name'},
-   'serial_number', 'asset_tag', 'status',
+   'permit_no', 'category', 'expiration_date',
   {
     key: 'show_details',
-    label: '',
+    label: 'Actions',
     _style: { width: '1%' },
     sorter: false,
     filter: false
@@ -67,9 +71,17 @@ return (
                   <Itemspage />
               </CCol>
               <CCol className="d-flex justify-content-sm-end">
+<<<<<<< HEAD
               {/* <Route render={({ history}) => ( */}
                 <Button label = "+ Add Permit"/>
               {/* // )} /> */}
+=======
+              <Route render={({ history}) => (
+              <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/permits/createnewpermits') }}>
+                    Create New
+              </CButton>
+                )}/>
+>>>>>>> dev
               </CCol>
               
           </CRow>
@@ -114,13 +126,20 @@ return (
                   {item.name}
                 </h4>
                 <p className="text-muted">Role: {item.user_role}</p>
-                <CButton size="sm" color="info" className="mr-1">
-                  See All Permits
+                <CButton size="sm" color="dark" className="mr-1">
+                  View More
                 </CButton>
-                <CButton size="sm" color="info" className="mr-1">
+                <CButton size="sm" color="primary" className="mr-1">
                   Update
                 </CButton>
+                
                 <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>
+                <CButton size="sm" color="success" className="mr-1">
+                  Borrow
+                </CButton>
+                <CButton size="sm" color="warning" className="mr-1">
+                  Return
+                </CButton>
                 <CModal
                   show={modal}
                   onClose={toggle}

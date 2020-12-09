@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Route } from 'react-router-dom'
 // import { useHistory, useLocation } from 'react-router-dom'
 // import { CIcon } from '@coreui/icons-react'
 import {
@@ -12,7 +13,11 @@ import {
 import softwaresData from './SoftwaresData'
 import Search from "../search/Search"
 import Itemspage from '../itemspage/Itemspage'
+<<<<<<< HEAD
 import Button from '../addButton/AddButton'
+=======
+// import Button from '../addButton/AddButton'
+>>>>>>> dev
 
 
 const Softwares = () => {
@@ -32,10 +37,14 @@ const Softwares = () => {
   const fields = [
     { key: 'id'},
     { key: 'name'},
+<<<<<<< HEAD
      'serial_number', 'asset_tag', 'status',
+=======
+     'license_key', 'category', 'expiration_date',
+>>>>>>> dev
     {
       key: 'show_details',
-      label: '',
+      label: 'Actions',
       _style: { width: '1%' },
       sorter: false,
       filter: false
@@ -67,9 +76,17 @@ const Softwares = () => {
               <Itemspage />
           </CCol>
           <CCol className="d-flex justify-content-sm-end">
+<<<<<<< HEAD
           {/* <Route render={({ history}) => ( */}
             <Button label = "+ Add Software"/>
           {/* // )} /> */}
+=======
+          <Route render={({ history}) => (
+              <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/software/createnewsoftware') }}>
+                    Create New
+              </CButton>
+                )}/>
+>>>>>>> dev
           </CCol>
           
       </CRow>
@@ -79,6 +96,7 @@ const Softwares = () => {
       hover
       pagination
       scopedSlots = {{
+<<<<<<< HEAD
         'status':
         (item)=>(
           <td>
@@ -87,6 +105,8 @@ const Softwares = () => {
             </CBadge>
           </td>
         ),
+=======
+>>>>>>> dev
         'show_details':
           (item, index)=>{
             return (
@@ -112,13 +132,19 @@ const Softwares = () => {
                     {item.name}
                   </h4>
                   <p className="text-muted">Role: {item.user_role}</p>
-                  <CButton size="sm" color="info" className="mr-1">
-                    See All Assets
+                  <CButton size="sm" color="dark" className="mr-1">
+                    View More
                   </CButton>
-                  <CButton size="sm" color="info" className="mr-1">
+                  <CButton size="sm" color="primary" className="mr-1">
                     Update
                   </CButton>
                   <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>
+                  <CButton size="sm" color="success" className="mr-1">
+                  Borrow
+                </CButton>
+                <CButton size="sm" color="warning" className="mr-1">
+                  Return
+                </CButton>
                   <CModal
                     show={modal}
                     onClose={toggle}

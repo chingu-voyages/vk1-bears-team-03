@@ -7,9 +7,10 @@ import {
   CDataTable,
   CButton,
   CRow, CCol, 
-  CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
+  CCollapse, CModal, CModalHeader,CModalBody, CModalFooter,
 } from '@coreui/react'
 
+import { Route } from 'react-router-dom'
 import assetsData from './AssetsData'
 import Search from '../search/Search'
 import Itemspage from '../itemspage/Itemspage'
@@ -34,10 +35,10 @@ const toggleDetails = (index) => {
 const fields = [
   { key: 'id'},
   { key: 'name'},
-   'serial_number', 'asset_tag', 'status',
+   'serial_number', 'asset_tag','location', 'status',
   {
     key: 'show_details',
-    label: '',
+    label: 'Actions',
     _style: { width: '1%' },
     sorter: false,
     filter: false
@@ -70,9 +71,11 @@ return (
                   <Itemspage />
               </CCol>
               <CCol className="d-flex justify-content-sm-end">
-              {/* <Route render={({ history}) => ( */}
-                <Button label = "+ Add Asset"/>
-              {/* // )} /> */}
+              <Route render={({ history}) => (
+              <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/assets/createnewassets') }}>
+                    Create New
+              </CButton>
+                )}/>
               </CCol>
               
           </CRow>
@@ -96,6 +99,7 @@ return (
         (item, index)=>{
           return (
             <td className="py-2">
+              
               <CButton
                 color="primary"
                 variant="outline"
@@ -117,13 +121,22 @@ return (
                   {item.name}
                 </h4>
                 <p className="text-muted">Role: {item.user_role}</p>
-                <CButton size="sm" color="info" className="mr-1">
-                  See All Assets
-                </CButton>
-                <CButton size="sm" color="info" className="mr-1">
+                <Route render={({ history}) => (
+              <CButton size="sm" color="dark" className="mr-1" onClick= {() => { history.push('/views/assets/viewmoreassets') }}>
+                    View More
+              </CButton>
+                )}/>
+                <CButton size="sm" color="primary" className="mr-1">
                   Update
                 </CButton>
+                
                 <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>
+                <CButton size="sm" color="success" className="mr-1">
+                  Borrow
+                </CButton>
+                <CButton size="sm" color="warning" className="mr-1">
+                  Return
+                </CButton>
                 <CModal
                   show={modal}
                   onClose={toggle}
