@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import BackButton from '../users/backbutton/BackButton';
 import SinglePrintButton from '../printbutton/singleprint/SinglePrintButton';
 
-import { faBarcode, faSave, faFile, faKeyboard, faTint, faHistory, faUpload} from "@fortawesome/free-solid-svg-icons";
+import { faBarcode, faSave, faFile, faKeyboard, faTint, faHistory, faUpload, faHdd} from "@fortawesome/free-solid-svg-icons";
 // import { useHistory, useLocation } from 'react-router-dom'
 // import { CIcon } from '@coreui/icons-react'
 import {
@@ -35,29 +35,35 @@ const SeeAllAssets = () => {
                   </CNavLink>
                 </CNavItem>
                 <CNavItem>
+                  <CNavLink>    
+                    <FontAwesomeIcon icon={faHdd} className="fonticons"/>
+                    { active === 1 && 'Components'}
+                  </CNavLink>
+                </CNavItem>
+                <CNavItem>
                   <CNavLink>
                   <FontAwesomeIcon icon={faSave} className="fonticons"/>,
-                    { active === 1 && 'Software Licenses'}
+                    { active === 2 && 'Software Licenses'}
                   </CNavLink>
                 </CNavItem>
                 <CNavItem>
                   <CNavLink>
                     
                     <FontAwesomeIcon icon={faFile} className="fonticons"/>
-                    { active === 2 && 'Government Permits'}
+                    { active === 3 && 'Government Permits'}
                   </CNavLink>
                 </CNavItem>
                 <CNavItem>
                   <CNavLink>
                   <FontAwesomeIcon icon={faKeyboard} className="fonticons"/>
-                  { active === 3 && 'Accessories'}
+                  { active === 4 && 'Accessories'}
                     
                   </CNavLink>
                 </CNavItem>
                 <CNavItem>
                   <CNavLink>
                   <FontAwesomeIcon icon={faTint} className="fonticons"/>
-                  { active === 4 && 'Consumable'}
+                  { active === 5 && 'Consumable'}
                     
                   </CNavLink>
                 </CNavItem>
@@ -77,6 +83,11 @@ const SeeAllAssets = () => {
                 </CNavItem>
               </CNav>
               <CTabContent>
+                <CTabPane>
+                  <br/>
+                  {` ${lorem}`}
+                  <SinglePrintButton/>
+                </CTabPane>
                 <CTabPane>
                   <br/>
                   {` ${lorem}`}
