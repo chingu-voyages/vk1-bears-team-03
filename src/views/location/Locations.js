@@ -10,8 +10,6 @@ import {
 } from '@coreui/react'
 
 import locationsData from './LocationsData'
-import Search from "../search/Search"
-import Itemspage from '../itemspage/Itemspage'
 
 
 import { Route } from 'react-router-dom'
@@ -31,9 +29,14 @@ const Requests = () => {
   }
 
   const fields = [
+    {
+      key: 'select',
+      label: 'Select',
+      _style: { width: '1%'}
+    },
     { key: 'id'},
     { key: 'name'},
-     'address', 'city', 'state',
+     'serial_number', 'asset_tag','location', 'status',
     {
       key: 'show_details',
       label: 'Actions',
@@ -42,7 +45,10 @@ const Requests = () => {
       filter: false
     }
   ]
- 
+  const tableFilter = {
+    label: 'Search',
+    placeholder: 'Type here..',
+  }
   
   const [modal, setModal] = useState(false)
   
@@ -51,25 +57,30 @@ const Requests = () => {
   }
 
   return (
-    <CDataTable
-      overTableSlot = { 
-      <CRow>
-        <CCol className="d-flex justify-content-sm-start">
-              <Search />
-              <Itemspage />
-          </CCol>
-          <CCol className="d-flex justify-content-sm-end">
-          <Route render={({ history}) => (
-              <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/users/profile/createnewuser') }}>
-                    Create New
-              </CButton>
-                )}/>
-          </CCol>
-          
-      </CRow>
+    <>
+    <CRow>
+              
+              <CCol className="d-flex justify-content-sm-end">
+                          
+              <Route render={({ history}) => (
+                          <CButton size="md" color="primary" className="mr-1" onClick= {() => { history.push('/views/assets/createnewassets') }}>
+                                Create New
+                          </CButton>
+                            )}/>
+                       
+                        </CCol>
+                        </CRow>
+              <CDataTable
+                overTableSlot = { 
+                      <CRow>
+                                      
+                      </CRow>
     }
       items={locationsData}
       fields={fields}
+      tableFilter={tableFilter}
+    itemsPerPageSelect
+    itemsPerPage={5}
       hover
       pagination
       scopedSlots = {{
@@ -128,6 +139,7 @@ const Requests = () => {
           }
       }}
     />
+      </>
   )
   }
   

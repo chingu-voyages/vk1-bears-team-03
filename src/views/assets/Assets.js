@@ -14,7 +14,6 @@ import assetsData from './AssetsData'
 
 const Assets = () => {
 const [details, setDetails] = useState([])
-// const [items, setItems] = useState(assetsData)
 
 const toggleDetails = (index) => {
   const position = details.indexOf(index)
@@ -107,13 +106,10 @@ return (
     items={assetsData}
     header
     fields={fields}
-    // columnFilter
       tableFilter={tableFilter}
-      // footer
       itemsPerPageSelect
       itemsPerPage={5}
       hover
-      // sorter
       pagination
     
     scopedSlots = {{

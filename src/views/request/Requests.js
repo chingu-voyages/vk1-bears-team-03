@@ -8,8 +8,6 @@ import {
   CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
 } from '@coreui/react'
 import requestsData from "./RequestsData"
-import Search from "../search/Search"
-import Itemspage from '../itemspage/Itemspage'
 
 
 
@@ -27,17 +25,26 @@ const toggleDetails = (index) => {
 }
 
 const fields = [
+  {
+    key: 'select',
+    label: 'Select',
+    _style: { width: '1%'}
+  },
   { key: 'id'},
   { key: 'name'},
- 'serial_number', 'request_tag', 'status',
+   'serial_number', 'asset_tag','location', 'status',
   {
-  key: 'show_details',
-  label: '',
-  _style: { width: '1%' },
-  sorter: false,
-  filter: false
+    key: 'show_details',
+    label: 'Actions',
+    _style: { width: '1%' },
+    sorter: false,
+    filter: false
   }
 ]
+const tableFilter = {
+  label: 'Search',
+  placeholder: 'Type here..',
+}
 
 const getBadge = (status)=>{
   switch (status) {
@@ -56,18 +63,25 @@ const toggle = () => {
 
 return (
   <>
-  <CDataTable
-    overTableSlot = { 
-    <CRow>
-      <CCol className="d-flex justify-content-sm-start">
-            <Search />
-            <Itemspage />
-        </CCol>        
-    </CRow>
+  <CRow>
+            
+            <CCol className="d-flex justify-content-sm-end">
+                        
+                     
+                      </CCol>
+                      </CRow>
+            <CDataTable
+              overTableSlot = { 
+                    <CRow>
+                                    
+                    </CRow>
     }
     items={requestsData}
     header
     fields={fields}
+    tableFilter={tableFilter}
+    itemsPerPageSelect
+    itemsPerPage={5}
     hover
     pagination
   

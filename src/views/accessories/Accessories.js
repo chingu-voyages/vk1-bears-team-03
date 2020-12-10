@@ -11,14 +11,11 @@ import {
 } from '@coreui/react'
 
 import accessoriesData from "./AccessoriesData"
-import Search from "../search/Search"
-import Itemspage from '../itemspage/Itemspage'
 
 import { Route } from 'react-router-dom'
 
 const Accessories = () => {
 const [details, setDetails] = useState([])
-// const [items, setItems] = useState(accessoriesData)
 
 const toggleDetails = (index) => {
   const position = details.indexOf(index)
@@ -33,9 +30,14 @@ const toggleDetails = (index) => {
 
 
 const fields = [
+  {
+    key: 'select',
+    label: 'Select',
+    _style: { width: '1%'}
+  },
   { key: 'id'},
   { key: 'name'},
-   'category', 'quantity', 'available',
+   'serial_number', 'asset_tag','location', 'status',
   {
     key: 'show_details',
     label: 'Actions',
@@ -44,6 +46,11 @@ const fields = [
     filter: false
   }
 ]
+const tableFilter = {
+  label: 'Search',
+  placeholder: 'Type here..',
+}
+
 
 const getBadge = (status)=>{
   switch (status) {
@@ -63,26 +70,30 @@ const toggle = () => {
 
 return (
   <>
-  <CDataTable
-    overTableSlot = { 
-          <CRow>
-            <CCol className="d-flex justify-content-sm-start">
-                  <Search />
-                  <Itemspage />
-              </CCol>
-              <CCol className="d-flex justify-content-sm-end">
-              <Route render={({ history}) => (
-              <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/accessories/createnewaccessory') }}>
-                    Create New
-              </CButton>
-                )}/>
-              </CCol>
+    <CRow>
               
-          </CRow>
+              <CCol className="d-flex justify-content-sm-end">
+                          
+              <Route render={({ history}) => (
+                          <CButton size="md" color="primary" className="mr-1" onClick= {() => { history.push('/views/assets/createnewassets') }}>
+                                Create New
+                          </CButton>
+                            )}/>
+                       
+                        </CCol>
+                        </CRow>
+              <CDataTable
+                overTableSlot = { 
+                      <CRow>
+                                      
+                      </CRow>
     }
     items={accessoriesData}
     header
     fields={fields}
+    tableFilter={tableFilter}
+    itemsPerPageSelect
+    itemsPerPage={5}
     hover
     pagination
     
