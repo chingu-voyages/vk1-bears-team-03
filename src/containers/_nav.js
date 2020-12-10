@@ -1,13 +1,10 @@
 import React from 'react'
-// import CIcon from '@coreui/icons-react'
 import { faBarcode, faPrint, faDatabase, faSave, faTachometerAlt, faFile, faKeyboard, faTint, faComment, faTags, faHdd} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "src/containers/_nav.css"
 
 
-
-// import { dom } from '@fortawesome/fontawesome-svg-core';
 export default [
   {
     _tag: 'CSidebarNavItem',
@@ -77,6 +74,7 @@ export default [
     name: 'Background Data',
     route: '/icons',
     icon: <FontAwesomeIcon icon={faDatabase} className="fonticons"/>,
+    
     _children: [
       {
         _tag: 'CSidebarNavItem',
@@ -111,6 +109,7 @@ export default [
         name: 'Status',
         to: '/views/categories',
         icon: '',
+        
       },
     ],
   },
