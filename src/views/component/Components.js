@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react'
+import React, { useState } from 'react'
 // import { useHistory, useLocation } from 'react-router-dom'
 // import { CIcon } from '@coreui/icons-react'
 import {

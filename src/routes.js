@@ -1,42 +1,38 @@
-// import { Category } from '@material-ui/icons';
+
 import React from 'react';
-// import Component from './views/component/Component';
-// import Components from './views/component/Components';
-// import BackButton from './views/users/backbutton/BackButton';
-// import Categories from './views/categories/Categories';
 
 
-const Toaster = React.lazy(() => import('./views/notifications/toaster/Toaster'));
-const Tables = React.lazy(() => import('./views/base/tables/Tables'));
+// const Toaster = React.lazy(() => import('./views/notifications/toaster/Toaster'));
+// const Tables = React.lazy(() => import('./views/base/tables/Tables'));
 
-const Breadcrumbs = React.lazy(() => import('./views/base/breadcrumbs/Breadcrumbs'));
-const Cards = React.lazy(() => import('./views/base/cards/Cards'));
-const Carousels = React.lazy(() => import('./views/base/carousels/Carousels'));
-const Collapses = React.lazy(() => import('./views/base/collapses/Collapses'));
-const BasicForms = React.lazy(() => import('./views/base/forms/BasicForms'));
+// const Breadcrumbs = React.lazy(() => import('./views/base/breadcrumbs/Breadcrumbs'));
+// const Cards = React.lazy(() => import('./views/base/cards/Cards'));
+// const Carousels = React.lazy(() => import('./views/base/carousels/Carousels'));
+// const Collapses = React.lazy(() => import('./views/base/collapses/Collapses'));
+// const BasicForms = React.lazy(() => import('./views/base/forms/BasicForms'));
 
-const Jumbotrons = React.lazy(() => import('./views/base/jumbotrons/Jumbotrons'));
-const ListGroups = React.lazy(() => import('./views/base/list-groups/ListGroups'));
-const Navbars = React.lazy(() => import('./views/base/navbars/Navbars'));
-const Navs = React.lazy(() => import('./views/base/navs/Navs'));
-const Paginations = React.lazy(() => import('./views/base/paginations/Pagnations'));
-const Popovers = React.lazy(() => import('./views/base/popovers/Popovers'));
-const ProgressBar = React.lazy(() => import('./views/base/progress-bar/ProgressBar'));
-const Switches = React.lazy(() => import('./views/base/switches/Switches'));
+// const Jumbotrons = React.lazy(() => import('./views/base/jumbotrons/Jumbotrons'));
+// const ListGroups = React.lazy(() => import('./views/base/list-groups/ListGroups'));
+// const Navbars = React.lazy(() => import('./views/base/navbars/Navbars'));
+// const Navs = React.lazy(() => import('./views/base/navs/Navs'));
+// const Paginations = React.lazy(() => import('./views/base/paginations/Pagnations'));
+// const Popovers = React.lazy(() => import('./views/base/popovers/Popovers'));
+// const ProgressBar = React.lazy(() => import('./views/base/progress-bar/ProgressBar'));
+// const Switches = React.lazy(() => import('./views/base/switches/Switches'));
 
-const Tabs = React.lazy(() => import('./views/base/tabs/Tabs'));
-const Tooltips = React.lazy(() => import('./views/base/tooltips/Tooltips'));
-const Charts = React.lazy(() => import('./views/charts/Charts'));
+// const Tabs = React.lazy(() => import('./views/base/tabs/Tabs'));
+// const Tooltips = React.lazy(() => import('./views/base/tooltips/Tooltips'));
+// const Charts = React.lazy(() => import('./views/charts/Charts'));
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'));
-const CoreUIIcons = React.lazy(() => import('./views/icons/coreui-icons/CoreUIIcons'));
-const Flags = React.lazy(() => import('./views/icons/flags/Flags'));
-const Brands = React.lazy(() => import('./views/icons/brands/Brands'));
-const Alerts = React.lazy(() => import('./views/notifications/alerts/Alerts'));
-const Badges = React.lazy(() => import('./views/notifications/badges/Badges'));
-const Modals = React.lazy(() => import('./views/notifications/modals/Modals'));
+// const CoreUIIcons = React.lazy(() => import('./views/icons/coreui-icons/CoreUIIcons'));
+// const Flags = React.lazy(() => import('./views/icons/flags/Flags'));
+// const Brands = React.lazy(() => import('./views/icons/brands/Brands'));
+// const Alerts = React.lazy(() => import('./views/notifications/alerts/Alerts'));
+// const Badges = React.lazy(() => import('./views/notifications/badges/Badges'));
+// const Modals = React.lazy(() => import('./views/notifications/modals/Modals'));
 const Colors = React.lazy(() => import('./views/theme/colors/Colors'));
 const Typography = React.lazy(() => import('./views/theme/typography/Typography'));
-const Widgets = React.lazy(() => import('./views/widgets/Widgets'));
+// const Widgets = React.lazy(() => import('./views/widgets/Widgets'));
 const Assets = React.lazy(() => import('./views/assets/Assets'));
 const Users = React.lazy(() => import('./views/users/Users'));
 const User = React.lazy(() => import('./views/users/User'));
@@ -71,7 +67,7 @@ const CreateNewSoftware = React.lazy(() => import('./views/software/createnewsof
 const CreateNewPermits = React.lazy(() => import('./views/permits/createnewpermits/CreateNewPermits'));
 const CreateNewAssets = React.lazy(() => import('./views/assets/createnewassets/CreateNewAssets'));
 const CreateNewAccessory = React.lazy(() => import('./views/accessories/createnewaccessory/CreateNewAccessory'));
-
+// const Print = React.lazy(() => import('./views/seeallassets/printassets/PrintAssets'));
 
 
 const routes = [
@@ -81,34 +77,34 @@ const routes = [
   { path: '/theme/colors', name: 'Colors', component: Colors },
   { path: './views/assets/Assets', name: 'Assets', component: Assets },
   { path: '/theme/typography', name: 'Typography', component: Typography },
-  { path: '/base', name: 'Base', component: Cards, exact: true },
-  { path: '/base/breadcrumbs', name: 'Breadcrumbs', component: Breadcrumbs },
-  { path: '/base/cards', name: 'Cards', component: Cards },
-  { path: '/base/carousels', name: 'Carousel', component: Carousels },
-  { path: '/base/collapses', name: 'Collapse', component: Collapses },
-  { path: '/base/forms', name: 'Forms', component: BasicForms },
-  { path: '/base/jumbotrons', name: 'Jumbotrons', component: Jumbotrons },
-  { path: '/base/list-groups', name: 'List Groups', component: ListGroups },
-  { path: '/base/navbars', name: 'Navbars', component: Navbars },
-  { path: '/base/navs', name: 'Navs', component: Navs },
-  { path: '/base/paginations', name: 'Paginations', component: Paginations },
-  { path: '/base/popovers', name: 'Popovers', component: Popovers },
-  { path: '/base/progress-bar', name: 'Progress Bar', component: ProgressBar },
-  { path: '/base/switches', name: 'Switches', component: Switches },
-  { path: '/base/tables', name: 'Tables', component: Tables },
-  { path: '/base/tabs', name: 'Tabs', component: Tabs },
-  { path: '/base/tooltips', name: 'Tooltips', component: Tooltips },
-  { path: '/charts', name: 'Charts', component: Charts },
-  { path: '/icons', exact: true, name: 'Icons', component: CoreUIIcons },
-  { path: '/icons/coreui-icons', name: 'CoreUI Icons', component: CoreUIIcons },
-  { path: '/icons/flags', name: 'Flags', component: Flags },
-  { path: '/icons/brands', name: 'Brands', component: Brands },
-  { path: '/notifications', name: 'Notifications', component: Alerts, exact: true },
-  { path: '/notifications/alerts', name: 'Alerts', component: Alerts },
-  { path: '/notifications/badges', name: 'Badges', component: Badges },
-  { path: '/notifications/modals', name: 'Modals', component: Modals },
-  { path: '/notifications/toaster', name: 'Toaster', component: Toaster },
-  { path: '/widgets', name: 'Widgets', component: Widgets },
+  // { path: '/base', name: 'Base', component: Cards, exact: true },
+  // { path: '/base/breadcrumbs', name: 'Breadcrumbs', component: Breadcrumbs },
+  // { path: '/base/cards', name: 'Cards', component: Cards },
+  // { path: '/base/carousels', name: 'Carousel', component: Carousels },
+  // { path: '/base/collapses', name: 'Collapse', component: Collapses },
+  // { path: '/base/forms', name: 'Forms', component: BasicForms },
+  // { path: '/base/jumbotrons', name: 'Jumbotrons', component: Jumbotrons },
+  // { path: '/base/list-groups', name: 'List Groups', component: ListGroups },
+  // { path: '/base/navbars', name: 'Navbars', component: Navbars },
+  // { path: '/base/navs', name: 'Navs', component: Navs },
+  // { path: '/base/paginations', name: 'Paginations', component: Paginations },
+  // { path: '/base/popovers', name: 'Popovers', component: Popovers },
+  // { path: '/base/progress-bar', name: 'Progress Bar', component: ProgressBar },
+  // { path: '/base/switches', name: 'Switches', component: Switches },
+  // { path: '/base/tables', name: 'Tables', component: Tables },
+  // { path: '/base/tabs', name: 'Tabs', component: Tabs },
+  // { path: '/base/tooltips', name: 'Tooltips', component: Tooltips },
+  // { path: '/charts', name: 'Charts', component: Charts },
+  // { path: '/icons', exact: true, name: 'Icons', component: CoreUIIcons },
+  // { path: '/icons/coreui-icons', name: 'CoreUI Icons', component: CoreUIIcons },
+  // { path: '/icons/flags', name: 'Flags', component: Flags },
+  // { path: '/icons/brands', name: 'Brands', component: Brands },
+  // { path: '/notifications', name: 'Notifications', component: Alerts, exact: true },
+  // { path: '/notifications/alerts', name: 'Alerts', component: Alerts },
+  // { path: '/notifications/badges', name: 'Badges', component: Badges },
+  // { path: '/notifications/modals', name: 'Modals', component: Modals },
+  // { path: '/notifications/toaster', name: 'Toaster', component: Toaster },
+  // { path: '/widgets', name: 'Widgets', component: Widgets },
   { path: '/users', exact: true,  name: 'Users', component: Users },
   { path: '/users/:id', exact: true, name: 'User Details', component: User },
   { path: '/views/addUser/', exact: true, name: 'User Registration', component: AddUser },
@@ -142,6 +138,7 @@ const routes = [
   { path: '/views/permits/createnewpermits', exact: true, name: 'Create New Permits', component: CreateNewPermits },
   { path: '/views/assets/createnewassets', exact: true, name: 'Create New Assets', component: CreateNewAssets },
   { path: '/views/accessories/createnewaccessory', exact: true, name: 'Create New Accessory', component: CreateNewAccessory },
+  // { pathviews: '/views/seeallassets/printassets', exact: true, name: 'Print', component: Print },
 ];
 
 export default routes;
