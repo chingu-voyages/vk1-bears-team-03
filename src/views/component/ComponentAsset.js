@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React  from 'react'
 import { CCard, CCardBody, CCardHeader, CCol, CRow } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 

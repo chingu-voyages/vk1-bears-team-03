@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react'
+import React, { useState } from 'react'
 // import { useHistory, useLocation } from 'react-router-dom'
 // import { CIcon } from '@coreui/icons-react'
 import {
@@ -12,7 +12,10 @@ import {
 import { Route } from 'react-router-dom'
 
 import componentsData from './ComponentsData'
+<<<<<<< HEAD
 import PrintButton from '../printbutton/PrintButton'
+=======
+>>>>>>> devRoxanne
 
 const Components = () => {
 const [details, setDetails] = useState([])
@@ -31,9 +34,14 @@ const toggleDetails = (index) => {
 
 
 const fields = [
+  {
+    key: 'select',
+    label: 'Select',
+    _style: { width: '1%'}
+  },
   { key: 'id'},
-  { key: 'name' },
-   'serial_number', 'category', 'quantity', 'remaining',
+  { key: 'name'},
+   'serial_number', 'asset_tag','location', 'status',
   {
     key: 'show_details',
     label: 'Actions',
@@ -42,6 +50,10 @@ const fields = [
     filter: false
   }
 ]
+const tableFilter = {
+  label: 'Search',
+  placeholder: 'Type here..',
+}
 
 const [modal, setModal] = useState(false)
 
@@ -50,6 +62,7 @@ const toggle = () => {
 }
 
 return (
+<<<<<<< HEAD
   <CDataTable
     // overTableSlot = { 
     //     <CRow>
@@ -64,11 +77,33 @@ return (
     //           </CButton>
     //             )}/>
     //         </CCol>
+=======
+  <>
+   <CRow>
+              
+  <CCol className="d-flex justify-content-sm-end">
+              
+  <Route render={({ history}) => (
+              <CButton size="md" color="primary" className="mr-1" onClick= {() => { history.push('/views/assets/createnewassets') }}>
+                    Create New
+              </CButton>
+                )}/>
+           
+            </CCol>
+            </CRow>
+
+  <CDataTable
+    overTableSlot = { 
+        <CRow>
+>>>>>>> devRoxanne
             
     //     </CRow>
     // }
     items={componentsData}
     fields={fields}
+    tableFilter={tableFilter}
+    itemsPerPageSelect
+    itemsPerPage={5}
     hover
     pagination
     scopedSlots = {{
@@ -97,14 +132,10 @@ return (
                   {item.name}
                 </h4>
                 <p className="text-muted">Role: {item.user_role}</p>
-                <Route render={({ history}) => (
-              <CButton size="sm" color="info" className="mr-1" onClick= {() => { history.push('/views/seeallassets') }}>
-                    See All Issued
-              </CButton>
-                )}/>
+                
                 <Route render={({ history}) => (
                 <CButton size="sm" color="dark" className="mr-1" onClick= {() => { history.push('/views/users/profile') }}>
-                View Profile
+                View More
               </CButton>
                 )}/>
                 <Route render={({ history}) => (
@@ -115,7 +146,6 @@ return (
                
                 
                 <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>
-                <PrintButton/>
                 <CModal
                   show={modal}
                   onClose={toggle}
@@ -138,6 +168,7 @@ return (
         }
     }}
   />
+    </>
 )
 }
 export default Components

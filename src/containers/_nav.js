@@ -1,13 +1,10 @@
 import React from 'react'
-// import CIcon from '@coreui/icons-react'
-import { faBarcode, faPrint, faDatabase, faSave, faTachometerAlt, faFile, faKeyboard, faTint, faComment, faTags, faHdd} from "@fortawesome/free-solid-svg-icons";
+import { faBarcode, faPrint, faDatabase, faSave, faTachometerAlt, faFile, faKeyboard, faTint, faComment, faHdd} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "src/containers/_nav.css"
 
 
-
-// import { dom } from '@fortawesome/fontawesome-svg-core';
 export default [
   {
     _tag: 'CSidebarNavItem',
@@ -31,7 +28,7 @@ export default [
   },
   {
     _tag: 'CSidebarNavItem',
-    name: 'Component',
+    name: 'Components',
     to: '/views/component',
     icon: <FontAwesomeIcon icon={faHdd} className="fonticons"/>,
   },
@@ -55,7 +52,7 @@ export default [
   },
   {
     _tag: 'CSidebarNavItem',
-    name: 'Consumable',
+    name: 'Consumables',
     to: '/views/consumables',
     icon: <FontAwesomeIcon icon={faTint} className="fonticons"/>,
   },
@@ -67,20 +64,15 @@ export default [
     icon: <FontAwesomeIcon icon={faComment} className="fonticons"/>,
   },
   {
-    _tag: 'CSidebarNavItem',
-    name: 'Generate Labels',
-    to: '/views/request',
-    icon: <FontAwesomeIcon icon={faTags} className="fonticons"/>,
-  },
-  {
     _tag: 'CSidebarNavDropdown',
     name: 'Background Data',
     route: '/icons',
     icon: <FontAwesomeIcon icon={faDatabase} className="fonticons"/>,
+    
     _children: [
       {
         _tag: 'CSidebarNavItem',
-        name: 'Location',
+        name: 'Locations',
         to: '/views/locations',
         icon: '',
         badge: {
@@ -90,13 +82,13 @@ export default [
       },
       {
         _tag: 'CSidebarNavItem',
-        name: 'Department',
+        name: 'Departments',
         to: '/views/departments',
         icon: '',
       },
       {
         _tag: 'CSidebarNavItem',
-        name: 'Supplier',
+        name: 'Suppliers',
         to: '/views/suppliers',
         icon: '',
       },
@@ -108,9 +100,10 @@ export default [
       },
       {
         _tag: 'CSidebarNavItem',
-        name: 'Status',
+        name: 'Status Labels',
         to: '/views/categories',
         icon: '',
+        
       },
     ],
   },
@@ -129,16 +122,6 @@ export default [
           color: 'success',
           text: '',
         },
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'CoreUI Flags',
-        to: '/views/base/forms',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'CoreUI Brands',
-        to: '/icons/brands',
       },
     ],
   },

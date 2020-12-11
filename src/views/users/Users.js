@@ -17,7 +17,6 @@ import PrintButton from '../printbutton/PrintButton'
 
 const Users = () => {
 const [details, setDetails] = useState([])
-// const [items, setItems] = useState(usersData)
 
 const toggleDetails = (index) => {
   const position = details.indexOf(index)
@@ -42,8 +41,8 @@ const fields = [
     _style: { width: '1%'}
   },
   { key: 'id'},
-  { key: 'name' },
-   'user_name', 'user_role', 'email_address',
+  { key: 'name'},
+   'serial_number', 'asset_tag','location', 'status',
   {
     key: 'show_details',
     label: 'Actions',
@@ -52,6 +51,10 @@ const fields = [
     filter: false
   }
 ]
+const tableFilter = {
+  label: 'Search',
+  placeholder: 'Type here..',
+}
 
 const [modal, setModal] = useState(false)
 
@@ -61,13 +64,31 @@ const toggle = () => {
 
 return (
   <>
-  <Button location = '/views/addUser/'/>  
-  <CDataTable
+    <CRow>
+              
+              <CCol className="d-flex justify-content-sm-end">
+                          
+              <Route render={({ history}) => (
+                          <CButton size="md" color="primary" className="mr-1" onClick= {() => { history.push('/views/users/profile/createnewuser') }}>
+                                Create New
+                          </CButton>
+                            )}/>
+                       
+                        </CCol>
+                        </CRow>
+              <CDataTable
+                overTableSlot = { 
+                      <CRow>
+                                      
+                      </CRow>  }
     items={usersData}
     tableFilter={tableFilter}
     itemsPerPage={5}
     itemsPerPageSelect
     fields={fields}
+    tableFilter={tableFilter}
+    itemsPerPageSelect
+    itemsPerPage={5}
     hover
     pagination
     scopedSlots = {{

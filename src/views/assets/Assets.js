@@ -1,22 +1,27 @@
 import React, { useState } from 'react'
-// import { useHistory, useLocation } from 'react-router-dom'
-// import { CIcon } from '@coreui/icons-react'
 import {
   CBadge,
   CCardBody,
   CDataTable,
   CButton,
   CRow, CCol, 
+<<<<<<< HEAD
   CCollapse, CModal, CModalHeader,CModalBody, CModalFooter, CInputCheckbox,
+=======
+  CCollapse, CModal, CModalHeader,CModalBody, CModalFooter, CLabel, CSelect
+>>>>>>> devRoxanne
 } from '@coreui/react'
 
 import { Route } from 'react-router-dom'
 import assetsData from './AssetsData'
+<<<<<<< HEAD
 import Button from '../addButton/AddButton'
+=======
+
+>>>>>>> devRoxanne
 
 const Assets = () => {
 const [details, setDetails] = useState([])
-// const [items, setItems] = useState(assetsData)
 
 const toggleDetails = (index) => {
   const position = details.indexOf(index)
@@ -50,6 +55,10 @@ const fields = [
     filter: false
   }
 ]
+const tableFilter = {
+  label: 'Search',
+  placeholder: 'Type here..',
+}
 
 
 const getBadge = (status)=>{
@@ -70,28 +79,79 @@ const toggle = () => {
 
 return (
   <>
+<<<<<<< HEAD
   <Button label="+ Create New" />
   <CDataTable
+=======
+  <CRow>
+  <CCol className="d-flex justify-content-sm-start">
+              <CLabel htmlFor="select">Choose</CLabel>
+              <CCol xs="12" md="4">
+                    <CSelect custom name="select" id="select">
+                      <option value="0">Generate Labels</option>
+                      <option value="1">Bulk Borrow</option>
+                    </CSelect>
+                    
+                  </CCol>
+                  <Route render={({ history}) => (
+              <CButton size="md" color="primary" className="mr-1" onClick= {() => { history.push('/views/assets/createnewassets') }}>
+                    Go
+              </CButton>
+                )}/>
+              </CCol>
+              
+  <CCol className="d-flex justify-content-sm-end">
+              
+  <Route render={({ history}) => (
+              <CButton size="md" color="primary" className="mr-1" onClick= {() => { history.push('/views/assets/createnewassets') }}>
+                    Create New
+              </CButton>
+                )}/>
+           
+            </CCol>
+            </CRow>
+  <CDataTable
+    overTableSlot = { 
+          <CRow>
+            
+              
+              
+              
+          </CRow>
+    }
+>>>>>>> devRoxanne
     items={assetsData}
     tableFilter={tableFilter}
     itemsPerPage={5}
     itemsPerPageSelect
     header
     fields={fields}
-    hover
-    pagination
+      tableFilter={tableFilter}
+      itemsPerPageSelect
+      itemsPerPage={5}
+      hover
+      pagination
     
     scopedSlots = {{
       'select' : () =>{
         return (
+<<<<<<< HEAD
         <div className="d-flex justify-content-center align-items-center">
+=======
+        <div className="d-flex justify-content-center align-items-center mt-3">
+>>>>>>> devRoxanne
           <input id ="select" type="checkbox">
           </input>
         </div>
         )
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> devRoxanne
       },
       'status':
+      
         (item)=>(
           <td>
             <CBadge color={getBadge(item.status)}>

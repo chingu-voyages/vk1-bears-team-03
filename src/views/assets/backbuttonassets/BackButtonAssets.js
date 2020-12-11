@@ -8,7 +8,7 @@ const BackButtonAssets = () => {
     
     return (
         <Route render={({ history}) => (
-            <CButton size="sm" color="info" className="mr-1" onClick= {() => { history.push('src/views/assets') }}>
+            <CButton size="md" color="info" className="mr-1" onClick= {() => { history.push('/views/assets') }}>
                   Back
             </CButton>
               )}/>

@@ -10,7 +10,8 @@ import {
 } from '@coreui/react'
 
 import departmentsData from './DepartmentsData'
-import Button from '../addButton/AddButton'
+import { Route } from 'react-router-dom'
+
 const Departments = () => {
   const [details, setDetails] = useState([])
 
@@ -26,9 +27,14 @@ const Departments = () => {
   }
 
   const fields = [
+    {
+      key: 'select',
+      label: 'Select',
+      _style: { width: '1%'}
+    },
     { key: 'id'},
     { key: 'name'},
-     'location',
+     'serial_number', 'asset_tag','location', 'status',
     {
       key: 'show_details',
       label: 'Actions',
@@ -37,7 +43,11 @@ const Departments = () => {
       filter: false
     }
   ]
-
+  const tableFilter = {
+    label: 'Search',
+    placeholder: 'Type here..',
+  }
+  
   const [modal, setModal] = useState(false)
   
   const toggle = () => {
@@ -45,23 +55,30 @@ const Departments = () => {
   }
 
   return (
-    <CDataTable
-    //   overTableSlot = { 
-    //   <CRow>
-    //     <CCol className="d-flex justify-content-sm-start">
-    //           <Search />
-    //           <Itemspage />
-    //       </CCol>
-    //       <CCol className="d-flex justify-content-sm-end">
-    //       {/* <Route render={({ history}) => ( */}
-    //         <Button label = "Create New"/>
-    //       {/* // )} /> */}
-    //       </CCol>
-          
-    //   </CRow>
-    // }
+    <>
+    <CRow>
+              
+              <CCol className="d-flex justify-content-sm-end">
+                          
+              <Route render={({ history}) => (
+                          <CButton size="md" color="primary" className="mr-1" onClick= {() => { history.push('/views/assets/createnewassets') }}>
+                                Create New
+                          </CButton>
+                            )}/>
+                       
+                        </CCol>
+                        </CRow>
+              <CDataTable
+                overTableSlot = { 
+                      <CRow>
+                                      
+                      </CRow>
+    }
       items={departmentsData}
       fields={fields}
+      tableFilter={tableFilter}
+    itemsPerPageSelect
+    itemsPerPage={5}
       hover
       pagination
       scopedSlots = {{
@@ -127,7 +144,9 @@ const Departments = () => {
           }
       }}
     />
+      </>
   )
+
   }
   
   export default Departments

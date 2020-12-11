@@ -11,7 +11,6 @@ import {
 } from '@coreui/react'
 
 import softwaresData from './SoftwaresData'
-// import Button from '../addButton/AddButton'
 
 
 const Softwares = () => {
@@ -29,9 +28,14 @@ const Softwares = () => {
   }
 
   const fields = [
+    {
+      key: 'select',
+      label: 'Select',
+      _style: { width: '1%'}
+    },
     { key: 'id'},
     { key: 'name'},
-     'license_key', 'category', 'expiration_date',
+     'serial_number', 'asset_tag','location', 'status',
     {
       key: 'show_details',
       label: 'Actions',
@@ -40,16 +44,10 @@ const Softwares = () => {
       filter: false
     }
   ]
-  
-  const getBadge = (status)=>{
-    switch (status) {
-      case 'Active': return 'success'
-      case 'Inactive': return 'secondary'
-      case 'Pending': return 'warning'
-      case 'Banned': return 'danger'
-      default: return 'primary'
-    }
-  }
+  const tableFilter = {
+    label: 'Search',
+    placeholder: 'Type here..',
+  }  
   
   const [modal, setModal] = useState(false)
   
@@ -58,26 +56,31 @@ const Softwares = () => {
   }
 
   return (
+    <>
+   <CRow>
+              
+  <CCol className="d-flex justify-content-sm-end">
+              
+  <Route render={({ history}) => (
+              <CButton size="md" color="primary" className="mr-1" onClick= {() => { history.push('/views/assets/createnewassets') }}>
+                    Create New
+              </CButton>
+                )}/>
+           
+            </CCol>
+            </CRow>
     <CDataTable
-    //   overTableSlot = { 
-    //   <CRow>
-    //     <CCol className="d-flex justify-content-sm-start">
-    //           <Search />
-    //           <Itemspage />
-    //       </CCol>
-    //       <CCol className="d-flex justify-content-sm-end">
-    //       <Route render={({ history}) => (
-    //           <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/software/createnewsoftware') }}>
-    //                 Create New
-    //           </CButton>
-    //             )}/>
-    //       </CCol>
-          
-    //   </CRow>
-    // }
+      overTableSlot = { 
+      <CRow>
+        
+      </CRow>
+    }
       items={softwaresData}
       fields={fields}
       hover
+      tableFilter={tableFilter}
+      itemsPerPageSelect
+      itemsPerPage={5}
       pagination
       scopedSlots = {{
         'show_details':
@@ -140,6 +143,7 @@ const Softwares = () => {
           }
       }}
     />
+        </>
   )
   }
   
