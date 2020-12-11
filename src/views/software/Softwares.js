@@ -11,13 +11,7 @@ import {
 } from '@coreui/react'
 
 import softwaresData from './SoftwaresData'
-import Search from "../search/Search"
-import Itemspage from '../itemspage/Itemspage'
-<<<<<<< HEAD
-import Button from '../addButton/AddButton'
-=======
 // import Button from '../addButton/AddButton'
->>>>>>> dev
 
 
 const Softwares = () => {
@@ -37,11 +31,7 @@ const Softwares = () => {
   const fields = [
     { key: 'id'},
     { key: 'name'},
-<<<<<<< HEAD
-     'serial_number', 'asset_tag', 'status',
-=======
      'license_key', 'category', 'expiration_date',
->>>>>>> dev
     {
       key: 'show_details',
       label: 'Actions',
@@ -69,44 +59,27 @@ const Softwares = () => {
 
   return (
     <CDataTable
-      overTableSlot = { 
-      <CRow>
-        <CCol className="d-flex justify-content-sm-start">
-              <Search />
-              <Itemspage />
-          </CCol>
-          <CCol className="d-flex justify-content-sm-end">
-<<<<<<< HEAD
-          {/* <Route render={({ history}) => ( */}
-            <Button label = "+ Add Software"/>
-          {/* // )} /> */}
-=======
-          <Route render={({ history}) => (
-              <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/software/createnewsoftware') }}>
-                    Create New
-              </CButton>
-                )}/>
->>>>>>> dev
-          </CCol>
+    //   overTableSlot = { 
+    //   <CRow>
+    //     <CCol className="d-flex justify-content-sm-start">
+    //           <Search />
+    //           <Itemspage />
+    //       </CCol>
+    //       <CCol className="d-flex justify-content-sm-end">
+    //       <Route render={({ history}) => (
+    //           <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/software/createnewsoftware') }}>
+    //                 Create New
+    //           </CButton>
+    //             )}/>
+    //       </CCol>
           
-      </CRow>
-    }
+    //   </CRow>
+    // }
       items={softwaresData}
       fields={fields}
       hover
       pagination
       scopedSlots = {{
-<<<<<<< HEAD
-        'status':
-        (item)=>(
-          <td>
-            <CBadge color={getBadge(item.status)}>
-              {item.status}
-            </CBadge>
-          </td>
-        ),
-=======
->>>>>>> dev
         'show_details':
           (item, index)=>{
             return (

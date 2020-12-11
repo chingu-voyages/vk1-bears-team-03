@@ -9,8 +9,6 @@ import {
 } from '@coreui/react'
 
 import accessoriesData from "./AccessoriesData"
-import Search from "../search/Search"
-import Itemspage from '../itemspage/Itemspage'
 
 import { Route } from 'react-router-dom'
 
@@ -62,22 +60,22 @@ const toggle = () => {
 return (
   <>
   <CDataTable
-    overTableSlot = { 
-          <CRow>
-            <CCol className="d-flex justify-content-sm-start">
-                  <Search />
-                  <Itemspage />
-              </CCol>
-              <CCol className="d-flex justify-content-sm-end">
-              <Route render={({ history}) => (
-              <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/accessories/createnewaccessory') }}>
-                    Create New
-              </CButton>
-                )}/>
-              </CCol>
+    // overTableSlot = { 
+    //       <CRow>
+    //         <CCol className="d-flex justify-content-sm-start">
+    //               <Search />
+    //               <Itemspage />
+    //           </CCol>
+    //           <CCol className="d-flex justify-content-sm-end">
+    //           <Route render={({ history}) => (
+    //           <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/accessories/createnewaccessory') }}>
+    //                 Create New
+    //           </CButton>
+    //             )}/>
+    //           </CCol>
               
-          </CRow>
-    }
+    //       </CRow>
+    // }
     items={accessoriesData}
     header
     fields={fields}

@@ -9,13 +9,7 @@ import {
 } from '@coreui/react'
 
 import consumablesData from "./ConsumablesData"
-import Search from "../search/Search"
-import Itemspage from '../itemspage/Itemspage'
-<<<<<<< HEAD
-import Button from '../addButton/AddButton'
-=======
 import { Route } from 'react-router-dom'
->>>>>>> dev
 
 const Consumables = () => {
 const [details, setDetails] = useState([])
@@ -65,31 +59,23 @@ const toggle = () => {
 return (
   <>
   <CDataTable
-    overTableSlot = { 
-          <CRow>
-            <CCol className="d-flex justify-content-sm-start">
-                  <Search />
-                  <Itemspage />
-              </CCol>
-              <CCol className="d-flex justify-content-sm-end">
-<<<<<<< HEAD
-              {/* <Route render={({ history}) => ( */}
-                <Button label = "+ Add Consumable"/>
-              {/* // )} /> */}
-              </CCol>
-              
-=======
-              <Route render={({ history}) => (
-              <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/consumables/createnewconsumable') }}>
-                    Create New
-              </CButton>
-              )}/>
-              </CCol>
+    // overTableSlot = { 
+    //       <CRow>
+    //         <CCol className="d-flex justify-content-sm-start">
+    //               <Search />
+    //               <Itemspage />
+    //           </CCol>
+    //           <CCol className="d-flex justify-content-sm-end">
+    //           <Route render={({ history}) => (
+    //           <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/consumables/createnewconsumable') }}>
+    //                 Create New
+    //           </CButton>
+    //           )}/>
+    //           </CCol>
               
               
->>>>>>> dev
-          </CRow>
-    }
+    //       </CRow>
+    // }
     items={consumablesData}
     header
     fields={fields}

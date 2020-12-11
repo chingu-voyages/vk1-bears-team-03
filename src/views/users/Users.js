@@ -11,14 +11,9 @@ import {
 } from '@coreui/react'
 import { Route } from 'react-router-dom'
 
-import usersData from "./UsersData"
-import Search from "../search/Search"
-import Itemspage from '../itemspage/Itemspage'
-<<<<<<< HEAD
 import Button from '../addButton/AddButton'
-=======
+import usersData from "./UsersData"
 import PrintButton from '../printbutton/PrintButton'
->>>>>>> dev
 
 const Users = () => {
 const [details, setDetails] = useState([])
@@ -35,8 +30,17 @@ const toggleDetails = (index) => {
   setDetails(newDetails)
 }
 
+const tableFilter = {
+  label: 'Search',
+  placeholder: 'type here...'
+}
 
 const fields = [
+  {
+    key: 'select',
+    label: 'Select',
+    _style: { width: '1%'}
+  },
   { key: 'id'},
   { key: 'name' },
    'user_name', 'user_role', 'email_address',
@@ -56,33 +60,26 @@ const toggle = () => {
 }
 
 return (
+  <>
+  <Button location = '/views/addUser/'/>  
   <CDataTable
-    overTableSlot = { 
-        <CRow>
-          <CCol className="d-flex justify-content-sm-start">
-                <Search />
-                <Itemspage />
-            </CCol>
-            <CCol className="d-flex justify-content-sm-end">
-            <Route render={({ history}) => (
-<<<<<<< HEAD
-              <Button label = "+ Add User" onClick= {() => { history.push('/user/register')}}/>
-            )} />
-=======
-              <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/users/profile/createnewuser') }}>
-                    Create New
-              </CButton>
-                )}/>
->>>>>>> dev
-            </CCol>
-            
-        </CRow>
-    }
     items={usersData}
+    tableFilter={tableFilter}
+    itemsPerPage={5}
+    itemsPerPageSelect
     fields={fields}
     hover
     pagination
     scopedSlots = {{
+      'select' : () =>{
+        return (
+        <div className="d-flex justify-content-center align-items-center">
+          <input id ="select" type="checkbox">
+          </input>
+        </div>
+        )
+        
+      },
       'show_details':
         (item, index)=>{
           return (
@@ -149,6 +146,7 @@ return (
         }
     }}
   />
+  </>
 )
 }
 export default Users

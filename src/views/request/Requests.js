@@ -8,8 +8,6 @@ import {
 } from '@coreui/react'
 
 import requestsData from './RequestsData'
-import Search from "../search/Search"
-import Itemspage from '../itemspage/Itemspage'
 import Button from '../addButton/AddButton'
 
 
@@ -48,20 +46,20 @@ const Requests = () => {
 
   return (
     <CDataTable
-      overTableSlot = { 
-      <CRow>
-        <CCol className="d-flex justify-content-sm-start">
-              <Search />
-              <Itemspage />
-          </CCol>
-          <CCol className="d-flex justify-content-sm-end">
-          {/* <Route render={({ history}) => ( */}
-            <Button label = "Create New"/>
-          {/* // )} /> */}
-          </CCol>
+    //   overTableSlot = { 
+    //   <CRow>
+    //     <CCol className="d-flex justify-content-sm-start">
+    //           <Search />
+    //           <Itemspage />
+    //       </CCol>
+    //       <CCol className="d-flex justify-content-sm-end">
+    //       {/* <Route render={({ history}) => ( */}
+    //         <Button label = "Create New"/>
+    //       {/* // )} /> */}
+    //       </CCol>
           
-      </CRow>
-    }
+    //   </CRow>
+    // }
       items={requestsData}
       fields={fields}
       hover

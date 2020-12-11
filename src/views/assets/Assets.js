@@ -7,13 +7,11 @@ import {
   CDataTable,
   CButton,
   CRow, CCol, 
-  CCollapse, CModal, CModalHeader,CModalBody, CModalFooter,
+  CCollapse, CModal, CModalHeader,CModalBody, CModalFooter, CInputCheckbox,
 } from '@coreui/react'
 
 import { Route } from 'react-router-dom'
 import assetsData from './AssetsData'
-import Search from '../search/Search'
-import Itemspage from '../itemspage/Itemspage'
 import Button from '../addButton/AddButton'
 
 const Assets = () => {
@@ -31,8 +29,16 @@ const toggleDetails = (index) => {
   setDetails(newDetails)
 }
 
-
+const tableFilter = {
+  label: 'Search',
+  placeholder: 'type here...'
+}
 const fields = [
+  {
+    key: 'select',
+    label: 'Select',
+    _style: { width: '1%'}
+  },
   { key: 'id'},
   { key: 'name'},
    'serial_number', 'asset_tag','location', 'status',
@@ -44,6 +50,7 @@ const fields = [
     filter: false
   }
 ]
+
 
 const getBadge = (status)=>{
   switch (status) {
@@ -63,30 +70,27 @@ const toggle = () => {
 
 return (
   <>
+  <Button label="+ Create New" />
   <CDataTable
-    overTableSlot = { 
-          <CRow>
-              <CCol className="d-flex justify-content-sm-start">
-                  <Search />
-                  <Itemspage />
-              </CCol>
-              <CCol className="d-flex justify-content-sm-end">
-              <Route render={({ history}) => (
-              <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/assets/createnewassets') }}>
-                    Create New
-              </CButton>
-                )}/>
-              </CCol>
-              
-          </CRow>
-    }
     items={assetsData}
+    tableFilter={tableFilter}
+    itemsPerPage={5}
+    itemsPerPageSelect
     header
     fields={fields}
     hover
     pagination
     
     scopedSlots = {{
+      'select' : () =>{
+        return (
+        <div className="d-flex justify-content-center align-items-center">
+          <input id ="select" type="checkbox">
+          </input>
+        </div>
+        )
+        
+      },
       'status':
         (item)=>(
           <td>

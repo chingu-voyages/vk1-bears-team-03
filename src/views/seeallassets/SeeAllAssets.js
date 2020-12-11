@@ -1,7 +1,7 @@
 import React, { useState }from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import UploadFileButton from '../uploadfilebutton/UploadFilebButton'
-import BackButton from '../users/backbutton/BackButton';
+import BackButton from '../backButton/BackButton';
 import SinglePrintButton from '../printbutton/singleprint/SinglePrintButton';
 
 import { faBarcode, faSave, faFile, faKeyboard, faTint, faHistory, faUpload} from "@fortawesome/free-solid-svg-icons";
@@ -16,13 +16,12 @@ const SeeAllAssets = () => {
     
   const [active, setActive] = useState(1)
   const lorem = ''
-
     return(
         
-        <CCol xs="12" md="6" lg="12" className="mb-4">
+        <CCol xs="12" md="6" lg="12" className="mb-6">
         <CCard>
           <CCardHeader>
-                <BackButton/>
+                <BackButton location  = '/views/seeallassets'/>
                 
           </CCardHeader>
           <CCardBody>
@@ -72,50 +71,52 @@ const SeeAllAssets = () => {
                   <CNavLink>
                   <FontAwesomeIcon icon={faUpload} className="fonticons"/>
                   { active === 6 && 'File Upload'}
-                    
                   </CNavLink>
+                 
                 </CNavItem>
               </CNav>
               <CTabContent>
                 <CTabPane>
                   <br/>
                   {` ${lorem}`}
-                  <SinglePrintButton/>
+                  {/* <SinglePrintButton/> */}
                 </CTabPane>
                 <CTabPane>
                   <br/>
                   {` ${lorem}`}
-                  <SinglePrintButton/>
+                  {/* <SinglePrintButton/> */}
                 </CTabPane>
                 <CTabPane>
                   <br/>
                   {` ${lorem}`}
-                  <SinglePrintButton/>
+                  {/* <SinglePrintButton/> */}
                 </CTabPane>
                 <CTabPane>
                   <br/>
                   {` ${lorem}`}
-                  <SinglePrintButton/>
+                  {/* <SinglePrintButton/> */}
                 </CTabPane>
                 <CTabPane>
                   <br/>
                   {` ${lorem}`}
-                  <SinglePrintButton/>
+                  {/* <SinglePrintButton/> */}
                 </CTabPane>
                 <CTabPane>
                   <br/>
                   {` ${lorem}`}
-                  <SinglePrintButton/>
+                  {/* <SinglePrintButton/> */}
                 </CTabPane>
-                <CTabPane>
+                <CTabPane className ='mb-3'>
                   <br/>
-                  <CInputFile id="file-input" name="file-input"/>
-
+                    <CInputFile id="file-input" name="file-input"/>
                 </CTabPane>
               </CTabContent>
             </CTabs>
+            <SinglePrintButton/>
           </CCardBody>
+          
         </CCard>
+        
       </CCol>
 
       

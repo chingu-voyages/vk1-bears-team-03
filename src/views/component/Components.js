@@ -12,8 +12,6 @@ import {
 import { Route } from 'react-router-dom'
 
 import componentsData from './ComponentsData'
-import Search from "../search/Search"
-import Itemspage from '../itemspage/Itemspage'
 import PrintButton from '../printbutton/PrintButton'
 
 const Components = () => {
@@ -53,22 +51,22 @@ const toggle = () => {
 
 return (
   <CDataTable
-    overTableSlot = { 
-        <CRow>
-          <CCol className="d-flex justify-content-sm-start">
-                <Search />
-                <Itemspage />
-            </CCol>
-            <CCol className="d-flex justify-content-sm-end">
-            <Route render={({ history}) => (
-              <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/users/profile/createnewuser') }}>
-                    Create New
-              </CButton>
-                )}/>
-            </CCol>
+    // overTableSlot = { 
+    //     <CRow>
+    //       <CCol className="d-flex justify-content-sm-start">
+    //             <Search />
+    //             <Itemspage />
+    //         </CCol>
+    //         <CCol className="d-flex justify-content-sm-end">
+    //         <Route render={({ history}) => (
+    //           <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/users/profile/createnewuser') }}>
+    //                 Create New
+    //           </CButton>
+    //             )}/>
+    //         </CCol>
             
-        </CRow>
-    }
+    //     </CRow>
+    // }
     items={componentsData}
     fields={fields}
     hover

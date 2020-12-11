@@ -10,8 +10,6 @@ import {
 } from '@coreui/react'
 
 import departmentsData from './DepartmentsData'
-import Search from "../search/Search"
-import Itemspage from '../itemspage/Itemspage'
 import Button from '../addButton/AddButton'
 const Departments = () => {
   const [details, setDetails] = useState([])
@@ -48,20 +46,20 @@ const Departments = () => {
 
   return (
     <CDataTable
-      overTableSlot = { 
-      <CRow>
-        <CCol className="d-flex justify-content-sm-start">
-              <Search />
-              <Itemspage />
-          </CCol>
-          <CCol className="d-flex justify-content-sm-end">
-          {/* <Route render={({ history}) => ( */}
-            <Button label = "Create New"/>
-          {/* // )} /> */}
-          </CCol>
+    //   overTableSlot = { 
+    //   <CRow>
+    //     <CCol className="d-flex justify-content-sm-start">
+    //           <Search />
+    //           <Itemspage />
+    //       </CCol>
+    //       <CCol className="d-flex justify-content-sm-end">
+    //       {/* <Route render={({ history}) => ( */}
+    //         <Button label = "Create New"/>
+    //       {/* // )} /> */}
+    //       </CCol>
           
-      </CRow>
-    }
+    //   </CRow>
+    // }
       items={departmentsData}
       fields={fields}
       hover
