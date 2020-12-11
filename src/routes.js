@@ -24,8 +24,8 @@ const Department = React.lazy(() => import('./views/department/Department'));
 const Supplier = React.lazy(() => import('./views/supplier/Supplier'));
 const Suppliers = React.lazy(() => import('./views/supplier/Suppliers'));
 
-const ComponentAsset = React.lazy(() => import('./views/component/ComponentAsset'));
-const Components = React.lazy(() => import('./views/component/Components'));
+const ComponentAsset = React.lazy(() => import('./views/components/ComponentAsset'));
+const Components = React.lazy(() => import('./views/components/Components'));
 const AddUser = React.lazy(() => import('./views/addUser/AddUser'));
 const ReportsChart = React.lazy(() => import('./views/reports/Reports'));
 const SeeAllAssets = React.lazy(() => import('./views/seeallassets/SeeAllAssets'));
@@ -40,8 +40,8 @@ const CreateNewAssets = React.lazy(() => import('./views/assets/createnewassets/
 const CreateNewAccessory = React.lazy(() => import('./views/accessories/createnewaccessory/CreateNewAccessory'));
 const UpdateAssets = React.lazy(() => import('./views/assets/updateassets/UpdateAssets'));
 const ViewMoreAssets = React.lazy(() => import('./views/assets/viewmoreassets/ViewMoreAssets'));
-const ViewMoreComponent = React.lazy(() => import('./views/component/viewmorecomponent/ViewMoreComponents'));
-const CreateNewComponent = React.lazy(() => import('./views/component/createnewcomponent/CreateNewComponent'));
+const ViewMoreComponent = React.lazy(() => import('./views/components/viewmorecomponent/ViewMoreComponents'));
+const CreateNewComponent = React.lazy(() => import('./views/components/createnewcomponent/CreateNewComponent'));
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -57,8 +57,8 @@ const routes = [
   { path: '/views/assets', exact: true, name: 'Assets', component: Asset },
   { path: '/views/softwares', exact: true, name: 'Softwares', component: Softwares },
   { path: '/views/softwares/:id', exact: true, name: 'Software', component: Software },
-  { path: '/views/component', exact: true, name: 'Components', component: Components },
-  { path: '/views/component/:id', exact: true, name: 'Component', component: ComponentAsset },
+  { path: '/views/components', exact: true, name: 'Components', component: Components },
+  { path: '/views/components/:id', exact: true, name: 'Component', component: ComponentAsset },
 
   { path: '/views/permits', exact: true, name: 'Permits', component: Permits },
   { path: '/views/accessories', exact: true, name: 'Accessories', component: Accessories },
@@ -87,7 +87,7 @@ const routes = [
   { path: '/views/assets/updateassets', exact: true, name: 'Update Assets', component: UpdateAssets },
   { path: '/views/assets/viewmoreassets', exact: true, name: 'View More Assets', component: ViewMoreAssets },
   { path: '/views/component/viewmorecomponent', exact: true, name: 'View More Components', component: ViewMoreComponent },
-  { path: '/views/accessories/createnewcomponent', exact: true, name: 'Create New Component', component: CreateNewComponent },
+  { path: '/views/components/createnewcomponent', exact: true, name: 'Create New Component', component: CreateNewComponent },
 ];
 
 export default routes;

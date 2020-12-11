@@ -1,10 +1,10 @@
 import React, { useState }from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import UploadFileButton from '../uploadfilebutton/UploadFilebButton'
-import BackButton from '../../assets/backbuttonassets/BackButtonAssets';
+import BackButtonComponent from '../../components/backbuttoncomponent/BackButtonComponent';
 import SinglePrintButton from '../../printbutton/singleprint/SinglePrintButton';
 
-import { faSave, faFile, faHistory, faUpload, faHdd, faInfoCircle} from "@fortawesome/free-solid-svg-icons";
+import { faBarcode, faSave, faFile, faHistory, faUpload, faHdd, faInfoCircle} from "@fortawesome/free-solid-svg-icons";
 // import { useHistory, useLocation } from 'react-router-dom'
 // import { CIcon } from '@coreui/icons-react'
 import {
@@ -22,7 +22,7 @@ const ViewMoreComponent = () => {
         <CCol xs="12" md="6" lg="12" className="mb-4">
         <CCard>
           <CCardHeader>
-                <BackButton/>
+                <BackButtonComponent/>
                 
           </CCardHeader>
           <CCardBody>
@@ -36,34 +36,22 @@ const ViewMoreComponent = () => {
                 </CNavItem>
                 <CNavItem>
                   <CNavLink>    
-                    <FontAwesomeIcon icon={faHdd} className="fonticons"/>
-                    { active === 1 && 'Components'}
+                    <FontAwesomeIcon icon={faBarcode} className="fonticons"/>
+                    { active === 1 && 'Assets'}
                   </CNavLink>
                 </CNavItem>
-                <CNavItem>
-                  <CNavLink>
-                  <FontAwesomeIcon icon={faSave} className="fonticons"/>,
-                    { active === 2 && 'Software Licenses'}
-                  </CNavLink>
-                </CNavItem>
-                <CNavItem>
-                  <CNavLink>
-                    
-                    <FontAwesomeIcon icon={faFile} className="fonticons"/>
-                    { active === 3 && 'Maintenance'}
-                  </CNavLink>
-                </CNavItem>
+                
               <CNavItem>
                   <CNavLink>
                   <FontAwesomeIcon icon={faHistory} className="fonticons"/>
-                  { active === 4 && 'History'}
+                  { active === 2 && 'History'}
                     
                   </CNavLink>
                 </CNavItem>
                 <CNavItem>
                   <CNavLink>
                   <FontAwesomeIcon icon={faUpload} className="fonticons"/>
-                  { active === 5 && 'File Upload'}
+                  { active === 3 && 'File Upload'}
                     
                   </CNavLink>
                 </CNavItem>
@@ -88,17 +76,6 @@ const ViewMoreComponent = () => {
                   <br/>
                   {` ${lorem}`}
                   <CInputFile id="file-input" name="file-input"/>
-                </CTabPane>
-                <CTabPane>
-                  <br/>
-                  {` ${lorem}`}
-                  <SinglePrintButton/>
-                </CTabPane>
-                <CTabPane>
-                  <br/>
-                  {` ${lorem}`}
-                   <CInputFile id="file-input" name="file-input"/>
-  
                 </CTabPane>
               </CTabContent>
             </CTabs>

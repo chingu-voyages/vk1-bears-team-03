@@ -64,7 +64,7 @@ return (
   <CCol className="d-flex justify-content-sm-end">
               
   <Route render={({ history}) => (
-              <CButton size="md" color="primary" className="mr-1" onClick= {() => { history.push('/views/component/createnewcomponent') }}>
+              <CButton size="md" color="primary" className="mr-1" onClick= {() => { history.push('/views/components/createnewcomponent') }}>
                     Create New
               </CButton>
                 )}/>
