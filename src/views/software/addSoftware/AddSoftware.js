@@ -6,14 +6,14 @@ import {
 } from '@coreui/react'
 import BackButton from '../../backButton/BackButton'
 
-const CreateNewAssets = () => {
+const AddSoftware = () => {
     
     return(
         
         <CCol xs="12" md="6" lg="12" className="mb-4">
         <CCard>
           <CCardHeader>
-          <BackButton location='/views/assets' />
+          <BackButton location='/views/softwares' />
           <CButton type="reset" size="md" color="danger" className="mr-1"> Reset</CButton>
           </CCardHeader>
           <CCardBody>
@@ -189,7 +189,7 @@ const CreateNewAssets = () => {
                 <CButton type="reset" size="md" color="primary" className="mr-1">  Save</CButton>
               
                 <Route render={({ history}) => (
-                  <CButton type="reset" size="md" color="danger" className="mr-1" onClick= {() => { history.push('/views/assets') }}>
+                  <CButton type="reset" size="md" color="danger" className="mr-1" onClick= {() => { history.push('/views/softwares') }}>
                         Cancel
                   </CButton>
                 )}/>
@@ -204,4 +204,4 @@ const CreateNewAssets = () => {
     )
 }
 
-export default CreateNewAssets
+export default AddSoftware

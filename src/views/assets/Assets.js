@@ -5,20 +5,13 @@ import {
   CDataTable,
   CButton,
   CRow, CCol, 
-<<<<<<< HEAD
-  CCollapse, CModal, CModalHeader,CModalBody, CModalFooter, CInputCheckbox,
-=======
   CCollapse, CModal, CModalHeader,CModalBody, CModalFooter, CLabel, CSelect
->>>>>>> devRoxanne
 } from '@coreui/react'
 
 import { Route } from 'react-router-dom'
 import assetsData from './AssetsData'
-<<<<<<< HEAD
-import Button from '../addButton/AddButton'
-=======
+import AddButton from '../addButton/AddButton'
 
->>>>>>> devRoxanne
 
 const Assets = () => {
 const [details, setDetails] = useState([])
@@ -55,11 +48,6 @@ const fields = [
     filter: false
   }
 ]
-const tableFilter = {
-  label: 'Search',
-  placeholder: 'Type here..',
-}
-
 
 const getBadge = (status)=>{
   switch (status) {
@@ -79,13 +67,13 @@ const toggle = () => {
 
 return (
   <>
-<<<<<<< HEAD
-  <Button label="+ Create New" />
-  <CDataTable
-=======
-  <CRow>
-  <CCol className="d-flex justify-content-sm-start">
-              <CLabel htmlFor="select">Choose</CLabel>
+  <CRow className="mb-3">
+    
+    <CCol className="d-flex justify-content-sm-start">
+      <AddButton location='/views/assets/createnewassets' />
+           
+    </CCol>
+    <CCol className="d-flex justify-content-sm-end">
               <CCol xs="12" md="4">
                     <CSelect custom name="select" id="select">
                       <option value="0">Generate Labels</option>
@@ -93,33 +81,15 @@ return (
                     </CSelect>
                     
                   </CCol>
-                  <Route render={({ history}) => (
-              <CButton size="md" color="primary" className="mr-1" onClick= {() => { history.push('/views/assets/createnewassets') }}>
-                    Go
-              </CButton>
+              <Route render={({ history}) => (
+                  <CButton size="md" color="primary" className="mr-1" onClick= {() => { history.push('/views/assets/createnewassets') }}>
+                        Go
+                  </CButton>
                 )}/>
-              </CCol>
+    </CCol>
               
-  <CCol className="d-flex justify-content-sm-end">
-              
-  <Route render={({ history}) => (
-              <CButton size="md" color="primary" className="mr-1" onClick= {() => { history.push('/views/assets/createnewassets') }}>
-                    Create New
-              </CButton>
-                )}/>
-           
-            </CCol>
-            </CRow>
+  </CRow>
   <CDataTable
-    overTableSlot = { 
-          <CRow>
-            
-              
-              
-              
-          </CRow>
-    }
->>>>>>> devRoxanne
     items={assetsData}
     tableFilter={tableFilter}
     itemsPerPage={5}
@@ -135,20 +105,11 @@ return (
     scopedSlots = {{
       'select' : () =>{
         return (
-<<<<<<< HEAD
-        <div className="d-flex justify-content-center align-items-center">
-=======
         <div className="d-flex justify-content-center align-items-center mt-3">
->>>>>>> devRoxanne
           <input id ="select" type="checkbox">
           </input>
         </div>
         )
-<<<<<<< HEAD
-        
-=======
-
->>>>>>> devRoxanne
       },
       'status':
       

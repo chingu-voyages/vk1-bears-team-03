@@ -11,7 +11,7 @@ import {
 } from '@coreui/react'
 
 import softwaresData from './SoftwaresData'
-
+import AddButton from '../addButton/AddButton'
 
 const Softwares = () => {
   const [details, setDetails] = useState([])
@@ -57,24 +57,9 @@ const Softwares = () => {
 
   return (
     <>
-   <CRow>
-              
-  <CCol className="d-flex justify-content-sm-end">
-              
-  <Route render={({ history}) => (
-              <CButton size="md" color="primary" className="mr-1" onClick= {() => { history.push('/views/assets/createnewassets') }}>
-                    Create New
-              </CButton>
-                )}/>
-           
-            </CCol>
-            </CRow>
+    <AddButton location='/views/softwares/addsoftware' />
+
     <CDataTable
-      overTableSlot = { 
-      <CRow>
-        
-      </CRow>
-    }
       items={softwaresData}
       fields={fields}
       hover

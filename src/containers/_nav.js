@@ -29,7 +29,7 @@ export default [
   {
     _tag: 'CSidebarNavItem',
     name: 'Components',
-    to: '/views/component',
+    to: '/views/components',
     icon: <FontAwesomeIcon icon={faHdd} className="fonticons"/>,
   },
   {

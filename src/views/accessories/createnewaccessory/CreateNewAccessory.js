@@ -1,9 +1,6 @@
 import React from 'react'
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-// import { faBarcode, faSave, faFile, faKeyboard, faTint, faHistory, faUpload} from "@fortawesome/free-solid-svg-icons";
-// import { useHistory, useLocation } from 'react-router-dom'
-// import { CIcon } from '@coreui/icons-react'
 import {
   CCardBody, CCol, CCard, CCardHeader,
 
@@ -11,9 +8,6 @@ import {
 import BackButton from 'src/views/users/backbutton/BackButton'
 
 const CreateNewAccessory = () => {
-    
-//   const [active, setActive] = useState(1)
-//   const lorem = ''
 
     return(
         

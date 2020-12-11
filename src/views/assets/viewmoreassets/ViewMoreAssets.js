@@ -8,9 +8,6 @@ import BackButtonAssets from 'src/views/assets/backbuttonassets/BackButtonAssets
 
 
 const ViewMoreAssets = () => {
-    
-//   const [active, setActive] = useState(1)
-//   const lorem = ''
 
     return(
         

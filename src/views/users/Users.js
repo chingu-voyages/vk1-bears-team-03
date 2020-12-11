@@ -51,11 +51,6 @@ const fields = [
     filter: false
   }
 ]
-const tableFilter = {
-  label: 'Search',
-  placeholder: 'Type here..',
-}
-
 const [modal, setModal] = useState(false)
 
 const toggle = () => {

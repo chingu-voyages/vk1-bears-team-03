@@ -34,12 +34,11 @@ const Categories = React.lazy(() => import('./views/categories/Categories'));
 const Profile = React.lazy(() => import('./views/users/profile/ViewProfile'));
 const UpdateUser = React.lazy(() => import('./views/users/profile/updateuser/UpdateUser'));
 const CreateNewUser = React.lazy(() => import('./views/users/profile/createnewuser/CreateNewUser'));
-const CreateNewSoftware = React.lazy(() => import('./views/software/createnewsoftware/CreateNewSoftware'));
 const CreateNewPermits = React.lazy(() => import('./views/permits/createnewpermits/CreateNewPermits'));
 const CreateNewAssets = React.lazy(() => import('./views/assets/createnewassets/CreateNewAssets'));
 const CreateNewAccessory = React.lazy(() => import('./views/accessories/createnewaccessory/CreateNewAccessory'));
-
-
+const AddComponent = React.lazy(() => import('./views/component/addComponent/AddComponent'));
+const AddSoftware = React.lazy(() => import('./views/software/addSoftware/AddSoftware'));
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -54,9 +53,12 @@ const routes = [
   { path: '/views/addUser/', exact: true, name: 'User Registration', component: AddUser },
   { path: '/views/assets', exact: true, name: 'Assets', component: Asset },
   { path: '/views/softwares', exact: true, name: 'Softwares', component: Softwares },
-  { path: '/views/softwares/:id', exact: true, name: 'Software', component: Software },
-  { path: '/views/component', exact: true, name: 'Components', component: Components },
+  { path: '/views/software/:id', exact: true, name: 'Software', component: Software },
+  { path: '/views/softwares/addsoftware', exact: true, name: 'Add New Software', component: AddSoftware },
+
+  { path: '/views/components', exact: true, name: 'Components', component: Components },
   { path: '/views/component/:id', exact: true, name: 'Component', component: ComponentAsset },
+  { path: '/views/components/addcomponent', exact: true, name: 'Add New Component', component: AddComponent },
 
   { path: '/views/permits', exact: true, name: 'Permits', component: Permits },
   { path: '/views/accessories', exact: true, name: 'Accessories', component: Accessories },
@@ -78,7 +80,6 @@ const routes = [
   { path: '/views/users/profile', exact: true, name: 'Profile', component: Profile },
   { path: '/views/users/profile/updateuser', exact: true, name: 'Update User', component: UpdateUser },
   { path: '/views/users/profile/createnewuser', exact: true, name: 'Create New User', component: CreateNewUser },
-  { path: '/views/software/createnewsoftware', exact: true, name: 'Create New Software', component: CreateNewSoftware },
   { path: '/views/permits/createnewpermits', exact: true, name: 'Create New Permits', component: CreateNewPermits },
   { path: '/views/assets/createnewassets', exact: true, name: 'Create New Assets', component: CreateNewAssets },
   { path: '/views/accessories/createnewaccessory', exact: true, name: 'Create New Accessory', component: CreateNewAccessory },
