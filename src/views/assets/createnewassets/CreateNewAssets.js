@@ -17,7 +17,7 @@ const CreateNewAssets = () => {
           <CCardHeader>
 
           <BackButtonAssets/>
-          <CButton type="reset" size="sm" color="danger" className="mr-1"> Reset</CButton>
+          <CButton type="reset" size="md" color="danger" className="mr-1"> Reset</CButton>
           </CCardHeader>
           <CCardBody>
           <CFormGroup row>
@@ -189,9 +189,9 @@ const CreateNewAssets = () => {
                 </CFormGroup>
                 <CCardFooter row>
                 <CCol md="12" className="d-flex justify-content-sm-end">
-                <CButton type="reset" size="sm" color="primary" className="mr-1">  Save</CButton>
+                <CButton type="reset" size="md" color="primary" className="mr-1">  Save</CButton>
               
-                <CButton type="reset" size="sm" color="danger" className="mr-1"> Cancel</CButton>
+                <CButton type="reset" size="md" color="danger" className="mr-1"> Cancel</CButton>
               </CCol>
             </CCardFooter>
           </CCardBody>
