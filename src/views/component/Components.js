@@ -83,6 +83,7 @@ return (
     tableFilter={tableFilter}
     itemsPerPageSelect
     itemsPerPage={5}
+    // sorter
     hover
     pagination
     scopedSlots = {{
@@ -113,7 +114,7 @@ return (
                 <p className="text-muted">Role: {item.user_role}</p>
                 
                 <Route render={({ history}) => (
-                <CButton size="sm" color="dark" className="mr-1" onClick= {() => { history.push('/views/users/profile') }}>
+                <CButton size="sm" color="dark" className="mr-1" onClick= {() => { history.push('/views/component/viewmorecomponent') }}>
                 View More
               </CButton>
                 )}/>

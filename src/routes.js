@@ -38,7 +38,9 @@ const CreateNewSoftware = React.lazy(() => import('./views/software/createnewsof
 const CreateNewPermits = React.lazy(() => import('./views/permits/createnewpermits/CreateNewPermits'));
 const CreateNewAssets = React.lazy(() => import('./views/assets/createnewassets/CreateNewAssets'));
 const CreateNewAccessory = React.lazy(() => import('./views/accessories/createnewaccessory/CreateNewAccessory'));
-
+const UpdateAssets = React.lazy(() => import('./views/assets/updateassets/UpdateAssets'));
+const ViewMoreAssets = React.lazy(() => import('./views/assets/viewmoreassets/ViewMoreAssets'));
+const ViewMoreComponent = React.lazy(() => import('./views/component/viewmorecomponent/ViewMoreComponents'));
 
 
 const routes = [
@@ -82,7 +84,9 @@ const routes = [
   { path: '/views/permits/createnewpermits', exact: true, name: 'Create New Permits', component: CreateNewPermits },
   { path: '/views/assets/createnewassets', exact: true, name: 'Create New Assets', component: CreateNewAssets },
   { path: '/views/accessories/createnewaccessory', exact: true, name: 'Create New Accessory', component: CreateNewAccessory },
-  
+  { path: '/views/assets/updateassets', exact: true, name: 'Update Assets', component: UpdateAssets },
+  { path: '/views/assets/viewmoreassets', exact: true, name: 'View More Assets', component: ViewMoreAssets },
+  { path: '/views/component/viewmorecomponent', exact: true, name: 'View More Components', component: ViewMoreComponent },
 ];
 
 export default routes;
