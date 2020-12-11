@@ -1,4 +1,5 @@
 import React from 'react'
+import { Route } from 'react-router-dom'
 import {
   CCardBody, CCol, CCard, CCardHeader, CFormGroup, CLabel, CInput, CSelect, CTextarea, CInputGroupText, CInputGroupAppend, CInputGroupPrepend, CInputGroup, CButton, CCardFooter
 
@@ -191,7 +192,12 @@ const CreateNewAssets = () => {
                 <CCol md="12" className="d-flex justify-content-sm-end">
                 <CButton type="reset" size="md" color="primary" className="mr-1">  Save</CButton>
               
-                <CButton type="reset" size="md" color="danger" className="mr-1"> Cancel</CButton>
+                <Route render={({ history}) => (
+            <CButton type="reset" size="md" color="danger" className="mr-1" onClick= {() => { history.push('/views/dashboard') }}>
+                  Cancel
+            </CButton>
+              )}/>
+                
               </CCol>
             </CCardFooter>
           </CCardBody>
