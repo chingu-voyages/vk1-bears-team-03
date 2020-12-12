@@ -43,8 +43,8 @@ const Supplier = React.lazy(() => import('./views/supplier/Supplier'));
 const Suppliers = React.lazy(() => import('./views/supplier/Suppliers'));
 const AddSupplier = React.lazy(() => import('./views/supplier/addsupplier/AddSupplier'));
 
-const ComponentAsset = React.lazy(() => import('./views/component/ComponentAsset'));
-const Components = React.lazy(() => import('./views/component/Components'));
+const ComponentAsset = React.lazy(() => import('./views/components/ComponentAsset'));
+const Components = React.lazy(() => import('./views/components/Components'));
 
 const ReportsChart = React.lazy(() => import('./views/reports/Reports'));
 const SeeAllAssets = React.lazy(() => import('./views/seeallassets/SeeAllAssets'));
@@ -55,7 +55,7 @@ const UpdateUser = React.lazy(() => import('./views/users/profile/updateuser/Upd
 
 
 const CreateNewAccessory = React.lazy(() => import('./views/accessories/addaccessory/AddAccessory'));
-const AddComponent = React.lazy(() => import('./views/component/addComponent/AddComponent'));
+const AddComponent = React.lazy(() => import('./views/components/addComponent/AddComponent'));
 
 const StatusLabel = React.lazy(() => import('./views/status/StatusLabel'));
 const StatusLabels = React.lazy(() => import('./views/status/StatusLabels'));
@@ -68,7 +68,9 @@ const BorrowAssets = React.lazy(() => import('./views/assets/borrowassets/Borrow
 
 const ReturnAssets = React.lazy(() => import('./views/assets/returnassets/ReturnAssets'));
 
-const UpdateComponents = React.lazy(() => import('./views/component/updatecomponent/UpdateComponent'));
+const UpdateComponent = React.lazy(() => import('./views/components/updatecomponent/UpdateComponent'));
+
+const ViewMoreComponent = React.lazy(() => import('./views/components/viewmorecomponent/ViewMoreComponents'));
 
 
 const routes = [
@@ -139,7 +141,10 @@ const routes = [
 
   { path: '/views/assets/returnassets', exact: true, name: 'Return Assets', component: ReturnAssets },
 
-  { path: '/views/component/updatecomponent', exact: true, name: 'Update Component', component: UpdateComponents },
+  { path: '/views/components/updatecomponent', exact: true, name: 'Update Component', component: UpdateComponent },
+
+
+  { path: '/views/components/viewmorecomponent', exact: true, name: 'View More Component', component: ViewMoreComponent },
 
 ];
 

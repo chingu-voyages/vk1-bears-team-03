@@ -19,24 +19,17 @@ const AddSoftware = () => {
           <CCardBody>
           <CFormGroup row>
                   <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="text-input">Asset Name</CLabel>
+                    <CLabel htmlFor="text-input">Software Name</CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
                     <CInput id="text-input" name="text-input" placeholder="" />
                   </CCol>
                  
                 </CFormGroup>
-                <CFormGroup row>
-                  <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="text-input">Asset Tag</CLabel>
-                  </CCol>
-                  <CCol xs="12" md="9">
-                    <CInput id="text-input" name="text-input" placeholder="" />
-                  </CCol>
-                </CFormGroup>
+                
                 <CFormGroup row>
                 <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="select">Status</CLabel>
+                    <CLabel htmlFor="select">Category</CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
                     <CSelect custom name="select" id="select">
@@ -50,7 +43,7 @@ const AddSoftware = () => {
                 </CFormGroup>
                 <CFormGroup row>
                 <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="textarea-input">Description</CLabel>
+                    <CLabel htmlFor="textarea-input">License Key</CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
                     <CTextarea 
@@ -63,7 +56,7 @@ const AddSoftware = () => {
                 </CFormGroup>
                 <CFormGroup row>
                   <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="text-input">Serial Number</CLabel>
+                    <CLabel htmlFor="text-input">Quantity</CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
                     <CInput id="text-input" name="text-input" placeholder="" />
@@ -86,6 +79,14 @@ const AddSoftware = () => {
                 <CFormGroup row>
                   <CCol md="2" className="d-flex justify-content-sm-end">
                     <CLabel htmlFor="text-input">Purchase Date</CLabel>
+                  </CCol>
+                  <CCol xs="12" md="9">
+                  <CInput type="date" id="date-input" name="date-input" placeholder="date" />
+                  </CCol>
+                </CFormGroup>
+                <CFormGroup row>
+                  <CCol md="2" className="d-flex justify-content-sm-end">
+                    <CLabel htmlFor="text-input">Expiration Date</CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
                   <CInput type="date" id="date-input" name="date-input" placeholder="date" />
@@ -131,37 +132,8 @@ const AddSoftware = () => {
                     </CInputGroup>
                   </CCol>
                 </CFormGroup >
-                <CFormGroup row>
-                <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="text-input">Warranty</CLabel>
-                  </CCol>
-                  <CCol xs="12" md="9">
-                      <div className="controls">
-                      
-                        <CInputGroup>
-                          <CInput id="appendedInput" size="12" type="text" />
-                          <CInputGroupAppend>
-                            <CInputGroupText>months</CInputGroupText>
-                          </CInputGroupAppend>
-                        </CInputGroup>
-                        
-                      </div>
-                      </CCol>
-                    </CFormGroup>
-                    <CFormGroup row>
-                <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="select">Default Location</CLabel>
-                  </CCol>
-                  <CCol xs="12" md="9">
-                    <CSelect custom name="select" id="select">
-                      <option value="0">Please select</option>
-                      <option value="1">Option #1</option>
-                      <option value="2">Option #2</option>
-                      <option value="3">Option #3</option>
-                    </CSelect>
-                  </CCol>
-                  
-                </CFormGroup>
+        
+                    
                 
                 <CFormGroup row>
                 <CCol md="2" className="d-flex justify-content-sm-end">
@@ -176,14 +148,7 @@ const AddSoftware = () => {
                     />
                   </CCol>
                 </CFormGroup>
-                <CFormGroup row>
-                  <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="text-input">Upload Image</CLabel>
-                  </CCol>
-                  <CCol xs="12" md="9">
-                  {/* <CInput type="date" id="date-input" name="date-input" placeholder="date" /> */}
-                  </CCol>
-                </CFormGroup>
+                
                 <CCardFooter row>
                 <CCol md="12" className="d-flex justify-content-sm-end">
                 <CButton type="reset" size="md" color="primary" className="mr-1">  Save</CButton>
