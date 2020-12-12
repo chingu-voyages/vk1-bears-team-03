@@ -107,7 +107,7 @@ export default [
       {
         _tag: 'CSidebarNavItem',
         name: 'Status Labels',
-        to: '/views/categories',
+        to: '/views/status',
         icon: '',
         
       },

@@ -2,14 +2,11 @@ import React, { useState } from 'react'
 // import { useHistory, useLocation } from 'react-router-dom'
 // import { CIcon } from '@coreui/icons-react'
 import {
-  // CBadge,
-  CRow, CCol,
   CCardBody,
   CDataTable,
   CButton, 
   CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
 } from '@coreui/react'
-import { Route } from 'react-router-dom'
 
 import suppliersData from "./SuppliersData"
 import AddButton from '../addButton/AddButton'

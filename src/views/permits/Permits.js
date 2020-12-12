@@ -4,12 +4,10 @@ import {
   CCardBody,
   CDataTable,
   CButton,
-  CRow, CCol, 
   CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
 } from '@coreui/react'
 
 import permitsData from "./PermitsData"
-import { Route } from 'react-router-dom'
 import AddButton from '../addButton/AddButton'
 
 const Permits = () => {

@@ -1,21 +1,18 @@
 import React, { useState } from 'react'
-
 import {
   // CBadge,
-
   CCardBody,
   CDataTable,
   CButton, 
   CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
 } from '@coreui/react'
-import { Route } from 'react-router-dom'
 
+import statusData from "./StatusData"
 import AddButton from '../addButton/AddButton'
-import usersData from "./UsersData"
-import PrintButton from '../printbutton/PrintButton'
 
-const Users = () => {
+const StatusLabels = () => {
 const [details, setDetails] = useState([])
+
 
 const toggleDetails = (index) => {
   const position = details.indexOf(index)
@@ -28,20 +25,16 @@ const toggleDetails = (index) => {
   setDetails(newDetails)
 }
 
-const tableFilter = {
-  label: 'Search',
-  placeholder: 'type here...'
-}
 
 const fields = [
   // {
   //   key: 'select',
-  //   // label: 'Select',
+  //   label: 'Select',
   //   _style: { width: '1%'}
   // },
   { key: 'id'},
   { key: 'name'},
-   'user_name', 'employee_number','phone_number',  'email_address','departmentg',
+   'address', 'contact_name','phone_number','email_address', 
   {
     key: 'show_details',
     label: 'Actions',
@@ -50,6 +43,12 @@ const fields = [
     filter: false
   }
 ]
+const tableFilter = {
+  label: 'Search',
+  placeholder: 'Type here..',
+}
+
+
 const [modal, setModal] = useState(false)
 
 const toggle = () => {
@@ -58,26 +57,24 @@ const toggle = () => {
 
 return (
   <>
-  <AddButton location='/users/adduser' />
-
+  <AddButton location='/views/suppliers/addsupplier' />
   <CDataTable
-    items={usersData}
-    tableFilter={tableFilter}
-    itemsPerPage={5}
-    itemsPerPageSelect
+    items={statusData}
     fields={fields}
+    tableFilter={tableFilter}
+    itemsPerPageSelect
+    itemsPerPage={5}
     hover
     pagination
     scopedSlots = {{
-      'select' : () =>{
-        return (
-        <div className="d-flex justify-content-center align-items-center mt-3">
-          {/* <input id ="select" type="checkbox">
-          </input> */}
-        </div>
-        )
-        
-      },
+      // 'status':
+      //   (item)=>(
+      //     <td>
+      //       <CBadge color={getBadge(item.status)}>
+      //         {item.status}
+      //       </CBadge>
+      //     </td>
+      //   ),
       'show_details':
         (item, index)=>{
           return (
@@ -103,27 +100,13 @@ return (
                   {item.name}
                 </h4>
                 <p className="text-muted">Role: {item.user_role}</p>
-                <Route render={({ history}) => (
-              <CButton size="sm" color="info" className="mr-1" onClick= {() => { history.push('/views/seeallassets') }}>
-                    See All Issued
-              </CButton>
-                )}/>
-                <Route render={({ history}) => (
-                  <CButton size="sm" color="dark" className="mr-1" onClick={() => { 
-                    history.push(`user/${item.id}`) }
-                    }>
-                      View Profile
-                  </CButton>  
-                 )}/>
-                <Route render={({ history}) => (
-                <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/users/profile/updateuser') }}>
-                Update
-              </CButton>
-                )}/>
-               
-                
+                <CButton size="sm" color="dark" className="mr-1">
+                  View More
+                </CButton>
+                <CButton size="sm" color="primary" className="mr-1">
+                  Update
+                </CButton>
                 <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>
-                <PrintButton/>
                 <CModal
                   show={modal}
                   onClose={toggle}
@@ -149,4 +132,4 @@ return (
   </>
 )
 }
-export default Users
+export default StatusLabels

@@ -7,7 +7,7 @@ import BackButton from '../../backButton/BackButton'
 import CancelButton from '../../cancelbutton/CancelButton'
 
 
-const AddComponent = () => {
+const UpdateComponent = () => {
     
     return(
         
@@ -125,4 +125,4 @@ const AddComponent = () => {
     )
 }
 
-export default AddComponent
+export default UpdateComponent

@@ -11,7 +11,7 @@ import {
 import locationsData from './LocationsData'
 import AddButton from '../addButton/AddButton'
 
-import { Route } from 'react-router-dom'
+
 
 const Requests = () => {
   const [details, setDetails] = useState([])
@@ -28,11 +28,7 @@ const Requests = () => {
   }
 
   const fields = [
-    // {
-    //   key: 'select',
-    //   label: 'Select',
-    //   _style: { width: '1%'}
-    // },
+   
     { key: 'id'},
     { key: 'name'},
      'phone number', 'address','state',

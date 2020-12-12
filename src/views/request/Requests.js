@@ -4,7 +4,6 @@ import {
   CCardBody,
   CDataTable,
   CButton,
-  CRow, CCol, 
   CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
 } from '@coreui/react'
 import requestsData from "./RequestsData"

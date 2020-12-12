@@ -1,16 +1,12 @@
 import React, { useState } from 'react'
-// import { useHistory, useLocation } from 'react-router-dom'
-// import { CIcon } from '@coreui/icons-react'
 import {
   CCardBody,
   CDataTable,
   CButton,
-  CRow, CCol, 
   CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
 } from '@coreui/react'
 
 import departmentsData from './DepartmentsData'
-import { Route } from 'react-router-dom'
 import AddButton from '../addButton/AddButton'
 
 const Departments = () => {

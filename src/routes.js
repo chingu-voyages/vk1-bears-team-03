@@ -57,6 +57,19 @@ const UpdateUser = React.lazy(() => import('./views/users/profile/updateuser/Upd
 const CreateNewAccessory = React.lazy(() => import('./views/accessories/addaccessory/AddAccessory'));
 const AddComponent = React.lazy(() => import('./views/component/addComponent/AddComponent'));
 
+const StatusLabel = React.lazy(() => import('./views/status/StatusLabel'));
+const StatusLabels = React.lazy(() => import('./views/status/StatusLabels'));
+
+const ViewMoreAssets = React.lazy(() => import('./views/assets/viewmoreassets/ViewMoreAssets'));
+
+const UpdateAssets = React.lazy(() => import('./views/assets/updateassets/UpdateAssets'));
+
+const BorrowAssets = React.lazy(() => import('./views/assets/borrowassets/BorrowAssets'));
+
+const ReturnAssets = React.lazy(() => import('./views/assets/returnassets/ReturnAssets'));
+
+const UpdateComponents = React.lazy(() => import('./views/component/updatecomponent/UpdateComponent'));
+
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -116,6 +129,18 @@ const routes = [
   
   { path: '/views/accessories/createnewaccessory', exact: true, name: 'Create New Accessory', component: CreateNewAccessory },
   
+
+  { path: '/views/status', exact: true, name: 'Status Lables', component: StatusLabels },
+  { path: '/views/status/:id', exact: true, name: 'Status Label', component: StatusLabel },
+  { path: '/views/assets/viewmoreassets', exact: true, name: 'View More Assets', component: ViewMoreAssets },
+  { path: '/views/assets/updateassets', exact: true, name: 'Update Assets', component: UpdateAssets },
+
+  { path: '/views/assets/borrowassets', exact: true, name: 'Borrow Assets', component: BorrowAssets },
+
+  { path: '/views/assets/returnassets', exact: true, name: 'Return Assets', component: ReturnAssets },
+
+  { path: '/views/component/updatecomponent', exact: true, name: 'Update Component', component: UpdateComponents },
+
 ];
 
 export default routes;

@@ -148,17 +148,25 @@ return (
                     View More
               </CButton>
                 )}/>
-                <CButton size="sm" color="primary" className="mr-1">
-                  Update
-                </CButton>
+                <Route render={({ history}) => (
+              <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/assets/updateassets') }}>
+                    Update
+              </CButton>
+                )}/>
+                
                 
                 <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>
-                <CButton size="sm" color="success" className="mr-1">
-                  Borrow
-                </CButton>
-                <CButton size="sm" color="warning" className="mr-1">
-                  Return
-                </CButton>
+                <Route render={({ history}) => (
+              <CButton size="sm" color="success" className="mr-1" onClick= {() => { history.push('/views/assets/borrowassets') }}>
+                    Borrow
+              </CButton>
+                )}/>
+                
+                <Route render={({ history}) => (
+              <CButton size="sm" color="warning" className="mr-1" onClick= {() => { history.push('/views/assets/returnassets') }}>
+                    Return
+              </CButton>
+                )}/>
                 <CModal
                   show={modal}
                   onClose={toggle}
