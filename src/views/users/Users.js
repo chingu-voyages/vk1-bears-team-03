@@ -41,7 +41,7 @@ const fields = [
   // },
   { key: 'id'},
   { key: 'name'},
-   'user_name', 'employee_number','phone_number',  'email_address','department',
+   'user_name', 'employee_number','phone_number',  'email_address','departmentg',
   {
     key: 'show_details',
     label: 'Actions',

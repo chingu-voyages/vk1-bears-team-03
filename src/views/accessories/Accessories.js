@@ -26,14 +26,14 @@ const toggleDetails = (index) => {
 
 
 const fields = [
-  {
-    key: 'select',
-    label: 'Select',
-    _style: { width: '1%'}
-  },
+  // {
+  //   key: 'select',
+  //   label: 'Select',
+  //   _style: { width: '1%'}
+  // },
   { key: 'id'},
   { key: 'name'},
-   'serial_number', 'asset_tag','location', 'status',
+   'category', 'quantity','available', 
   {
     key: 'show_details',
     label: 'Actions',

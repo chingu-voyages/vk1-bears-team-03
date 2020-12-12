@@ -28,21 +28,21 @@ const toggleDetails = (index) => {
 
 
 const fields = [
-  {
-    key: 'select',
-    label: 'Select',
-    _style: { width: '1%'}
-  },
-  { key: 'id'},
-  { key: 'name'},
-   'serial_number', 'asset_tag','location', 'status',
-  {
-    key: 'show_details',
-    label: 'Actions',
-    _style: { width: '1%' },
-    sorter: false,
-    filter: false
-  }
+  // {
+    //   key: 'select',
+    //   label: 'Select',
+    //   _style: { width: '1%'}
+    // },
+    { key: 'id'},
+    { key: 'name'},
+     'license_key', 'expiration_date','category', 'quantity','available',
+    {
+      key: 'show_details',
+      label: 'Actions',
+      _style: { width: '1%' },
+      sorter: false,
+      filter: false
+    }
 ]
 const tableFilter = {
   label: 'Search',

@@ -31,14 +31,14 @@ const toggleDetails = (index) => {
 
 
 const fields = [
-  {
-    key: 'select',
-    label: 'Select',
-    _style: { width: '1%'}
-  },
+  // {
+  //   key: 'select',
+  //   label: 'Select',
+  //   _style: { width: '1%'}
+  // },
   { key: 'id'},
   { key: 'name'},
-   'serial_number', 'asset_tag','location', 'status',
+   'address', 'contact_name','phone_number','email_address', 
   {
     key: 'show_details',
     label: 'Actions',
