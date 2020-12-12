@@ -34,14 +34,14 @@ const tableFilter = {
 }
 
 const fields = [
-  {
-    key: 'select',
-    label: 'Select',
-    _style: { width: '1%'}
-  },
+  // {
+  //   key: 'select',
+  //   // label: 'Select',
+  //   _style: { width: '1%'}
+  // },
   { key: 'id'},
   { key: 'name'},
-   'serial_number', 'asset_tag','location', 'status',
+   'user_name', 'employee_number','phone_number',  'email_address','department',
   {
     key: 'show_details',
     label: 'Actions',
@@ -72,8 +72,8 @@ return (
       'select' : () =>{
         return (
         <div className="d-flex justify-content-center align-items-center mt-3">
-          <input id ="select" type="checkbox">
-          </input>
+          {/* <input id ="select" type="checkbox">
+          </input> */}
         </div>
         )
         
