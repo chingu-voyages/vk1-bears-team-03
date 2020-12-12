@@ -77,9 +77,11 @@ const UpdateSoftware = React.lazy(() => import('./views/softwares/updatesoftware
 const BorrowComponent = React.lazy(() => import('./views/components/borrowcomponent/BorrowComponent'));
 const ReturnComponent = React.lazy(() => import('./views/components/returncomponent/ReturnComponent'));
 
+const ViewMoreSoftware = React.lazy(() => import('./views/softwares/viewmoresoftware/ViewMoreSoftware'));
 
+const BorrowSoftware = React.lazy(() => import('./views/softwares/borrowsoftware/BorrowSoftware'));
 
-
+const ReturnSoftware = React.lazy(() => import('./views/softwares/returnsoftware/ReturnSoftware'));
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -156,8 +158,9 @@ const routes = [
   { path: '/views/components/borrowcomponent', exact: true, name: 'Borrow Component', component: BorrowComponent },
   { path: '/views/components/returncomponent', exact: true, name: 'Return Component', component: ReturnComponent },
   { path: '/views/softwares/updatesoftware', exact: true, name: 'Update Software', component: UpdateSoftware },
-
-
+  { path: '/views/softwares/viewmoresoftware', exact: true, name: 'View More Software', component: ViewMoreSoftware },
+  { path: '/views/softwares/borrowsoftware', exact: true, name: 'Borrow Software', component: BorrowSoftware },
+  { path: '/views/softwares/returnsoftware', exact: true, name: 'Return Software', component: ReturnSoftware },
 ];
 
 export default routes;

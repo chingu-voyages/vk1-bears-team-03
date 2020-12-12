@@ -90,9 +90,13 @@ const Softwares = () => {
                     {item.name}
                   </h4>
                   <p className="text-muted">Role: {item.user_role}</p>
-                  <CButton size="sm" color="dark" className="mr-1">
-                    View More
+                  
+                  <Route render={({ history}) => (
+                  <CButton type="reset" size="sm" color="dark" className="mr-1" onClick= {() => { history.push('/views/softwares/viewmoresoftware') }}>
+                        View More
                   </CButton>
+                )}/>
+                  
 
 
                   <Route render={({ history}) => (
@@ -101,12 +105,18 @@ const Softwares = () => {
                   </CButton>
                 )}/>
                   <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>
-                  <CButton size="sm" color="success" className="mr-1">
-                  Borrow
-                </CButton>
-                <CButton size="sm" color="warning" className="mr-1">
-                  Return
-                </CButton>
+                  <Route render={({ history}) => (
+                  <CButton type="reset" size="sm" color="success" className="mr-1" onClick= {() => { history.push('/views/softwares/borrowsoftware') }}>
+                        Borrow
+                  </CButton>
+                )}/>
+                  
+                  <Route render={({ history}) => (
+                  <CButton type="reset" size="sm" color="warning" className="mr-1" onClick= {() => { history.push('/views/softwares/returnsoftware') }}>
+                        Return
+                  </CButton>
+                )}/>
+                
                   <CModal
                     show={modal}
                     onClose={toggle}
