@@ -9,7 +9,7 @@ import {
   CCardBody, CCol, CCard, CCardHeader, CFormGroup, CLabel, CInput, CSelect,  CButton, CCardFooter, CInputCheckbox, CTextarea, CSwitch
 
 } from '@coreui/react'
-// import BackButtonAssets from '../backbuttoncomponent/BackButtonComponent'
+import BackButton from '../../backbutton/BackButton'
 
 const CreateNewUser = () => {
     
@@ -21,8 +21,8 @@ const CreateNewUser = () => {
       <CCol xs="12" md="6" lg="12" className="mb-4">
       <CCard>
         <CCardHeader>
-
-        {/* <BackButtonAssets/> */}
+        <BackButton/>
+       
         <CButton type="reset" size="md" color="danger" className="mr-1"> Reset</CButton>
         </CCardHeader>
         <CCardBody>
@@ -181,10 +181,10 @@ const CreateNewUser = () => {
                 </CFormGroup>
               <CCardFooter row>
               <CCol md="12" className="d-flex justify-content-sm-end">
-              <CButton type="reset" size="md" color="primary" className="mr-1">  Save</CButton>
+              <CButton type="save" size="md" color="primary" className="mr-1">  Save</CButton>
             
               <Route render={({ history}) => (
-          <CButton type="reset" size="md" color="danger" className="mr-1" onClick= {() => { history.push('/views/dashboard') }}>
+          <CButton type="cancel" size="md" color="danger" className="mr-1" onClick= {() => { history.push('/views/dashboard') }}>
                 Cancel
           </CButton>
             )}/>

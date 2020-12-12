@@ -8,7 +8,7 @@ const BackButton = () => {
     
     return (
         <Route render={({ history}) => (
-            <CButton size="sm" color="info" className="mr-1" onClick= {() => { history.push('/users') }}>
+            <CButton size="md" color="info" className="mr-1" onClick= {() => { history.push('/users') }}>
                   Back
             </CButton>
               )}/>

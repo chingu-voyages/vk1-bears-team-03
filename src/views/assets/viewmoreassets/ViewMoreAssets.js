@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import BackButton from '../../assets/backbuttonassets/BackButtonAssets';
 import SinglePrintButton from '../../printbutton/singleprint/SinglePrintButton';
 
-import { faBarcode, faSave, faFile, faHistory, faUpload, faHdd, faInfoCircle} from "@fortawesome/free-solid-svg-icons";
+import {  faSave, faFile, faHistory, faUpload, faHdd, faInfoCircle} from "@fortawesome/free-solid-svg-icons";
 // import { useHistory, useLocation } from 'react-router-dom'
 // import { CIcon } from '@coreui/icons-react'
 import {
