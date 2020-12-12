@@ -24,8 +24,8 @@ const Department = React.lazy(() => import('./views/department/Department'));
 const Supplier = React.lazy(() => import('./views/supplier/Supplier'));
 const Suppliers = React.lazy(() => import('./views/supplier/Suppliers'));
 
-const ComponentAsset = React.lazy(() => import('./views/components/ComponentAsset'));
-const Components = React.lazy(() => import('./views/components/Components'));
+const ComponentAsset = React.lazy(() => import('./views/component/ComponentAsset'));
+const Components = React.lazy(() => import('./views/component/Components'));
 const AddUser = React.lazy(() => import('./views/addUser/AddUser'));
 const ReportsChart = React.lazy(() => import('./views/reports/Reports'));
 const SeeAllAssets = React.lazy(() => import('./views/seeallassets/SeeAllAssets'));
@@ -40,10 +40,9 @@ const CreateNewAssets = React.lazy(() => import('./views/assets/createnewassets/
 const CreateNewAccessory = React.lazy(() => import('./views/accessories/createnewaccessory/CreateNewAccessory'));
 const UpdateAssets = React.lazy(() => import('./views/assets/updateassets/UpdateAssets'));
 const ViewMoreAssets = React.lazy(() => import('./views/assets/viewmoreassets/ViewMoreAssets'));
-const ViewMoreComponent = React.lazy(() => import('./views/components/viewmorecomponent/ViewMoreComponents'));
-const CreateNewComponent = React.lazy(() => import('./views/components/createnewcomponent/CreateNewComponent'));
 const ReturnAssets = React.lazy(() => import('./views/assets/returnassets/ReturnAssets'));
 const BorrowAssets = React.lazy(() => import('./views/assets/borrowassets/BorrowAssets'));
+const CreateNewComponent = React.lazy(() => import('./views/component/createnewcomponent/CreateNewComponent'));
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -88,10 +87,9 @@ const routes = [
   { path: '/views/accessories/createnewaccessory', exact: true, name: 'Create New Accessory', component: CreateNewAccessory },
   { path: '/views/assets/updateassets', exact: true, name: 'Update Assets', component: UpdateAssets },
   { path: '/views/assets/viewmoreassets', exact: true, name: 'View More Assets', component: ViewMoreAssets },
-  { path: '/views/component/viewmorecomponent', exact: true, name: 'View More Components', component: ViewMoreComponent },
-  { path: '/views/components/createnewcomponent', exact: true, name: 'Create New Component', component: CreateNewComponent },
   { path: '/views/assets/returnassets', exact: true, name: 'Return Assets', component: ReturnAssets },
   { path: '/views/assets/borrowassets', exact: true, name: 'Borrow Assets', component: BorrowAssets },
+  { path: '/views/component/createnewcomponent', exact: true, name: 'Create New Component', component: CreateNewComponent },
 ];
 
 export default routes;

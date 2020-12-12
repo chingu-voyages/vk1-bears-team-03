@@ -1,7 +1,7 @@
 import React, { useState }from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import UploadFileButton from '../uploadfilebutton/UploadFilebButton'
-import BackButtonComponent from '../../components/backbuttoncomponent/BackButtonComponent';
+import BackButtonComponent from '../backbuttoncomponent/BackButtonComponent';
 import SinglePrintButton from '../../printbutton/singleprint/SinglePrintButton';
 
 import { faBarcode, faHistory, faUpload, faInfoCircle} from "@fortawesome/free-solid-svg-icons";

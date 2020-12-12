@@ -1,7 +1,7 @@
 import React, { useState }from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import UploadFileButton from '../uploadfilebutton/UploadFilebButton'
-import BackButton from '../../assets/backbuttonassets/BackButtonAssets';
+import BackButtonAssets from '../../assets/backbuttonassets/BackButtonAssets';
 import SinglePrintButton from '../../printbutton/singleprint/SinglePrintButton';
 
 import {  faSave, faFile, faHistory, faUpload, faHdd, faInfoCircle} from "@fortawesome/free-solid-svg-icons";
@@ -22,7 +22,7 @@ const ViewMoreAssets = () => {
         <CCol xs="12" md="6" lg="12" className="mb-4">
         <CCard>
           <CCardHeader>
-                <BackButton/>
+                <BackButtonAssets/>
                 
           </CCardHeader>
           <CCardBody>

@@ -5,7 +5,7 @@ import {
 
 } from '@coreui/react'
 
-import BackButtonAssets from '../backbuttoncomponent/BackButtonComponent'
+import BackButtonComponent from '../../../views/component/backbuttoncomponent/BackButtonComponent'
 // import CIcon from '@coreui/icons-react'
 
 
@@ -17,13 +17,13 @@ const CreateNewComponent = () => {
         <CCard>
           <CCardHeader>
 
-          <BackButtonAssets/>
+          <BackButtonComponent/>
           <CButton type="reset" size="md" color="danger" className="mr-1"> Reset</CButton>
           </CCardHeader>
           <CCardBody>
           <CFormGroup row>
                   <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="text-input">Asset Name</CLabel>
+                    <CLabel htmlFor="text-input">Component Name</CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
                     <CInput id="text-input" name="text-input" placeholder="" />
@@ -40,7 +40,7 @@ const CreateNewComponent = () => {
                 </CFormGroup>
                 <CFormGroup row>
                 <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="select">Status</CLabel>
+                    <CLabel htmlFor="select">Category</CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
                     <CSelect custom name="select" id="select">
@@ -74,8 +74,16 @@ const CreateNewComponent = () => {
                   </CCol>
                 </CFormGroup>
                 <CFormGroup row>
+                  <CCol md="2" className="d-flex justify-content-sm-end">
+                    <CLabel htmlFor="text-input">Quantity</CLabel>
+                  </CCol>
+                  <CCol xs="12" md="9">
+                    <CInput id="text-input" name="text-input" placeholder="" />
+                  </CCol>
+                </CFormGroup>
+                <CFormGroup row>
                 <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="select">Manufacturer</CLabel>
+                    <CLabel htmlFor="select">Location</CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
                     <CSelect custom name="select" id="select">
@@ -152,20 +160,7 @@ const CreateNewComponent = () => {
                       </div>
                       </CCol>
                     </CFormGroup>
-                    <CFormGroup row>
-                <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="select">Default Location</CLabel>
-                  </CCol>
-                  <CCol xs="12" md="9">
-                    <CSelect custom name="select" id="select">
-                      <option value="0">Please select</option>
-                      <option value="1">Option #1</option>
-                      <option value="2">Option #2</option>
-                      <option value="3">Option #3</option>
-                    </CSelect>
-                  </CCol>
-                  
-                </CFormGroup>
+                    
                 
                 <CFormGroup row>
                 <CCol md="2" className="d-flex justify-content-sm-end">
