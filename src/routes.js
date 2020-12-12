@@ -43,6 +43,8 @@ const ViewMoreAssets = React.lazy(() => import('./views/assets/viewmoreassets/Vi
 const ReturnAssets = React.lazy(() => import('./views/assets/returnassets/ReturnAssets'));
 const BorrowAssets = React.lazy(() => import('./views/assets/borrowassets/BorrowAssets'));
 const CreateNewComponent = React.lazy(() => import('./views/component/createnewcomponent/CreateNewComponent'));
+const ViewMoreComponent = React.lazy(() => import('./views/component/viewmorecomponent/ViewMoreComponents'));
+
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -90,6 +92,7 @@ const routes = [
   { path: '/views/assets/returnassets', exact: true, name: 'Return Assets', component: ReturnAssets },
   { path: '/views/assets/borrowassets', exact: true, name: 'Borrow Assets', component: BorrowAssets },
   { path: '/views/component/createnewcomponent', exact: true, name: 'Create New Component', component: CreateNewComponent },
+  { path: '/views/component/viewmorecomponent', exact: true, name: 'View More Component', component: ViewMoreComponent },
 ];
 
 export default routes;
