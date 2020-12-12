@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import { Route } from 'react-router-dom'
 import {
   CCardBody,
   CDataTable,
@@ -93,9 +93,13 @@ const Softwares = () => {
                   <CButton size="sm" color="dark" className="mr-1">
                     View More
                   </CButton>
-                  <CButton size="sm" color="primary" className="mr-1">
-                    Update
+
+
+                  <Route render={({ history}) => (
+                  <CButton type="reset" size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/softwares/updatesoftware') }}>
+                        Update
                   </CButton>
+                )}/>
                   <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>
                   <CButton size="sm" color="success" className="mr-1">
                   Borrow

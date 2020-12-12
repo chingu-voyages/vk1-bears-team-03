@@ -13,9 +13,9 @@ const Users = React.lazy(() => import('./views/users/Users'));
 const User = React.lazy(() => import('./views/users/User'));
 const AddUser = React.lazy(() => import('./views/users/adduser/AddUser'));
 
-const Software = React.lazy(() => import('./views/software/Software'));
-const Softwares = React.lazy(() => import('./views/software/Softwares'));
-const AddSoftware = React.lazy(() => import('./views/software/addSoftware/AddSoftware'));
+const Software = React.lazy(() => import('./views/softwares/Software'));
+const Softwares = React.lazy(() => import('./views/softwares/Softwares'));
+const AddSoftware = React.lazy(() => import('./views/softwares/addSoftware/AddSoftware'));
 
 const Permits = React.lazy(() => import('./views/permits/Permits'));
 const AddPermit = React.lazy(() => import('./views/permits/addpermit/AddPermit'));
@@ -71,6 +71,14 @@ const ReturnAssets = React.lazy(() => import('./views/assets/returnassets/Return
 const UpdateComponent = React.lazy(() => import('./views/components/updatecomponent/UpdateComponent'));
 
 const ViewMoreComponent = React.lazy(() => import('./views/components/viewmorecomponent/ViewMoreComponents'));
+
+const UpdateSoftware = React.lazy(() => import('./views/softwares/updatesoftware/UpdateSoftware'));
+
+const BorrowComponent = React.lazy(() => import('./views/components/borrowcomponent/BorrowComponent'));
+const ReturnComponent = React.lazy(() => import('./views/components/returncomponent/ReturnComponent'));
+
+
+
 
 
 const routes = [
@@ -145,6 +153,10 @@ const routes = [
 
 
   { path: '/views/components/viewmorecomponent', exact: true, name: 'View More Component', component: ViewMoreComponent },
+  { path: '/views/components/borrowcomponent', exact: true, name: 'Borrow Component', component: BorrowComponent },
+  { path: '/views/components/returncomponent', exact: true, name: 'Return Component', component: ReturnComponent },
+  { path: '/views/softwares/updatesoftware', exact: true, name: 'Update Software', component: UpdateSoftware },
+
 
 ];
 

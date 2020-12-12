@@ -105,9 +105,24 @@ return (
                 Update
               </CButton>
                 )}/>
+
                
                 
                 <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>
+                <Route render={({ history}) => (
+                <CButton size="sm" color="success" className="mr-1" onClick= {() => { history.push('/views/components/borrowcomponent') }}>
+                Borrow
+              </CButton>
+                )}/>
+               
+
+               <Route render={({ history}) => (
+                <CButton size="sm" color="warning" className="mr-1" onClick= {() => { history.push('/views/components/returncomponent') }}>
+                Return
+              </CButton>
+                )}/>
+
+                
                 <CModal
                   show={modal}
                   onClose={toggle}
