@@ -6,20 +6,20 @@ import {
 import BackButton from '../../backButton/BackButton'
 import CancelButton from '../../cancelbutton/CancelButton'
 
-const AddLocation = () => {
+const AddConsumable = () => {
     
     return(
         
         <CCol xs="12" md="6" lg="12" className="mb-4">
         <CCard>
           <CCardHeader>
-          <BackButton location='/views/locations' />
+          <BackButton location='/views/consumables' />
           <CButton type="reset" size="md" color="danger" className="mr-1"> Reset</CButton>
           </CCardHeader>
           <CCardBody>
           <CFormGroup row>
                   <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="text-input">Asset Name</CLabel>
+                    <CLabel htmlFor="text-input">Consumable Name</CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
                     <CInput id="text-input" name="text-input" placeholder="" />
@@ -27,13 +27,20 @@ const AddLocation = () => {
                  
                 </CFormGroup>
                 <CFormGroup row>
-                  <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="text-input">Asset Tag</CLabel>
+                <CCol md="2" className="d-flex justify-content-sm-end">
+                    <CLabel htmlFor="select">Category</CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
-                    <CInput id="text-input" name="text-input" placeholder="" />
+                    <CSelect custom name="select" id="select">
+                      <option value="0">Please select</option>
+                      <option value="1">Option #1</option>
+                      <option value="2">Option #2</option>
+                      <option value="3">Option #3</option>
+                    </CSelect>
                   </CCol>
+                  
                 </CFormGroup>
+                
                 <CFormGroup row>
                 <CCol md="2" className="d-flex justify-content-sm-end">
                     <CLabel htmlFor="select">Status</CLabel>
@@ -114,6 +121,14 @@ const AddLocation = () => {
                   </CCol>
                 </CFormGroup>
                 <CFormGroup row>
+                  <CCol md="2" className="d-flex justify-content-sm-end">
+                    <CLabel htmlFor="text-input">Quantity</CLabel>
+                  </CCol>
+                  <CCol xs="12" md="9">
+                    <CInput id="text-input" name="text-input" placeholder="" />
+                  </CCol>
+                </CFormGroup>
+                <CFormGroup row>
                 <CCol md="2" className="d-flex justify-content-sm-end">
                     <CLabel htmlFor="text-input">Purchase Cost</CLabel>
                   </CCol>
@@ -187,7 +202,7 @@ const AddLocation = () => {
                 <CCardFooter row>
                 <CCol md="12" className="d-flex justify-content-sm-end">
                 <CButton type="reset" size="md" color="primary" className="mr-1 px-4">  Save</CButton>
-                <CancelButton size='md' location='/views/locations' />              
+                <CancelButton size='md' location='/views/consumables' />              
               </CCol>
             </CCardFooter>
           </CCardBody>
@@ -198,4 +213,4 @@ const AddLocation = () => {
     )
 }
 
-export default AddLocation
+export default AddConsumable

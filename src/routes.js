@@ -2,6 +2,8 @@
 import React from 'react';
 
 
+
+
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'));
 const Colors = React.lazy(() => import('./views/theme/colors/Colors'));
 const Typography = React.lazy(() => import('./views/theme/typography/Typography'));
@@ -25,24 +27,24 @@ const Accessories = React.lazy(() => import('./views/accessories/Accessories'));
 const Accessory = React.lazy(() => import('./views/accessories/Accessory'));
 const AddAccessory = React.lazy(() => import('./views/accessories/addaccessory/AddAccessory'));
 
-const Consumables = React.lazy(() => import('./views/consumable/Consumables'));
-const Consumable = React.lazy(() => import('./views/consumable/Consumable'));
-const AddConsumable = React.lazy(() => import('./views/consumable/addconsumable/AddConsumable'));
+const Consumables = React.lazy(() => import('./views/consumables/Consumables'));
+const Consumable = React.lazy(() => import('./views/consumables/Consumable'));
+const AddConsumable = React.lazy(() => import('./views/consumables/addconsumable/AddConsumable'));
 
 const Requests = React.lazy(() => import('./views/request/Requests'));
 const Request = React.lazy(() => import('./views/request/Request'));
 
-const Locations = React.lazy(() => import('./views/location/Locations'));
-const Location = React.lazy(() => import('./views/location/Location'));
-const AddLocation = React.lazy(() => import('./views/location/addlocation/AddLocation'));
+const Locations = React.lazy(() => import('./views/locations/Locations'));
+const Location = React.lazy(() => import('./views/locations/Location'));
+const AddLocation = React.lazy(() => import('./views/locations/addlocation/AddLocation'));
 
-const Departments = React.lazy(() => import('./views/department/Departments'));
-const Department = React.lazy(() => import('./views/department/Department'));
-const AddDepartment = React.lazy(() => import('./views/department/adddepartment/AddDepartment'));
+const Departments = React.lazy(() => import('./views/departments/Departments'));
+const Department = React.lazy(() => import('./views/departments/Department'));
+const AddDepartment = React.lazy(() => import('./views/departments/adddepartment/AddDepartment'));
 
-const Supplier = React.lazy(() => import('./views/supplier/Supplier'));
-const Suppliers = React.lazy(() => import('./views/supplier/Suppliers'));
-const AddSupplier = React.lazy(() => import('./views/supplier/addsupplier/AddSupplier'));
+const Supplier = React.lazy(() => import('./views/suppliers/Supplier'));
+const Suppliers = React.lazy(() => import('./views/suppliers/Suppliers'));
+const AddSupplier = React.lazy(() => import('./views/suppliers/addsupplier/AddSupplier'));
 
 const ComponentAsset = React.lazy(() => import('./views/components/ComponentAsset'));
 const Components = React.lazy(() => import('./views/components/Components'));
@@ -98,6 +100,28 @@ const ViewMoreAccessory = React.lazy(() => import('./views/accessories/viewmorea
 const BorrowAccessory = React.lazy(() => import('./views/accessories/borrowaccessory/BorrowAccessory'));
 
 const ReturnAccessory = React.lazy(() => import('./views/accessories/returnaccessory/ReturnAccessory'));
+
+const ViewMoreConsumable = React.lazy(() => import('./views/consumables/viewmoreconsumble/ViewMoreConsumable'));
+
+const UpdateConsumable = React.lazy(() => import('./views/consumables/updateconsumable/UpdateConsumable'));
+
+const BorrowConsumable = React.lazy(() => import('./views/consumables/borrowconsumable/BorrowConsumable'));
+
+const UpdateLocation = React.lazy(() => import('./views/locations/updatelocation/UpdateLocation'));
+
+const ViewMoreLocation = React.lazy(() => import('./views/locations/viewmorelocation/ViewMoreLocation'));
+
+
+const ViewMoreDepartment = React.lazy(() => import('./views/departments/viewmoredepartment/ViewMoreDepartment'));
+
+
+const UpdateDepartment = React.lazy(() => import('./views/departments/updatedepartment/UpdateDepartment'));
+
+const ViewMoreSupplier = React.lazy(() => import('./views/suppliers/viewmoresupplier/ViewMoreSupplier'));
+
+const UpdateSupplier = React.lazy(() => import('./views/suppliers/updatesupplier/UpdateSupplier'));
+
+const AddCategory = React.lazy(() => import('./views/categories/addcategory/AddCategory'));
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -193,6 +217,29 @@ const routes = [
   { path: '/views/accessories/borrowaccessory', exact: true, name: 'Borrow Accessory', component: BorrowAccessory },
 
   { path: '/views/accessories/returnaccessory', exact: true, name: 'Return Accessory', component: ReturnAccessory },
+
+  { path: '/views/consumables/viewmoreconsumable', exact: true, name: 'View More Consumable', component: ViewMoreConsumable },
+
+  { path: '/views/consumables/updateconsumable', exact: true, name: 'Update Consumable', component: UpdateConsumable },
+
+  { path: '/views/consumables/borrowconsumable', exact: true, name: 'Borrow Consumable', component: BorrowConsumable },
+
+  { path: '/views/locations/updatelocation', exact: true, name: 'Update Location', component: UpdateLocation },
+
+  { path: '/views/locations/viewmorelocation', exact: true, name: 'View More Location', component: ViewMoreLocation },
+
+  { path: '/views/departments/viewmoredepartment', exact: true, name: 'View More Department', component: ViewMoreDepartment },
+
+  { path: '/views/departments/updatedepartment', exact: true, name: 'Update Department', component: UpdateDepartment },
+
+  { path: '/views/suppliers/viewmoresupplier', exact: true, name: 'View More Supplier', component: ViewMoreSupplier },
+
+
+  { path: '/views/suppliers/updatesupplier', exact: true, name: 'Update Supplier', component: UpdateSupplier },
+
+  { path: '/views/categories/addcategory', exact: true, name: 'Add Category', component: AddCategory },
+
+
 ];
 
 export default routes;

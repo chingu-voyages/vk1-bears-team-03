@@ -10,6 +10,7 @@ import {
 
 import categoriesData from "./CategoriesData"
 import { Route } from 'react-router-dom'
+import AddButton from '../addButton/AddButton'
 
 const Categories = () => {
 const [details, setDetails] = useState([])
@@ -66,15 +67,12 @@ const toggle = () => {
 
 return (
   <>
+  <AddButton location='/views/categories/addcategory' />
   <CRow>
             
             <CCol className="d-flex justify-content-sm-end">
                         
-            <Route render={({ history}) => (
-                        <CButton size="md" color="primary" className="mr-1" onClick= {() => { history.push('/views/assets/createnewassets') }}>
-                              Create New
-                        </CButton>
-                          )}/>
+            
                      
                       </CCol>
                       </CRow>

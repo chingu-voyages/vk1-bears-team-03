@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Route } from 'react-router-dom'
 // import { useHistory, useLocation } from 'react-router-dom'
 // import { CIcon } from '@coreui/icons-react'
 import {
@@ -101,12 +102,20 @@ return (
                   {item.name}
                 </h4>
                 <p className="text-muted">Role: {item.user_role}</p>
-                <CButton size="sm" color="dark" className="mr-1">
-                  View More
-                </CButton>
-                <CButton size="sm" color="primary" className="mr-1">
-                  Update
-                </CButton>
+                <Route render={({ history}) => (
+                  <CButton type="reset" size="sm" color="dark" className="mr-1" onClick= {() => { history.push('/views/suppliers/viewmoresupplier') }}>
+                        View More
+                  </CButton>
+                )}/>
+
+               
+               <Route render={({ history}) => (
+                  <CButton type="reset" size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/suppliers/updatesupplier') }}>
+                        Update
+                  </CButton>
+                )}/>
+
+               
                 <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>
                 <CModal
                   show={modal}
