@@ -5,7 +5,7 @@ import {
   CDataTable,
   CButton,
   CRow, CCol, 
-  CCollapse, CModal, CModalHeader,CModalBody, CModalFooter, CLabel, CSelect
+  CCollapse, CModal, CModalHeader,CModalBody, CModalFooter, CSelect
 } from '@coreui/react'
 
 import { Route } from 'react-router-dom'
@@ -70,7 +70,7 @@ return (
   <CRow className="mb-3">
     
     <CCol className="d-flex justify-content-sm-start">
-      <AddButton location='/views/assets/createnewassets' />
+      <AddButton location='/views/assets/addasset' />
            
     </CCol>
     <CCol className="d-flex justify-content-sm-end">
@@ -96,11 +96,8 @@ return (
     itemsPerPageSelect
     header
     fields={fields}
-      tableFilter={tableFilter}
-      itemsPerPageSelect
-      itemsPerPage={5}
-      hover
-      pagination
+    hover
+    pagination
     
     scopedSlots = {{
       'select' : () =>{

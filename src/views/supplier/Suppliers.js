@@ -12,10 +12,11 @@ import {
 import { Route } from 'react-router-dom'
 
 import suppliersData from "./SuppliersData"
+import AddButton from '../addButton/AddButton'
 
 const Suppliers = () => {
 const [details, setDetails] = useState([])
-// const [items, setItems] = useState(usersData)
+
 
 const toggleDetails = (index) => {
   const position = details.indexOf(index)
@@ -60,24 +61,8 @@ const toggle = () => {
 
 return (
   <>
-  <CRow>
-            
-  <CCol className="d-flex justify-content-sm-end">
-              
-  <Route render={({ history}) => (
-              <CButton size="md" color="primary" className="mr-1" onClick= {() => { history.push('/views/assets/createnewassets') }}>
-                    Create New
-              </CButton>
-                )}/>
-           
-            </CCol>
-            </CRow>
+  <AddButton location='/views/suppliers/addsupplier' />
   <CDataTable
-    overTableSlot = { 
-          <CRow>
-                          
-          </CRow>
-    }
     items={suppliersData}
     fields={fields}
     tableFilter={tableFilter}

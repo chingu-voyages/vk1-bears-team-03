@@ -4,12 +4,11 @@ import {
   CCardBody,
   CDataTable,
   CButton,
-  CRow, CCol, 
   CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
 } from '@coreui/react'
 
 import consumablesData from "./ConsumablesData"
-import { Route } from 'react-router-dom'
+import AddButton from '../addButton/AddButton'
 
 const Consumables = () => {
 const [details, setDetails] = useState([])
@@ -66,24 +65,10 @@ const toggle = () => {
 
 return (
   <>
-  <CRow>
-            
-            <CCol className="d-flex justify-content-sm-end">
-                        
-            <Route render={({ history}) => (
-                        <CButton size="md" color="primary" className="mr-1" onClick= {() => { history.push('/views/assets/createnewassets') }}>
-                              Create New
-                        </CButton>
-                          )}/>
-                     
-                      </CCol>
-                      </CRow>
-            <CDataTable
-              overTableSlot = { 
-                    <CRow>
-                                    
-                    </CRow>
-    }
+  <AddButton location='/views/consumables/addconsumable' />
+
+  <CDataTable
+
     items={consumablesData}
     header
     fields={fields}

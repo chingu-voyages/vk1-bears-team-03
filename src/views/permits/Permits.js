@@ -10,6 +10,7 @@ import {
 
 import permitsData from "./PermitsData"
 import { Route } from 'react-router-dom'
+import AddButton from '../addButton/AddButton'
 
 const Permits = () => {
 const [details, setDetails] = useState([])
@@ -67,24 +68,8 @@ const toggle = () => {
 
 return (
   <>
-   <CRow>
-              
-  <CCol className="d-flex justify-content-sm-end">
-              
-  <Route render={({ history}) => (
-              <CButton size="md" color="primary" className="mr-1" onClick= {() => { history.push('/views/assets/createnewassets') }}>
-                    Create New
-              </CButton>
-                )}/>
-           
-            </CCol>
-            </CRow>
+  <AddButton location='/views/permits/addpermit' />
   <CDataTable
-    overTableSlot = { 
-          <CRow>
-                          
-          </CRow>
-    }
     items={permitsData}
     header
     fields={fields}

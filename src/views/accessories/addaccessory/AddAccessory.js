@@ -6,15 +6,14 @@ import {
 import BackButton from '../../backButton/BackButton'
 import CancelButton from '../../cancelbutton/CancelButton'
 
-
-const AddComponent = () => {
+const AddAccessory = () => {
     
     return(
         
         <CCol xs="12" md="6" lg="12" className="mb-4">
         <CCard>
           <CCardHeader>
-          <BackButton location='/views/components' />
+          <BackButton location='/views/accessories' />
           <CButton type="reset" size="md" color="danger" className="mr-1"> Reset</CButton>
           </CCardHeader>
           <CCardBody>
@@ -188,8 +187,7 @@ const AddComponent = () => {
                 <CCardFooter row>
                 <CCol md="12" className="d-flex justify-content-sm-end">
                 <CButton type="reset" size="md" color="primary" className="mr-1 px-4">  Save</CButton>
-                <CancelButton size='md' location='/views/components' />
-               
+                <CancelButton size='md' location='/views/accessories' />              
               </CCol>
             </CCardFooter>
           </CCardBody>
@@ -200,4 +198,4 @@ const AddComponent = () => {
     )
 }
 
-export default AddComponent
+export default AddAccessory

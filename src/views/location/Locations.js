@@ -10,7 +10,7 @@ import {
 } from '@coreui/react'
 
 import locationsData from './LocationsData'
-
+import AddButton from '../addButton/AddButton'
 
 import { Route } from 'react-router-dom'
 
@@ -58,29 +58,13 @@ const Requests = () => {
 
   return (
     <>
-    <CRow>
-              
-              <CCol className="d-flex justify-content-sm-end">
-                          
-              <Route render={({ history}) => (
-                          <CButton size="md" color="primary" className="mr-1" onClick= {() => { history.push('/views/assets/createnewassets') }}>
-                                Create New
-                          </CButton>
-                            )}/>
-                       
-                        </CCol>
-                        </CRow>
-              <CDataTable
-                overTableSlot = { 
-                      <CRow>
-                                      
-                      </CRow>
-    }
+    <AddButton location='/views/locations/addlocation' />
+    <CDataTable
       items={locationsData}
       fields={fields}
       tableFilter={tableFilter}
-    itemsPerPageSelect
-    itemsPerPage={5}
+      itemsPerPageSelect
+      itemsPerPage={5}
       hover
       pagination
       scopedSlots = {{

@@ -1,16 +1,13 @@
 import React, { useState }from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import UploadFileButton from '../uploadfilebutton/UploadFilebButton'
 import BackButton from '../backButton/BackButton';
 import SinglePrintButton from '../printbutton/singleprint/SinglePrintButton';
-
 import { faBarcode, faSave, faFile, faKeyboard, faTint, faHistory, faUpload, faHdd} from "@fortawesome/free-solid-svg-icons";
-// import { useHistory, useLocation } from 'react-router-dom'
-// import { CIcon } from '@coreui/icons-react'
 import {
   CCardBody, CCol, CCard, CCardHeader, CTabs, CNav, CTabContent, CTabPane, CNavItem, CNavLink, CInputFile
 
 } from '@coreui/react'
+
 
 const SeeAllAssets = () => {
     
@@ -21,7 +18,7 @@ const SeeAllAssets = () => {
         <CCol xs="12" md="6" lg="12" className="mb-6">
         <CCard>
           <CCardHeader>
-                <BackButton location  = '/views/seeallassets'/>
+                <BackButton location  = '/users'/>
                 
           </CCardHeader>
           <CCardBody>

@@ -10,7 +10,6 @@ import {
 import requestsData from "./RequestsData"
 
 
-
 const Requests = () => {
 const [details, setDetails] = useState([])
 const toggleDetails = (index) => {
@@ -63,19 +62,7 @@ const toggle = () => {
 
 return (
   <>
-  <CRow>
-            
-            <CCol className="d-flex justify-content-sm-end">
-                        
-                     
-                      </CCol>
-                      </CRow>
-            <CDataTable
-              overTableSlot = { 
-                    <CRow>
-                                    
-                    </CRow>
-    }
+  <CDataTable
     items={requestsData}
     header
     fields={fields}

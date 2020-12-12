@@ -1,19 +1,19 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
 import {
   CCardBody, CCol, CCard, CCardHeader, CFormGroup, CLabel, CInput, CSelect, CTextarea, CInputGroupText, CInputGroupAppend, CInputGroupPrepend, CInputGroup, CButton, CCardFooter
 
 } from '@coreui/react'
 import BackButton from '../../backButton/BackButton'
+import CancelButton from '../../cancelbutton/CancelButton'
 
-const CreateNewAssets = () => {
+const AddLocation = () => {
     
     return(
         
         <CCol xs="12" md="6" lg="12" className="mb-4">
         <CCard>
           <CCardHeader>
-          <BackButton location='/views/assets' />
+          <BackButton location='/views/locations' />
           <CButton type="reset" size="md" color="danger" className="mr-1"> Reset</CButton>
           </CCardHeader>
           <CCardBody>
@@ -186,14 +186,8 @@ const CreateNewAssets = () => {
                 </CFormGroup>
                 <CCardFooter row>
                 <CCol md="12" className="d-flex justify-content-sm-end">
-                <CButton type="reset" size="md" color="primary" className="mr-1">  Save</CButton>
-              
-                <Route render={({ history}) => (
-                  <CButton type="reset" size="md" color="danger" className="mr-1" onClick= {() => { history.push('/views/assets') }}>
-                        Cancel
-                  </CButton>
-                )}/>
-                
+                <CButton type="reset" size="md" color="primary" className="mr-1 px-4">  Save</CButton>
+                <CancelButton size='md' location='/views/locations' />              
               </CCol>
             </CCardFooter>
           </CCardBody>
@@ -204,4 +198,4 @@ const CreateNewAssets = () => {
     )
 }
 
-export default CreateNewAssets
+export default AddLocation

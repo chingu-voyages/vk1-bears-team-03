@@ -11,6 +11,7 @@ import {
 
 import departmentsData from './DepartmentsData'
 import { Route } from 'react-router-dom'
+import AddButton from '../addButton/AddButton'
 
 const Departments = () => {
   const [details, setDetails] = useState([])
@@ -56,29 +57,14 @@ const Departments = () => {
 
   return (
     <>
-    <CRow>
-              
-              <CCol className="d-flex justify-content-sm-end">
-                          
-              <Route render={({ history}) => (
-                          <CButton size="md" color="primary" className="mr-1" onClick= {() => { history.push('/views/assets/createnewassets') }}>
-                                Create New
-                          </CButton>
-                            )}/>
-                       
-                        </CCol>
-                        </CRow>
-              <CDataTable
-                overTableSlot = { 
-                      <CRow>
-                                      
-                      </CRow>
-    }
+    <AddButton location='/views/departments/adddepartment' />
+    <CDataTable
+
       items={departmentsData}
       fields={fields}
       tableFilter={tableFilter}
-    itemsPerPageSelect
-    itemsPerPage={5}
+      itemsPerPageSelect
+      itemsPerPage={5}
       hover
       pagination
       scopedSlots = {{

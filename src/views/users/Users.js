@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-// import { useHistory, useLocation } from 'react-router-dom'
-// import { CIcon } from '@coreui/icons-react'
+
 import {
   // CBadge,
   CRow, CCol,
@@ -9,9 +8,9 @@ import {
   CButton, 
   CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
 } from '@coreui/react'
-import { Route } from 'react-router-dom'
+import { Route, Link } from 'react-router-dom'
 
-import Button from '../addButton/AddButton'
+import AddButton from '../addButton/AddButton'
 import usersData from "./UsersData"
 import PrintButton from '../printbutton/PrintButton'
 
@@ -59,31 +58,14 @@ const toggle = () => {
 
 return (
   <>
-    <CRow>
-              
-              <CCol className="d-flex justify-content-sm-end">
-                          
-              <Route render={({ history}) => (
-                          <CButton size="md" color="primary" className="mr-1" onClick= {() => { history.push('/views/users/profile/createnewuser') }}>
-                                Create New
-                          </CButton>
-                            )}/>
-                       
-                        </CCol>
-                        </CRow>
-              <CDataTable
-                overTableSlot = { 
-                      <CRow>
-                                      
-                      </CRow>  }
+  <AddButton location='/users/adduser' />
+
+  <CDataTable
     items={usersData}
     tableFilter={tableFilter}
     itemsPerPage={5}
     itemsPerPageSelect
     fields={fields}
-    tableFilter={tableFilter}
-    itemsPerPageSelect
-    itemsPerPage={5}
     hover
     pagination
     scopedSlots = {{
@@ -127,10 +109,12 @@ return (
               </CButton>
                 )}/>
                 <Route render={({ history}) => (
-                <CButton size="sm" color="dark" className="mr-1" onClick= {() => { history.push('/views/users/profile') }}>
-                View Profile
-              </CButton>
-                )}/>
+                  <CButton size="sm" color="dark" className="mr-1" onClick={() => { 
+                    history.push(`user/${item.id}`) }
+                    }>
+                      View Profile
+                  </CButton>  
+                 )}/>
                 <Route render={({ history}) => (
                 <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/users/profile') }}>
                 Update
