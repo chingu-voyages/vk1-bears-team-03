@@ -66,14 +66,14 @@ const SeeAllAssets = () => {
               <CNavItem>
                   <CNavLink>
                   <FontAwesomeIcon icon={faHistory} className="fonticons"/>
-                  { active === 5 && 'History'}
+                  { active === 6 && 'History'}
                     
                   </CNavLink>
                 </CNavItem>
                 <CNavItem>
                   <CNavLink>
                   <FontAwesomeIcon icon={faUpload} className="fonticons"/>
-                  { active === 6 && 'File Upload'}
+                  { active === 7 && 'File Upload'}
                   </CNavLink>
                  
                 </CNavItem>
@@ -112,7 +112,7 @@ const SeeAllAssets = () => {
                 <CTabPane className ='mb-3'>
                   <br/>
                   {` ${lorem}`}
-                  <SinglePrintButton/>
+                {/* <SinglePrintButton/> */}
                 </CTabPane>
                 <CTabPane>
                   <br/>
