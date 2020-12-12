@@ -122,7 +122,7 @@ return (
                
 
                 <Route render={({ history}) => (
-              <CButton size="sm" color="warning" className="mr-1" onClick= {() => { history.push('/views/accessories/updateaccessory') }}>
+              <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/accessories/updateaccessory') }}>
                     Update
               </CButton>
                 )}/>
