@@ -51,7 +51,7 @@ const SeeAllAssets = React.lazy(() => import('./views/seeallassets/SeeAllAssets'
 const Category = React.lazy(() => import('./views/categories/Category'));
 const Categories = React.lazy(() => import('./views/categories/Categories'));
 // const Profile = React.lazy(() => import('./views/users/profile/ViewProfile'));
-// const UpdateUser = React.lazy(() => import('./views/users/profile/updateuser/UpdateUser'));
+const UpdateUser = React.lazy(() => import('./views/users/profile/updateuser/UpdateUser'));
 
 
 const CreateNewAccessory = React.lazy(() => import('./views/accessories/addaccessory/AddAccessory'));
@@ -112,7 +112,7 @@ const routes = [
   { path: '/views/categories', exact: true, name: 'Categories', component: Categories },
   { path: '/views/categories/:id', exact: true, name: 'Category', component: Category },
   // { path: '/views/users/profile', exact: true, name: 'Profile', component: Profile },
-  // { path: '/views/users/profile/updateuser', exact: true, name: 'Update User', component: UpdateUser },
+  { path: '/views/users/profile/updateuser', exact: true, name: 'Update User', component: UpdateUser },
   
   { path: '/views/accessories/createnewaccessory', exact: true, name: 'Create New Accessory', component: CreateNewAccessory },
   

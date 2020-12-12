@@ -116,7 +116,7 @@ return (
                   </CButton>  
                  )}/>
                 <Route render={({ history}) => (
-                <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/users/profile') }}>
+                <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/users/profile/updateuser') }}>
                 Update
               </CButton>
                 )}/>
