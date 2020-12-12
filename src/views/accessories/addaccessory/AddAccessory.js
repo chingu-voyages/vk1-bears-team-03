@@ -19,24 +19,17 @@ const AddAccessory = () => {
           <CCardBody>
           <CFormGroup row>
                   <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="text-input">Asset Name</CLabel>
+                    <CLabel htmlFor="text-input">Accessory Name</CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
                     <CInput id="text-input" name="text-input" placeholder="" />
                   </CCol>
                  
                 </CFormGroup>
-                <CFormGroup row>
-                  <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="text-input">Asset Tag</CLabel>
-                  </CCol>
-                  <CCol xs="12" md="9">
-                    <CInput id="text-input" name="text-input" placeholder="" />
-                  </CCol>
-                </CFormGroup>
+                
                 <CFormGroup row>
                 <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="select">Status</CLabel>
+                    <CLabel htmlFor="select">Category</CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
                     <CSelect custom name="select" id="select">
@@ -61,17 +54,24 @@ const AddAccessory = () => {
                     />
                   </CCol>
                 </CFormGroup>
-                <CFormGroup row>
-                  <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="text-input">Serial Number</CLabel>
-                  </CCol>
-                  <CCol xs="12" md="9">
-                    <CInput id="text-input" name="text-input" placeholder="" />
-                  </CCol>
-                </CFormGroup>
+                
                 <CFormGroup row>
                 <CCol md="2" className="d-flex justify-content-sm-end">
                     <CLabel htmlFor="select">Manufacturer</CLabel>
+                  </CCol>
+                  <CCol xs="12" md="9">
+                    <CSelect custom name="select" id="select">
+                      <option value="0">Please select</option>
+                      <option value="1">Option #1</option>
+                      <option value="2">Option #2</option>
+                      <option value="3">Option #3</option>
+                    </CSelect>
+                  </CCol>
+                  
+                </CFormGroup>
+                <CFormGroup row>
+                <CCol md="2" className="d-flex justify-content-sm-end">
+                    <CLabel htmlFor="select">Default Location</CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
                     <CSelect custom name="select" id="select">
@@ -131,6 +131,14 @@ const AddAccessory = () => {
                     </CInputGroup>
                   </CCol>
                 </CFormGroup >
+                <CFormGroup row>
+                  <CCol md="2" className="d-flex justify-content-sm-end">
+                    <CLabel htmlFor="text-input">Quantity</CLabel>
+                  </CCol>
+                  <CCol xs="12" md="9">
+                    <CInput id="text-input" name="text-input" placeholder="" />
+                  </CCol>
+                </CFormGroup>
                 <CFormGroup row>
                 <CCol md="2" className="d-flex justify-content-sm-end">
                     <CLabel htmlFor="text-input">Warranty</CLabel>

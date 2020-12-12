@@ -1,6 +1,7 @@
 
 import React from 'react';
 
+
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'));
 const Colors = React.lazy(() => import('./views/theme/colors/Colors'));
 const Typography = React.lazy(() => import('./views/theme/typography/Typography'));
@@ -83,6 +84,21 @@ const BorrowSoftware = React.lazy(() => import('./views/softwares/borrowsoftware
 
 const ReturnSoftware = React.lazy(() => import('./views/softwares/returnsoftware/ReturnSoftware'));
 
+const ViewMorePermit = React.lazy(() => import('./views/permits/viewmorepermit/ViewMorePermit'));
+const UpdatePermit = React.lazy(() => import('./views/permits/updatepermit/UpdatePermit'));
+
+const BorrowPermit = React.lazy(() => import('./views/permits/borrowpermit/BorrowPermit'));
+
+const ReturnPermit = React.lazy(() => import('./views/permits/returnpermit/ReturnPermit'));
+
+const UpdateAccessory = React.lazy(() => import('./views/accessories/updateaccessory/UpdateAccessory'));
+
+const ViewMoreAccessory = React.lazy(() => import('./views/accessories/viewmoreaccessory/ViewMoreAccessory'));
+
+const BorrowAccessory = React.lazy(() => import('./views/accessories/borrowaccessory/BorrowAccessory'));
+
+const ReturnAccessory = React.lazy(() => import('./views/accessories/returnaccessory/ReturnAccessory'));
+
 const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
@@ -161,6 +177,22 @@ const routes = [
   { path: '/views/softwares/viewmoresoftware', exact: true, name: 'View More Software', component: ViewMoreSoftware },
   { path: '/views/softwares/borrowsoftware', exact: true, name: 'Borrow Software', component: BorrowSoftware },
   { path: '/views/softwares/returnsoftware', exact: true, name: 'Return Software', component: ReturnSoftware },
+
+  { path: '/views/permits/viewmorepermit', exact: true, name: 'View More Permit', component: ViewMorePermit },
+
+
+  { path: '/views/permits/updatepermit', exact: true, name: 'Update Permit', component: UpdatePermit },
+
+  { path: '/views/permits/borrowpermit', exact: true, name: 'Update Permit', component: BorrowPermit },
+  { path: '/views/permits/returnpermit', exact: true, name: 'Return Permit', component: ReturnPermit },
+
+  { path: '/views/accessories/updateaccessory', exact: true, name: 'Update Accessory', component: UpdateAccessory },
+
+  { path: '/views/accessories/viewmoreaccessory', exact: true, name: 'View More Accessory', component: ViewMoreAccessory },
+
+  { path: '/views/accessories/borrowaccessory', exact: true, name: 'Borrow Accessory', component: BorrowAccessory },
+
+  { path: '/views/accessories/returnaccessory', exact: true, name: 'Return Accessory', component: ReturnAccessory },
 ];
 
 export default routes;

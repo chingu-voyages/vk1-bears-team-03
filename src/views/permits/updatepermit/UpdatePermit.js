@@ -6,7 +6,7 @@ import {
 import BackButton from '../../backButton/BackButton'
 import CancelButton from '../../cancelbutton/CancelButton'
 
-const AddPermit = () => {
+const UpdatePermit = () => {
     
     return(
         
@@ -141,4 +141,4 @@ const AddPermit = () => {
     )
 }
 
-export default AddPermit
+export default UpdatePermit

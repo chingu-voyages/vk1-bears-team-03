@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Route } from 'react-router-dom'
 import {
   CBadge,
   CCardBody,
@@ -111,20 +112,33 @@ return (
                   {item.name}
                 </h4>
                 <p className="text-muted">Role: {item.user_role}</p>
-                <CButton size="sm" color="dark" className="mr-1">
-                  View More
-                </CButton>
-                <CButton size="sm" color="primary" className="mr-1">
-                  Update
-                </CButton>
+
+                <Route render={({ history}) => (
+                  <CButton type="reset" size="sm" color="dark" className="mr-1" onClick= {() => { history.push('/views/permits/viewmorepermit') }}>
+                        View More
+                  </CButton>
+                )}/>
+             
+             <Route render={({ history}) => (
+                  <CButton type="reset" size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/permits/updatepermit') }}>
+                        Update
+                  </CButton>
+                )}/>
+                
                 
                 <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>
-                <CButton size="sm" color="success" className="mr-1">
-                  Borrow
-                </CButton>
-                <CButton size="sm" color="warning" className="mr-1">
-                  Return
-                </CButton>
+                <Route render={({ history}) => (
+                  <CButton type="reset" size="sm" color="success" className="mr-1" onClick= {() => { history.push('/views/permits/borrowpermit') }}>
+                        Borrow
+                  </CButton>
+                )}/>
+                
+                <Route render={({ history}) => (
+                  <CButton type="reset" size="sm" color="warning" className="mr-1" onClick= {() => { history.push('/views/permits/returnpermit') }}>
+                        Return
+                  </CButton>
+                )}/>
+               
                 <CModal
                   show={modal}
                   onClose={toggle}
