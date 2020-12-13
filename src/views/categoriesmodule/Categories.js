@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Route } from 'react-router-dom'
 import {
   CBadge,
   CCardBody,
@@ -66,7 +67,7 @@ const toggle = () => {
 
 return (
   <>
-  <AddButton location='/views/categories/addcategory' />
+  <AddButton location='/views/categoriesmodule/addcategory' />
   <CRow>
             
             <CCol className="d-flex justify-content-sm-end">
@@ -124,12 +125,19 @@ return (
                   {item.name}
                 </h4>
                 <p className="text-muted">Role: {item.user_role}</p>
-                <CButton size="sm" color="dark" className="mr-1">
-                  View More
-                </CButton>
-                <CButton size="sm" color="primary" className="mr-1">
-                  Update
-                </CButton>
+
+                <Route render={({ history}) => (
+                  <CButton type="reset" size="sm" color="dark" className="mr-1" onClick= {() => { history.push('/views/categoriesmodule/viewmoreCategory') }}>
+                       View More
+                  </CButton>
+                )}/>
+
+                <Route render={({ history}) => (
+                  <CButton type="reset" size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/categoriesmodule/updatecategory') }}>
+                       Update
+                  </CButton>
+                )}/>
+               
                 <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>
                 <CModal
                   show={modal}

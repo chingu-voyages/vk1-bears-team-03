@@ -12,7 +12,7 @@ import {  faHistory, faUpload,  faInfoCircle} from "@fortawesome/free-solid-svg-
 
 import BackButton from '../../backButton/BackButton'
 
-const ViewMoreConsumables = () => {
+const ViewMoreCategory = () => {
   const [active, setActive] = useState(1)
   const lorem = ''
     return(
@@ -20,7 +20,7 @@ const ViewMoreConsumables = () => {
         <CCol xs="12" md="6" lg="12" className="mb-4">
         <CCard>
           <CCardHeader>
-          <BackButton location='/views/consumables' />
+          <BackButton location='/views/categories' />
           <CButton type="reset" size="md" color="danger" className="mr-1"> Reset</CButton>
           </CCardHeader>
           <CCardBody>
@@ -77,4 +77,4 @@ const ViewMoreConsumables = () => {
     )
 }
 
-export default ViewMoreConsumables
+export default ViewMoreCategory

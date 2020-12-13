@@ -57,7 +57,7 @@ const toggle = () => {
 
 return (
   <>
-  <AddButton location='/views/suppliers/addsupplier' />
+  <AddButton location='/views/status/addstatus' />
   <CDataTable
     items={statusData}
     fields={fields}
