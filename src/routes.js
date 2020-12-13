@@ -55,7 +55,6 @@ const SeeAllAssets = React.lazy(() => import('./views/seeallassets/SeeAllAssets'
 const Category = React.lazy(() => import('./views/categoriesmodule/Category'));
 const Categories = React.lazy(() => import('./views/categoriesmodule/Categories'));
 const Profile = React.lazy(() => import('./views/profile/Profile'));
-// const UpdateUser = React.lazy(() => import('./views/users/profile/updateuser/UpdateUser'));
 
 const CreateNewAccessory = React.lazy(() => import('./views/accessories/addaccessory/AddAccessory'));
 const AddComponent = React.lazy(() => import('./views/components/addComponent/AddComponent'));
@@ -130,6 +129,12 @@ const UpdateCategory = React.lazy(() => import('./views/categoriesmodule/updatec
 
 const AddStatus = React.lazy(() => import('./views/status/addstatus/AddStatus'));
 
+const UpdateStatus = React.lazy(() => import('./views/status/updatestatus/UpdateStatus'));
+
+const ViewMoreStatus = React.lazy(() => import('./views/status/viewmorestatus/ViewMoreStatus'));
+
+const Acceptance = React.lazy(() => import('./views/acceptance/Acceptance'));
+
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -186,7 +191,6 @@ const routes = [
   { path: '/views/categories', exact: true, name: 'Categories', component: Categories },
   { path: '/views/categories/:id', exact: true, name: 'Category', component: Category },
   
-  // { path: '/views/users/profile/updateuser', exact: true, name: 'Update User', component: UpdateUser },
   
   { path: '/views/accessories/createnewaccessory', exact: true, name: 'Create New Accessory', component: CreateNewAccessory },
   
@@ -243,8 +247,15 @@ const routes = [
 
   { path: '/views/categoriesmodule/updatecategory', exact: true, name: 'Update Category', component: UpdateCategory },
 
+  { path: '/views/status/updatestatus', exact: true, name: 'Update Status', component: UpdateStatus },
 
 
+  { path: '/views/status/viewmorestatus', exact: true, name: 'View More Status', component: ViewMoreStatus },
+
+  { path: '/views/acceptance', exact: true, name: 'Acceptance', component: Acceptance },
+
+
+  
 ];
 
 export default routes;

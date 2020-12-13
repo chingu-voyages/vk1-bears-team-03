@@ -6,7 +6,7 @@ import {
   CCardBody,
   CDataTable,
   CButton,
-  CCollapse, CModal, CModalHeader,CModalBody, CModalFooter, CBadge
+  CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
 } from '@coreui/react'
 
 import locationsData from './LocationsData'

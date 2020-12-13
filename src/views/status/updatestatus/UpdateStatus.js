@@ -1,42 +1,34 @@
 import React from 'react'
-
 import {
-  CCardBody, CCol, CCard, CCardHeader, CFormGroup, CLabel, CInput, CSelect, CTextarea, CButton, CCardFooter
+  CCardBody, CCol, CCard, CCardHeader, CFormGroup, CLabel, CInput, CSelect, CButton, CCardFooter
 
 } from '@coreui/react'
-
-
-
 import BackButton from '../../backButton/BackButton'
 import CancelButton from '../../cancelbutton/CancelButton'
 
-
-const BorrowConsumable = () => {
+const UpdateStatus = () => {
     
     return(
         
         <CCol xs="12" md="6" lg="12" className="mb-4">
         <CCard>
           <CCardHeader>
-          <BackButton location='/views/consumables' />
+          <BackButton location='/views/status' />
           <CButton type="reset" size="md" color="danger" className="mr-1"> Reset</CButton>
           </CCardHeader>
           <CCardBody>
           <CFormGroup row>
                   <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="text-input">Consumable Name</CLabel>
+                    <CLabel htmlFor="text-input">Status Name</CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
                     <CInput id="text-input" name="text-input" placeholder="" />
                   </CCol>
                  
                 </CFormGroup>
-                
-                
-                
                 <CFormGroup row>
                 <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="select">Select User</CLabel>
+                    <CLabel htmlFor="select">Type</CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
                     <CSelect custom name="select" id="select">
@@ -48,33 +40,11 @@ const BorrowConsumable = () => {
                   </CCol>
                   
                 </CFormGroup>
-                <CFormGroup row>
-                  <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="text-input">Quantity</CLabel>
-                  </CCol>
-                  <CCol xs="12" md="9">
-                    <CInput id="text-input" name="text-input" placeholder="" />
-                  </CCol>
-                </CFormGroup>
-                <CFormGroup row>
-                <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="textarea-input">Notes</CLabel>
-                  </CCol>
-                  <CCol xs="12" md="9">
-                    <CTextarea 
-                      name="textarea-input" 
-                      id="textarea-input" 
-                      rows="2"
-                      placeholder="Content..." 
-                    />
-                  </CCol>
-                </CFormGroup>
+                
                 <CCardFooter row>
                 <CCol md="12" className="d-flex justify-content-sm-end">
-                <CButton type="return" size="md" color="primary" className="mr-1"> Borrow</CButton>
-              
-                <CancelButton size='md' location='/views/consumables' />
-                
+                <CButton type="reset" size="md" color="primary" className="mr-1 px-4">  Save</CButton>
+                <CancelButton size='md' location='/views/status' />              
               </CCol>
             </CCardFooter>
           </CCardBody>
@@ -85,4 +55,4 @@ const BorrowConsumable = () => {
     )
 }
 
-export default BorrowConsumable
+export default UpdateStatus

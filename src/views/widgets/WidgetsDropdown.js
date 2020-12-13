@@ -3,15 +3,11 @@ import {
   CWidgetDropdown,
   CRow,
   CCol,
-  // CDropdown,        <--- for Dropdown Gear Icon on the Cards
-  // CDropdownMenu,    <--- for Dropdown Gear Icon on the Cards
-  // CDropdownItem,    <--- for Dropdown Gear Icon on the Cards
-  // CDropdownToggle   <--- for Dropdown Gear Icon on the Cards
+  
 } from '@coreui/react'
-// import CIcon from '@coreui/icons-react'
+
 import { CButton } from '@coreui/react'
 import ChartLineSimple from '../charts/ChartLineSimple'
-// import ChartBarSimple from '../charts/ChartBarSimple'
 
 const WidgetsDropdown = () => {
   // render

@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 import { Route } from 'react-router-dom'
-// import { useHistory, useLocation } from 'react-router-dom'
-// import { CIcon } from '@coreui/icons-react'
 import {
   CCardBody,
   CDataTable,

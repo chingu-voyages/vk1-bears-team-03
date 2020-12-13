@@ -5,7 +5,6 @@ import CIcon from '@coreui/icons-react'
 
 import softwaresData from './SoftwaresData'
 
-// softwaresData.forEach(software => console.log(software))
 
 const Software = ({match}) => {
 
