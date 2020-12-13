@@ -13,7 +13,7 @@ const AddStatus = () => {
         <CCol xs="12" md="6" lg="12" className="mb-4">
         <CCard>
           <CCardHeader>
-          <BackButton location='/views/statuslabels' />
+          <BackButton location='/views/status' />
           <CButton type="reset" size="md" color="danger" className="mr-1"> Reset</CButton>
           </CCardHeader>
           <CCardBody>
@@ -44,7 +44,7 @@ const AddStatus = () => {
                 <CCardFooter row>
                 <CCol md="12" className="d-flex justify-content-sm-end">
                 <CButton type="reset" size="md" color="primary" className="mr-1 px-4">  Save</CButton>
-                <CancelButton size='md' location='/views/categories' />              
+                <CancelButton size='md' location='/views/status' />              
               </CCol>
             </CCardFooter>
           </CCardBody>

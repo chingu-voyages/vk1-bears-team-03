@@ -27,11 +27,6 @@ const toggleDetails = (index) => {
 
 
 const fields = [
-  // {
-  //   key: 'select',
-  //   label: 'Select',
-  //   _style: { width: '1%'}
-  // },
   { key: 'id'},
   { key: 'name'},
    'address', 'contact_name','phone_number','email_address', 
@@ -57,7 +52,7 @@ const toggle = () => {
 
 return (
   <>
-  <AddButton location='/views/status/addstatus' />
+  <AddButton location='/status/addstatus' />
   <CDataTable
     items={statusData}
     fields={fields}
@@ -67,14 +62,6 @@ return (
     hover
     pagination
     scopedSlots = {{
-      // 'status':
-      //   (item)=>(
-      //     <td>
-      //       <CBadge color={getBadge(item.status)}>
-      //         {item.status}
-      //       </CBadge>
-      //     </td>
-      //   ),
       'show_details':
         (item, index)=>{
           return (

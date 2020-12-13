@@ -192,44 +192,35 @@ const routes = [
 
   { path: '/views/status', exact: true, name: 'Status Lables', component: StatusLabels },
   { path: '/views/status/:id', exact: true, name: 'Status Label', component: StatusLabel },
+  { path: '/status/addstatus', exact: true, name: 'Add Status', component: AddStatus },
+
   { path: '/views/assets/viewmoreassets', exact: true, name: 'View More Assets', component: ViewMoreAssets },
   { path: '/views/assets/updateassets', exact: true, name: 'Update Assets', component: UpdateAssets },
-
   { path: '/views/assets/borrowassets', exact: true, name: 'Borrow Assets', component: BorrowAssets },
-
   { path: '/views/assets/returnassets', exact: true, name: 'Return Assets', component: ReturnAssets },
 
   { path: '/views/components/updatecomponent', exact: true, name: 'Update Component', component: UpdateComponent },
-
-
   { path: '/views/components/viewmorecomponent', exact: true, name: 'View More Component', component: ViewMoreComponent },
   { path: '/views/components/borrowcomponent', exact: true, name: 'Borrow Component', component: BorrowComponent },
   { path: '/views/components/returncomponent', exact: true, name: 'Return Component', component: ReturnComponent },
+  
   { path: '/views/softwares/updatesoftware', exact: true, name: 'Update Software', component: UpdateSoftware },
   { path: '/views/softwares/viewmoresoftware', exact: true, name: 'View More Software', component: ViewMoreSoftware },
   { path: '/views/softwares/borrowsoftware', exact: true, name: 'Borrow Software', component: BorrowSoftware },
   { path: '/views/softwares/returnsoftware', exact: true, name: 'Return Software', component: ReturnSoftware },
 
   { path: '/views/permits/viewmorepermit', exact: true, name: 'View More Permit', component: ViewMorePermit },
-
-
   { path: '/views/permits/updatepermit', exact: true, name: 'Update Permit', component: UpdatePermit },
-
   { path: '/views/permits/borrowpermit', exact: true, name: 'Update Permit', component: BorrowPermit },
   { path: '/views/permits/returnpermit', exact: true, name: 'Return Permit', component: ReturnPermit },
 
   { path: '/views/accessories/updateaccessory', exact: true, name: 'Update Accessory', component: UpdateAccessory },
-
   { path: '/views/accessories/viewmoreaccessory', exact: true, name: 'View More Accessory', component: ViewMoreAccessory },
-
   { path: '/views/accessories/borrowaccessory', exact: true, name: 'Borrow Accessory', component: BorrowAccessory },
-
   { path: '/views/accessories/returnaccessory', exact: true, name: 'Return Accessory', component: ReturnAccessory },
 
   { path: '/views/consumables/viewmoreconsumable', exact: true, name: 'View More Consumable', component: ViewMoreConsumable },
-
   { path: '/views/consumables/updateconsumable', exact: true, name: 'Update Consumable', component: UpdateConsumable },
-
   { path: '/views/consumables/borrowconsumable', exact: true, name: 'Borrow Consumable', component: BorrowConsumable },
 
   { path: '/views/locations/updatelocation', exact: true, name: 'Update Location', component: UpdateLocation },
@@ -251,7 +242,6 @@ const routes = [
 
   { path: '/views/categoriesmodule/updatecategory', exact: true, name: 'Update Category', component: UpdateCategory },
 
-  { path: '/views/status/addstatus', exact: true, name: 'Add Status', component: AddStatus },
 
 
 ];
