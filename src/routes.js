@@ -56,7 +56,6 @@ const Categories = React.lazy(() => import('./views/categories/Categories'));
 // const Profile = React.lazy(() => import('./views/users/profile/ViewProfile'));
 const UpdateUser = React.lazy(() => import('./views/users/profile/updateuser/UpdateUser'));
 
-
 const CreateNewAccessory = React.lazy(() => import('./views/accessories/addaccessory/AddAccessory'));
 const AddComponent = React.lazy(() => import('./views/components/addComponent/AddComponent'));
 

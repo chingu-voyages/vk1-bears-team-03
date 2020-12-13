@@ -9,7 +9,6 @@ import {
 } from '@coreui/react'
 
 import categoriesData from "./CategoriesData"
-import { Route } from 'react-router-dom'
 import AddButton from '../addButton/AddButton'
 
 const Categories = () => {

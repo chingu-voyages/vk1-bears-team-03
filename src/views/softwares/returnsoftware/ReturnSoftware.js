@@ -1,14 +1,12 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
 import {
-  CCardBody, CCol, CCard, CCardHeader, CFormGroup, CLabel, CInput, CSelect, CTextarea, CInputGroupText, CInputGroupAppend, CInputGroupPrepend, CInputGroup, CButton, CCardFooter
+  CCardBody, CCol, CCard, CCardHeader, CFormGroup, CLabel, CInput, CTextarea, CButton, CCardFooter
 
 } from '@coreui/react'
 
 import BackButton from '../../backButton/BackButton'
 import CancelButton from '../../cancelbutton/CancelButton'
 
-// import CIcon from '@coreui/icons-react'
 
 
 const ReturnSoftware = () => {
