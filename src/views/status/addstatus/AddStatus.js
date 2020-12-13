@@ -19,7 +19,7 @@ const AddStatus = () => {
           <CCardBody>
           <CFormGroup row>
                   <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="text-input">Category Name</CLabel>
+                    <CLabel htmlFor="text-input">Status Name</CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
                     <CInput id="text-input" name="text-input" placeholder="" />

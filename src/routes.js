@@ -54,8 +54,8 @@ const ReportsChart = React.lazy(() => import('./views/reports/Reports'));
 const SeeAllAssets = React.lazy(() => import('./views/seeallassets/SeeAllAssets'));
 const Category = React.lazy(() => import('./views/categoriesmodule/Category'));
 const Categories = React.lazy(() => import('./views/categoriesmodule/Categories'));
-// const Profile = React.lazy(() => import('./views/users/profile/ViewProfile'));
-const UpdateUser = React.lazy(() => import('./views/users/profile/updateuser/UpdateUser'));
+const Profile = React.lazy(() => import('./views/profile/Profile'));
+// const UpdateUser = React.lazy(() => import('./views/users/profile/updateuser/UpdateUser'));
 
 const CreateNewAccessory = React.lazy(() => import('./views/accessories/addaccessory/AddAccessory'));
 const AddComponent = React.lazy(() => import('./views/components/addComponent/AddComponent'));
@@ -142,6 +142,7 @@ const routes = [
   { path: '/users', exact: true,  name: 'Users', component: Users },
   { path: '/user/:id', exact: true, name: 'User Details', component: User },
   { path: '/users/adduser', exact: true, name: 'User Registration', component: AddUser },
+  { path: '/users/profile', exact: true, name: 'Profile', component: Profile },
 
   { path: '/views/assets', exact: true, name: 'Assets', component: Asset },
   { path: '/views/assets/addasset', exact: true, name: 'Create New Assets', component: AddAsset },
@@ -184,8 +185,8 @@ const routes = [
   { path: '/views/seeallassets', exact: true, name: 'See All Assets', component: SeeAllAssets },
   { path: '/views/categories', exact: true, name: 'Categories', component: Categories },
   { path: '/views/categories/:id', exact: true, name: 'Category', component: Category },
-  // { path: '/views/users/profile', exact: true, name: 'Profile', component: Profile },
-  { path: '/views/users/profile/updateuser', exact: true, name: 'Update User', component: UpdateUser },
+  
+  // { path: '/views/users/profile/updateuser', exact: true, name: 'Update User', component: UpdateUser },
   
   { path: '/views/accessories/createnewaccessory', exact: true, name: 'Create New Accessory', component: CreateNewAccessory },
   

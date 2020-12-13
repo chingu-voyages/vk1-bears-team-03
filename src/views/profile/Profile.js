@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {CContainer, CRow, CCol, CCardHeader, CCardBody, CCardFooter, CInput, CSelect, CCard, CButton, CModal, CModalHeader, CModalBody, CModalFooter, CDataTable, CCollapse, CCardTitle} from '@coreui/react'
 
 import profile from './profile.png'
-import Button from '../addButton/AddButton'
+// import Button from '../addButton/AddButton'
 import assetsData from '../assets/AssetsData'
 
 const Profile = () => {
@@ -76,7 +76,9 @@ const Profile = () => {
                 </CCol>
               </CRow>
               <CRow className = "my-4 mx-1 d-flex justify-content-end">
-                <Button label = "Save Changes"/>
+                <CButton size="md" color="primary" className="mr-1">
+                  Save Changes
+                </CButton>
               </CRow>
             </CCardBody>
             </CCard>

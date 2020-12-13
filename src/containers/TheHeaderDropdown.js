@@ -8,7 +8,7 @@ import {
   CImg
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-
+import { Route } from 'react-router-dom'
 const TheHeaderDropdown = () => {
   return (
     <CDropdown
@@ -62,9 +62,12 @@ const TheHeaderDropdown = () => {
         >
           <strong>Settings</strong>
         </CDropdownItem>
-        <CDropdownItem>
-          <CIcon name="cil-user" className="mfe-2" />Profile
-        </CDropdownItem>
+        <Route render={({ history}) => (
+            <CDropdownItem onClick={() => {history.push('/users/profile')}}>
+              <CIcon name="cil-user" className="mfe-2" />Profile
+            </CDropdownItem>
+        )}/>
+
         <CDropdownItem>
           <CIcon name="cil-settings" className="mfe-2" /> 
           Settings
