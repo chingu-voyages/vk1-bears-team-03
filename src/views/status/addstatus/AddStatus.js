@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-  CCardBody, CCol, CCard, CCardHeader, CFormGroup, CLabel, CInput, CSelect, CTextarea, CInputGroupText, CInputGroupAppend, CInputGroupPrepend, CInputGroup, CButton, CCardFooter
+  CCardBody, CCol, CCard, CCardHeader, CFormGroup, CLabel, CInput, CSelect, CButton, CCardFooter
 
 } from '@coreui/react'
 import BackButton from '../../backButton/BackButton'

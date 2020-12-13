@@ -60,8 +60,8 @@ const UpdateUser = React.lazy(() => import('./views/users/profile/updateuser/Upd
 const CreateNewAccessory = React.lazy(() => import('./views/accessories/addaccessory/AddAccessory'));
 const AddComponent = React.lazy(() => import('./views/components/addComponent/AddComponent'));
 
-const StatusLabel = React.lazy(() => import('./views/statustag/StatusLabel'));
-const StatusLabels = React.lazy(() => import('./views/statustag/StatusLabels'));
+const StatusLabel = React.lazy(() => import('./views/status/StatusLabel'));
+const StatusLabels = React.lazy(() => import('./views/status/StatusLabels'));
 
 const ViewMoreAssets = React.lazy(() => import('./views/assets/viewmoreassets/ViewMoreAssets'));
 
@@ -128,7 +128,7 @@ const ViewMoreCategory = React.lazy(() => import('./views/categoriesmodule/viewm
 const UpdateCategory = React.lazy(() => import('./views/categoriesmodule/updatecategory/UpdateCategory'));
 
 
-const AddStatus = React.lazy(() => import('./views/statustag/addstatus/AddStatus'));
+const AddStatus = React.lazy(() => import('./views/status/addstatus/AddStatus'));
 
 
 const routes = [
@@ -251,7 +251,7 @@ const routes = [
 
   { path: '/views/categoriesmodule/updatecategory', exact: true, name: 'Update Category', component: UpdateCategory },
 
-  { path: '/views/statustag/addstatus', exact: true, name: 'Add Status', component: AddStatus },
+  { path: '/views/status/addstatus', exact: true, name: 'Add Status', component: AddStatus },
 
 
 ];
