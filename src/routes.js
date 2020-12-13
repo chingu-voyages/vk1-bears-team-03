@@ -1,10 +1,6 @@
 
 import React from 'react';
 
-
-
-
-
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'));
 const Colors = React.lazy(() => import('./views/theme/colors/Colors'));
 const Typography = React.lazy(() => import('./views/theme/typography/Typography'));
@@ -131,6 +127,8 @@ const UpdateCategory = React.lazy(() => import('./views/categoriesmodule/updatec
 const AddStatus = React.lazy(() => import('./views/status/addstatus/AddStatus'));
 
 
+
+
 const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
@@ -225,22 +223,16 @@ const routes = [
   { path: '/views/consumables/borrowconsumable', exact: true, name: 'Borrow Consumable', component: BorrowConsumable },
 
   { path: '/views/locations/updatelocation', exact: true, name: 'Update Location', component: UpdateLocation },
-
   { path: '/views/locations/viewmorelocation', exact: true, name: 'View More Location', component: ViewMoreLocation },
 
   { path: '/views/departments/viewmoredepartment', exact: true, name: 'View More Department', component: ViewMoreDepartment },
-
   { path: '/views/departments/updatedepartment', exact: true, name: 'Update Department', component: UpdateDepartment },
 
   { path: '/views/suppliers/viewmoresupplier', exact: true, name: 'View More Supplier', component: ViewMoreSupplier },
-
-
   { path: '/views/suppliers/updatesupplier', exact: true, name: 'Update Supplier', component: UpdateSupplier },
 
   { path: '/views/categoriesmodule/addcategory', exact: true, name: 'Add Category', component: AddCategory },
-
   { path: '/views/categoriesmodule/viewmorecategory', exact: true, name: 'View More Category', component: ViewMoreCategory },
-
   { path: '/views/categoriesmodule/updatecategory', exact: true, name: 'Update Category', component: UpdateCategory },
 
 
