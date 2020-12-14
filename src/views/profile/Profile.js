@@ -1,13 +1,14 @@
 import React, {useState} from 'react'
-import {CContainer, CRow, CCol, CCardHeader, CCardBody, CCardFooter, CInput, CSelect, CCard, CButton, CModal, CModalHeader, CModalBody, CModalFooter, CDataTable, CCollapse, CCardTitle} from '@coreui/react'
+import { Route } from 'react-router-dom'
+import {CContainer, CRow, CCol, CCardHeader, CCardBody, CCardFooter, CInput, CCard, CButton, CModal, CModalHeader, CModalBody, CModalFooter, CDataTable, CCollapse, CCardTitle} from '@coreui/react'
 
 import profile from './profile.png'
-// import Button from '../addButton/AddButton'
+
 import assetsData from '../assets/AssetsData'
 
 const Profile = () => {
   const [details, setDetails] = useState([])
-  // const [items, setItems] = useState(usersData)
+ 
   
   const toggleDetails = (index) => {
     const position = details.indexOf(index)
@@ -125,6 +126,13 @@ const Profile = () => {
                               More Details
                             </CButton>
                             <CButton size="sm" color="warning" className="mr-1" onClick={toggle}>Process Return</CButton>
+                            
+                            <Route render={({ history}) => (
+                            <CButton type="accept" size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/acceptance') }}>
+                            Accept Assets
+                            </CButton>
+                             )}/>
+                            
                             <CModal
                               show={modal}
                               onClose={toggle}

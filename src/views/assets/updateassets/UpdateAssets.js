@@ -181,7 +181,7 @@ const UpdateAssets = () => {
                     <CLabel htmlFor="text-input">Upload Image</CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
-                  {/* <CInput type="date" id="date-input" name="date-input" placeholder="date" /> */}
+                
                   </CCol>
                 </CFormGroup>
                 <CCardFooter row>

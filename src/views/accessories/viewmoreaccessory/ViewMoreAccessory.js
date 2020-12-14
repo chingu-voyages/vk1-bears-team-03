@@ -1,12 +1,9 @@
 import React, { useState }from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import UploadFileButton from '../uploadfilebutton/UploadFilebButton'
-// import BackButtonComponent from '../backbuttoncomponent/BackButtonComponent';
 import SinglePrintButton from '../../printbutton/singleprint/SinglePrintButton';
 
 import { faSortAmountDown, faHistory, faUpload, faInfoCircle} from "@fortawesome/free-solid-svg-icons";
-// import { useHistory, useLocation } from 'react-router-dom'
-// import { CIcon } from '@coreui/icons-react'
+
 import {
   CCardBody, CCol, CCard, CCardHeader, CTabs, CNav, CTabPane, CNavItem, CNavLink, CInputFile, CTabContent
 

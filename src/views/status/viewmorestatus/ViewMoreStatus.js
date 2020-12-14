@@ -1,28 +1,26 @@
-import React, { useState }from 'react'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import SinglePrintButton from '../../printbutton/singleprint/SinglePrintButton';
 
-import { faUsers, faHistory, faUpload, faInfoCircle} from "@fortawesome/free-solid-svg-icons";
+import React, { useState }from 'react'
 import {
-  CCardBody, CCol, CCard, CCardHeader, CTabs, CNav, CTabPane, CNavItem, CNavLink, CInputFile, CTabContent
+  CCardBody, CCol, CCard, CCardHeader, CTabs, CNav, CTabPane, CNavItem, CNavLink, CInputFile, CTabContent, CButton
 
 } from '@coreui/react'
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {  faHistory, faUpload,  faInfoCircle} from "@fortawesome/free-solid-svg-icons";
 
 
 import BackButton from '../../backButton/BackButton'
 
-const ViewMoreDepartment = () => {
-    
+const ViewMoreStatus = () => {
   const [active, setActive] = useState(1)
   const lorem = ''
-
     return(
         
         <CCol xs="12" md="6" lg="12" className="mb-4">
         <CCard>
           <CCardHeader>
-          <BackButton location='/views/departments' />
-                
+          <BackButton location='/views/categories' />
+          <CButton type="reset" size="md" color="danger" className="mr-1"> Reset</CButton>
           </CCardHeader>
           <CCardBody>
           <CTabs activeTab={active} onActiveTabChange={idx => setActive(idx)}>
@@ -33,24 +31,18 @@ const ViewMoreDepartment = () => {
                     { active === 0 && 'Details'}
                   </CNavLink>
                 </CNavItem>
-                <CNavItem>
-                  <CNavLink>    
-                    <FontAwesomeIcon icon={faUsers} className="fonticons"/>
-                    { active === 1 && 'Users'}
-                  </CNavLink>
-                </CNavItem>
-                
-                  <CNavItem>
+               
+                 <CNavItem>
                   <CNavLink>
                   <FontAwesomeIcon icon={faHistory} className="fonticons"/>
-                  { active === 2 && 'History'}
+                  { active === 1 && 'History'}
                     
                   </CNavLink>
                 </CNavItem>
                 <CNavItem>
                   <CNavLink>
                   <FontAwesomeIcon icon={faUpload} className="fonticons"/>
-                  { active === 3 && 'File Upload'}
+                  { active === 2 && 'File Upload'}
                     
                   </CNavLink>
                 </CNavItem>
@@ -59,27 +51,24 @@ const ViewMoreDepartment = () => {
                 <CTabPane>
                   <br/>
                   {` ${lorem}`}
-                  <SinglePrintButton/>
+                  {/* <SinglePrintButton/> */}
                 </CTabPane>
                 <CTabPane>
                   <br/>
                   {` ${lorem}`}
-                  <SinglePrintButton/>
-                </CTabPane>
-                <CTabPane>
-                  <br/>
-                  {` ${lorem}`}
-                  <SinglePrintButton/>
+                  {/* <SinglePrintButton/> */}
                 </CTabPane>
                 
                 <CTabPane>
                   <br/>
                   {` ${lorem}`}
-                  <CInputFile id="file-input" name="file-input"/>
+                   <CInputFile id="file-input" name="file-input"/>
+  
                 </CTabPane>
               </CTabContent>
             </CTabs>
           </CCardBody>
+
         </CCard>
       </CCol>
 
@@ -87,4 +76,4 @@ const ViewMoreDepartment = () => {
     )
 }
 
-export default ViewMoreDepartment
+export default ViewMoreStatus

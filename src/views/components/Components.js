@@ -13,7 +13,6 @@ import AddButton from '../addButton/AddButton'
 
 const Components = () => {
 const [details, setDetails] = useState([])
-// const [items, setItems] = useState(usersData)
 
 const toggleDetails = (index) => {
   const position = details.indexOf(index)
