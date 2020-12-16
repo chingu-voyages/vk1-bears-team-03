@@ -4,6 +4,7 @@ import {CContainer, CRow, CCol, CCardHeader, CCardBody, CCardFooter, CInput, CCa
 
 import profile from './profile.png'
 
+
 import assetsData from '../assets/AssetsData'
 
 const Profile = () => {

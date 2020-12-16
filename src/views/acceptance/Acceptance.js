@@ -13,7 +13,7 @@ const Acceptance = () => {
         <CCol xs="12" md="6" lg="12" className="mb-4">
         <CCard>
           <CCardHeader>
-          {/* <BackButton location='/views/profile' /> */}
+          {/* <BackButton location='/views/users/profile' /> */}
           <CButton type="reset" size="md" color="danger" className="mr-1"> Reset</CButton>
           </CCardHeader>
           <CCardBody>
