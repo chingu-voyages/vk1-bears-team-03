@@ -59,8 +59,8 @@ const Profile = React.lazy(() => import('./views/profile/Profile'));
 const CreateNewAccessory = React.lazy(() => import('./views/accessories/addaccessory/AddAccessory'));
 const AddComponent = React.lazy(() => import('./views/components/addComponent/AddComponent'));
 
-const StatusLabel = React.lazy(() => import('./views/status/StatusLabel'));
-const StatusLabels = React.lazy(() => import('./views/status/StatusLabels'));
+const StatusLabel = React.lazy(() => import('./views/labels/StatusLabel'));
+const StatusLabels = React.lazy(() => import('./views/labels/StatusLabels'));
 
 const ViewMoreAssets = React.lazy(() => import('./views/assets/viewmoreassets/ViewMoreAssets'));
 
@@ -127,13 +127,15 @@ const ViewMoreCategory = React.lazy(() => import('./views/categoriesmodule/viewm
 const UpdateCategory = React.lazy(() => import('./views/categoriesmodule/updatecategory/UpdateCategory'));
 
 
-const AddStatus = React.lazy(() => import('./views/status/addstatus/AddStatus'));
+const AddStatus = React.lazy(() => import('./views/labels/addstatus/AddStatus'));
 
-const UpdateStatus = React.lazy(() => import('./views/status/updatestatus/UpdateStatus'));
+const UpdateStatus = React.lazy(() => import('./views/labels/updatestatus/UpdateStatus'));
 
-const ViewMoreStatus = React.lazy(() => import('./views/status/viewmorestatus/ViewMoreStatus'));
+const ViewMoreStatus = React.lazy(() => import('./views/labels/viewmorestatus/ViewMoreStatus'));
 
 const Acceptance = React.lazy(() => import('./views/acceptance/Acceptance'));
+
+// const Login = React.lazy(() => import('./views/pages/login/Login'));
 
 
 const routes = [
@@ -247,14 +249,14 @@ const routes = [
 
   { path: '/views/categoriesmodule/updatecategory', exact: true, name: 'Update Category', component: UpdateCategory },
 
-  { path: '/views/status/updatestatus', exact: true, name: 'Update Status', component: UpdateStatus },
+  { path: '/views/labels/updatestatus', exact: true, name: 'Update Status', component: UpdateStatus },
 
 
-  { path: '/views/status/viewmorestatus', exact: true, name: 'View More Status', component: ViewMoreStatus },
+  { path: '/views/labels/viewmorestatus', exact: true, name: 'View More Status', component: ViewMoreStatus },
 
   { path: '/views/acceptance', exact: true, name: 'Acceptance', component: Acceptance },
 
-
+  // { path: '/views/pages/login', exact: true, name: 'Login', component: Login },
   
 ];
 

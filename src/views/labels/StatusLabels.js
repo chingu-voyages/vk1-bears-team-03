@@ -89,12 +89,12 @@ return (
                 <p className="text-muted">Role: {item.user_role}</p>
 
                 <Route render={({ history}) => (
-                  <CButton type="reset" size="sm" color="dark" className="mr-1" onClick= {() => { history.push('/views/status/viewmorestatus') }}>
+                  <CButton type="reset" size="sm" color="dark" className="mr-1" onClick= {() => { history.push('/views/labels/viewmorestatus') }}>
                         View More
                   </CButton>
                 )}/>
                 <Route render={({ history}) => (
-                  <CButton type="reset" size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/status/updatestatus') }}>
+                  <CButton type="reset" size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/labels/updatestatus') }}>
                         Update
                   </CButton>
                 )}/>
