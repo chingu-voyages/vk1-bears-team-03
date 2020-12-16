@@ -8,7 +8,7 @@ import {
   CImg
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-
+import { Route } from 'react-router-dom'
 const TheHeaderDropdown = () => {
   return (
     <CDropdown
@@ -62,9 +62,12 @@ const TheHeaderDropdown = () => {
         >
           <strong>Settings</strong>
         </CDropdownItem>
-        <CDropdownItem>
-          <CIcon name="cil-user" className="mfe-2" />Profile
-        </CDropdownItem>
+        <Route render={({ history}) => (
+            <CDropdownItem onClick={() => {history.push('/users/profile')}}>
+              <CIcon name="cil-user" className="mfe-2" />Profile
+            </CDropdownItem>
+        )}/>
+
         <CDropdownItem>
           <CIcon name="cil-settings" className="mfe-2" /> 
           Settings
@@ -80,10 +83,11 @@ const TheHeaderDropdown = () => {
           <CBadge color="primary" className="mfs-auto">42</CBadge>
         </CDropdownItem>
         <CDropdownItem divider />
-        <CDropdownItem>
-          <CIcon name="cil-lock-locked" className="mfe-2" /> 
-          Lock Account
-        </CDropdownItem>
+        <Route render={({ history}) => (
+            <CDropdownItem onClick={() => {history.push('/views/pages/login')}}>
+              <CIcon name="cil-lock-locked" className="mfe-2" />Log Out
+            </CDropdownItem>
+        )}/>
       </CDropdownMenu>
     </CDropdown>
   )

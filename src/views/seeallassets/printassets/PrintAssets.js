@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactToPrint from 'react-to-print';
  
-// import { ComponentToPrint } from './ComponentToPrint';
  
 export class ComponentToPrint extends React.PureComponent {
     render() {

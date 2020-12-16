@@ -1,5 +1,5 @@
 import React from 'react'
-import { faBarcode, faPrint, faDatabase, faSave, faTachometerAlt, faFile, faKeyboard, faTint, faComment, faHdd} from "@fortawesome/free-solid-svg-icons";
+import { faUsers, faBarcode, faPrint, faDatabase, faSave, faTachometerAlt, faFile, faKeyboard, faTint, faComment, faHdd} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "src/containers/_nav.css"
@@ -19,6 +19,12 @@ export default [
   {
     _tag: 'CSidebarNavTitle',
     _children: ['info']
+  },
+  {
+    _tag: 'CSidebarNavItem',
+    name: ' Users',
+    to: '/users',
+    icon: <FontAwesomeIcon icon={faUsers} className="fonticons"/>,
   },
   {
     _tag: 'CSidebarNavItem',
@@ -101,7 +107,7 @@ export default [
       {
         _tag: 'CSidebarNavItem',
         name: 'Status Labels',
-        to: '/views/categories',
+        to: '/views/status',
         icon: '',
         
       },

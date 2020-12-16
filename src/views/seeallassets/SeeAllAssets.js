@@ -1,28 +1,24 @@
 import React, { useState }from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import UploadFileButton from '../uploadfilebutton/UploadFilebButton'
-import BackButton from '../users/backbutton/BackButton';
+import BackButton from '../backButton/BackButton';
 import SinglePrintButton from '../printbutton/singleprint/SinglePrintButton';
-
 import { faBarcode, faSave, faFile, faKeyboard, faTint, faHistory, faUpload, faHdd} from "@fortawesome/free-solid-svg-icons";
-// import { useHistory, useLocation } from 'react-router-dom'
-// import { CIcon } from '@coreui/icons-react'
 import {
   CCardBody, CCol, CCard, CCardHeader, CTabs, CNav, CTabContent, CTabPane, CNavItem, CNavLink, CInputFile
 
 } from '@coreui/react'
 
+
 const SeeAllAssets = () => {
     
   const [active, setActive] = useState(1)
   const lorem = ''
-
     return(
         
-        <CCol xs="12" md="6" lg="12" className="mb-4">
+        <CCol xs="12" md="6" lg="12" className="mb-6">
         <CCard>
           <CCardHeader>
-                <BackButton/>
+                <BackButton location  = '/users'/>
                 
           </CCardHeader>
           <CCardBody>
@@ -78,45 +74,45 @@ const SeeAllAssets = () => {
                   <CNavLink>
                   <FontAwesomeIcon icon={faUpload} className="fonticons"/>
                   { active === 7 && 'File Upload'}
-                    
                   </CNavLink>
+                 
                 </CNavItem>
               </CNav>
               <CTabContent>
                 <CTabPane>
                   <br/>
                   {` ${lorem}`}
-                  <SinglePrintButton/>
+                  {/* <SinglePrintButton/> */}
                 </CTabPane>
                 <CTabPane>
                   <br/>
                   {` ${lorem}`}
-                  <SinglePrintButton/>
+                  {/* <SinglePrintButton/> */}
                 </CTabPane>
                 <CTabPane>
                   <br/>
                   {` ${lorem}`}
-                  <SinglePrintButton/>
+                  {/* <SinglePrintButton/> */}
                 </CTabPane>
                 <CTabPane>
                   <br/>
                   {` ${lorem}`}
-                  <SinglePrintButton/>
+                  {/* <SinglePrintButton/> */}
                 </CTabPane>
                 <CTabPane>
                   <br/>
                   {` ${lorem}`}
-                  <SinglePrintButton/>
+                  {/* <SinglePrintButton/> */}
                 </CTabPane>
                 <CTabPane>
                   <br/>
                   {` ${lorem}`}
-                  <SinglePrintButton/>
+                  {/* <SinglePrintButton/> */}
                 </CTabPane>
-                <CTabPane>
+                <CTabPane className ='mb-3'>
                   <br/>
                   {` ${lorem}`}
-                  <SinglePrintButton/>
+                {/* <SinglePrintButton/> */}
                 </CTabPane>
                 <CTabPane>
                   <br/>
@@ -125,8 +121,11 @@ const SeeAllAssets = () => {
                 </CTabPane>
               </CTabContent>
             </CTabs>
+            <SinglePrintButton/>
           </CCardBody>
+          
         </CCard>
+        
       </CCol>
 
       

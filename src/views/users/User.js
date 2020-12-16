@@ -1,8 +1,8 @@
 import React from 'react'
 import { CCard, CCardBody, CCardHeader, CCol, CRow } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-
 import usersData from './UsersData'
+import BackButton from '../backButton/BackButton'
 
 const User = ({match}) => {
   const user = usersData.find( user => user.id.toString() === match.params.id)
@@ -10,7 +10,9 @@ const User = ({match}) => {
     [['id', (<span><CIcon className="text-muted" name="cui-icon-ban" /> Not found</span>)]]
 
   return (
-    <CRow>
+    <>
+    <BackButton location='/users' />
+    <CRow className='mt-2'>
       <CCol lg={6}>
         <CCard>
           <CCardHeader>
@@ -35,8 +37,9 @@ const User = ({match}) => {
               </table>
           </CCardBody>
         </CCard>
-      </CCol>
+      </CCol> 
     </CRow>
+    </>
   )
 }
 

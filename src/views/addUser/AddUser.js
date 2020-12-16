@@ -46,17 +46,6 @@ const AddUser = () =>{
                     className='col-6'
                   />
                 </CFormGroup>
-                {/* <CFormGroup>
-                  <CLabel htmlFor="nf-password">Password</CLabel>
-                  <CInput
-                    type="password"
-                    id="nf-password"
-                    name="nf-password"
-                    placeholder="Enter Password.."
-                    autoComplete="current-password"
-                  />
-                  <CFormText className="help-block">Please enter your password</CFormText>
-                </CFormGroup> */}
               </CForm>
             </CCol>
                 <CButton size="lg" color="primary" className="ml-5 px-5">Register</CButton>

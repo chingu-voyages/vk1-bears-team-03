@@ -1,5 +1,5 @@
 import React from 'react'
-import { CCard, CCardBody, CCardHeader, CCol, CInputCheckbox, CRow } from '@coreui/react'
+import { CCard, CCardBody, CCardHeader, CCol, CRow } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 
 import assetsData from './AssetsData'

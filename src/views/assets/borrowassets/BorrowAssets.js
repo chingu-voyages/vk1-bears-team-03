@@ -1,12 +1,13 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 import {
-  CCardBody, CCol, CCard, CCardHeader, CFormGroup, CLabel, CInput, CSelect, CTextarea, CInputGroupText, CInputGroupAppend, CInputGroupPrepend, CInputGroup, CButton, CCardFooter
+  CCardBody, CCol, CCard, CCardHeader, CFormGroup, CLabel, CInput, CSelect, CTextarea, CButton, CCardFooter
 
 } from '@coreui/react'
 
-import BackButtonAssets from 'src/views/assets/backbuttonassets/BackButtonAssets'
 // import CIcon from '@coreui/icons-react'
+
+import BackButton from '../../backButton/BackButton'
 
 
 const BorrowAssets = () => {
@@ -16,8 +17,7 @@ const BorrowAssets = () => {
         <CCol xs="12" md="6" lg="12" className="mb-4">
         <CCard>
           <CCardHeader>
-
-          <BackButtonAssets/>
+          <BackButton location='/views/assets' />
           <CButton type="reset" size="md" color="danger" className="mr-1"> Reset</CButton>
           </CCardHeader>
           <CCardBody>

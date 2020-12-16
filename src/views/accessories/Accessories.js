@@ -1,18 +1,16 @@
 import React, { useState } from 'react'
-// import { useHistory, useLocation } from 'react-router-dom'
-// import { CIcon } from '@coreui/icons-react'
+
+import { Route } from 'react-router-dom'
 import {
   CBadge,
   CCardBody,
   CDataTable,
   CButton,
-  CRow, CCol, 
   CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
 } from '@coreui/react'
 
 import accessoriesData from "./AccessoriesData"
-
-import { Route } from 'react-router-dom'
+import AddButton from '../addButton/AddButton'
 
 const Accessories = () => {
 const [details, setDetails] = useState([])
@@ -30,14 +28,14 @@ const toggleDetails = (index) => {
 
 
 const fields = [
-  {
-    key: 'select',
-    label: 'Select',
-    _style: { width: '1%'}
-  },
+  // {
+  //   key: 'select',
+  //   label: 'Select',
+  //   _style: { width: '1%'}
+  // },
   { key: 'id'},
   { key: 'name'},
-   'serial_number', 'asset_tag','location', 'status',
+   'category', 'quantity','available', 
   {
     key: 'show_details',
     label: 'Actions',
@@ -70,24 +68,9 @@ const toggle = () => {
 
 return (
   <>
-    <CRow>
-              
-              <CCol className="d-flex justify-content-sm-end">
-                          
-              <Route render={({ history}) => (
-                          <CButton size="md" color="primary" className="mr-1" onClick= {() => { history.push('/views/assets/createnewassets') }}>
-                                Create New
-                          </CButton>
-                            )}/>
-                       
-                        </CCol>
-                        </CRow>
-              <CDataTable
-                overTableSlot = { 
-                      <CRow>
-                                      
-                      </CRow>
-    }
+  <AddButton location='/views/accessories/addaccessory' />
+
+  <CDataTable
     items={accessoriesData}
     header
     fields={fields}
@@ -131,19 +114,32 @@ return (
                   {item.name}
                 </h4>
                 <p className="text-muted">Role: {item.user_role}</p>
-                <CButton size="sm" color="dark" className="mr-1">
-                 View More
-                </CButton>
-                <CButton size="sm" color="primary" className="mr-1">
-                  Update
-                </CButton>
+                <Route render={({ history}) => (
+              <CButton size="sm" color="dark" className="mr-1" onClick= {() => { history.push('/views/accessories/viewmoreaccessory') }}>
+                    View More
+              </CButton>
+                )}/>
+               
+
+                <Route render={({ history}) => (
+              <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/accessories/updateaccessory') }}>
+                    Update
+              </CButton>
+                )}/>
+                
                 <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>
-                <CButton size="sm" color="success" className="mr-1">
-                  Borrow
-                </CButton>
-                <CButton size="sm" color="warning" className="mr-1">
-                  Return
-                </CButton>
+                <Route render={({ history}) => (
+              <CButton size="sm" color="success" className="mr-1" onClick= {() => { history.push('/views/accessories/borrowaccessory') }}>
+                    Borrow
+              </CButton>
+                )}/>
+               
+               <Route render={({ history}) => (
+              <CButton size="sm" color="warning" className="mr-1" onClick= {() => { history.push('/views/accessories/returnaccessory') }}>
+                    Return
+              </CButton>
+                )}/>
+               
                 <CModal
                   show={modal}
                   onClose={toggle}

@@ -1,29 +1,26 @@
-import React, { useState }from 'react'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import UploadFileButton from '../uploadfilebutton/UploadFilebButton'
-import BackButtonAssets from '../../assets/backbuttonassets/BackButtonAssets';
-import SinglePrintButton from '../../printbutton/singleprint/SinglePrintButton';
 
-import {  faSave, faFile, faHistory, faUpload, faHdd, faInfoCircle} from "@fortawesome/free-solid-svg-icons";
-// import { useHistory, useLocation } from 'react-router-dom'
-// import { CIcon } from '@coreui/icons-react'
+import React, { useState }from 'react'
 import {
-  CCardBody, CCol, CCard, CCardHeader, CTabs, CNav, CTabPane, CNavItem, CNavLink, CInputFile, CTabContent
+  CCardBody, CCol, CCard, CCardHeader, CTabs, CNav, CTabPane, CNavItem, CNavLink, CInputFile, CTabContent, CButton
 
 } from '@coreui/react'
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {  faSave, faFile, faHistory, faUpload, faHdd, faInfoCircle} from "@fortawesome/free-solid-svg-icons";
+
+
+import BackButton from '../../backButton/BackButton'
+
 const ViewMoreAssets = () => {
-    
   const [active, setActive] = useState(1)
   const lorem = ''
-
     return(
         
         <CCol xs="12" md="6" lg="12" className="mb-4">
         <CCard>
           <CCardHeader>
-                <BackButtonAssets/>
-                
+          <BackButton location='/views/assets' />
+          <CButton type="reset" size="md" color="danger" className="mr-1"> Reset</CButton>
           </CCardHeader>
           <CCardBody>
           <CTabs activeTab={active} onActiveTabChange={idx => setActive(idx)}>
@@ -72,17 +69,17 @@ const ViewMoreAssets = () => {
                 <CTabPane>
                   <br/>
                   {` ${lorem}`}
-                  <SinglePrintButton/>
+                  {/* <SinglePrintButton/> */}
                 </CTabPane>
                 <CTabPane>
                   <br/>
                   {` ${lorem}`}
-                  <SinglePrintButton/>
+                  {/* <SinglePrintButton/> */}
                 </CTabPane>
                 <CTabPane>
                   <br/>
                   {` ${lorem}`}
-                  <SinglePrintButton/>
+                  {/* <SinglePrintButton/> */}
                 </CTabPane>
                 <CTabPane>
                   <br/>
@@ -92,7 +89,7 @@ const ViewMoreAssets = () => {
                 <CTabPane>
                   <br/>
                   {` ${lorem}`}
-                  <SinglePrintButton/>
+                  {/* <SinglePrintButton/> */}
                 </CTabPane>
                 <CTabPane>
                   <br/>
@@ -103,6 +100,7 @@ const ViewMoreAssets = () => {
               </CTabContent>
             </CTabs>
           </CCardBody>
+
         </CCard>
       </CCol>
 

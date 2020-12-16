@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
+import { Route } from 'react-router-dom'
 import {
   CBadge,
   CCardBody,
   CDataTable,
   CButton,
-  CRow, CCol, 
   CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
 } from '@coreui/react'
 
 import permitsData from "./PermitsData"
-import { Route } from 'react-router-dom'
+import AddButton from '../addButton/AddButton'
 
 const Permits = () => {
 const [details, setDetails] = useState([])
@@ -27,21 +27,21 @@ const toggleDetails = (index) => {
 
 
 const fields = [
-  {
-    key: 'select',
-    label: 'Select',
-    _style: { width: '1%'}
-  },
-  { key: 'id'},
-  { key: 'name'},
-   'serial_number', 'asset_tag','location', 'status',
-  {
-    key: 'show_details',
-    label: 'Actions',
-    _style: { width: '1%' },
-    sorter: false,
-    filter: false
-  }
+  // {
+    //   key: 'select',
+    //   label: 'Select',
+    //   _style: { width: '1%'}
+    // },
+    { key: 'id'},
+    { key: 'name'},
+     'license_key', 'expiration_date','category', 'quantity','available',
+    {
+      key: 'show_details',
+      label: 'Actions',
+      _style: { width: '1%' },
+      sorter: false,
+      filter: false
+    }
 ]
 const tableFilter = {
   label: 'Search',
@@ -67,24 +67,8 @@ const toggle = () => {
 
 return (
   <>
-   <CRow>
-              
-  <CCol className="d-flex justify-content-sm-end">
-              
-  <Route render={({ history}) => (
-              <CButton size="md" color="primary" className="mr-1" onClick= {() => { history.push('/views/assets/createnewassets') }}>
-                    Create New
-              </CButton>
-                )}/>
-           
-            </CCol>
-            </CRow>
+  <AddButton location='/views/permits/addpermit' />
   <CDataTable
-    overTableSlot = { 
-          <CRow>
-                          
-          </CRow>
-    }
     items={permitsData}
     header
     fields={fields}
@@ -128,20 +112,33 @@ return (
                   {item.name}
                 </h4>
                 <p className="text-muted">Role: {item.user_role}</p>
-                <CButton size="sm" color="dark" className="mr-1">
-                  View More
-                </CButton>
-                <CButton size="sm" color="primary" className="mr-1">
-                  Update
-                </CButton>
+
+                <Route render={({ history}) => (
+                  <CButton type="reset" size="sm" color="dark" className="mr-1" onClick= {() => { history.push('/views/permits/viewmorepermit') }}>
+                        View More
+                  </CButton>
+                )}/>
+             
+             <Route render={({ history}) => (
+                  <CButton type="reset" size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/permits/updatepermit') }}>
+                        Update
+                  </CButton>
+                )}/>
+                
                 
                 <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>
-                <CButton size="sm" color="success" className="mr-1">
-                  Borrow
-                </CButton>
-                <CButton size="sm" color="warning" className="mr-1">
-                  Return
-                </CButton>
+                <Route render={({ history}) => (
+                  <CButton type="reset" size="sm" color="success" className="mr-1" onClick= {() => { history.push('/views/permits/borrowpermit') }}>
+                        Borrow
+                  </CButton>
+                )}/>
+                
+                <Route render={({ history}) => (
+                  <CButton type="reset" size="sm" color="warning" className="mr-1" onClick= {() => { history.push('/views/permits/returnpermit') }}>
+                        Return
+                  </CButton>
+                )}/>
+               
                 <CModal
                   show={modal}
                   onClose={toggle}

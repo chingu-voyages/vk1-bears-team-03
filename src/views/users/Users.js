@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
-// import { useHistory, useLocation } from 'react-router-dom'
-// import { CIcon } from '@coreui/icons-react'
+
 import {
-  // CBadge,
-  CRow, CCol,
+  
+
   CCardBody,
   CDataTable,
   CButton, 
@@ -11,6 +10,7 @@ import {
 } from '@coreui/react'
 import { Route } from 'react-router-dom'
 
+import AddButton from '../addButton/AddButton'
 import usersData from "./UsersData"
 import PrintButton from '../printbutton/PrintButton'
 
@@ -28,16 +28,20 @@ const toggleDetails = (index) => {
   setDetails(newDetails)
 }
 
+const tableFilter = {
+  label: 'Search',
+  placeholder: 'type here...'
+}
 
 const fields = [
-  {
-    key: 'select',
-    label: 'Select',
-    _style: { width: '1%'}
-  },
+  // {
+  //   key: 'select',
+  //   // label: 'Select',
+  //   _style: { width: '1%'}
+  // },
   { key: 'id'},
   { key: 'name'},
-   'serial_number', 'asset_tag','location', 'status',
+   'user_name', 'employee_number','phone_number',  'email_address','departmentg',
   {
     key: 'show_details',
     label: 'Actions',
@@ -46,11 +50,6 @@ const fields = [
     filter: false
   }
 ]
-const tableFilter = {
-  label: 'Search',
-  placeholder: 'Type here..',
-}
-
 const [modal, setModal] = useState(false)
 
 const toggle = () => {
@@ -59,31 +58,26 @@ const toggle = () => {
 
 return (
   <>
-    <CRow>
-              
-              <CCol className="d-flex justify-content-sm-end">
-                          
-              <Route render={({ history}) => (
-                          <CButton size="md" color="primary" className="mr-1" onClick= {() => { history.push('/views/users/profile/createnewuser') }}>
-                                Create New
-                          </CButton>
-                            )}/>
-                       
-                        </CCol>
-                        </CRow>
-              <CDataTable
-                overTableSlot = { 
-                      <CRow>
-                                      
-                      </CRow>  }
+  <AddButton location='/users/adduser' />
+
+  <CDataTable
     items={usersData}
-    fields={fields}
     tableFilter={tableFilter}
-    itemsPerPageSelect
     itemsPerPage={5}
+    itemsPerPageSelect
+    fields={fields}
     hover
     pagination
     scopedSlots = {{
+      'select' : () =>{
+        return (
+        <div className="d-flex justify-content-center align-items-center mt-3">
+          {/* <input id ="select" type="checkbox">
+          </input> */}
+        </div>
+        )
+        
+      },
       'show_details':
         (item, index)=>{
           return (
@@ -115,12 +109,14 @@ return (
               </CButton>
                 )}/>
                 <Route render={({ history}) => (
-                <CButton size="sm" color="dark" className="mr-1" onClick= {() => { history.push('/views/users/profile') }}>
-                View Profile
-              </CButton>
-                )}/>
+                  <CButton size="sm" color="dark" className="mr-1" onClick={() => { 
+                    history.push(`user/${item.id}`) }
+                    }>
+                      View Profile
+                  </CButton>  
+                 )}/>
                 <Route render={({ history}) => (
-                <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/users/profile') }}>
+                <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/users/profile/updateuser') }}>
                 Update
               </CButton>
                 )}/>

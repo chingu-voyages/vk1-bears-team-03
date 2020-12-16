@@ -1,11 +1,12 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
 import {
-  CCardBody, CCol, CCard, CCardHeader, CFormGroup, CLabel, CInput, CSelect, CTextarea, CInputGroupText, CInputGroupAppend, CInputGroupPrepend, CInputGroup, CButton, CCardFooter
+  CCardBody, CCol, CCard, CCardHeader, CFormGroup, CLabel, CInput, CSelect, CTextarea, CButton, CCardFooter
 
 } from '@coreui/react'
 
-import BackButtonAssets from 'src/views/assets/backbuttonassets/BackButtonAssets'
+import BackButton from '../../backButton/BackButton'
+import CancelButton from '../../cancelbutton/CancelButton'
+
 // import CIcon from '@coreui/icons-react'
 
 
@@ -17,7 +18,7 @@ const ReturnAssets = () => {
         <CCard>
           <CCardHeader>
 
-          <BackButtonAssets/>
+          <BackButton location='/views/assets' />
           <CButton type="reset" size="md" color="danger" className="mr-1"> Reset</CButton>
           </CCardHeader>
           <CCardBody>
@@ -100,12 +101,7 @@ const ReturnAssets = () => {
                 <CCol md="12" className="d-flex justify-content-sm-end">
                 <CButton type="return" size="md" color="primary" className="mr-1"> Return</CButton>
               
-                <Route render={({ history}) => (
-            <CButton type="reset" size="md" color="danger" className="mr-1" onClick= {() => { history.push('/views/dashboard') }}>
-                  Cancel
-            </CButton>
-              )}/>
-                
+                <CancelButton size='md' location='/views/assets' />  
               </CCol>
             </CCardFooter>
           </CCardBody>
