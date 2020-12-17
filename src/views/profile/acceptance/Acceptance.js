@@ -3,7 +3,7 @@ import {
   CCardBody, CCol, CCard, CCardHeader, CFormGroup, CLabel, CButton, CCardFooter, CInputRadio, CTextarea
 
 } from '@coreui/react'
-// import BackButton from '../../backButton/BackButton'
+import BackButton from '../../backButton/BackButton'
 // import CancelButton from '../../cancelbutton/CancelButton'
 
 const Acceptance = () => {
@@ -13,7 +13,7 @@ const Acceptance = () => {
         <CCol xs="12" md="6" lg="12" className="mb-4">
         <CCard>
           <CCardHeader>
-          {/* <BackButton location='/views/users/profile' /> */}
+          <BackButton location='/views/profile' />
           <CButton type="reset" size="md" color="danger" className="mr-1"> Reset</CButton>
           </CCardHeader>
           <CCardBody>

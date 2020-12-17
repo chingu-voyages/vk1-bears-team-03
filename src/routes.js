@@ -133,7 +133,7 @@ const UpdateStatus = React.lazy(() => import('./views/labels/updatestatus/Update
 
 const ViewMoreStatus = React.lazy(() => import('./views/labels/viewmorestatus/ViewMoreStatus'));
 
-const Acceptance = React.lazy(() => import('./views/acceptance/Acceptance'));
+const Acceptance = React.lazy(() => import('./views/profile/acceptance/Acceptance'));
 
 // const Login = React.lazy(() => import('./views/pages/login/Login'));
 
@@ -254,7 +254,7 @@ const routes = [
 
   { path: '/views/labels/viewmorestatus', exact: true, name: 'View More Status', component: ViewMoreStatus },
 
-  { path: '/views/acceptance', exact: true, name: 'Acceptance', component: Acceptance },
+  { path: '/views/profile/acceptance', exact: true, name: 'Acceptance', component: Acceptance },
 
   // { path: '/views/pages/login', exact: true, name: 'Login', component: Login },
   

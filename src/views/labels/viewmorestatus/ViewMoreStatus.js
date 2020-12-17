@@ -1,12 +1,12 @@
 
 import React, { useState }from 'react'
 import {
-  CCardBody, CCol, CCard, CCardHeader, CTabs, CNav, CTabPane, CNavItem, CNavLink, CInputFile, CTabContent, CButton
+  CCardBody, CCol, CCard, CCardHeader, CTabs, CNav, CTabPane, CNavItem, CNavLink, CTabContent, CButton
 
 } from '@coreui/react'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {  faHistory, faUpload, faBarcode, faHdd, faSave, faFile, faKeyboard, faTint} from "@fortawesome/free-solid-svg-icons";
+import {  faBarcode, faHdd, faSave, faFile, faKeyboard, faTint} from "@fortawesome/free-solid-svg-icons";
 
 
 import BackButton from '../../backButton/BackButton'
