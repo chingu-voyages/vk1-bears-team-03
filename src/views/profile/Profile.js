@@ -4,6 +4,7 @@ import {CContainer, CRow, CCol, CCardHeader, CCardBody, CCardFooter, CInput, CCa
 
 import profile from './profile.png'
 
+
 import assetsData from '../assets/AssetsData'
 
 const Profile = () => {
@@ -128,7 +129,7 @@ const Profile = () => {
                             <CButton size="sm" color="warning" className="mr-1" onClick={toggle}>Process Return</CButton>
                             
                             <Route render={({ history}) => (
-                            <CButton type="accept" size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/acceptance') }}>
+                            <CButton type="accept" size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/profile/acceptance') }}>
                             Accept Assets
                             </CButton>
                              )}/>
