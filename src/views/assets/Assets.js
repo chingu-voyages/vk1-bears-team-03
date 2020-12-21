@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, {useContext, useEffect, useState} from 'react'
+import { GlobalContext } from '../../context/GlobalState'
 import {
   CBadge,
   CCardBody,
@@ -9,11 +10,17 @@ import {
 } from '@coreui/react'
 
 import { Route } from 'react-router-dom'
-import assetsData from './AssetsData'
 import AddButton from '../addButton/AddButton'
 
 
 const Assets = () => {
+const { assets, getTransactions, deleteAsset } = useContext(GlobalContext)
+  useEffect(() => {
+    getTransactions()
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [])
+
+const assetsData = assets.map((asset) => asset)
 const [details, setDetails] = useState([])
 
 const toggleDetails = (index) => {
@@ -32,14 +39,9 @@ const tableFilter = {
   placeholder: 'type here...'
 }
 const fields = [
-  {
-    key: 'select',
-    label: 'Select',
-    _style: { width: '1%'}
-  },
-  { key: 'id'},
-  { key: 'name'},
-   'serial_number', 'asset_tag','location', 'status',
+  { key: '_id'},
+  { key: 'asset_name'},
+   'asset_serial', 'asset_category','asset_warrantydate', 'asset_status',
   {
     key: 'show_details',
     label: 'Actions',
@@ -90,7 +92,7 @@ return (
               
   </CRow>
   <CDataTable
-    items={assetsData}
+    items={assets}
     tableFilter={tableFilter}
     itemsPerPage={5}
     itemsPerPageSelect
@@ -149,7 +151,7 @@ return (
               </CButton>
                 )}/>
                 <Route render={({ history}) => (
-              <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/assets/updateassets') }}>
+              <CButton size="sm" color="primary" className="mr-1" onClick= {(item) => { history.push('/views/assets/updateasset') }}>
                     Update
               </CButton>
                 )}/>
@@ -176,7 +178,10 @@ return (
                     Are you sure you want to delete User?
                   </CModalBody>
                   <CModalFooter>
-                    <CButton color="primary">Yes</CButton>{' '}
+                    <CButton color="primary"  onClick={() => {
+                      deleteAsset(item._id)
+                      toggle()
+                  }}>Yes</CButton>{' '}
                     <CButton
                       color="secondary"
                       onClick={toggle}

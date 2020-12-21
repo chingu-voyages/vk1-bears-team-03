@@ -1,12 +1,20 @@
-import React, {useState} from 'react'
-import { Route } from 'react-router-dom'
+import React, {useContext, useEffect, useState} from 'react'
+import { GlobalContext } from '../../context/GlobalState'
 import {CContainer, CRow, CCol, CCardHeader, CCardBody, CCardFooter, CInput, CCard, CButton, CModal, CModalHeader, CModalBody, CModalFooter, CDataTable, CCollapse, CCardTitle} from '@coreui/react'
-
+import { Route } from 'react-router-dom'
 import profile from './profile.png'
 
-import assetsData from '../assets/AssetsData'
 
 const Profile = () => {
+
+  const { assets, getAssets } = useContext(GlobalContext)
+
+
+  useEffect(() => {
+      getAssets()
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   const [details, setDetails] = useState([])
  
   
@@ -21,17 +29,29 @@ const Profile = () => {
     setDetails(newDetails)
   }
   const fields = [
-    { key: 'id'},
-    { key: 'name'},
-     'serial_number', 'asset_tag', 'status',
+    { key: '_id'},
+    { key: 'asset_name'},
+     'asset_serial', 'asset_category','asset_warrantydate', 'asset_status',
     {
       key: 'show_details',
-      label: '',
       _style: { width: '1%' },
       sorter: false,
       filter: false
     }
   ]
+
+  // const fields = [
+  //   { key: '_id'},
+  //   { key: 'name'},
+  //    'serial_number', 'asset_tag', 'status',
+  //   {
+  //     key: 'show_details',
+  //     label: '',
+  //     _style: { width: '1%' },
+  //     sorter: false,
+  //     filter: false
+  //   }
+  // ]
   
   const [modal, setModal] = useState(false)
   
@@ -92,7 +112,7 @@ const Profile = () => {
                 Borrowed Assets
               </CCardTitle>
               <CDataTable
-                items={assetsData}
+                items={assets}
                 fields={fields}
                 hover
                 pagination

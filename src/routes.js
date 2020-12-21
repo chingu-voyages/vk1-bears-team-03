@@ -60,7 +60,7 @@ const StatusLabels = React.lazy(() => import('./views/status/StatusLabels'));
 
 const ViewMoreAssets = React.lazy(() => import('./views/assets/viewmoreassets/ViewMoreAssets'));
 
-const UpdateAssets = React.lazy(() => import('./views/assets/updateassets/UpdateAssets'));
+const UpdateAssets = React.lazy(() => import('./views/assets/updateassets/UpdateAsset'));
 
 const BorrowAssets = React.lazy(() => import('./views/assets/borrowassets/BorrowAssets'));
 
@@ -200,7 +200,7 @@ const routes = [
   { path: '/status/addstatus', exact: true, name: 'Add Status', component: AddStatus },
 
   { path: '/views/assets/viewmoreassets', exact: true, name: 'View More Assets', component: ViewMoreAssets },
-  { path: '/views/assets/updateassets', exact: true, name: 'Update Assets', component: UpdateAssets },
+  { path: '/views/assets/updateasset', exact: true, name: 'Update Assets', component: UpdateAssets },
   { path: '/views/assets/borrowassets', exact: true, name: 'Borrow Assets', component: BorrowAssets },
   { path: '/views/assets/returnassets', exact: true, name: 'Return Assets', component: ReturnAssets },
 
