@@ -135,6 +135,8 @@ const Acceptance = React.lazy(() => import('./views/acceptance/Acceptance'));
 
 
 const routes = [
+  
+
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
   { path: '/theme', name: 'Theme', component: Colors, exact: true },
