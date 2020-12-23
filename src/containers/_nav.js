@@ -29,7 +29,7 @@ export default [
   {
     _tag: 'CSidebarNavItem',
     name: ' Assets',
-    to: '/views/assets',
+    to: '/assets',
     icon: <FontAwesomeIcon icon={faBarcode} className="fonticons"/>,
   },
   {
