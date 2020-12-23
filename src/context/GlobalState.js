@@ -63,15 +63,18 @@ export const GlobalProvider = ({ children }) => {
         type: 'ADD_TRANSACTION',
         payload: res.data.data
       });
+
     } catch (err) {
       dispatch({
         type: 'TRANSACTION_ERROR',
         payload: err.response.data.error
       });
     }
+    
   }
 
-  async function updateAsset(id) {
+  async function updateAsset(id, asset) {
+    console.log(id)
     const config = {
       headers: {
         'Content-Type': 'application/json'
@@ -79,12 +82,13 @@ export const GlobalProvider = ({ children }) => {
     }
 
     try {
-      const res = await axios.patch(`/api/v1/assets/${id}`);
+      const res = await axios.put(`/api/v1/assets/updateasset/${id}`, asset, config);
 
       dispatch({
         type: 'UPDATE_ASSET',
-        payload: res.body
+        payload: res.data.data
       });
+      console.log("This is from res.data", res.data.data)
     } catch (err) {
       dispatch({
         type: 'TRANSACTION_ERROR',

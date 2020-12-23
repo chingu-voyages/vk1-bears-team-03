@@ -200,7 +200,7 @@ const routes = [
   { path: '/status/addstatus', exact: true, name: 'Add Status', component: AddStatus },
 
   { path: '/views/assets/viewmoreassets', exact: true, name: 'View More Assets', component: ViewMoreAssets },
-  { path: '/views/assets/updateasset', exact: true, name: 'Update Assets', component: UpdateAssets },
+  { path: '/assets/updateasset/:id', exact: true, name: 'Update Assets', component: UpdateAssets },
   { path: '/views/assets/borrowassets', exact: true, name: 'Borrow Assets', component: BorrowAssets },
   { path: '/views/assets/returnassets', exact: true, name: 'Return Assets', component: ReturnAssets },
 

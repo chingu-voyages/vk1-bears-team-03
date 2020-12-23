@@ -7,6 +7,7 @@ import {
 } from '@coreui/react'
 import BackButton from '../../backButton/BackButton'
 import CancelButton from '../../cancelbutton/CancelButton'
+import dateFormat from 'dateformat'
 
 const AddAsset = () => {
   const { register, handleSubmit, errors } = useForm()
@@ -32,9 +33,9 @@ const AddAsset = () => {
             asset_status:data.asset_status,
             asset_serial:data.asset_serial,
             asset_purchasecost:data.asset_purchasecost,
-            asset_warrantydate:(data.asset_warrantydate).split('T')[0],
+            asset_warrantydate: dateFormat(data.asset_warrantydate, "mm/dd/yyyy")
         }
-
+        
         addAsset(newAsset)
         alert("Successfully Added!")
         console.log(newAsset)

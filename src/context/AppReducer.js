@@ -19,7 +19,7 @@ export default (state, action) => {
     case 'UPDATE_ASSET':
       return {
         ...state,
-        assets: [...state.assets, state.assets.filter(asset => asset._id === action.payload)]
+        assets: [...state.assets, action.payload]
       }
     case 'TRANSACTION_ERROR':
       return {
