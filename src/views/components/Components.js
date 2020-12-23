@@ -65,6 +65,7 @@ return (
     tableFilter={tableFilter}
     itemsPerPageSelect
     itemsPerPage={5}
+    // sorter
     hover
     pagination
     scopedSlots = {{

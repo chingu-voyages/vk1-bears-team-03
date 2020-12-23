@@ -74,6 +74,7 @@ const SeeAllAssets = () => {
                   <CNavLink>
                   <FontAwesomeIcon icon={faUpload} className="fonticons"/>
                   { active === 7 && 'File Upload'}
+                    
                   </CNavLink>
                  
                 </CNavItem>
