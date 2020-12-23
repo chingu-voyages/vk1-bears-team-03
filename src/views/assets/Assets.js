@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, {useContext, useEffect, useState} from 'react'
+import { GlobalContext } from '../../context/GlobalState'
 import {
   CBadge,
   CCardBody,
@@ -9,15 +10,24 @@ import {
 } from '@coreui/react'
 
 import { Route } from 'react-router-dom'
-import assetsData from './AssetsData'
 import AddButton from '../addButton/AddButton'
-
+// import UpdateAsset from './updateassets/UpdateAsset'
 
 const Assets = () => {
+const { assets, getTransactions, deleteAsset } = useContext(GlobalContext)
+  useEffect(() => {
+    getTransactions()
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [])
+
+// const assetsData = assets.map((asset) => asset)
 const [details, setDetails] = useState([])
 
 const toggleDetails = (index) => {
   const position = details.indexOf(index)
+  // console.log("This is from position", position )
+  // console.log("This is from details", details )
+  // console.log("This is from index", index )
   let newDetails = details.slice()
   if (position !== -1) {
     newDetails.splice(position, 1)
@@ -32,14 +42,9 @@ const tableFilter = {
   placeholder: 'type here...'
 }
 const fields = [
-  {
-    key: 'select',
-    label: 'Select',
-    _style: { width: '1%'}
-  },
-  { key: 'id'},
-  { key: 'name'},
-   'serial_number', 'asset_tag','location', 'status',
+  { key: '_id'},
+  { key: 'asset_name'},
+   'asset_serial', 'asset_category','asset_warrantydate', 'asset_status',
   {
     key: 'show_details',
     label: 'Actions',
@@ -65,6 +70,12 @@ const toggle = () => {
   setModal(!modal);
 }
 
+// const handleOnClick = (assetsData) => {
+//   console.log("This is item from assetsssss", assetsData)
+//   // return(
+//   //     <UpdateAsset assetsData={assetsData} /> 
+//   // )
+// }
 return (
   <>
   <CRow className="mb-3">
@@ -90,7 +101,7 @@ return (
               
   </CRow>
   <CDataTable
-    items={assetsData}
+    items={assets}
     tableFilter={tableFilter}
     itemsPerPage={5}
     itemsPerPageSelect
@@ -148,11 +159,40 @@ return (
                     View More
               </CButton>
                 )}/>
-                <Route render={({ history}) => (
-              <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/assets/updateassets') }}>
-                    Update
-              </CButton>
-                )}/>
+                 <Route render={({ history}) => (
+                   <CButton size="sm" color="primary" className="mr-1" onClick= {() => { 
+                    history.push(`/assets/updateasset/${item._id}`) 
+                    console.log("This is history", history)
+                    }}>
+                        Update
+                  </CButton>
+                  )}/>
+
+                {/*     <CButton size="sm" color="primary" className="mr-1" onClick={ () => {
+                //       history.push({
+                //         path: '/views/assets/updateasset',
+                //         state: { asset: assetsData[index] }
+                //       })
+                //     } }>
+                //             Update
+                //       </CButton>
+                //  )}/>
+                 <Route render={({ history}) => (
+                  { handleOnClick(item[index]) }
+                  () => 
+                  { history.push(pathname: '/template',
+                      search: '?query=abc',
+                      state: { assetsData[index]}
+                     )}}>
+                {console.log("This is from onClick item", assetsData[index])} 
+                
+                <CButton size="sm" color="primary" className="mr-1" onClick= {() => { 
+                  history.push('/views/assets/updateasset') 
+                  console.log("This is history", history)
+                  }}>
+                      Update
+                </CButton>
+                )}/> */}
                 
                 
                 <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>
@@ -176,7 +216,10 @@ return (
                     Are you sure you want to delete User?
                   </CModalBody>
                   <CModalFooter>
-                    <CButton color="primary">Yes</CButton>{' '}
+                    <CButton color="primary"  onClick={() => {
+                      deleteAsset(item._id)
+                      toggle()
+                  }}>Yes</CButton>{' '}
                     <CButton
                       color="secondary"
                       onClick={toggle}

@@ -1,12 +1,19 @@
-import React from 'react'
+import React, {useContext, useEffect} from 'react'
+import { GlobalContext } from '../context/GlobalState'
 import { CCard, CCardBody, CCardHeader, CCol, CRow } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 
-import assetsData from './AssetsData'
-
 
 const Asset = ({match}) => {
-  const asset = assetsData.find( asset => asset.id.toString() === match.params.id)
+  const { assets, getAssets } = useContext(GlobalContext)
+
+
+  useEffect(() => {
+      getAssets()
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const asset = assets.find( asset => asset.id.toString() === match.params.id)
   const assetDetails = asset ? Object.entries(asset) : 
     [['id', (<span><CIcon className="text-muted" name="cui-icon-ban" /> Not found</span>)]]
 

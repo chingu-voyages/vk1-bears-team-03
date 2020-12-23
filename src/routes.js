@@ -1,9 +1,6 @@
 
 import React from 'react';
 
-
-
-
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'));
 const Colors = React.lazy(() => import('./views/theme/colors/Colors'));
 const Typography = React.lazy(() => import('./views/theme/typography/Typography'));
@@ -63,7 +60,7 @@ const StatusLabels = React.lazy(() => import('./views/labels/StatusLabels'));
 
 const ViewMoreAssets = React.lazy(() => import('./views/assets/viewmoreassets/ViewMoreAssets'));
 
-const UpdateAssets = React.lazy(() => import('./views/assets/updateassets/UpdateAssets'));
+const UpdateAssets = React.lazy(() => import('./views/assets/updateassets/UpdateAsset'));
 
 const BorrowAssets = React.lazy(() => import('./views/assets/borrowassets/BorrowAssets'));
 
@@ -137,6 +134,8 @@ const Acceptance = React.lazy(() => import('./views/profile/acceptance/Acceptanc
 // const Login = React.lazy(() => import('./views/pages/login/Login'));
 
 
+
+
 const routes = [
   
 
@@ -203,7 +202,7 @@ const routes = [
   { path: '/status/addstatus', exact: true, name: 'Add Status', component: AddStatus },
 
   { path: '/views/assets/viewmoreassets', exact: true, name: 'View More Assets', component: ViewMoreAssets },
-  { path: '/views/assets/updateassets', exact: true, name: 'Update Assets', component: UpdateAssets },
+  { path: '/assets/updateasset/:id', exact: true, name: 'Update Assets', component: UpdateAssets },
   { path: '/views/assets/borrowassets', exact: true, name: 'Borrow Assets', component: BorrowAssets },
   { path: '/views/assets/returnassets', exact: true, name: 'Return Assets', component: ReturnAssets },
 
@@ -232,22 +231,16 @@ const routes = [
   { path: '/views/consumables/borrowconsumable', exact: true, name: 'Borrow Consumable', component: BorrowConsumable },
 
   { path: '/views/locations/updatelocation', exact: true, name: 'Update Location', component: UpdateLocation },
-
   { path: '/views/locations/viewmorelocation', exact: true, name: 'View More Location', component: ViewMoreLocation },
 
   { path: '/views/departments/viewmoredepartment', exact: true, name: 'View More Department', component: ViewMoreDepartment },
-
   { path: '/views/departments/updatedepartment', exact: true, name: 'Update Department', component: UpdateDepartment },
 
   { path: '/views/suppliers/viewmoresupplier', exact: true, name: 'View More Supplier', component: ViewMoreSupplier },
-
-
   { path: '/views/suppliers/updatesupplier', exact: true, name: 'Update Supplier', component: UpdateSupplier },
 
   { path: '/views/categoriesmodule/addcategory', exact: true, name: 'Add Category', component: AddCategory },
-
   { path: '/views/categoriesmodule/viewmorecategory', exact: true, name: 'View More Category', component: ViewMoreCategory },
-
   { path: '/views/categoriesmodule/updatecategory', exact: true, name: 'Update Category', component: UpdateCategory },
 
   { path: '/views/labels/updatestatus', exact: true, name: 'Update Status', component: UpdateStatus },

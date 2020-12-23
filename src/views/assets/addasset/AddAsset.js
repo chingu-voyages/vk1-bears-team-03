@@ -1,201 +1,120 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import { GlobalContext } from '../../../context/GlobalState'
+import { useForm } from 'react-hook-form'
 import {
-  CCardBody, CCol, CCard, CCardHeader, CFormGroup, CLabel, CInput, CSelect, CTextarea, CInputGroupText, CInputGroupAppend, CInputGroupPrepend, CInputGroup, CButton, CCardFooter
+  CForm,CCardBody,CRow, CCol, CCard, CCardHeader, CFormGroup, CLabel, CInput, CSelect, CTextarea, CInputGroupText, CInputGroupAppend, CInputGroupPrepend, CInputGroup, CButton, CCardFooter
 
 } from '@coreui/react'
 import BackButton from '../../backButton/BackButton'
 import CancelButton from '../../cancelbutton/CancelButton'
+import dateFormat from 'dateformat'
 
 const AddAsset = () => {
-    
-    return(
-        
-        <CCol xs="12" md="6" lg="12" className="mb-4">
-        <CCard>
-          <CCardHeader>
-          <BackButton location='/views/assets' />
-          <CButton type="reset" size="md" color="danger" className="mr-1"> Reset</CButton>
-          </CCardHeader>
-          <CCardBody>
-          <CFormGroup row>
-                  <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="text-input">Asset Name</CLabel>
-                  </CCol>
-                  <CCol xs="12" md="9">
-                    <CInput id="text-input" name="text-input" placeholder="" />
-                  </CCol>
-                 
-                </CFormGroup>
-                <CFormGroup row>
-                  <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="text-input">Asset Tag</CLabel>
-                  </CCol>
-                  <CCol xs="12" md="9">
-                    <CInput id="text-input" name="text-input" placeholder="" />
-                  </CCol>
-                </CFormGroup>
-                <CFormGroup row>
-                <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="select">Status</CLabel>
-                  </CCol>
-                  <CCol xs="12" md="9">
-                    <CSelect custom name="select" id="select">
-                      <option value="0">Please select</option>
-                      <option value="1">Option #1</option>
-                      <option value="2">Option #2</option>
-                      <option value="3">Option #3</option>
-                    </CSelect>
-                  </CCol>
-                  
-                </CFormGroup>
-                <CFormGroup row>
-                <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="textarea-input">Description</CLabel>
-                  </CCol>
-                  <CCol xs="12" md="9">
-                    <CTextarea 
-                      name="textarea-input" 
-                      id="textarea-input" 
-                      rows="2"
-                      placeholder="Content..." 
-                    />
-                  </CCol>
-                </CFormGroup>
-                <CFormGroup row>
-                  <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="text-input">Serial Number</CLabel>
-                  </CCol>
-                  <CCol xs="12" md="9">
-                    <CInput id="text-input" name="text-input" placeholder="" />
-                  </CCol>
-                </CFormGroup>
-                <CFormGroup row>
-                <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="select">Manufacturer</CLabel>
-                  </CCol>
-                  <CCol xs="12" md="9">
-                    <CSelect custom name="select" id="select">
-                      <option value="0">Please select</option>
-                      <option value="1">Option #1</option>
-                      <option value="2">Option #2</option>
-                      <option value="3">Option #3</option>
-                    </CSelect>
-                  </CCol>
-                  
-                </CFormGroup>
-                <CFormGroup row>
-                  <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="text-input">Purchase Date</CLabel>
-                  </CCol>
-                  <CCol xs="12" md="9">
-                  <CInput type="date" id="date-input" name="date-input" placeholder="date" />
-                  </CCol>
-                </CFormGroup>
-                <CFormGroup row>
-                <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="select">Supplier</CLabel>
-                  </CCol>
-                  <CCol xs="12" md="9">
-                    <CSelect custom name="select" id="select">
-                      <option value="0">Please select</option>
-                      <option value="1">Option #1</option>
-                      <option value="2">Option #2</option>
-                      <option value="3">Option #3</option>
-                    </CSelect>
-                  </CCol>
-                  
-                </CFormGroup>
-                <CFormGroup row>
-                  <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="text-input">Invoice Number</CLabel>
-                  </CCol>
-                  <CCol xs="12" md="9">
-                    <CInput id="text-input" name="text-input" placeholder="" />
-                  </CCol>
-                </CFormGroup>
-                <CFormGroup row>
-                <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="text-input">Purchase Cost</CLabel>
-                  </CCol>
-                <CCol xs="12" md="9">
-                    <CInputGroup>
-                      <CInputGroupPrepend>
-                        <CInputGroupText>
-                          {/* <CIcon name="cil-euro" /> */} PHP
-                        </CInputGroupText>
-                      </CInputGroupPrepend>
-                      <CInput id="input3-group1" name="input3-group1" placeholder=".." />
-                      <CInputGroupAppend>
-                        <CInputGroupText>.00</CInputGroupText>
-                      </CInputGroupAppend>
-                    </CInputGroup>
-                  </CCol>
-                </CFormGroup >
-                <CFormGroup row>
-                <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="text-input">Warranty</CLabel>
-                  </CCol>
-                  <CCol xs="12" md="9">
-                      <div className="controls">
-                      
-                        <CInputGroup>
-                          <CInput id="appendedInput" size="12" type="text" />
-                          <CInputGroupAppend>
-                            <CInputGroupText>months</CInputGroupText>
-                          </CInputGroupAppend>
-                        </CInputGroup>
-                        
-                      </div>
-                      </CCol>
-                    </CFormGroup>
-                    <CFormGroup row>
-                <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="select">Default Location</CLabel>
-                  </CCol>
-                  <CCol xs="12" md="9">
-                    <CSelect custom name="select" id="select">
-                      <option value="0">Please select</option>
-                      <option value="1">Option #1</option>
-                      <option value="2">Option #2</option>
-                      <option value="3">Option #3</option>
-                    </CSelect>
-                  </CCol>
-                  
-                </CFormGroup>
-                
-                <CFormGroup row>
-                <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="textarea-input">Notes</CLabel>
-                  </CCol>
-                  <CCol xs="12" md="9">
-                    <CTextarea 
-                      name="textarea-input" 
-                      id="textarea-input" 
-                      rows="2"
-                      placeholder="Content..." 
-                    />
-                  </CCol>
-                </CFormGroup>
-                <CFormGroup row>
-                  <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="text-input">Upload Image</CLabel>
-                  </CCol>
-                  <CCol xs="12" md="9">
-                  {/* <CInput type="date" id="date-input" name="date-input" placeholder="date" /> */}
-                  </CCol>
-                </CFormGroup>
-                <CCardFooter row>
-                <CCol md="12" className="d-flex justify-content-sm-end">
-                <CButton type="reset" size="md" color="primary" className="mr-1 px-4">  Save</CButton>
-                <CancelButton size='md' location='/views/assets' />              
-              </CCol>
-            </CCardFooter>
-          </CCardBody>
-        </CCard>
-      </CCol>
+  const { register, handleSubmit, errors } = useForm()
+  const { addAsset } = useContext(GlobalContext)
 
-      
-    )
+  // const onSubmit = data => console.log("This is from onSubmit", data);
+  const clearForm = () => {
+    document.getElementById("assetForm").reset();
+    // this.refs.fieldorg.value="";
+    // this.refs.fieldNum.value="";
+  }
+  const onSubmit = (data) => {
+    // const assetID = await assets.findById(data._id)
+    
+    // if(assetID){
+    //   alert("Asset is already registered! Check Serial number")
+    // }
+
+    try {
+      const newAsset= {
+            asset_name: data.asset_name,
+            asset_category:data.asset_category,
+            asset_status:data.asset_status,
+            asset_serial:data.asset_serial,
+            asset_purchasecost:data.asset_purchasecost,
+            asset_warrantydate: dateFormat(data.asset_warrantydate, "mm/dd/yyyy")
+        }
+        
+        addAsset(newAsset)
+        alert("Successfully Added!")
+        console.log(newAsset)
+        clearForm()
+    } catch (err) {
+      alert(`$err`)
+    }
+    console.log(data)
+  }
+  
+    return (
+          <CCol xs="12" md="6" lg="12" className="mb-4">
+             <CCard>
+             <CCardHeader>
+              <BackButton location='/views/assets' />
+              <CButton type="reset" size="md" color="danger" className="mr-1"> Reset</CButton>
+             </CCardHeader>
+             <CForm id='assetForm' onSubmit = {handleSubmit(onSubmit) } >
+              <CCardBody>
+                <CFormGroup row>
+                        <CCol md="2" className="d-flex justify-content-sm-end">
+                          <CLabel htmlFor="asset_name">Asset Name</CLabel>
+                        </CCol>
+                        <CCol xs="12" md="9">
+                          <input className = 'form-control' type="text" name="asset_name" ref={register} />
+                        </CCol>
+                      
+                      </CFormGroup>
+                      <CFormGroup row>
+                        <CCol md="2" className="d-flex justify-content-sm-end">
+                          <CLabel htmlFor="asset_category">Asset Category</CLabel>
+                        </CCol>
+                        <CCol xs="12" md="9">
+                          <select className = 'form-control' custom name="asset_category" id="asset_category" ref={register}>
+                            <option >Please select</option>
+                            <option value="Electronics">Electronics</option>
+                            <option value="Software">Software</option>
+                            <option value="License">License</option>
+                          </select>
+                        </CCol>
+                      </CFormGroup>
+                      <CFormGroup row>
+                        <CCol md="2" className="d-flex justify-content-sm-end">
+                          <CLabel htmlFor="asset_serial">Serial Number</CLabel>
+                        </CCol>
+                        <CCol xs="12" md="9">
+                          <input id="asset_serial" className = 'form-control' name="asset_serial" ref={register}/>
+                        </CCol>
+                      </CFormGroup>
+                      <CFormGroup row>
+                      <CCol md="2" className="d-flex justify-content-sm-end">
+                          <CLabel htmlFor="asset_purchasecost">Purchase Cost</CLabel>
+                        </CCol>
+                        <CCol xs="12" md="9">
+                          <input id="asset_purchasecost" className = 'form-control' name="asset_purchasecost" placeholder='0.00' ref={register}/>
+                        </CCol>
+                      </CFormGroup>              
+                      <CFormGroup row>
+                        <CCol md="2" className="d-flex justify-content-sm-end">
+                          <CLabel htmlFor="asset_warrantydate">Warranty</CLabel>
+                        </CCol>
+                        <CCol xs="12" md="9">
+                          <input type='Date' id='asset_warrantydate' className = 'form-control' name='asset_warrantydate' ref={register} />
+                        </CCol>
+                      </CFormGroup>
+                    
+                      <CCardFooter row>
+                      <CCol md="12" className="d-flex justify-content-sm-end">
+                      <CButton type="submit" size="md" color="primary" className="mr-1 px-4" >Save</CButton>
+                      <CancelButton size='md' location='/views/assets' />              
+                    </CCol>
+                  </CCardFooter>
+                </CCardBody>
+                </CForm>
+              </CCard>
+            </CCol>
+          
+      )
+          
 }
 
 export default AddAsset

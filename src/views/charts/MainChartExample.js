@@ -23,7 +23,7 @@ const MainChartExample = attributes => {
     }
     return [
       {
-        label: 'My First dataset',
+        label: 'Assets',
         backgroundColor: hexToRgba(brandInfo, 10),
         borderColor: brandInfo,
         pointHoverBackgroundColor: brandInfo,
@@ -31,7 +31,7 @@ const MainChartExample = attributes => {
         data: data1
       },
       {
-        label: 'My Second dataset',
+        label: 'Consumables',
         backgroundColor: 'transparent',
         borderColor: brandSuccess,
         pointHoverBackgroundColor: brandSuccess,
@@ -39,7 +39,7 @@ const MainChartExample = attributes => {
         data: data2
       },
       {
-        label: 'My Third dataset',
+        label: 'Software Licenses',
         backgroundColor: 'transparent',
         borderColor: brandDanger,
         pointHoverBackgroundColor: brandDanger,
