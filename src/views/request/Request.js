@@ -21,7 +21,7 @@ const Request = ({match}) => {
 
   const handleOnClick = (data) => {
     updateRequest(match.params.id, data)
-    alert(`Request Successfully ${data}`)
+    alert(`Request Successfully ${data.request_status}`)
     console.log(data)
     setTimeout(()=>history.push('/views/requests'), 500);
     // window.location.reload()
