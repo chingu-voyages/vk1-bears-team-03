@@ -2,7 +2,7 @@ import React, {useContext, useEffect, useState} from 'react'
 import { GlobalContext } from '../../context/GlobalState'
 import { CButton, CCard, CCardBody, CCardHeader, CCol, CRow } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-
+import { useHistory } from "react-router-dom";
 
 import requestsData from './RequestsData'
 
@@ -15,14 +15,16 @@ const Request = ({match}) => {
     getRequests()
       // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+  let history = useHistory();
 
   const asset = assets.find( asset => asset._id.toString() === match.params.id)
 
   const handleOnClick = (data) => {
     updateRequest(match.params.id, data)
-    alert("Successfully Updated")
+    alert(`Request Successfully ${data}`)
     console.log(data)
-    window.location.reload()
+    setTimeout(()=>history.push('/views/requests'), 500);
+    // window.location.reload()
   }
 
   const requestDetails = asset ? Object.entries(asset) : 
