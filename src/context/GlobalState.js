@@ -97,6 +97,48 @@ export const GlobalProvider = ({ children }) => {
     }
   }
 
+  //Requests
+
+  async function getRequests() {
+    try {
+      const res = await axios.get('/api/v1/requests');
+
+      dispatch({
+        type: 'GET_REQUESTS',
+        payload: res.data.data
+      });
+    } catch (err) {
+      dispatch({
+        type: 'TRANSACTION_ERROR',
+        payload: err.response.data.error
+      });
+    }
+  }
+
+
+  async function updateRequest(id, asset) {
+    console.log(id)
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+
+    try {
+      const res = await axios.patch(`http://localhost:5000/api/v1/requests/${id}`, asset, config);
+
+      dispatch({
+        type: 'UPDATE_REQUEST',
+        payload: res.data.data
+      });
+    } catch (err) {
+      dispatch({
+        type: 'TRANSACTION_ERROR',
+        payload: err.response.data.error
+      });
+    }
+  }  
+
   return (<GlobalContext.Provider value={{
     assets: state.assets,
     error: state.error,
@@ -104,7 +146,9 @@ export const GlobalProvider = ({ children }) => {
     getTransactions,
     deleteAsset,
     addAsset,
-    updateAsset
+    updateAsset,
+    getRequests,
+    updateRequest
   }}>
     {children}
   </GlobalContext.Provider>);

@@ -16,15 +16,26 @@ export default (state, action) => {
         ...state,
         assets: [...state.assets, action.payload]
       }
+    case 'TRANSACTION_ERROR':
+      return {
+        ...state,
+        error: action.payload
+      }
     case 'UPDATE_ASSET':
       return {
         ...state,
         assets: [...state.assets, action.payload]
       }
-    case 'TRANSACTION_ERROR':
+    case 'GET_REQUESTS':
       return {
         ...state,
-        error: action.payload
+        loading: false,
+        assets: action.payload
+      }
+      case 'UPDATE_REQUEST':
+      return {
+        ...state,
+        assets: [...state.assets, action.payload]
       }
     default:
       return state;
