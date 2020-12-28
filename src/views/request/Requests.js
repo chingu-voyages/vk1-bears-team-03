@@ -70,74 +70,23 @@ const Requests = () => {
       hover
       pagination
       scopedSlots = {{
-        // 'status':
-        //   (item)=>(
-        //     <td>
-        //       <CBadge color={getBadge(item.status)}>
-        //         {item.status}
-        //       </CBadge>
-        //     </td>
-        //   ),
         'show_details':
           (item, index)=>{
             return (
               <td className="py-2">
-                <CButton
-                  color="primary"
-                  variant="outline"
-                  shape="square"
-                  size="sm"
-                  onClick={()=>{toggleDetails(index)}}
-                >
-                  {details.includes(index) ? 'Hide' : 'Show'}
-                </CButton>
+              <Route render={({ history}) => (
+              <CButton
+                color="primary"
+                size="sm"
+                onClick={() => { history.push(`requests/${item._id}`) }}>
+                View
+              </CButton>
+              )}/>
               </td>
-              )
-          },
-        'details':
-            (item, index)=>{
-              return (
-              <CCollapse show={details.includes(index)}>
-                <CCardBody>
-                  <h4>
-                    {item.user}
-                  </h4>
-                  <CButton size="sm" color="primary" className="mr-1">
-                    Approve
-                  </CButton>
-                  <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Deny</CButton>
-                  <Route render={({ history}) => (
-                  <CButton size="sm" color="dark" className="mr-1" onClick={() => { 
-                    history.push(`requests/${item._id}`) }
-                    }>
-                      View Request Details
-                  </CButton>  
-                 )}/>
-                  {/* <CButton size="sm" color="dark" className="mr-1" onClick={() => { 
-                    history.push(`requests/${assets.id}`) }}>
-                    View Request Details
-                  </CButton> */}
-                  <CModal
-                    show={modal}
-                    onClose={toggle}
-                  >
-                    <CModalHeader closeButton>Deny Request</CModalHeader>
-                    <CModalBody>
-                      Are you sure you want to deny the request?
-                    </CModalBody>
-                    <CModalFooter>
-                      <CButton color="primary">Yes</CButton>{' '}
-                      <CButton
-                        color="secondary"
-                        onClick={toggle}
-                      >Cancel</CButton>
-                    </CModalFooter>
-                  </CModal>
-                </CCardBody>
-              </CCollapse>
             )
-          }
-      }}
+      }
+      }
+    }
     />
   )
   }
