@@ -37,6 +37,12 @@ export default (state, action) => {
         ...state,
         assets: [...state.assets, action.payload]
       }
+      case 'FILTER_REQUESTS':
+      return {
+        ...state,
+        loading: false,
+        assets: action.payload.filter(asset => asset.request_status === 'Approved' || 'Denied')
+      }
     default:
       return state;
   }

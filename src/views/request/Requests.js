@@ -16,9 +16,9 @@ import Button from '../addButton/AddButton'
 
 const Requests = () => {
 
-  const { assets, getRequests } = useContext(GlobalContext)
+  const { assets, filterRequests } = useContext(GlobalContext)
   useEffect(() => {
-    getRequests()
+    filterRequests()
       // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 

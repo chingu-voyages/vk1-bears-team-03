@@ -116,6 +116,23 @@ export const GlobalProvider = ({ children }) => {
   }
 
 
+  async function filterRequests() {
+    try {
+      const res = await axios.get('/api/v1/requests');
+
+      dispatch({
+        type: 'FILTER_REQUESTS',
+        payload: res.data.data
+      });
+    } catch (err) {
+      dispatch({
+        type: 'TRANSACTION_ERROR',
+        payload: err.response.data.error
+      });
+    }
+  }
+
+
   async function updateRequest(id, asset) {
     console.log(id)
     const config = {
@@ -148,7 +165,8 @@ export const GlobalProvider = ({ children }) => {
     addAsset,
     updateAsset,
     getRequests,
-    updateRequest
+    updateRequest,
+    filterRequests
   }}>
     {children}
   </GlobalContext.Provider>);
