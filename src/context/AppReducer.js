@@ -36,8 +36,14 @@ export default (state, action) => {
       return {
         ...state,
         loading: false,
-        requests: action.payload.filter(request => request.request_status === 'Approved' || 'Denied')
+        requests: action.payload.filter(request => request.request_status === 'Approved')
       }
+      case 'GET_DENIED_REQUESTS':
+        return {
+          ...state,
+          loading: false,
+          requests: action.payload.filter(request => request.request_status === 'Denied')
+        }
       case 'UPDATE_REQUEST':
         return {
           ...state,

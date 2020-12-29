@@ -98,7 +98,7 @@ export const GlobalProvider = ({ children }) => {
     }
   }
 
-  //Requests
+  //<----Requests-related Functions----->
 
   async function getRequests() {
     try {
@@ -123,6 +123,22 @@ export const GlobalProvider = ({ children }) => {
 
       dispatch({
         type: 'GET_PENDING_REQUESTS',
+        payload: res.data.data
+      });
+    } catch (err) {
+      dispatch({
+        type: 'TRANSACTION_ERROR',
+        payload: err.response.data.error
+      });
+    }
+  }
+
+  async function getDeniedRequests() {
+    try {
+      const res = await axios.get('/api/v1/requests');
+
+      dispatch({
+        type: 'GET_DENIED_REQUESTS',
         payload: res.data.data
       });
     } catch (err) {
@@ -168,7 +184,8 @@ export const GlobalProvider = ({ children }) => {
     updateAsset,
     getRequests,
     updateRequest,
-    getPendingRequests
+    getPendingRequests,
+    getDeniedRequests
   }}>
     {children}
   </GlobalContext.Provider>);
