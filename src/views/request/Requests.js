@@ -9,13 +9,15 @@ import { Route } from 'react-router-dom'
 
 // import Search from "../search/Search"
 import Itemspage from '../itemspage/Itemspage'
+import { trackPromise } from 'react-promise-tracker';
+import LoadingIndicator from '../../context/LoadingIndicator'
 
 
 const Requests = () => {
 
   const { pendingRequests, getPendingRequests } = useContext(GlobalContext)
   useEffect(() => {
-    getPendingRequests()
+    trackPromise(getPendingRequests())
       // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -31,6 +33,8 @@ const Requests = () => {
     }
     setDetails(newDetails)
   }
+
+  const loading = LoadingIndicator()
 
   const fields = [
     { key: '_id'},
@@ -57,14 +61,15 @@ const Requests = () => {
       <CRow>
         <CCol className="d-flex justify-content-sm-start mb-2">
               {/* <Search /> */}
-              <Itemspage />
+              <Itemspage/>
           </CCol>
           
       </CRow>
     }
-      items={pendingRequests}
+      items={pendingRequests} 
       fields={fields}
       hover
+      noItemsViewSlot={loading}
       pagination
       scopedSlots = {{
         'show_details':
@@ -85,7 +90,7 @@ const Requests = () => {
       }
     }
     />
-  )
+    )
   }
   
   export default Requests

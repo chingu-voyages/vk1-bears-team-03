@@ -9,13 +9,15 @@ import { Route } from 'react-router-dom'
 
 // import Search from "../search/Search"
 import Itemspage from '../itemspage/Itemspage'
+import { trackPromise } from 'react-promise-tracker';
+import LoadingIndicator from '../../context/LoadingIndicator'
 
 
 const Requests = () => {
 
   const { requests, getDeniedRequests } = useContext(GlobalContext)
   useEffect(() => {
-    getDeniedRequests()
+    trackPromise(getDeniedRequests())
       // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -31,6 +33,8 @@ const Requests = () => {
     }
     setDetails(newDetails)
   }
+
+  const loading = LoadingIndicator()
 
   const fields = [
     { key: '_id'},
@@ -64,6 +68,7 @@ const Requests = () => {
     }
       items={requests}
       fields={fields}
+      noItemsViewSlot={loading}
       hover
       pagination
       scopedSlots = {{
