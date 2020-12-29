@@ -8,20 +8,20 @@ import { useHistory } from "react-router-dom";
 
 const Request = ({match}) => {
 
-  const { pendingRequests, updateRequest, getPendingRequests } = useContext(GlobalContext)
+  const { requests, updateRequest, getDeniedRequests } = useContext(GlobalContext)
   useEffect(() => {
-    getPendingRequests()
+    getDeniedRequests()
       // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   let history = useHistory();
 
-  const request = pendingRequests.find( request => request._id.toString() === match.params.id)
+  const request = requests.find( request => request._id.toString() === match.params.id)
 
   const handleOnClick = (data) => {
     updateRequest(match.params.id, data)
     alert(`Request Successfully ${data.request_status}`)
     console.log(data)
-    setTimeout(()=>history.push('/views/requests'), 500);
+    setTimeout(()=>history.push('/views/archived-requests'), 500);
     // window.location.reload()
   }
 

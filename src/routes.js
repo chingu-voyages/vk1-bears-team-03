@@ -31,6 +31,7 @@ const AddConsumable = React.lazy(() => import('./views/consumables/addconsumable
 const Requests = React.lazy(() => import('./views/request/Requests'));
 const Request = React.lazy(() => import('./views/request/Request'));
 const ArchivedRequests = React.lazy(() => import('./views/request/ArchivedRequests'));
+const ArchivedRequest = React.lazy(() => import('./views/request/ArchivedRequest'));
 
 const Locations = React.lazy(() => import('./views/locations/Locations'));
 const Location = React.lazy(() => import('./views/locations/Location'));
@@ -175,6 +176,7 @@ const routes = [
   { path: '/views/requests', exact: true, name: 'Requests', component: Requests },
   { path: '/views/requests/:id', exact: true, name: 'Request', component: Request },
   { path: '/views/archived-requests', exact: true, name: 'ArchivedRequests', component: ArchivedRequests },
+  { path: '/views/archived-requests/:id', exact: true, name: 'ArchivedRequest', component: ArchivedRequest },
 
   { path: '/views/locations', exact: true, name: 'Locations', component: Locations },
   { path: '/views/location/:id', exact: true, name: 'Location', component: Location },

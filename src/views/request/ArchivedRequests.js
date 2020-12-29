@@ -80,7 +80,7 @@ const Requests = () => {
               <CButton
                 color="primary"
                 size="sm"
-                onClick={() => { history.push(`requests/${item._id}`) }}>
+                onClick={() => { history.push(`archived-requests/${item._id}`) }}>
                 View
               </CButton>
               )}/>
