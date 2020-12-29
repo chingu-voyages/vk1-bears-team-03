@@ -1,24 +1,21 @@
 import React, {useContext, useEffect, useState} from 'react'
 import { GlobalContext } from '../../context/GlobalState'
 import {
-  CCardBody,
   CDataTable,
   CButton,
-  CRow, CCol, 
-  CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
+  CRow, CCol
 } from '@coreui/react'
 import { Route } from 'react-router-dom'
 
 // import Search from "../search/Search"
 import Itemspage from '../itemspage/Itemspage'
-import Button from '../addButton/AddButton'
 
 
 const Requests = () => {
 
-  const { assets, filterRequests } = useContext(GlobalContext)
+  const { requests, getPendingRequests } = useContext(GlobalContext)
   useEffect(() => {
-    filterRequests()
+    getPendingRequests()
       // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -65,7 +62,7 @@ const Requests = () => {
           
       </CRow>
     }
-      items={assets}
+      items={requests}
       fields={fields}
       hover
       pagination

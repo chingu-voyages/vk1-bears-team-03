@@ -32,17 +32,17 @@ export default (state, action) => {
         loading: false,
         assets: action.payload
       }
-      case 'UPDATE_REQUEST':
-      return {
-        ...state,
-        assets: [...state.assets, action.payload]
-      }
-      case 'FILTER_REQUESTS':
+      case 'GET_PENDING_REQUESTS':
       return {
         ...state,
         loading: false,
-        assets: action.payload.filter(asset => asset.request_status === 'Approved' || 'Denied')
+        requests: action.payload.filter(request => request.request_status === 'Approved' || 'Denied')
       }
+      case 'UPDATE_REQUEST':
+        return {
+          ...state,
+          assets: [...state.assets, action.payload]
+        }
     default:
       return state;
   }

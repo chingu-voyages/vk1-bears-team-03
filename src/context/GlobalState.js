@@ -5,6 +5,7 @@ import axios from 'axios';
 // Initial state
 const initialState = {
   assets: [],
+  requests: [],
   error: null,
   loading: true
 }
@@ -116,12 +117,12 @@ export const GlobalProvider = ({ children }) => {
   }
 
 
-  async function filterRequests() {
+  async function getPendingRequests() {
     try {
       const res = await axios.get('/api/v1/requests');
 
       dispatch({
-        type: 'FILTER_REQUESTS',
+        type: 'GET_PENDING_REQUESTS',
         payload: res.data.data
       });
     } catch (err) {
@@ -158,6 +159,7 @@ export const GlobalProvider = ({ children }) => {
 
   return (<GlobalContext.Provider value={{
     assets: state.assets,
+    requests: state.requests,
     error: state.error,
     loading: state.loading,
     getTransactions,
@@ -166,7 +168,7 @@ export const GlobalProvider = ({ children }) => {
     updateAsset,
     getRequests,
     updateRequest,
-    filterRequests
+    getPendingRequests
   }}>
     {children}
   </GlobalContext.Provider>);

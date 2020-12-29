@@ -4,20 +4,18 @@ import { CButton, CCard, CCardBody, CCardHeader, CCol, CRow } from '@coreui/reac
 import CIcon from '@coreui/icons-react'
 import { useHistory } from "react-router-dom";
 
-import requestsData from './RequestsData'
-
 // softwaresData.forEach(software => console.log(software))
 
 const Request = ({match}) => {
 
-  const { assets, updateRequest, getRequests } = useContext(GlobalContext)
+  const { requests, updateRequest, getPendingRequests } = useContext(GlobalContext)
   useEffect(() => {
-    getRequests()
+    getPendingRequests()
       // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   let history = useHistory();
 
-  const asset = assets.find( asset => asset._id.toString() === match.params.id)
+  const request = requests.find( request => request._id.toString() === match.params.id)
 
   const handleOnClick = (data) => {
     updateRequest(match.params.id, data)
@@ -27,7 +25,7 @@ const Request = ({match}) => {
     // window.location.reload()
   }
 
-  const requestDetails = asset ? Object.entries(asset) : 
+  const requestDetails = request ? Object.entries(request) : 
     [['id', (<span><CIcon className="text-muted" name="cui-icon-ban" /> Not found</span>)]]
 
   return (
