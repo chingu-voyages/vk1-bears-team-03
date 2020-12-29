@@ -8,7 +8,7 @@ import { useHistory } from "react-router-dom";
 
 const Request = ({match}) => {
 
-  const { requests, updateRequest, getDeniedRequests } = useContext(GlobalContext)
+  const { requests, updateRequest, getDeniedRequests, deleteRequest } = useContext(GlobalContext)
   useEffect(() => {
     getDeniedRequests()
       // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -21,6 +21,13 @@ const Request = ({match}) => {
     updateRequest(match.params.id, data)
     alert(`Request Successfully ${data.request_status}`)
     console.log(data)
+    setTimeout(()=>history.push('/views/archived-requests'), 500);
+    // window.location.reload()
+  }
+
+  const handleDelete = (data) => {
+    deleteRequest(match.params.id)
+    alert(`Request Successfully Deleted`)
     setTimeout(()=>history.push('/views/archived-requests'), 500);
     // window.location.reload()
   }
@@ -56,10 +63,10 @@ const Request = ({match}) => {
                   }
                 </tbody>
               </table>     
-          <CButton size="md" color="primary" className="mr-1 mt-2" onClick={()=> handleOnClick({"request_status": "Approved"})}>
-                    Approve
+          <CButton size="md" color="primary" className="mr-1 mt-2" onClick={()=> handleOnClick({"request_status": "Pending"})}>
+                    Unarchive
           </CButton>
-          <CButton size="md" color="danger" className="mr-1 mt-2" onClick={()=> handleOnClick({"request_status": "Denied"})}>Deny</CButton>
+          <CButton size="md" color="danger" className="mr-1 mt-2" onClick={() => handleDelete()}>Delete</CButton>
         </CCardBody>
         </CCard>
       </CCol>

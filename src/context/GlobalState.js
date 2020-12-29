@@ -174,6 +174,22 @@ export const GlobalProvider = ({ children }) => {
     }
   }  
 
+  async function deleteRequest(id) {
+    try {
+      await axios.delete(`/api/v1/requests/${id}`);
+
+      dispatch({
+        type: 'DELETE_REQUESTS',
+        payload: id
+      });
+    } catch (err) {
+      dispatch({
+        type: 'TRANSACTION_ERROR',
+        payload: err.response.data.error
+      });
+    }
+  }
+
   return (<GlobalContext.Provider value={{
     assets: state.assets,
     pendingRequests: state.pendingRequests,
@@ -187,7 +203,8 @@ export const GlobalProvider = ({ children }) => {
     getRequests,
     updateRequest,
     getPendingRequests,
-    getDeniedRequests
+    getDeniedRequests,
+    deleteRequest
   }}>
     {children}
   </GlobalContext.Provider>);
