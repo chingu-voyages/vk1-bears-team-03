@@ -25,6 +25,12 @@ const Request = ({match}) => {
     // window.location.reload()
   }
 
+  var pretifyName = function pretifyName(name) {
+    return name.replace(/[-_.]/g, ' ').replace(/ +/g, ' ').replace(/([a-z0-9])([A-Z])/g, '$1 $2').split(' ').map(function (word) {
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    }).join(' ');
+  };
+
   const requestDetails = request ? Object.entries(request) : 
     [['id', (<span><CIcon className="text-muted" name="cui-icon-ban" /> Not found</span>)]]
 
@@ -42,7 +48,7 @@ const Request = ({match}) => {
                     requestDetails.map(([key, value], index) => {
                       return (
                         <tr key={index.toString()}>
-                          <td>{`${key}:`}</td>
+                          <td>{`${pretifyName(key)}:`}</td>
                           <td><strong>{`${value}`}</strong></td>
                         </tr>
                       )
