@@ -6,7 +6,8 @@ const Colors = React.lazy(() => import('./views/theme/colors/Colors'));
 const Typography = React.lazy(() => import('./views/theme/typography/Typography'));
 
 const Assets = React.lazy(() => import('./views/assets/Assets'));
-const Asset = React.lazy(() => import('./views/assets/Assets'));
+const UpdateAsset = React.lazy(() => import('./views/assets/updateassets/UpdateAsset'));
+// const Asset = React.lazy(() => import('./views/assets/Assets'));
 const AddAsset = React.lazy(() => import('./views/assets/addasset/AddAsset'));
 
 const Users = React.lazy(() => import('./views/users/Users'));
@@ -59,8 +60,6 @@ const StatusLabel = React.lazy(() => import('./views/status/StatusLabel'));
 const StatusLabels = React.lazy(() => import('./views/status/StatusLabels'));
 
 const ViewMoreAssets = React.lazy(() => import('./views/assets/viewmoreassets/ViewMoreAssets'));
-
-const UpdateAssets = React.lazy(() => import('./views/assets/updateassets/UpdateAsset'));
 
 const BorrowAssets = React.lazy(() => import('./views/assets/borrowassets/BorrowAssets'));
 
@@ -149,8 +148,13 @@ const routes = [
   { path: '/users/adduser', exact: true, name: 'User Registration', component: AddUser },
   { path: '/users/profile', exact: true, name: 'Profile', component: Profile },
 
-  { path: '/views/assets', exact: true, name: 'Assets', component: Asset },
-  { path: '/views/assets/addasset', exact: true, name: 'Create New Assets', component: AddAsset },
+  { path: '/assets', exact: true, name: 'Assets', component: Assets },
+  { path: '/assets/addasset', exact: true, name: 'Create New Assets', component: AddAsset },
+  { path: '/views/assets/viewmoreassets', exact: true, name: 'View More Assets', component: ViewMoreAssets },
+  { path: '/assets/updateasset/:id', exact: true, name: 'Update Assets', component: UpdateAsset },
+  { path: '/views/assets/borrowassets', exact: true, name: 'Borrow Assets', component: BorrowAssets },
+  { path: '/views/assets/returnassets', exact: true, name: 'Return Assets', component: ReturnAssets },
+
 
   { path: '/views/softwares', exact: true, name: 'Softwares', component: Softwares },
   { path: '/views/software/:id', exact: true, name: 'Software', component: Software },
@@ -198,11 +202,6 @@ const routes = [
   { path: '/views/status', exact: true, name: 'Status Lables', component: StatusLabels },
   { path: '/views/status/:id', exact: true, name: 'Status Label', component: StatusLabel },
   { path: '/status/addstatus', exact: true, name: 'Add Status', component: AddStatus },
-
-  { path: '/views/assets/viewmoreassets', exact: true, name: 'View More Assets', component: ViewMoreAssets },
-  { path: '/assets/updateasset/:id', exact: true, name: 'Update Assets', component: UpdateAssets },
-  { path: '/views/assets/borrowassets', exact: true, name: 'Borrow Assets', component: BorrowAssets },
-  { path: '/views/assets/returnassets', exact: true, name: 'Return Assets', component: ReturnAssets },
 
   { path: '/views/components/updatecomponent', exact: true, name: 'Update Component', component: UpdateComponent },
   { path: '/views/components/viewmorecomponent', exact: true, name: 'View More Component', component: ViewMoreComponent },

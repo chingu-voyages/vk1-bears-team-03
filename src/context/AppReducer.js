@@ -1,17 +1,17 @@
 export default (state, action) => {
   switch(action.type) {
-    case 'GET_TRANSACTIONS':
+    case 'GET_ASSETS':
       return {
         ...state,
         loading: false,
         assets: action.payload
       }
-    case 'DELETE_TRANSACTION':
+    case 'DELETE_ASSET':
       return {
         ...state,
         assets: state.assets.filter(asset => asset._id !== action.payload)
       }
-    case 'ADD_TRANSACTION':
+    case 'ADD_ASSET':
       return {
         ...state,
         assets: [...state.assets, action.payload]
@@ -21,7 +21,7 @@ export default (state, action) => {
         ...state,
         assets: [...state.assets, action.payload]
       }
-    case 'TRANSACTION_ERROR':
+    case 'ASSET_ERROR':
       return {
         ...state,
         error: action.payload

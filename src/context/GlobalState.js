@@ -5,6 +5,7 @@ import axios from 'axios';
 // Initial state
 const initialState = {
   assets: [],
+  locations: [],
   error: null,
   loading: true
 }
@@ -17,17 +18,17 @@ export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
   // Actions
-  async function getTransactions() {
+  async function getAssets() {
     try {
       const res = await axios.get('/api/v1/assets');
-
+      
       dispatch({
-        type: 'GET_TRANSACTIONS',
+        type: 'GET_ASSETS',
         payload: res.data.data
       });
     } catch (err) {
       dispatch({
-        type: 'TRANSACTION_ERROR',
+        type: 'ASSET_ERROR',
         payload: err.response.data.error
       });
     }
@@ -38,12 +39,12 @@ export const GlobalProvider = ({ children }) => {
       await axios.delete(`/api/v1/assets/${id}`);
 
       dispatch({
-        type: 'DELETE_TRANSACTION',
+        type: 'DELETE_ASSET',
         payload: id
       });
     } catch (err) {
       dispatch({
-        type: 'TRANSACTION_ERROR',
+        type: 'ASSET_ERROR',
         payload: err.response.data.error
       });
     }
@@ -60,13 +61,13 @@ export const GlobalProvider = ({ children }) => {
       const res = await axios.post('/api/v1/assets', asset, config);
 
       dispatch({
-        type: 'ADD_TRANSACTION',
+        type: 'ADD_ASSET',
         payload: res.data.data
       });
 
     } catch (err) {
       dispatch({
-        type: 'TRANSACTION_ERROR',
+        type: 'ASSET_ERROR',
         payload: err.response.data.error
       });
     }
@@ -91,7 +92,7 @@ export const GlobalProvider = ({ children }) => {
       console.log("This is from res.data", res.data.data)
     } catch (err) {
       dispatch({
-        type: 'TRANSACTION_ERROR',
+        type: 'ASSET_ERROR',
         payload: err.response.data.error
       });
     }
@@ -101,7 +102,7 @@ export const GlobalProvider = ({ children }) => {
     assets: state.assets,
     error: state.error,
     loading: state.loading,
-    getTransactions,
+    getAssets,
     deleteAsset,
     addAsset,
     updateAsset

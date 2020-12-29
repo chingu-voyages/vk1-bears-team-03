@@ -29,7 +29,7 @@ export default [
   {
     _tag: 'CSidebarNavItem',
     name: ' Assets',
-    to: '/views/assets',
+    to: '/assets',
     icon: <FontAwesomeIcon icon={faBarcode} className="fonticons"/>,
   },
   {
@@ -118,48 +118,5 @@ export default [
     to: '/views/reports',
     icon: <FontAwesomeIcon icon={faPrint} className="fonticons"/>,
   }
-  // {
-  //   _tag: 'CSidebarNavDropdown',
-  //   name: 'Reports',
-  //   route: '/icons',
-  //   icon: <FontAwesomeIcon icon={faPrint} className="fonticons"/>,
-  //   _children: [
-  //     {
-  //       _tag: 'CSidebarNavItem',
-  //       name: 'CoreUI Free',
-  //       to: '/icons/coreui-icons',
-  //       badge: {
-  //         color: 'success',
-  //         text: 'NEW',
-  //       },
-  //     },
-  //     {
-  //       _tag: 'CSidebarNavItem',
-  //       name: 'CoreUI Flags',
-  //       to: '/icons/flags',
-  //     },
-  //     {
-  //       _tag: 'CSidebarNavItem',
-  //       name: 'CoreUI Brands',
-  //       to: '/icons/brands',
-  //     },
-  //   ],
-  // },
-  
-
-  // {
-  //   _tag: 'CSidebarNavItem',
-  //   name: 'Label warning',
-  //   to: '',
-  //   icon: {
-  //     name: 'cil-star',
-  //     className: 'text-warning'
-  //   },
-  //   label: true
-  // },
-  // {
-  //   _tag: 'CSidebarNavDivider',
-  //   className: 'm-2'
-  // }
 ]
 
