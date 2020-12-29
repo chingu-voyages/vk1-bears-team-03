@@ -8,9 +8,9 @@ import { useHistory } from "react-router-dom";
 
 const Request = ({match}) => {
 
-  const { requests, updateRequest, getPendingRequests } = useContext(GlobalContext)
+  const { requests, updateRequest, getRequests } = useContext(GlobalContext)
   useEffect(() => {
-    getPendingRequests()
+    getRequests()
       // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   let history = useHistory();

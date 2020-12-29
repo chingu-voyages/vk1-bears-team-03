@@ -6,6 +6,7 @@ import axios from 'axios';
 const initialState = {
   assets: [],
   requests: [],
+  pendingRequests: [],
   error: null,
   loading: true
 }
@@ -150,7 +151,7 @@ export const GlobalProvider = ({ children }) => {
   }
 
 
-  async function updateRequest(id, asset) {
+  async function updateRequest(id, request) {
     console.log(id)
     const config = {
       headers: {
@@ -159,7 +160,7 @@ export const GlobalProvider = ({ children }) => {
     }
 
     try {
-      const res = await axios.patch(`http://localhost:5000/api/v1/requests/${id}`, asset, config);
+      const res = await axios.patch(`http://localhost:5000/api/v1/requests/${id}`, request, config);
 
       dispatch({
         type: 'UPDATE_REQUEST',
@@ -175,6 +176,7 @@ export const GlobalProvider = ({ children }) => {
 
   return (<GlobalContext.Provider value={{
     assets: state.assets,
+    pendingRequests: state.pendingRequests,
     requests: state.requests,
     error: state.error,
     loading: state.loading,

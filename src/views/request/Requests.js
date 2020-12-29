@@ -13,7 +13,7 @@ import Itemspage from '../itemspage/Itemspage'
 
 const Requests = () => {
 
-  const { requests, getPendingRequests } = useContext(GlobalContext)
+  const { pendingRequests, getPendingRequests } = useContext(GlobalContext)
   useEffect(() => {
     getPendingRequests()
       // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -62,7 +62,7 @@ const Requests = () => {
           
       </CRow>
     }
-      items={requests}
+      items={pendingRequests}
       fields={fields}
       hover
       pagination
