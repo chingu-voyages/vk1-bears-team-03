@@ -150,7 +150,7 @@ const routes = [
 
   { path: '/assets', exact: true, name: 'Assets', component: Assets },
   { path: '/assets/addasset', exact: true, name: 'Create New Assets', component: AddAsset },
-  { path: '/views/assets/viewmoreassets', exact: true, name: 'View More Assets', component: ViewMoreAssets },
+  { path: '/assets/viewmore/:id', exact: true, name: 'View More Assets', component: ViewMoreAssets },
   { path: '/assets/updateasset/:id', exact: true, name: 'Update Assets', component: UpdateAsset },
   { path: '/views/assets/borrowassets', exact: true, name: 'Borrow Assets', component: BorrowAssets },
   { path: '/views/assets/returnassets', exact: true, name: 'Return Assets', component: ReturnAssets },

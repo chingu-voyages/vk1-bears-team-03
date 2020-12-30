@@ -50,7 +50,7 @@ const fields = [
   },
   {
     key: 'asset_file',
-    label: 'Asset Sample',
+    label: 'Asset',
     _style: { width: '1%' },
     sorter: false,
     filter: false
@@ -139,8 +139,8 @@ return (
         </div>
         )
       },
-      'asset_file' : (item, index) =>(
-        <Images item={item} index={index}/>
+      'asset_file' : (item) =>(
+        <Images item={item}/>
       ),
       'status':
       
@@ -182,7 +182,7 @@ return (
                   {item.asset_name}
                 </h4>
                 <Route render={({ history}) => (
-              <CButton size="sm" color="dark" className="mr-1" onClick= {() => { history.push('/views/assets/viewmoreassets') }}>
+              <CButton size="sm" color="dark" className="mr-1" onClick= {() => { history.push(`/assets/viewmore/${item._id}`) }}>
                     View More
               </CButton>
                 )}/>

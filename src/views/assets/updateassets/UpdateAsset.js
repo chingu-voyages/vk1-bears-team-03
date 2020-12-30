@@ -44,7 +44,7 @@ const UpdateAsset = ({ match }) => {
        </CCardHeader>
        <CForm id='assetForm' onSubmit = {handleSubmit(onSubmit) } >
         <CCardBody>
-          <CFormGroup row>
+                <CFormGroup row>
                   <CCol md="2" className="d-flex justify-content-sm-end">
                     <CLabel htmlFor="asset_name">Asset Name</CLabel>
                   </CCol>
