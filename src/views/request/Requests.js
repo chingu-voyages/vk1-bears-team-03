@@ -37,13 +37,26 @@ const Requests = () => {
   const loading = LoadingIndicator()
 
   const fields = [
-    { key: '_id'},
-    { key: 'item_name' },
-    'user_name', 'request_type', 'request_status', 'request_date',
+    { 
+      key: '_id',
+      label: 'Request ID',
+      _style: { width: '15%' },
+    },
+    { 
+      key: 'user_name',
+      label: 'Requested By',
+      sorter: false,
+      filter: true
+    },
+    {
+      key: 'item_name',
+      label: 'Item Name'
+    },
+    'request_type', 'request_status', 'request_date',
     {
       key: 'show_details',
       label: 'Actions',
-      _style: { width: '1%' },
+      _style: { width: '8%', textAlign: 'center' },
       sorter: false,
       filter: false
     }
@@ -69,19 +82,36 @@ const Requests = () => {
       items={pendingRequests} 
       fields={fields}
       hover
+      sorter
       noItemsViewSlot={loading}
       pagination
       scopedSlots = {{
+        'user_name':
+          (item)=>(
+            <td>
+              <CButton>
+                {item.user_name.first_name} {item.user_name.last_name}
+              </CButton>
+            </td>
+          ),
+        'item_name':
+          (item)=>(
+            <td>
+              <CButton>
+                {item.item_name.asset_name}
+              </CButton>
+            </td>
+          ),
         'show_details':
           (item, index)=>{
             return (
-              <td className="py-2">
+              <td className="py-2" style={{textAlign: 'center'}}>
               <Route render={({ history}) => (
               <CButton
                 color="primary"
                 size="sm"
                 onClick={() => { history.push(`requests/${item._id}`) }}>
-                View
+                View Details
               </CButton>
               )}/>
               </td>
