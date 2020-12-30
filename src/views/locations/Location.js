@@ -1,16 +1,27 @@
-import React from 'react'
+import React, {useContext, useEffect, useState} from 'react'
+import { GlobalContext } from '../../context/GlobalState'
 import { CCard, CCardBody, CCardHeader, CCol, CRow } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 
 
-import locationsData from './LocationsData'
+// import locationsData from './LocationsData'
 
 // softwaresData.forEach(software => console.log(software))
-
+//
 const Location = ({match}) => {
 
-  const location = locationsData.find( locations => locations.id.toString() === match.params.id)
+  const { locations, getLocations } = useContext(GlobalContext)
 
+   useEffect(() => {
+      getLocations()
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const location = locations.find( locations => locations.id.toString() === match.params.id)
+
+  // const location = locationsData.find( locations => locations.id.toString() === match.params.id)
+
+  
   const locationsDetails = location ? Object.entries(location) : 
     [['id', (<span><CIcon className="text-muted" name="cui-icon-ban" /> Not found</span>)]]
 

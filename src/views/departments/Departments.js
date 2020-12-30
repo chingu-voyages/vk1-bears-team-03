@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, {useContext, useEffect, useState} from 'react'
+import { GlobalContext } from '../../context/GlobalState'
 import { Route } from 'react-router-dom'
 import {
   CCardBody,
@@ -7,10 +8,20 @@ import {
   CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
 } from '@coreui/react'
 
-import departmentsData from './DepartmentsData'
+// import departmentsData from './DepartmentsData'
 import AddButton from '../addButton/AddButton'
 
 const Departments = () => {
+  const { departments, getDepartments, deleteDepartment } = useContext(GlobalContext)
+  useEffect(() => {
+    getDepartments()
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [])
+
+
+
+
+
   const [details, setDetails] = useState([])
 
   const toggleDetails = (index) => {
@@ -54,10 +65,10 @@ const Departments = () => {
 
   return (
     <>
-    <AddButton location='/views/departments/adddepartment' />
+    <AddButton location='/departments/adddepartment' />
     <CDataTable
 
-      items={departmentsData}
+      items={departments}
       fields={fields}
       tableFilter={tableFilter}
       itemsPerPageSelect
@@ -104,12 +115,20 @@ const Departments = () => {
                   </CButton>
                 )}/>
                   
-
                   <Route render={({ history}) => (
-                  <CButton type="reset" size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/departments/updatedepartment') }}>
+                  <CButton size="sm" color="primary" className="mr-1" onClick= {() => { 
+                    history.push(`/departments/updatedepartment/${item._id}`) 
+                    console.log("This is history", history)
+                     }}> 
                         Update
                   </CButton>
                 )}/>
+
+                  {/* <Route render={({ history}) => (
+                  <CButton type="reset" size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/departments/updatedepartment') }}>
+                        Update
+                  </CButton>
+                )}/> */}
                   
                   <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>
                   <CModal
@@ -121,7 +140,11 @@ const Departments = () => {
                       Are you sure you want to delete User?
                     </CModalBody>
                     <CModalFooter>
-                      <CButton color="primary">Yes</CButton>{' '}
+                    <CButton color="primary"  onClick={() => {
+                      deleteDepartment(item._id)
+                      toggle()
+                  }}>Yes</CButton>{' '}
+                      {/* <CButton color="primary">Yes</CButton>{' '} */}
                       <CButton
                         color="secondary"
                         onClick={toggle}

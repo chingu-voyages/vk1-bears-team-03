@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, {useContext, useEffect, useState} from 'react'
+import { GlobalContext } from '../../context/GlobalState'
 import { Route } from 'react-router-dom'
 // import { useHistory, useLocation } from 'react-router-dom'
 // import { CIcon } from '@coreui/icons-react'
@@ -8,13 +9,22 @@ import {
   CButton,
   CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
 } from '@coreui/react'
-
-import locationsData from './LocationsData'
+//
+// import locationsData from './LocationsData'
 import AddButton from '../addButton/AddButton'
 
+const Locations = () => {
+  const { locations, getLocations, deleteLocation } = useContext(GlobalContext)
+    useEffect(() => {
+      getLocations()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+  
 
 
-const Requests = () => {
+
+
+// const Requests = () => {
   const [details, setDetails] = useState([])
 
   const toggleDetails = (index) => {
@@ -30,9 +40,9 @@ const Requests = () => {
 
   const fields = [
    
-    { key: 'id'},
-    { key: 'name'},
-     'phone number', 'address','state',
+    { key: '_id'},
+    { key: 'location_name'},
+     'location_phonenumber', 'location_add','location_country','location_zipcode',
     {
       key: 'show_details',
       label: 'Actions',
@@ -54,9 +64,9 @@ const Requests = () => {
 
   return (
     <>
-    <AddButton location='/views/locations/addlocation' />
+    <AddButton location='/locations/addlocation' />
     <CDataTable
-      items={locationsData}
+      items={locations}
       fields={fields}
       tableFilter={tableFilter}
       itemsPerPageSelect
@@ -96,8 +106,13 @@ const Requests = () => {
                   </CButton>
                 )}/>
                   
+
+                  
                   <Route render={({ history}) => (
-                  <CButton type="reset" size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/locations/updatelocation') }}>
+                  <CButton size="sm" color="primary" className="mr-1" onClick= {() => { 
+                    history.push(`/locations/updatelocation/${item._id}`) 
+                    console.log("This is history", history)
+                     }}> 
                         Update
                   </CButton>
                 )}/>
@@ -112,7 +127,10 @@ const Requests = () => {
                       Are you sure you want to delete User?
                     </CModalBody>
                     <CModalFooter>
-                      <CButton color="primary">Yes</CButton>{' '}
+                    <CButton color="primary"  onClick={() => {
+                      deleteLocation(item._id)
+                      toggle()
+                  }}>Yes</CButton>{' '}
                       <CButton
                         color="secondary"
                         onClick={toggle}
@@ -129,4 +147,4 @@ const Requests = () => {
   )
   }
   
-  export default Requests
+  export default Locations
