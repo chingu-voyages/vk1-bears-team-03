@@ -8,6 +8,9 @@ const initialState = {
   requests: [],
   request: [],
   pendingRequests: [],
+  requestCount: [],
+  assetCount: [],
+  userCount: [],
   error: null,
   loading: true
 }
@@ -207,6 +210,60 @@ export const GlobalProvider = ({ children }) => {
     }
   }
 
+
+//<======= Fetch Data Counts for Charts/Dashboard =======>
+
+async function getRequestCount() {
+  try {
+    const res = await axios.get('/api/v1/requests');
+
+    dispatch({
+      type: 'GET_REQUEST_COUNT',
+      payload: res.data.count
+    });
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+}
+
+//** */
+async function getAssetCount() {
+  try {
+    const res = await axios.get('/api/v1/assets');
+
+    dispatch({
+      type: 'GET_ASSET_COUNT',
+      payload: res.data.count
+    });
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+}
+
+//** */
+async function getUserCount() {
+  try {
+    const res = await axios.get('/api/v1/users');
+
+    dispatch({
+      type: 'GET_USER_COUNT',
+      payload: res.data.user_count
+    });
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+}
+
+
   return (<GlobalContext.Provider value={{
     assets: state.assets,
     pendingRequests: state.pendingRequests,
@@ -214,6 +271,9 @@ export const GlobalProvider = ({ children }) => {
     request: state.request,
     error: state.error,
     loading: state.loading,
+    requestCount: state.requestCount,
+    assetCount: state.assetCount,
+    userCount: state.userCount,
     getTransactions,
     deleteAsset,
     addAsset,
@@ -223,7 +283,10 @@ export const GlobalProvider = ({ children }) => {
     updateRequest,
     getPendingRequests,
     getDeniedRequests,
-    deleteRequest
+    deleteRequest,
+    getRequestCount,
+    getAssetCount,
+    getUserCount,
   }}>
     {children}
   </GlobalContext.Provider>);
