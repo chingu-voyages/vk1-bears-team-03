@@ -36,6 +36,8 @@ const UpdateAsset = ({ match }) => {
 
 
   return (
+    <>
+    { asset ? console.log(true): console.log(false)}
     <CCol xs="12" md="6" lg="12" className="mb-4">
        <CCard>
        <CCardHeader>
@@ -113,7 +115,7 @@ const UpdateAsset = ({ match }) => {
           </CForm>
         </CCard>
       </CCol>
-    
+    </>
   )
 }
 
