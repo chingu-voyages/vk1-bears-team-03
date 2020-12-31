@@ -39,6 +39,7 @@ const AddSupplier = () => {
         }
         
         addSupplier(newSupplier)
+        
         alert("Successfully Added!")
         clearForm()
     } catch (err) {
@@ -136,16 +137,10 @@ const AddSupplier = () => {
                 
                 <CFormGroup row>
                 <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="textarea-input">Notes</CLabel>
+                    <CLabel htmlFor="supplier_notes">Notes</CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
-                  <CTextarea 
-                      custom name="supplier_notes" 
-                      id="supplier_notes" 
-                      rows="2"
-                      placeholder="Content..." 
-                      ref={register}
-                    />
+                  <input className = 'form-control' type="text-area" id="supplier_notes" name="supplier_notes" ref={register} />
                     {/* <CTextarea 
                       name="textarea-input" 
                       id="textarea-input" 
@@ -164,8 +159,8 @@ const AddSupplier = () => {
                 </CFormGroup>
                 <CCardFooter row>
                 <CCol md="12" className="d-flex justify-content-sm-end">
-                <CButton type="reset" size="md" color="primary" className="mr-1 px-4">  Save</CButton>
-                <CancelButton size='md' location='/views/suppliers' />              
+                <CButton type="submit" size="md" color="primary" className="mr-1 px-4">  Save</CButton>
+                <CancelButton size='md' location='/suppliers' />              
               </CCol>
             </CCardFooter>
           </CCardBody>

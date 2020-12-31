@@ -94,13 +94,13 @@ export default [
       {
         _tag: 'CSidebarNavItem',
         name: 'Suppliers',
-        to: '/views/suppliers',
+        to: '/suppliers',
         icon: '',
       },
       {
         _tag: 'CSidebarNavItem',
         name: 'Categories',
-        to: '/views/categories',
+        to: '/categories',
         icon: '',
       },
       {

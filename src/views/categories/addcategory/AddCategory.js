@@ -9,7 +9,7 @@ import BackButton from '../../backButton/BackButton'
 import CancelButton from '../../cancelbutton/CancelButton'
 
 const AddCategory = () => {
-
+  console.log("This is Add Category")
   const { register, handleSubmit, errors } = useForm()   
   const { addCategory } = useContext(GlobalContext)
 
@@ -82,8 +82,8 @@ const AddCategory = () => {
                 
                 <CCardFooter row>
                 <CCol md="12" className="d-flex justify-content-sm-end">
-                <CButton type="reset" size="md" color="primary" className="mr-1 px-4">  Save</CButton>
-                <CancelButton size='md' location='/views/categories' />              
+                <CButton type="submit" size="md" color="primary" className="mr-1 px-4">  Save</CButton>
+                <CancelButton size='md' location='/categories' />              
               </CCol>
             </CCardFooter>
           </CCardBody>

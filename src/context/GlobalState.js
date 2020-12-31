@@ -8,6 +8,7 @@ const initialState = {
   locations: [],
   departments: [],
   suppliers: [],
+  categories: [],
   error: null,
   loading: true
 }
@@ -316,6 +317,7 @@ export const GlobalProvider = ({ children }) => {
 
 
   async function addSupplier(supplier) {
+    console.log("This is supplier", supplier)
     const config = {
       headers: {
         'Content-Type': 'application/json'
@@ -329,7 +331,7 @@ export const GlobalProvider = ({ children }) => {
         type: 'ADD_SUPPLIER',
         payload: res.data.data
       });
-   
+      console.log("This is from res.data", res.data.data)
     } catch (err) {
       dispatch({
         type: 'TRANSACTION_ERROR',
@@ -337,7 +339,7 @@ export const GlobalProvider = ({ children }) => {
       });
     }
     
-  } 
+  }   
 
 
 
@@ -381,7 +383,6 @@ export const GlobalProvider = ({ children }) => {
       });
     }
   }
-
 
 
   async function deleteCategory(id) {
@@ -477,6 +478,8 @@ export const GlobalProvider = ({ children }) => {
     addSupplier,
     deleteSupplier,
     updateSupplier,
+    addCategory,
+    updateCategory,
     getCategories,
     deleteCategory,
 

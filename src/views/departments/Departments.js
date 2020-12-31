@@ -19,9 +19,6 @@ const Departments = () => {
 }, [])
 
 
-
-
-
   const [details, setDetails] = useState([])
 
   const toggleDetails = (index) => {

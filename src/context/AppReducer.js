@@ -1,4 +1,4 @@
-import Category from "src/views/categoriesmodule/Category"
+// import Category from "src/views/categories/Category"
 
 export default (state, action) => {
   switch(action.type) {

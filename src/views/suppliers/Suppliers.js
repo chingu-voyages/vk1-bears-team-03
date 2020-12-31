@@ -41,7 +41,7 @@ const fields = [
   //   label: 'Select',
   //   _style: { width: '1%'}
   // },
-  { key: 'id'},
+  { key: '_id'},
   { key: 'supplier_name'},
    'supplier_address', 'supplier_contactname','supplier_phonenumber','supplier_emailaddress', 
   {

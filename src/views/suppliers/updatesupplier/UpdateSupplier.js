@@ -13,6 +13,7 @@ const UpdateSupplier = ({ match }) => {
   const { register, handleSubmit, errors } = useForm()
   const { suppliers, updateSupplier, getSuppliers } = useContext(GlobalContext)
 
+  
   useEffect(() => {
     getSuppliers()
       // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -151,7 +152,7 @@ const supplier = suppliers.find( supplier => supplier._id === match.params.id)
                 </CFormGroup>
                 <CCardFooter row>
                 <CCol md="12" className="d-flex justify-content-sm-end">
-                <CButton type="reset" size="md" color="primary" className="mr-1 px-4">  Save</CButton>
+                <CButton type="submit" size="md" color="primary" className="mr-1 px-4">  Save</CButton>
                 <CancelButton size='md' location='/views/suppliers' />              
               </CCol>
             </CCardFooter>

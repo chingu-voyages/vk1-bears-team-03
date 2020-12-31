@@ -14,11 +14,15 @@ import {
 import AddButton from '../addButton/AddButton'
 
 const Categories = () => {
+  
   const { categories, getCategories, deleteCategory } = useContext(GlobalContext)
+
   useEffect(() => {
     getCategories()
+    console.log("Fetching from getCategories function", categories)
       // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [])
+
 
 
 const [details, setDetails] = useState([])
@@ -41,7 +45,7 @@ const fields = [
   //   label: 'Select',
   //   _style: { width: '1%'}
   // },
-  { key: 'id'},
+  { key: '_id'},
   { key: 'category_name'},
    'category_type',
   {
@@ -75,7 +79,7 @@ const toggle = () => {
 
 return (
   <>
-  <AddButton location='/categoriesmodule/addcategory' />
+  <AddButton location="/categories/addcategory" />
   <CRow>
             
             <CCol className="d-flex justify-content-sm-end">
@@ -135,14 +139,14 @@ return (
                 <p className="text-muted">Role: {item.user_role}</p>
 
                 <Route render={({ history}) => (
-                  <CButton type="submit" size="sm" color="dark" className="mr-1" onClick= {() => { history.push('/views/categoriesmodule/viewmoreCategory') }}>
+                  <CButton type="submit" size="sm" color="dark" className="mr-1" onClick= {() => { history.push('/categories/viewmoreCategory') }}>
                        View More
                   </CButton>
                 )}/>
 
                 <Route render={({ history}) => (
                   <CButton size="sm" color="primary" className="mr-1" onClick= {() => { 
-                    history.push(`/categoriesmodule/updatecategory/${item._id}`) 
+                    history.push(`/categories/updatecategory/${item._id}`) 
                     console.log("This is history", history)
                      }}> 
                         Update

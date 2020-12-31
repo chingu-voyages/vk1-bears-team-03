@@ -121,11 +121,11 @@ const ReportsChart = React.lazy(() => import('./views/reports/Reports'));
 
 ////////////////////////////// Categories //////////////////////////////////
 
-const Category = React.lazy(() => import('./views/categoriesmodule/Category'));
-const Categories = React.lazy(() => import('./views/categoriesmodule/Categories'));
-const AddCategory = React.lazy(() => import('./views/categoriesmodule/addcategory/AddCategory'));
-const ViewMoreCategory = React.lazy(() => import('./views/categoriesmodule/viewmorecategory/ViewMoreCategory'));
-const UpdateCategory = React.lazy(() => import('./views/categoriesmodule/updatecategory/UpdateCategory'));
+const Category = React.lazy(() => import('./views/categories/Category'));
+const Categories = React.lazy(() => import('./views/categories/Categories'));
+const AddCategory = React.lazy(() => import('./views/categories/addcategory/AddCategory'));
+// const ViewMoreCategory = React.lazy(() => import('./views/categories/viewmorecategory/ViewMoreCategory'));
+const UpdateCategory = React.lazy(() => import('./views/categories/updatecategory/UpdateCategory'));
 
 
 
@@ -252,19 +252,19 @@ const routes = [
   ////////////////////////////// Departments //////////////////////////////////
 
   { path: '/departments', exact: true, name: 'Departments', component: Departments },
-  { path: '/views/department/:id', exact: true, name: 'Department', component: Department },
+  { path: '/department/:id', exact: true, name: 'Department', component: Department },
   { path: '/departments/adddepartment', exact: true, name: 'Add New Department', component: AddDepartment },
   { path: '/views/departments/viewmoredepartment', exact: true, name: 'View More Department', component: ViewMoreDepartment },
-  { path: '/views/departments/updatedepartment', exact: true, name: 'Update Department', component: UpdateDepartment },
+  { path: '/departments/updatedepartment/:id', exact: true, name: 'Update Department', component: UpdateDepartment },
 
 
   ////////////////////////////// Suppliers //////////////////////////////////
 
-  { path: '/views/suppliers', exact: true, name: 'Suppliers', component: Suppliers },
-  { path: '/views/supplier/:id', exact: true, name: 'Supplier', component: Supplier },
-  { path: '/views/suppliers/addsupplier', exact: true, name: 'Add New Supplier', component: AddSupplier },
+  { path: '/suppliers', exact: true, name: 'Suppliers', component: Suppliers },
+  { path: '/supplier/:id', exact: true, name: 'Supplier', component: Supplier },
+  { path: '/suppliers/addsupplier', exact: true, name: 'Add New Supplier', component: AddSupplier },
   { path: '/views/suppliers/viewmoresupplier', exact: true, name: 'View More Supplier', component: ViewMoreSupplier },
-  { path: '/views/suppliers/updatesupplier', exact: true, name: 'Update Supplier', component: UpdateSupplier },
+  { path: '/suppliers/updatesupplier/:id', exact: true, name: 'Update Supplier', component: UpdateSupplier },
 
 
   ////////////////////////////// Reports //////////////////////////////////
@@ -272,12 +272,11 @@ const routes = [
   { path: '/views/reports', exact: true, name: 'Charts', component: ReportsChart },
 
   ////////////////////////////// Categories //////////////////////////////////
-
-  { path: '/views/categories', exact: true, name: 'Categories', component: Categories },
-  { path: '/views/categories/:id', exact: true, name: 'Category', component: Category },
-  { path: '/views/categoriesmodule/addcategory', exact: true, name: 'Add Category', component: AddCategory },
-  { path: '/views/categoriesmodule/viewmorecategory', exact: true, name: 'View More Category', component: ViewMoreCategory },
-  { path: '/views/categoriesmodule/updatecategory', exact: true, name: 'Update Category', component: UpdateCategory },
+  { path: '/categories/addcategory', exact: true, name: 'Add Category', component: AddCategory },
+  { path: '/categories', exact: true, name: 'Categories', component: Categories },
+  { path: '/categories/:id', exact: true, name: 'Category', component: Category },
+    // { path: '/views/categoriesmodule/viewmorecategory', exact: true, name: 'View More Category', component: ViewMoreCategory },
+  { path: '/categories/updatecategory/:id', exact: true, name: 'Update Category', component: UpdateCategory },
 
 
   // { path: '/views/status', exact: true, name: 'Status Lables', component: StatusLabels },

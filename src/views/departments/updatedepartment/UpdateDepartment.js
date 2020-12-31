@@ -38,7 +38,7 @@ const department = departments.find( department => department._id === match.para
           <BackButton location='/departments' />
           <CButton type="reset" size="md" color="danger" className="mr-1"> Reset</CButton>
           </CCardHeader>
-          <CForm id='assetForm' onSubmit = {handleSubmit(onSubmit) } >
+          <CForm id='departmentForm' onSubmit = {handleSubmit(onSubmit) } >
           <CCardBody>
           <CFormGroup row>
                   <CCol md="2" className="d-flex justify-content-sm-end">
@@ -70,23 +70,11 @@ const department = departments.find( department => department._id === match.para
                 
                 <CFormGroup row>
                 <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="textarea-input">Notes</CLabel>
+                    <CLabel htmlFor="department_notes">Notes</CLabel>
                   </CCol>
                   
                   <CCol xs="12" md="9">
-                  <CTextarea 
-                      custom name="department_notes" 
-                      id="department_notes" 
-                      rows="2"
-                      placeholder="Content..." 
-                      ref={register}
-                    />
-                    {/* <CTextarea 
-                      name="textarea-input" 
-                      id="textarea-input" 
-                      rows="2"
-                      placeholder="Content..." 
-                    /> */}
+                  <input className = 'form-control' type="text-area" id="department_notes" name="department_notes" ref={register} />
                   </CCol>
                 </CFormGroup>
                 <CFormGroup row>
@@ -99,7 +87,7 @@ const department = departments.find( department => department._id === match.para
                 </CFormGroup>
                 <CCardFooter row>
                 <CCol md="12" className="d-flex justify-content-sm-end">
-                <CButton type="reset" size="md" color="primary" className="mr-1 px-4">  Save</CButton>
+                <CButton type="submit" size="md" color="primary" className="mr-1 px-4">  Save</CButton>
                 <CancelButton size='md' location='/departments' />              
               </CCol>
             </CCardFooter>
