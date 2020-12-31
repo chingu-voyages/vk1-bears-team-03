@@ -6,6 +6,7 @@ import axios from 'axios';
 const initialState = {
   assets: [],
   requests: [],
+  request: [],
   pendingRequests: [],
   error: null,
   loading: true
@@ -72,7 +73,7 @@ export const GlobalProvider = ({ children }) => {
         payload: err.response.data.error
       });
     }
-    
+
   }
 
   async function updateAsset(id, asset) {
@@ -107,6 +108,22 @@ export const GlobalProvider = ({ children }) => {
 
       dispatch({
         type: 'GET_REQUESTS',
+        payload: res.data.data
+      });
+    } catch (err) {
+      dispatch({
+        type: 'TRANSACTION_ERROR',
+        payload: err.response.data.error
+      });
+    }
+  }
+
+  async function getRequest(id) {
+    try {
+      const res = await axios.get(`http://localhost:5000/api/v1/requests/${id}`);
+
+      dispatch({
+        type: 'GET_REQUEST',
         payload: res.data.data
       });
     } catch (err) {
@@ -172,7 +189,7 @@ export const GlobalProvider = ({ children }) => {
         payload: err.response.data.error
       });
     }
-  }  
+  }
 
   async function deleteRequest(id) {
     try {
@@ -194,6 +211,7 @@ export const GlobalProvider = ({ children }) => {
     assets: state.assets,
     pendingRequests: state.pendingRequests,
     requests: state.requests,
+    request: state.request,
     error: state.error,
     loading: state.loading,
     getTransactions,
@@ -201,6 +219,7 @@ export const GlobalProvider = ({ children }) => {
     addAsset,
     updateAsset,
     getRequests,
+    getRequest,
     updateRequest,
     getPendingRequests,
     getDeniedRequests,

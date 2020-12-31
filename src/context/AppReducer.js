@@ -32,6 +32,12 @@ export default (state, action) => {
         loading: false,
         assets: action.payload
       }
+      case 'GET_REQUEST':
+      return {
+        ...state,
+        loading: false,
+        request: action.payload
+      }
       case 'GET_PENDING_REQUESTS':
       return {
         ...state,

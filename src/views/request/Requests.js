@@ -11,6 +11,7 @@ import { Route } from 'react-router-dom'
 import Itemspage from '../itemspage/Itemspage'
 import { trackPromise } from 'react-promise-tracker';
 import LoadingIndicator from '../../context/LoadingIndicator'
+import dateFormat from 'dateformat'
 
 
 const Requests = () => {
@@ -52,7 +53,11 @@ const Requests = () => {
       key: 'item_name',
       label: 'Item Name'
     },
-    'request_type', 'request_status', 'request_date',
+    'request_type', 'request_status', 
+    {
+      key: 'request_date',
+      label: 'Request Date'
+    }, 
     {
       key: 'show_details',
       label: 'Actions',
@@ -89,17 +94,19 @@ const Requests = () => {
         'user_name':
           (item)=>(
             <td>
-              <CButton>
-                {item.user_name.first_name} {item.user_name.last_name}
-              </CButton>
+              {item.user_name.first_name} {item.user_name.last_name}
             </td>
           ),
         'item_name':
           (item)=>(
             <td>
-              <CButton>
-                {item.item_name.asset_name}
-              </CButton>
+              {item.item_name.asset_name}
+            </td>
+          ),
+        'request_date':
+          (item)=>(
+            <td>
+              {dateFormat(item.request_date, "mm/dd/yyyy")}
             </td>
           ),
         'show_details':
