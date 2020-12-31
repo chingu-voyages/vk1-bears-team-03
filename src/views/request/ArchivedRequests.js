@@ -111,13 +111,13 @@ const Requests = () => {
         'show_details':
           (item, index)=>{
             return (
-              <td className="py-2">
+              <td className="py-2" style={{textAlign: 'center'}}>
               <Route render={({ history}) => (
               <CButton
                 color="primary"
                 size="sm"
                 onClick={() => { history.push(`archived-requests/${item._id}`) }}>
-                View
+                View Details
               </CButton>
               )}/>
               </td>
