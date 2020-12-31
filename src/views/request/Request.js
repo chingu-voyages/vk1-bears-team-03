@@ -51,17 +51,32 @@ const Request = ({match}) => {
                   </tr>
                   <tr>
                     <td> Requested By </td>
-                    <td><b> {request.user_name.first_name} {request.user_name.last_name}</b></td>
+                    <td><b> {request.user_name.first_name} {request.user_name.last_name} {`(${request.user_name.username})`}</b></td>
                   </tr>
 
                   <tr>
-                    <td> Item Name </td>
+                    <td> Item ID </td>
+                    <td><b> {request.item_name._id} </b></td>
+                  </tr>
+
+                  <tr>
+                    <td> Item Borrowed </td>
                     <td><b> {request.item_name.asset_name} </b></td>
                   </tr>
 
                   <tr>
+                    <td> Request Type </td>
+                    <td><b> {request.request_type} </b></td>
+                  </tr>
+
+                  <tr>
                     <td> Request Date </td>
-                    <td><b> {dateFormat(request.request_date, "mm/dd/yyyy")} </b></td>
+                    <td><b> {dateFormat(request.request_date, "mmmm dd, yyyy")} </b></td>
+                  </tr>
+
+                  <tr>
+                    <td> Updated At </td>
+                    <td><b> {dateFormat(request.request_date, "dddd, mmmm dd, yyyy hh:hh TT")} </b></td>
                   </tr>
                 </tbody>
               </table>     
