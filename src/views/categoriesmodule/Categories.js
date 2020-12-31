@@ -42,8 +42,8 @@ const fields = [
   //   _style: { width: '1%'}
   // },
   { key: 'id'},
-  { key: 'name'},
-   'type',
+  { key: 'category_name'},
+   'category_type',
   {
     key: 'show_details',
     label: 'Actions',

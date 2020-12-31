@@ -42,8 +42,8 @@ const fields = [
   //   _style: { width: '1%'}
   // },
   { key: 'id'},
-  { key: 'name'},
-   'address', 'contact_name','phone_number','email_address', 
+  { key: 'supplier_name'},
+   'supplier_address', 'supplier_contactname','supplier_phonenumber','supplier_emailaddress', 
   {
     key: 'show_details',
     label: 'Actions',

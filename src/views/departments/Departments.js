@@ -42,8 +42,8 @@ const Departments = () => {
     //   _style: { width: '1%'}
     // },
     { key: 'id'},
-    { key: 'name'},
-     'location',
+    { key: 'department_name'},
+     'department_location',
     {
       key: 'show_details',
       label: 'Actions',
