@@ -87,7 +87,6 @@ const Requests = () => {
       items={pendingRequests} 
       fields={fields}
       hover
-      sorter
       noItemsViewSlot={loading}
       pagination
       scopedSlots = {{

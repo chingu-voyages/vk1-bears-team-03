@@ -51,7 +51,7 @@ const Request = ({match}) => {
                   </tr>
                   <tr>
                     <td> Requested By </td>
-                    <td><b> {request.user_name.first_name} {request.user_name.last_name} {`(${request.user_name.username})`}</b></td>
+                    <td><b> {request.user_name.first_name} {request.user_name.last_name} {`(${request.user_name.username})`} </b></td>
                   </tr>
 
                   <tr>
