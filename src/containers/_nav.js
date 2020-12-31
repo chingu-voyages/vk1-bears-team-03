@@ -78,7 +78,7 @@ export default [
       {
         _tag: 'CSidebarNavItem',
         name: 'Locations',
-        to: '/views/locations',
+        to: '/locations',
         icon: '',
         badge: {
           color: 'success',
@@ -88,7 +88,7 @@ export default [
       {
         _tag: 'CSidebarNavItem',
         name: 'Departments',
-        to: '/views/departments',
+        to: '/departments',
         icon: '',
       },
       {

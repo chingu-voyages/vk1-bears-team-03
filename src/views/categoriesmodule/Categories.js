@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, {useContext, useEffect, useState} from 'react'
+import { GlobalContext } from '../../context/GlobalState'
 import { Route } from 'react-router-dom'
 import {
   CBadge,
@@ -8,11 +9,18 @@ import {
   CRow, CCol, 
   CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
 } from '@coreui/react'
-
-import categoriesData from "./CategoriesData"
+//
+// import categoriesData from "./CategoriesData"
 import AddButton from '../addButton/AddButton'
 
 const Categories = () => {
+  const { categories, getCategories, deleteCategory } = useContext(GlobalContext)
+  useEffect(() => {
+    getCategories()
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [])
+
+
 const [details, setDetails] = useState([])
 
 const toggleDetails = (index) => {
@@ -34,8 +42,8 @@ const fields = [
   //   _style: { width: '1%'}
   // },
   { key: 'id'},
-  { key: 'name'},
-   'type',
+  { key: 'category_name'},
+   'category_type',
   {
     key: 'show_details',
     label: 'Actions',
@@ -67,7 +75,7 @@ const toggle = () => {
 
 return (
   <>
-  <AddButton location='/views/categoriesmodule/addcategory' />
+  <AddButton location='/categoriesmodule/addcategory' />
   <CRow>
             
             <CCol className="d-flex justify-content-sm-end">
@@ -82,7 +90,7 @@ return (
                                     
                     </CRow>    
                     }
-    items={categoriesData}
+    items={categories}
     header
     fields={fields}
     tableFilter={tableFilter}
@@ -127,16 +135,27 @@ return (
                 <p className="text-muted">Role: {item.user_role}</p>
 
                 <Route render={({ history}) => (
-                  <CButton type="reset" size="sm" color="dark" className="mr-1" onClick= {() => { history.push('/views/categoriesmodule/viewmoreCategory') }}>
+                  <CButton type="submit" size="sm" color="dark" className="mr-1" onClick= {() => { history.push('/views/categoriesmodule/viewmoreCategory') }}>
                        View More
                   </CButton>
                 )}/>
 
                 <Route render={({ history}) => (
-                  <CButton type="reset" size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/categoriesmodule/updatecategory') }}>
-                       Update
+                  <CButton size="sm" color="primary" className="mr-1" onClick= {() => { 
+                    history.push(`/categoriesmodule/updatecategory/${item._id}`) 
+                    console.log("This is history", history)
+                     }}> 
+                        Update
                   </CButton>
                 )}/>
+
+
+
+                {/* <Route render={({ history}) => (
+                  <CButton type="submit" size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/categoriesmodule/updatecategory') }}>
+                       Update
+                  </CButton>
+                )}/> */}
                
                 <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>
                 <CModal
@@ -148,7 +167,11 @@ return (
                     Are you sure you want to delete User?
                   </CModalBody>
                   <CModalFooter>
-                    <CButton color="primary">Yes</CButton>{' '}
+                    {/* <CButton color="primary">Yes</CButton>{' '} */}
+                    <CButton color="primary"  onClick={() => {
+                      deleteCategory(item._id)
+                      toggle()
+                  }}>Yes</CButton>{' '}
                     <CButton
                       color="secondary"
                       onClick={toggle}
