@@ -11,6 +11,7 @@ import { Route } from 'react-router-dom'
 import Itemspage from '../itemspage/Itemspage'
 import { trackPromise } from 'react-promise-tracker';
 import LoadingIndicator from '../../context/LoadingIndicator'
+import dateFormat from 'dateformat'
 
 
 const Requests = () => {
@@ -37,13 +38,30 @@ const Requests = () => {
   const loading = LoadingIndicator()
 
   const fields = [
-    { key: '_id'},
-    { key: 'item_name' },
-    'user_name', 'request_type', 'request_status', 'request_date',
+    { 
+      key: '_id',
+      label: 'Request ID',
+      _style: { width: '15%' },
+    },
+    { 
+      key: 'user_name',
+      label: 'Requested By',
+      sorter: false,
+      filter: true
+    },
+    {
+      key: 'item_name',
+      label: 'Item Name'
+    },
+    'request_type', 'request_status', 
+    {
+      key: 'request_date',
+      label: 'Request Date'
+    }, 
     {
       key: 'show_details',
       label: 'Actions',
-      _style: { width: '1%' },
+      _style: { width: '8%', textAlign: 'center' },
       sorter: false,
       filter: false
     }
@@ -61,17 +79,35 @@ const Requests = () => {
       <CRow>
         <CCol className="d-flex justify-content-sm-start mb-2">
               {/* <Search /> */}
-              <Itemspage />
+              <Itemspage/>
           </CCol>
           
       </CRow>
     }
-      items={requests}
+      items={requests} 
       fields={fields}
-      noItemsViewSlot={loading}
       hover
+      noItemsViewSlot={loading}
       pagination
       scopedSlots = {{
+        'user_name':
+          (item)=>(
+            <td>
+              {item.user_name.first_name} {item.user_name.last_name}
+            </td>
+          ),
+        'item_name':
+          (item)=>(
+            <td>
+              {item.item_name.asset_name}
+            </td>
+          ),
+        'request_date':
+          (item)=>(
+            <td>
+              {dateFormat(item.request_date, "mmmm dd yyyy")}
+            </td>
+          ),
         'show_details':
           (item, index)=>{
             return (
