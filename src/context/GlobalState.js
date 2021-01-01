@@ -20,34 +20,33 @@ export const GlobalContext = createContext(initialState);
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
-  // Assets Actions
-   async function getTransactions() {
+  async function getAssets() {
     try {
-      const res = await axios.get('/api/v1/assets');
-
+      const res = await axios.get('http://localhost:5000/api/v1/assets');
+      
       dispatch({
-        type: 'GET_TRANSACTIONS',
+        type: 'GET_ASSETS',
         payload: res.data.data
       });
     } catch (err) {
       dispatch({
-        type: 'TRANSACTION_ERROR',
-        asyncpayload: err.response.data.error
+        type: 'ASSET_ERROR',
+        payload: err.response.data.error
       });
     }
   }
 
   async function deleteAsset(id) {
     try {
-      await axios.delete(`/api/v1/assets/${id}`);
+      await axios.delete(`http://localhost:5000/api/v1/assets/${id}`);
 
       dispatch({
-        type: 'DELETE_TRANSACTION',
+        type: 'DELETE_ASSET',
         payload: id
       });
     } catch (err) {
       dispatch({
-        type: 'TRANSACTION_ERROR',
+        type: 'ASSET_ERROR',
         payload: err.response.data.error
       });
     }
@@ -61,16 +60,16 @@ export const GlobalProvider = ({ children }) => {
     }
 
     try {
-      const res = await axios.post('/api/v1/assets', asset, config);
+      const res = await axios.post('http://localhost:5000/api/v1/assets', asset, config);
 
       dispatch({
-        type: 'ADD_TRANSACTION',
+        type: 'ADD_ASSET',
         payload: res.data.data
       });
 
     } catch (err) {
       dispatch({
-        type: 'TRANSACTION_ERROR',
+        type: 'ASSET_ERROR',
         payload: err.response.data.error
       });
     }
@@ -86,7 +85,7 @@ export const GlobalProvider = ({ children }) => {
     }
 
     try {
-      const res = await axios.put(`/api/v1/assets/updateasset/${id}`, asset, config);
+      const res = await axios.put(`http://localhost:5000/api/v1/assets/updateasset/${id}`, asset, config);
 
       dispatch({
         type: 'UPDATE_ASSET',
@@ -95,7 +94,7 @@ export const GlobalProvider = ({ children }) => {
       console.log("This is from res.data", res.data.data)
     } catch (err) {
       dispatch({
-        type: 'TRANSACTION_ERROR',
+        type: 'ASSET_ERROR',
         payload: err.response.data.error
       });
     }
@@ -462,7 +461,7 @@ export const GlobalProvider = ({ children }) => {
     suppliers: state.suppliers,
     error: state.error,
     loading: state.loading,
-    getTransactions,
+    getAssets,
     deleteAsset,
     addAsset,
     updateAsset,

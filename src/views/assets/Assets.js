@@ -8,17 +8,21 @@ import {
   CRow, CCol, 
   CCollapse, CModal, CModalHeader,CModalBody, CModalFooter, CSelect
 } from '@coreui/react'
-
+import Images from '../../uploads/images'
 import { Route } from 'react-router-dom'
 import AddButton from '../addButton/AddButton'
 
+import dateFormat from 'dateformat'
+
 const Assets = () => {
-const { assets, getTransactions, deleteAsset } = useContext(GlobalContext)
+
+
+
+const { assets, getAssets, deleteAsset } = useContext(GlobalContext)
   useEffect(() => {
-    getTransactions()
+    getAssets()
       // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [])
-
 
 const [details, setDetails] = useState([])
 
@@ -46,9 +50,22 @@ const fields = [
     sorter: false,
     filter: false
   },
-  { key: '_id'},
+  {
+    key: 'asset_file',
+    label: 'Asset',
+    _style: { width: '1%' },
+    sorter: false,
+    filter: false
+  },
+  // { key: '_id'},
   { key: 'asset_name'},
-   'asset_serial', 'asset_category','asset_warrantydate',
+   'asset_serial', 'asset_category',
+   {
+     key: 'warranty',
+     label: 'Warranty Date',
+     sorter: false,
+     filter: false
+   },
    {
     key: 'status',
     label: 'Asset Status',
@@ -111,7 +128,7 @@ return (
     tableFilter={tableFilter}
     itemsPerPage={5}
     itemsPerPageSelect
-    header
+    header  
     fields={fields}
     hover
     pagination
@@ -125,6 +142,9 @@ return (
         </div>
         )
       },
+      'asset_file' : (item) =>(
+        <Images item={item}/>
+      ),
       'status':
       
         (item)=>(
@@ -134,6 +154,11 @@ return (
             </CBadge>
           </td>
         ),
+        'warranty': (item) =>{
+          return (
+            <td>{dateFormat(item.asset_warrantydate, "longDate")}</td>
+          )
+        },
       'show_details':
         (item, index)=>{
           return (
@@ -160,14 +185,13 @@ return (
                   {item.asset_name}
                 </h4>
                 <Route render={({ history}) => (
-              <CButton size="sm" color="dark" className="mr-1" onClick= {() => { history.push('/views/assets/viewmoreassets') }}>
+              <CButton size="sm" color="dark" className="mr-1" onClick= {() => { history.push(`/assets/viewmore/${item._id}`) }}>
                     View More
               </CButton>
                 )}/>
                  <Route render={({ history}) => (
                    <CButton size="sm" color="primary" className="mr-1" onClick= {() => { 
                     history.push(`/assets/updateasset/${item._id}`) 
-                    console.log("This is history", history)
                     }}>
                         Update
                   </CButton>

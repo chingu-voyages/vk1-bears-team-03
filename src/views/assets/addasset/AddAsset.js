@@ -1,8 +1,9 @@
-import React, {useContext} from 'react'
+import React, {useContext, useState} from 'react'
 import { GlobalContext } from '../../../context/GlobalState'
 import { useForm } from 'react-hook-form'
+import axios from 'axios'
 import {
-  CForm,CCardBody,CRow, CCol, CCard, CCardHeader, CFormGroup, CLabel, CInput, CSelect, CTextarea, CInputGroupText, CInputGroupAppend, CInputGroupPrepend, CInputGroup, CButton, CCardFooter
+  CForm,CCardBody, CCol, CCard, CCardHeader, CFormGroup, CLabel, CButton, CCardFooter
 
 } from '@coreui/react'
 import BackButton from '../../backButton/BackButton'
@@ -10,30 +11,56 @@ import CancelButton from '../../cancelbutton/CancelButton'
 import dateFormat from 'dateformat'
 
 const AddAsset = () => {
+  const [file, setFile] = useState('')
+  // const [uploadedFile, setUploadedFile] = useState({})
+  const [filename, setFileName] = useState('Choose File')
   const { register, handleSubmit, errors } = useForm()
   const { addAsset } = useContext(GlobalContext)
 
-  // const onSubmit = data => console.log("This is from onSubmit", data);
+
+  // CLEARING FORM FIELDS
   const clearForm = () => {
     document.getElementById("assetForm").reset();
-    // this.refs.fieldorg.value="";
-    // this.refs.fieldNum.value="";
-  }
-  const onSubmit = (data) => {
-    // const assetID = await assets.findById(data._id)
-    
-    // if(assetID){
-    //   alert("Asset is already registered! Check Serial number")
-    // }
 
+  }
+
+  //HANDLE ON CHANGE 
+  const onChange = e => {
+    setFile(e.target.files[0])
+    setFileName(e.target.files[0].name)
+  }
+
+  //HANDLE ON SUBMIT
+  const onSubmit = async (data) => {
+    const formData = new FormData()
+
+    formData.append('file', file)
+    
     try {
+      const res = await axios.post('/upload', formData, {
+        headers: {
+            "Content-Type": "multipart/form-data"
+        },
+        // onUploadProgress: ProgressEvent =>{
+        // setUploadPercentage(parseInt(Math.round((ProgressEvent.loaded * 100) / ProgressEvent.total)))
+
+        //Clear percentage
+        // setTimeout(() => setUploadPercentage(0), 10000)
+        // }
+        
+      })
+      const { fileName, filePath } = res.data
       const newAsset= {
             asset_name: data.asset_name,
             asset_category:data.asset_category,
             asset_status:data.asset_status,
             asset_serial:data.asset_serial,
             asset_purchasecost:data.asset_purchasecost,
-            asset_warrantydate: dateFormat(data.asset_warrantydate, "mm/dd/yyyy")
+            asset_warrantydate: dateFormat(data.asset_warrantydate, "mm/dd/yyyy"),
+            asset_file: {
+              file_name: fileName,
+              file_path: filePath
+            }
         }
         
         addAsset(newAsset)
@@ -41,7 +68,7 @@ const AddAsset = () => {
         console.log(newAsset)
         clearForm()
     } catch (err) {
-      alert(`$err`)
+      alert(`${err}`)
     }
     console.log(data)
   }
@@ -51,7 +78,7 @@ const AddAsset = () => {
              <CCard>
              <CCardHeader>
               <BackButton location='/assets' />
-              <CButton type="reset" size="md" color="danger" className="mr-1"> Reset</CButton>
+              <CButton type="reset" size="md" color="danger" className="mr-1" onClick={clearForm}> Reset</CButton>
              </CCardHeader>
              <CForm id='assetForm' onSubmit = {handleSubmit(onSubmit) } >
               <CCardBody>
@@ -101,7 +128,14 @@ const AddAsset = () => {
                           <input type='Date' id='asset_warrantydate' className = 'form-control' name='asset_warrantydate' ref={register} />
                         </CCol>
                       </CFormGroup>
-                    
+                      <CFormGroup row>
+                        <CCol md="2" className="d-flex justify-content-sm-end">
+                          <CLabel htmlFor="asset_file">Upload Photo</CLabel>
+                        </CCol>
+                        <CCol xs="12" md="9">
+                          <input type="file" class="form-control-file" id="asset_file" name="asset_file" placeholder= {filename} ref={register} onChange={onChange}/>
+                        </CCol>
+                      </CFormGroup>
                       <CCardFooter row>
                       <CCol md="12" className="d-flex justify-content-sm-end">
                       <CButton type="submit" size="md" color="primary" className="mr-1 px-4" >Save</CButton>

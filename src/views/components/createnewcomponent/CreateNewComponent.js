@@ -5,7 +5,8 @@ import {
 
 } from '@coreui/react'
 
-import BackButtonComponent from '../backbuttoncomponent/BackButtonComponent'
+
+import BackButtonComponent from '../../../views/component/backbuttoncomponent/BackButtonComponent'
 // import CIcon from '@coreui/icons-react'
 
 
