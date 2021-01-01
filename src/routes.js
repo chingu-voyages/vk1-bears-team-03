@@ -150,7 +150,8 @@ const routes = [
 
   { path: '/assets', exact: true, name: 'Assets', component: Assets },
   { path: '/assets/addasset', exact: true, name: 'Create New Assets', component: AddAsset },
-  { path: '/views/assets/viewmoreassets', exact: true, name: 'View More Assets', component: ViewMoreAssets },
+
+  { path: '/assets/viewmore/:id', exact: true, name: 'View More Assets', component: ViewMoreAssets },
   { path: '/assets/updateasset/:id', exact: true, name: 'Update Assets', component: UpdateAsset },
   { path: '/views/assets/borrowassets', exact: true, name: 'Borrow Assets', component: BorrowAssets },
   { path: '/views/assets/returnassets', exact: true, name: 'Return Assets', component: ReturnAssets },
@@ -199,9 +200,11 @@ const routes = [
   { path: '/views/accessories/createnewaccessory', exact: true, name: 'Create New Accessory', component: CreateNewAccessory },
   
 
-  // { path: '/views/status', exact: true, name: 'Status Lables', component: StatusLabels },
-  // { path: '/views/status/:id', exact: true, name: 'Status Label', component: StatusLabel },
-  // { path: '/status/addstatus', exact: true, name: 'Add Status', component: AddStatus },
+
+  { path: '/views/status', exact: true, name: 'Status Lables', component: StatusLabels },
+  { path: '/views/status/:id', exact: true, name: 'Status Label', component: StatusLabel },
+  { path: '/status/addstatus', exact: true, name: 'Add Status', component: AddStatus },
+
 
   { path: '/views/components/updatecomponent', exact: true, name: 'Update Component', component: UpdateComponent },
   { path: '/views/components/viewmorecomponent', exact: true, name: 'View More Component', component: ViewMoreComponent },
