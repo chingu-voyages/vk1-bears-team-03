@@ -48,7 +48,7 @@ export default (state, action) => {
         return {
           ...state,
           loading: false,
-          requests: action.payload.filter(request => request.request_status === 'Denied')
+          requests: action.payload.filter(request => request.request_status === 'Denied' || request.request_status === 'Archived')
         }
       case 'UPDATE_REQUEST':
         return {
@@ -60,12 +60,18 @@ export default (state, action) => {
         ...state,
         requests: state.requests.filter(request => request._id !== action.payload)
       }
-      case 'GET_REQUEST_COUNT':
+      case 'GET_PENDING_REQUEST_COUNT':
         return {
           ...state,
           loading: false,
-          requestCount: action.payload
+          requestCount: action.payload.filter(request => request.request_status === 'Pending').length
         }
+        case 'GET_ARCHIVED_REQUEST_COUNT':
+          return {
+            ...state,
+            loading: false,
+            archivedRequestCount: action.payload.filter(request => request.request_status === 'Denied' || request.request_status === 'Archived').length
+          }
         case 'GET_ASSET_COUNT':
           return {
             ...state,

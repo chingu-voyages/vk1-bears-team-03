@@ -9,6 +9,7 @@ const initialState = {
   request: [],
   pendingRequests: [],
   requestCount: [],
+  archivedRequestCount: [],
   assetCount: [],
   userCount: [],
   error: null,
@@ -218,8 +219,24 @@ async function getRequestCount() {
     const res = await axios.get('/api/v1/requests');
 
     dispatch({
-      type: 'GET_REQUEST_COUNT',
-      payload: res.data.count
+      type: 'GET_PENDING_REQUEST_COUNT',
+      payload: res.data.data
+    });
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+}
+
+async function getArchivedRequestCount() {
+  try {
+    const res = await axios.get('/api/v1/requests');
+
+    dispatch({
+      type: 'GET_ARCHIVED_REQUEST_COUNT',
+      payload: res.data.data
     });
   } catch (err) {
     dispatch({
@@ -236,7 +253,7 @@ async function getAssetCount() {
 
     dispatch({
       type: 'GET_ASSET_COUNT',
-      payload: res.data.count
+      payload: res.data.data.length
     });
   } catch (err) {
     dispatch({
@@ -253,7 +270,7 @@ async function getUserCount() {
 
     dispatch({
       type: 'GET_USER_COUNT',
-      payload: res.data.user_count
+      payload: res.data.data.length
     });
   } catch (err) {
     dispatch({
@@ -272,6 +289,7 @@ async function getUserCount() {
     error: state.error,
     loading: state.loading,
     requestCount: state.requestCount,
+    archivedRequestCount: state.archivedRequestCount,
     assetCount: state.assetCount,
     userCount: state.userCount,
     getTransactions,
@@ -285,6 +303,7 @@ async function getUserCount() {
     getDeniedRequests,
     deleteRequest,
     getRequestCount,
+    getArchivedRequestCount,
     getAssetCount,
     getUserCount,
   }}>

@@ -12,11 +12,12 @@ import ChartLineSimple from '../charts/ChartLineSimple'
 
 const WidgetsDropdown = () => {
 
-  const { requestCount, getRequestCount, assetCount, getAssetCount, userCount, getUserCount } = useContext(GlobalContext)
+  const { requestCount, getRequestCount, assetCount, getAssetCount, userCount, getUserCount, archivedRequestCount, getArchivedRequestCount } = useContext(GlobalContext)
   useEffect(() => {
     getAssetCount()
     getUserCount()
     getRequestCount()
+    getArchivedRequestCount()
       // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -121,7 +122,7 @@ const WidgetsDropdown = () => {
       <CCol sm="6" lg="4">
         <CWidgetDropdown
           color="gradient-success"
-          header="650"
+          header={archivedRequestCount}
           text="All Archived Requests"
           footerSlot={
           <>
