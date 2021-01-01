@@ -78,7 +78,7 @@ export default [
       {
         _tag: 'CSidebarNavItem',
         name: 'Locations',
-        to: '/views/locations',
+        to: '/locations',
         icon: '',
         badge: {
           color: 'success',
@@ -88,19 +88,19 @@ export default [
       {
         _tag: 'CSidebarNavItem',
         name: 'Departments',
-        to: '/views/departments',
+        to: '/departments',
         icon: '',
       },
       {
         _tag: 'CSidebarNavItem',
         name: 'Suppliers',
-        to: '/views/suppliers',
+        to: '/suppliers',
         icon: '',
       },
       {
         _tag: 'CSidebarNavItem',
         name: 'Categories',
-        to: '/views/categories',
+        to: '/categories',
         icon: '',
       },
       {
