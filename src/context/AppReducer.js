@@ -60,6 +60,12 @@ export default (state, action) => {
         ...state,
         requests: state.requests.filter(request => request._id !== action.payload)
       }
+      case 'GET_REQUEST_COUNT':
+        return {
+          ...state,
+          loading: false,
+          requestCount: action.payload.length
+        }
       case 'GET_PENDING_REQUEST_COUNT':
         return {
           ...state,

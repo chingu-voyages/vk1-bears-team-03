@@ -219,6 +219,22 @@ async function getRequestCount() {
     const res = await axios.get('/api/v1/requests');
 
     dispatch({
+      type: 'GET_REQUEST_COUNT',
+      payload: res.data.data
+    });
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+}
+
+async function getPendingRequestCount() {
+  try {
+    const res = await axios.get('/api/v1/requests');
+
+    dispatch({
       type: 'GET_PENDING_REQUEST_COUNT',
       payload: res.data.data
     });
@@ -289,6 +305,7 @@ async function getUserCount() {
     error: state.error,
     loading: state.loading,
     requestCount: state.requestCount,
+    pendingRequestCount: state.pendingRequestCount,
     archivedRequestCount: state.archivedRequestCount,
     assetCount: state.assetCount,
     userCount: state.userCount,
@@ -303,6 +320,7 @@ async function getUserCount() {
     getDeniedRequests,
     deleteRequest,
     getRequestCount,
+    getPendingRequestCount,
     getArchivedRequestCount,
     getAssetCount,
     getUserCount,
