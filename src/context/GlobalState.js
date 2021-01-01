@@ -20,7 +20,7 @@ export const GlobalProvider = ({ children }) => {
   // Actions
   async function getAssets() {
     try {
-      const res = await axios.get('/api/v1/assets');
+      const res = await axios.get('http://localhost:5000/api/v1/assets');
       
       dispatch({
         type: 'GET_ASSETS',
@@ -36,7 +36,7 @@ export const GlobalProvider = ({ children }) => {
 
   async function deleteAsset(id) {
     try {
-      await axios.delete(`/api/v1/assets/${id}`);
+      await axios.delete(`http://localhost:5000/api/v1/assets/${id}`);
 
       dispatch({
         type: 'DELETE_ASSET',
@@ -58,7 +58,7 @@ export const GlobalProvider = ({ children }) => {
     }
 
     try {
-      const res = await axios.post('/api/v1/assets', asset, config);
+      const res = await axios.post('http://localhost:5000/api/v1/assets', asset, config);
 
       dispatch({
         type: 'ADD_ASSET',
@@ -83,7 +83,7 @@ export const GlobalProvider = ({ children }) => {
     }
 
     try {
-      const res = await axios.put(`/api/v1/assets/updateasset/${id}`, asset, config);
+      const res = await axios.put(`http://localhost:5000/api/v1/assets/updateasset/${id}`, asset, config);
 
       dispatch({
         type: 'UPDATE_ASSET',

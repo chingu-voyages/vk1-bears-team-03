@@ -201,9 +201,9 @@ const routes = [
   
 
 
-  { path: '/views/status', exact: true, name: 'Status Lables', component: StatusLabels },
-  { path: '/views/status/:id', exact: true, name: 'Status Label', component: StatusLabel },
-  { path: '/status/addstatus', exact: true, name: 'Add Status', component: AddStatus },
+  // { path: '/views/status', exact: true, name: 'Status Lables', component: StatusLabels },
+  // { path: '/views/status/:id', exact: true, name: 'Status Label', component: StatusLabel },
+  // { path: '/status/addstatus', exact: true, name: 'Add Status', component: AddStatus },
 
 
   { path: '/views/components/updatecomponent', exact: true, name: 'Update Component', component: UpdateComponent },
