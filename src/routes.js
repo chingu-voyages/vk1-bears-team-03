@@ -56,8 +56,8 @@ const Profile = React.lazy(() => import('./views/profile/Profile'));
 const CreateNewAccessory = React.lazy(() => import('./views/accessories/addaccessory/AddAccessory'));
 const AddComponent = React.lazy(() => import('./views/components/addComponent/AddComponent'));
 
-const StatusLabel = React.lazy(() => import('./views/status/StatusLabel'));
-const StatusLabels = React.lazy(() => import('./views/status/StatusLabels'));
+// const StatusLabel = React.lazy(() => import('./views/status/StatusLabel'));
+// const StatusLabels = React.lazy(() => import('./views/status/StatusLabels'));
 
 const ViewMoreAssets = React.lazy(() => import('./views/assets/viewmoreassets/ViewMoreAssets'));
 
@@ -122,13 +122,13 @@ const ViewMoreCategory = React.lazy(() => import('./views/categoriesmodule/viewm
 const UpdateCategory = React.lazy(() => import('./views/categoriesmodule/updatecategory/UpdateCategory'));
 
 
-const AddStatus = React.lazy(() => import('./views/status/addstatus/AddStatus'));
+// const AddStatus = React.lazy(() => import('./views/status/addstatus/AddStatus'));
 
-const UpdateStatus = React.lazy(() => import('./views/status/updatestatus/UpdateStatus'));
+// const UpdateStatus = React.lazy(() => import('./views/status/updatestatus/UpdateStatus'));
 
-const ViewMoreStatus = React.lazy(() => import('./views/status/viewmorestatus/ViewMoreStatus'));
+// const ViewMoreStatus = React.lazy(() => import('./views/status/viewmorestatus/ViewMoreStatus'));
 
-const Acceptance = React.lazy(() => import('./views/acceptance/Acceptance'));
+// const Acceptance = React.lazy(() => import('./views/acceptance/Acceptance'));
 
 
 
@@ -140,7 +140,7 @@ const routes = [
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
   { path: '/theme', name: 'Theme', component: Colors, exact: true },
   { path: '/theme/colors', name: 'Colors', component: Colors },
-  { path: '/views/assets/Assets', name: 'Assets', component: Assets },
+  // { path: '/views/assets/Assets', name: 'Assets', component: Assets },
   { path: '/theme/typography', name: 'Typography', component: Typography },
   
   { path: '/users', exact: true,  name: 'Users', component: Users },
@@ -150,6 +150,7 @@ const routes = [
 
   { path: '/assets', exact: true, name: 'Assets', component: Assets },
   { path: '/assets/addasset', exact: true, name: 'Create New Assets', component: AddAsset },
+
   { path: '/assets/viewmore/:id', exact: true, name: 'View More Assets', component: ViewMoreAssets },
   { path: '/assets/updateasset/:id', exact: true, name: 'Update Assets', component: UpdateAsset },
   { path: '/views/assets/borrowassets', exact: true, name: 'Borrow Assets', component: BorrowAssets },
@@ -199,9 +200,11 @@ const routes = [
   { path: '/views/accessories/createnewaccessory', exact: true, name: 'Create New Accessory', component: CreateNewAccessory },
   
 
+
   { path: '/views/status', exact: true, name: 'Status Lables', component: StatusLabels },
   { path: '/views/status/:id', exact: true, name: 'Status Label', component: StatusLabel },
   { path: '/status/addstatus', exact: true, name: 'Add Status', component: AddStatus },
+
 
   { path: '/views/components/updatecomponent', exact: true, name: 'Update Component', component: UpdateComponent },
   { path: '/views/components/viewmorecomponent', exact: true, name: 'View More Component', component: ViewMoreComponent },
@@ -240,12 +243,12 @@ const routes = [
   { path: '/views/categoriesmodule/viewmorecategory', exact: true, name: 'View More Category', component: ViewMoreCategory },
   { path: '/views/categoriesmodule/updatecategory', exact: true, name: 'Update Category', component: UpdateCategory },
 
-  { path: '/views/status/updatestatus', exact: true, name: 'Update Status', component: UpdateStatus },
+  // { path: '/views/status/updatestatus', exact: true, name: 'Update Status', component: UpdateStatus },
 
 
-  { path: '/views/status/viewmorestatus', exact: true, name: 'View More Status', component: ViewMoreStatus },
+  // { path: '/views/status/viewmorestatus', exact: true, name: 'View More Status', component: ViewMoreStatus },
 
-  { path: '/views/acceptance', exact: true, name: 'Acceptance', component: Acceptance },
+  // { path: '/views/acceptance', exact: true, name: 'Acceptance', component: Acceptance },
 
 
   

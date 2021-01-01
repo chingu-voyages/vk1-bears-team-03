@@ -11,7 +11,9 @@ import {
 import Images from '../../uploads/images'
 import { Route } from 'react-router-dom'
 import AddButton from '../addButton/AddButton'
+
 import dateFormat from 'dateformat'
+
 const Assets = () => {
 
 
@@ -81,6 +83,7 @@ const fields = [
 ]
 
 const getBadge = (status)=>{
+  console.log("This is Status from getBadge", status)
   switch (status) {
     case 'Available': return 'success'
     case 'Borrowed': return 'secondary'
