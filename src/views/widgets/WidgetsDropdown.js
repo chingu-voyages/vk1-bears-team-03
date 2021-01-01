@@ -66,7 +66,7 @@ const WidgetsDropdown = () => {
               pointed
               className="mt-3 mx-3"
               style={{height: '70px'}}
-              dataPoints={[1, 15, 9, 22, 14, 20, 25]}
+              dataPoints={[userCount]}
               pointHoverBackgroundColor="info"
               options={{ elements: { line: { tension: 0.00001 }}}}
               label="Total Members"
@@ -96,7 +96,7 @@ const WidgetsDropdown = () => {
               className="mt-3"
               style={{height: '70px'}}
               backgroundColor="rgba(255,255,255,.2)"
-              dataPoints={[1, 15, 9, 22, 14, 20, 25]}
+              dataPoints={[pendingRequestCount]}
               options={{ elements: { line: { borderWidth: 2.5 }}}}
               pointHoverBackgroundColor="warning"
               label="Total Pending Requests"
@@ -130,7 +130,7 @@ const WidgetsDropdown = () => {
               pointed
               className="c-chart-wrapper mt-3 mx-3"
               style={{height: '70px'}}
-              dataPoints={[65, 59, 84, 84, 120, 125, 132]}
+              dataPoints={[archivedRequestCount]}
               pointHoverBackgroundColor="success"
               label="Total Archived Requests"
               labels="months"
