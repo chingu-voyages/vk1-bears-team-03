@@ -9,6 +9,7 @@ const initialState = {
   request: [],
   pendingRequests: [],
   requestCount: [],
+  pendingRequestCount: [],
   archivedRequestCount: [],
   assetCount: [],
   userCount: [],

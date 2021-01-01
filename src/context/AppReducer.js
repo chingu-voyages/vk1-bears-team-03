@@ -70,7 +70,7 @@ export default (state, action) => {
         return {
           ...state,
           loading: false,
-          requestCount: action.payload.filter(request => request.request_status === 'Pending').length
+          pendingRequestCount: action.payload.filter(request => request.request_status === 'Pending').length
         }
         case 'GET_ARCHIVED_REQUEST_COUNT':
           return {

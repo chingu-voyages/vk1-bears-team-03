@@ -12,11 +12,11 @@ import ChartLineSimple from '../charts/ChartLineSimple'
 
 const WidgetsDropdown = () => {
 
-  const { requestCount, getRequestCount, assetCount, getAssetCount, userCount, getUserCount, archivedRequestCount, getArchivedRequestCount } = useContext(GlobalContext)
+  const { pendingRequestCount, getPendingRequestCount, assetCount, getAssetCount, userCount, getUserCount, archivedRequestCount, getArchivedRequestCount } = useContext(GlobalContext)
   useEffect(() => {
     getAssetCount()
     getUserCount()
-    getRequestCount()
+    getPendingRequestCount()
     getArchivedRequestCount()
       // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -37,7 +37,7 @@ const WidgetsDropdown = () => {
               pointed
               className="c-chart-wrapper mt-3 mx-3"
               style={{height: '70px'}}
-              dataPoints={[requestCount]}
+              dataPoints={[assetCount]}
               pointHoverBackgroundColor="primary"
               label="Total Assets"
               labels="months"
@@ -88,7 +88,7 @@ const WidgetsDropdown = () => {
       <CCol sm="6" lg="4">
         <CWidgetDropdown
           color="gradient-warning"
-          header={requestCount}
+          header={pendingRequestCount}
           text="Pending Requests"
           footerSlot={
           <>
