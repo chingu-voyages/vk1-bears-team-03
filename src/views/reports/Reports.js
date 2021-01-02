@@ -95,7 +95,7 @@ let colors = [
                     datasets={[
                         {
                         label: '2021',
-                        backgroundColor: ['#003f5c', '#2f4b7c', '#665191', '#a05195', '#d45087', '#f95d6a', '#ff7c43', '#ffa600'],
+                        backgroundColor: ['#003f5c', '#2f4b7c', '#665191', '#a05195', '#d45087', '#f95d6a', '#ff7c43', '#ffa600', '#d45072', '#f95d7b', '#ff7c90', '#ffa805'],
                         borderColor: 'rgba(255,99,132,1)',
                         pointBackgroundColor: 'rgba(255,99,132,1)',
                         pointBorderColor: '#fff',
