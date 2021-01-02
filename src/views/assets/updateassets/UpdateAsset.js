@@ -8,6 +8,7 @@ import {
 } from '@coreui/react'
 import BackButton from '../../backButton/BackButton'
 import CancelButton from '../../cancelbutton/CancelButton'
+import { useHistory } from "react-router-dom";
 
 const UpdateAsset = ({ match }) => {
   const { register, handleSubmit, errors } = useForm()
@@ -19,6 +20,8 @@ const UpdateAsset = ({ match }) => {
       // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [assets])
 
+  //SET CURRENT URL
+  let history = useHistory();
 
   const asset = assets.find( asset => asset._id === match.params.id)
 
@@ -31,6 +34,9 @@ const UpdateAsset = ({ match }) => {
         alert("Successfully Updated")
         console.log(data)
         clearForm()
+        
+        //REDIRECT TO ASSETS PAGE
+        history.push('/assets')
 
   }
 
