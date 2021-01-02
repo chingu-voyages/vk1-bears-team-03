@@ -24,6 +24,9 @@ const initialState = {
   allArchivedRequestCount7Days: [],
   locationsCount7Days: [],
   departmentsCount7Days: [],
+  requestCount1Year: [],
+  memberCount1Year: [],
+  assetCount1Year: [],
 
   error: null,
   loading: true
@@ -835,6 +838,97 @@ async function getDepartmentsCount7Days() {
   }
 }
 
+
+async function getRequestCount1Year() {
+  try {
+    const res = await axios.get('/api/v1/requests');
+    const result = res.data.data
+    let count = []
+    let addend = 0
+
+    for (let i =0; i<=11; i++) {
+    const today = moment().startOf('year');
+    let newToday = today.add(addend, 'months');
+    let months = newToday.endOf('month')
+    let data = result.filter(result => moment(result.createdAt) <= months)
+
+    count.unshift(data.length)
+    addend += 1
+    }
+console.log(count)
+    dispatch({
+      type: 'GET_REQUEST_1_YEAR',
+      payload: count
+    });
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+}
+
+
+async function getMemberCount1Year() {
+  try {
+    const res = await axios.get('/api/v1/users');
+    const result = res.data.data
+    let count = []
+    let addend = 0
+
+    for (let i =0; i<=11; i++) {
+    const today = moment().startOf('year');
+    let newToday = today.add(addend, 'months');
+    let months = newToday.endOf('month')
+    let data = result.filter(result => moment(result.createdAt) <= months)
+
+    count.unshift(data.length)
+    addend += 1
+    }
+console.log(count)
+    dispatch({
+      type: 'GET_MEMBER_1_YEAR',
+      payload: count
+    });
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+}
+
+async function getAssetCount1Year() {
+  try {
+    const res = await axios.get('/api/v1/assets');
+    const result = res.data.data
+    let count = []
+    let addend = 0
+
+    for (let i =0; i<=11; i++) {
+    const today = moment().startOf('year');
+    let newToday = today.add(addend, 'months');
+    let months = newToday.endOf('month')
+    let data = result.filter(result => moment(result.createdAt) <= months)
+
+    count.unshift(data.length)
+    addend += 1
+    }
+console.log(count)
+    dispatch({
+      type: 'GET_ASSET_1_YEAR',
+      payload: count
+    });
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+}
+
+
+
   return (<GlobalContext.Provider value={{
     assets: state.assets,
     pendingRequests: state.pendingRequests,
@@ -853,6 +947,9 @@ async function getDepartmentsCount7Days() {
     allArchivedRequestCount7Days: state.allRequestCount7Days,
     locationsCount7Days: state.locationsCount7Days,
     departmentsCount7Days: state.departmentsCount7Days,
+    requestCount1Year: state.requestCount1Year,
+    memberCount1Year: state.memberCount1Year,
+    assetCount1Year: state.assetCount1Year,
     deleteAsset,
     addAsset,
     updateAsset,
@@ -900,6 +997,9 @@ async function getDepartmentsCount7Days() {
     getAllArchivedRequestCount7Days,
     getLocationsCount7Days,
     getDepartmentsCount7Days,
+    getRequestCount1Year,
+    getMemberCount1Year,
+    getAssetCount1Year,
 
 
   }}>

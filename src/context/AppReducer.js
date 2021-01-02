@@ -243,6 +243,24 @@ export default (state, action) => {
             loading: false,
             departmentsCount7Days: action.payload
           }
+          case 'GET_REQUEST_1_YEAR':
+            return {
+              ...state,
+              loading: false,
+              requestCount1Year: action.payload
+            }
+          case 'GET_MEMBER_1_YEAR':
+            return {
+              ...state,
+              loading: false,
+              memberCount1Year: action.payload
+            }
+          case 'GET_ASSET_1_YEAR':
+            return {
+              ...state,
+              loading: false,
+              assetCount1Year: action.payload
+            }
     default:
       return state;
   }

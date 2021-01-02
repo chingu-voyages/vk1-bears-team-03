@@ -12,6 +12,7 @@ import {
 import {
     CChartBar,
     CChartLine,
+    CChartHorizontalBar,
   } from '@coreui/react-chartjs'
 
 import MainChartExample from '../charts/MainChartExample.js'
@@ -19,12 +20,30 @@ import MainChartExample from '../charts/MainChartExample.js'
 
   const Reports = () => {
 
-    const { requestCount, getRequestCount, userCount, getUserCount } = useContext(GlobalContext)
+    const { requestCount, getRequestCount, userCount, getUserCount, requestCount1Year, getRequestCount1Year, memberCount1Year, getMemberCount1Year, assetCount1Year, getAssetCount1Year } = useContext(GlobalContext)
     useEffect(() => {
       getRequestCount()
       getUserCount()
+      getRequestCount1Year()
+      getMemberCount1Year()
+      getAssetCount1Year()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
+
+let colors = [
+    '#' + Math.floor(Math.random()*16777215).toString(16),
+    '#' + Math.floor(Math.random()*16777215).toString(16),
+    '#' + Math.floor(Math.random()*16777215).toString(16),
+    '#' + Math.floor(Math.random()*16777215).toString(16),
+    '#' + Math.floor(Math.random()*16777215).toString(16),
+    '#' + Math.floor(Math.random()*16777215).toString(16),
+    '#' + Math.floor(Math.random()*16777215).toString(16),
+    '#' + Math.floor(Math.random()*16777215).toString(16),
+    '#' + Math.floor(Math.random()*16777215).toString(16),
+    '#' + Math.floor(Math.random()*16777215).toString(16),
+    '#' + Math.floor(Math.random()*16777215).toString(16),
+    '#' + Math.floor(Math.random()*16777215).toString(16),
+]
 
     return (
       <>
@@ -62,7 +81,7 @@ import MainChartExample from '../charts/MainChartExample.js'
                     type="doughnut"
                     datasets={[
                         {
-                        label: '2020',
+                        label: '2021',
                         backgroundColor: 'rgba(255,99,132,0.2)',
                         borderColor: 'rgba(255,99,132,1)',
                         pointBackgroundColor: 'rgba(255,99,132,1)',
@@ -70,7 +89,7 @@ import MainChartExample from '../charts/MainChartExample.js'
                         pointHoverBackgroundColor: '#fff',
                         pointHoverBorderColor: 'rgba(255,99,132,1)',
                         tooltipLabelColor: 'rgba(255,99,132,1)',
-                        data: [28, 48, 40, 19, 96, 27, 100,65,87,64,34,78]
+                        data: requestCount1Year,
                         }
                     ]}
                     options={{
@@ -94,7 +113,7 @@ import MainChartExample from '../charts/MainChartExample.js'
                     <CChartLine
                     datasets={[
                         {
-                        label: '2020',
+                        label: '2021',
                         fill: false,
                         backgroundColor: ["#044BF","#A9FDAC","#44CF6C","#32A287","#6C464E","#2B4162","#E0E0E2"],
                         borderColor: 'rgba(255,99,132,1)',
@@ -103,7 +122,7 @@ import MainChartExample from '../charts/MainChartExample.js'
                         pointHoverBackgroundColor: '#fff',
                         pointHoverBorderColor: 'rgba(255,99,132,1)',
                         tooltipLabelColor: 'rgba(255,99,132,1)',
-                        data: [28, 48, 40, 30, 60, 35, 60,54,78,81,55,80]
+                        data: memberCount1Year
                         }
                     ]}
                     options={{
@@ -126,9 +145,34 @@ import MainChartExample from '../charts/MainChartExample.js'
         <CCard className="mt-3">
             <CCardBody>
             <CRow>
-                <CCol><h3>Inventory</h3></CCol>
+                <CCol><h3>Assets</h3></CCol>
             </CRow>
-        <MainChartExample style={{height: '300px', marginTop: '40px'}}/>
+            <CChartHorizontalBar
+                    datasets={[
+                        {
+                        label: '2021',
+                        fill: false,
+                        backgroundColor: colors,
+                        borderColor: 'rgba(255,99,132,1)',
+                        pointBackgroundColor: ['rgba(255,99,132,1)'],
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(255,99,132,1)',
+                        tooltipLabelColor: 'rgba(255,99,132,1)',
+                        data: memberCount1Year
+                        }
+                    ]}
+                    options={{
+                        aspectRatio: 1,
+                        tooltips: {
+                        enabled: true
+                        }
+                    }}
+                    labels={[
+                        'January', 'February', 'March', 'April',
+                        'May', 'June', 'July','August','September',
+                        'October','November','December'
+                    ]}></CChartHorizontalBar>
         </CCardBody>
         </CCard>
       </>
