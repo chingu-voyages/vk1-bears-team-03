@@ -31,18 +31,31 @@ import MainChartExample from '../charts/MainChartExample.js'
     }, [])
 
 let colors = [
-    '#' + Math.floor(Math.random()*16777215).toString(16),
-    '#' + Math.floor(Math.random()*16777215).toString(16),
-    '#' + Math.floor(Math.random()*16777215).toString(16),
-    '#' + Math.floor(Math.random()*16777215).toString(16),
-    '#' + Math.floor(Math.random()*16777215).toString(16),
-    '#' + Math.floor(Math.random()*16777215).toString(16),
-    '#' + Math.floor(Math.random()*16777215).toString(16),
-    '#' + Math.floor(Math.random()*16777215).toString(16),
-    '#' + Math.floor(Math.random()*16777215).toString(16),
-    '#' + Math.floor(Math.random()*16777215).toString(16),
-    '#' + Math.floor(Math.random()*16777215).toString(16),
-    '#' + Math.floor(Math.random()*16777215).toString(16),
+    '#EFEE69',
+    '#C5E16A',
+    '#9FD26E',
+    '#7CC272',
+    '#5EB075',
+    '#439E77',
+    '#2F8B75',
+    '#227970',
+    '#1F6668',
+    '#20535C',
+    '#22424E',
+    '#21313E',
+    
+    // '#' + Math.floor(Math.random()*16777215).toString(16),
+    // '#' + Math.floor(Math.random()*16777215).toString(16),
+    // '#' + Math.floor(Math.random()*16777215).toString(16),
+    // '#' + Math.floor(Math.random()*16777215).toString(16),
+    // '#' + Math.floor(Math.random()*16777215).toString(16),
+    // '#' + Math.floor(Math.random()*16777215).toString(16),
+    // '#' + Math.floor(Math.random()*16777215).toString(16),
+    // '#' + Math.floor(Math.random()*16777215).toString(16),
+    // '#' + Math.floor(Math.random()*16777215).toString(16),
+    // '#' + Math.floor(Math.random()*16777215).toString(16),
+    // '#' + Math.floor(Math.random()*16777215).toString(16),
+    // '#' + Math.floor(Math.random()*16777215).toString(16),
 ]
 
     return (
@@ -82,7 +95,7 @@ let colors = [
                     datasets={[
                         {
                         label: '2021',
-                        backgroundColor: 'rgba(255,99,132,0.2)',
+                        backgroundColor: ['#003f5c', '#2f4b7c', '#665191', '#a05195', '#d45087', '#f95d6a', '#ff7c43', '#ffa600'],
                         borderColor: 'rgba(255,99,132,1)',
                         pointBackgroundColor: 'rgba(255,99,132,1)',
                         pointBorderColor: '#fff',
@@ -148,6 +161,7 @@ let colors = [
                 <CCol><h3>Assets</h3></CCol>
             </CRow>
             <CChartHorizontalBar
+                    style={{height: '500px'}}
                     datasets={[
                         {
                         label: '2021',
@@ -163,7 +177,7 @@ let colors = [
                         }
                     ]}
                     options={{
-                        aspectRatio: 1,
+                        maintainAspectRatio: false,
                         tooltips: {
                         enabled: true
                         }
