@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useContext, useEffect } from 'react'
+import { GlobalContext } from '../../context/GlobalState'
 import {
   CWidgetDropdown,
   CRow,
@@ -10,14 +11,25 @@ import { CButton } from '@coreui/react'
 import ChartLineSimple from '../charts/ChartLineSimple'
 
 const WidgetsDropdown = () => {
-  // render
+
+  const { pendingRequestCount, getPendingRequestCount, assetCount, getAssetCount, userCount, getUserCount, archivedRequestCount, getArchivedRequestCount } = useContext(GlobalContext)
+  useEffect(() => {
+    getAssetCount()
+    getUserCount()
+    getPendingRequestCount()
+    getArchivedRequestCount()
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+
+
   return (
     <>
     <CRow>
       <CCol sm="6" lg="4">
         <CWidgetDropdown
           color="gradient-primary"
-          header="923"
+          header={assetCount}
           text="All Assets"
           footerSlot={
           <>
@@ -25,7 +37,7 @@ const WidgetsDropdown = () => {
               pointed
               className="c-chart-wrapper mt-3 mx-3"
               style={{height: '70px'}}
-              dataPoints={[65, 59, 84, 84, 120, 125, 132]}
+              dataPoints={[assetCount]}
               pointHoverBackgroundColor="primary"
               label="Total Assets"
               labels="months"
@@ -46,15 +58,15 @@ const WidgetsDropdown = () => {
       <CCol sm="6" lg="4">
         <CWidgetDropdown
           color="gradient-info"
-          header="25"
-          text="Users"
+          header={userCount}
+          text="All Users"
           footerSlot={
           <>
             <ChartLineSimple
               pointed
               className="mt-3 mx-3"
               style={{height: '70px'}}
-              dataPoints={[1, 15, 9, 22, 14, 20, 25]}
+              dataPoints={[userCount]}
               pointHoverBackgroundColor="info"
               options={{ elements: { line: { tension: 0.00001 }}}}
               label="Total Members"
@@ -76,7 +88,7 @@ const WidgetsDropdown = () => {
       <CCol sm="6" lg="4">
         <CWidgetDropdown
           color="gradient-warning"
-          header="2"
+          header={pendingRequestCount}
           text="Pending Requests"
           footerSlot={
           <>
@@ -84,10 +96,10 @@ const WidgetsDropdown = () => {
               className="mt-3"
               style={{height: '70px'}}
               backgroundColor="rgba(255,255,255,.2)"
-              dataPoints={[55, 50, 45, 30, 24, 12, 10]}
+              dataPoints={[pendingRequestCount]}
               options={{ elements: { line: { borderWidth: 2.5 }}}}
               pointHoverBackgroundColor="warning"
-              label="Total Requests"
+              label="Total Pending Requests"
               labels="months"
             />
             <CButton
@@ -110,23 +122,23 @@ const WidgetsDropdown = () => {
       <CCol sm="6" lg="4">
         <CWidgetDropdown
           color="gradient-success"
-          header="650"
-          text="All Software Licenses"
+          header={archivedRequestCount}
+          text="All Archived Requests"
           footerSlot={
           <>
             <ChartLineSimple
               pointed
               className="c-chart-wrapper mt-3 mx-3"
               style={{height: '70px'}}
-              dataPoints={[65, 59, 84, 84, 120, 125, 132]}
+              dataPoints={[archivedRequestCount]}
               pointHoverBackgroundColor="success"
-              label="Total Assets"
+              label="Total Archived Requests"
               labels="months"
             />
             <CButton
               color = "outline-secondary"
               className="text-white"
-              to="/views/softwares"
+              to="/views/archived-requests"
             >
               More Info
             </CButton>
@@ -140,7 +152,7 @@ const WidgetsDropdown = () => {
         <CWidgetDropdown
           color="gradient-danger"
           header="90"
-          text="All Permits"
+          text="All Locations"
           footerSlot={
           <>
             <ChartLineSimple
@@ -170,7 +182,7 @@ const WidgetsDropdown = () => {
         <CWidgetDropdown
           color="gradient-dark"
           header="205"
-          text="All Consumables"
+          text="All Departments"
           footerSlot={
           <>
             <ChartLineSimple

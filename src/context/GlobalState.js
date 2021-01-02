@@ -5,10 +5,19 @@ import axios from 'axios';
 // Initial state
 const initialState = {
   assets: [],
+  requests: [],
+  request: [],
+  pendingRequests: [],
+  requestCount: [],
+  pendingRequestCount: [],
+  archivedRequestCount: [],
+  assetCount: [],
+  userCount: [],
   locations: [],
   departments: [],
   suppliers: [],
   categories: [],
+
   error: null,
   loading: true
 }
@@ -73,7 +82,7 @@ export const GlobalProvider = ({ children }) => {
         payload: err.response.data.error
       });
     }
-    
+
   }
 
   async function updateAsset(id, asset) {
@@ -367,12 +376,23 @@ export const GlobalProvider = ({ children }) => {
   }
 
 
+  //<----Requests-related Functions----->
+
+  async function getRequests() {
+    try {
+      const res = await axios.get('/api/v1/requests');
+
+      dispatch({
+        type: 'GET_REQUESTS',
+
+
   async function getCategories() {
     try {
       const res = await axios.get('/api/v1/categories');
 
       dispatch({
         type: 'GET_CATEGORIES',
+
         payload: res.data.data
       });
     } catch (err) {
@@ -383,6 +403,13 @@ export const GlobalProvider = ({ children }) => {
     }
   }
 
+  async function getRequest(id) {
+    try {
+      const res = await axios.get(`http://localhost:5000/api/v1/requests/${id}`);
+
+      dispatch({
+        type: 'GET_REQUEST',
+        payload: res.data.data
 
   async function deleteCategory(id) {
     try {
@@ -401,6 +428,31 @@ export const GlobalProvider = ({ children }) => {
   }
 
 
+  async function getPendingRequests() {
+    try {
+      const res = await axios.get('/api/v1/requests');
+
+      dispatch({
+        type: 'GET_PENDING_REQUESTS',
+        payload: res.data.data
+      });
+    } catch (err) {
+      dispatch({
+        type: 'TRANSACTION_ERROR',
+        payload: err.response.data.error
+      });
+    }
+  }
+
+  async function getDeniedRequests() {
+    try {
+      const res = await axios.get('/api/v1/requests');
+
+      dispatch({
+        type: 'GET_DENIED_REQUESTS',
+        payload: res.data.data
+      });
+=======
 
   async function addCategory(category) {
     const config = {
@@ -423,6 +475,10 @@ export const GlobalProvider = ({ children }) => {
         payload: err.response.data.error
       });
     }
+  }
+
+
+  async function updateRequest(id, request) {
     
   } 
 
@@ -437,6 +493,12 @@ export const GlobalProvider = ({ children }) => {
     }
 
     try {
+      const res = await axios.patch(`http://localhost:5000/api/v1/requests/${id}`, request, config);
+
+      dispatch({
+        type: 'UPDATE_REQUEST',
+        payload: res.data.data
+      });
       const res = await axios.put(`/api/v1/categories/updatecategory/${id}`, category, config);
 
       dispatch({
@@ -452,10 +514,135 @@ export const GlobalProvider = ({ children }) => {
     }
   }
 
+  async function deleteRequest(id) {
+    try {
+      await axios.delete(`/api/v1/requests/${id}`);
+
+      dispatch({
+        type: 'DELETE_REQUESTS',
+        payload: id
+      });
+    } catch (err) {
+      dispatch({
+        type: 'TRANSACTION_ERROR',
+        payload: err.response.data.error
+      });
+    }
+  }
+
+
+//<======= Fetch Data Counts for Charts/Dashboard =======>
+
+async function getRequestCount() {
+  try {
+    const res = await axios.get('/api/v1/requests');
+
+    dispatch({
+      type: 'GET_REQUEST_COUNT',
+      payload: res.data.data
+    });
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+}
+
+async function getPendingRequestCount() {
+  try {
+    const res = await axios.get('/api/v1/requests');
+
+    dispatch({
+      type: 'GET_PENDING_REQUEST_COUNT',
+      payload: res.data.data
+    });
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+}
+
+async function getArchivedRequestCount() {
+  try {
+    const res = await axios.get('/api/v1/requests');
+
+    dispatch({
+      type: 'GET_ARCHIVED_REQUEST_COUNT',
+      payload: res.data.data
+    });
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+}
+
+//** */
+async function getAssetCount() {
+  try {
+    const res = await axios.get('/api/v1/assets');
+
+    dispatch({
+      type: 'GET_ASSET_COUNT',
+      payload: res.data.data.length
+    });
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+}
+
+//** */
+async function getUserCount() {
+  try {
+    const res = await axios.get('/api/v1/users');
+
+    dispatch({
+      type: 'GET_USER_COUNT',
+      payload: res.data.data.length
+    });
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+}
 
 
   return (<GlobalContext.Provider value={{
     assets: state.assets,
+    pendingRequests: state.pendingRequests,
+    requests: state.requests,
+    request: state.request,
+    error: state.error,
+    loading: state.loading,
+    requestCount: state.requestCount,
+    pendingRequestCount: state.pendingRequestCount,
+    archivedRequestCount: state.archivedRequestCount,
+    assetCount: state.assetCount,
+    userCount: state.userCount,
+    getTransactions,
+    deleteAsset,
+    addAsset,
+    updateAsset,
+    getRequests,
+    getRequest,
+    updateRequest,
+    getPendingRequests,
+    getDeniedRequests,
+    deleteRequest,
+    getRequestCount,
+    getPendingRequestCount,
+    getArchivedRequestCount,
+    getAssetCount,
+    getUserCount,
     locations: state.locations,
     departments: state.departments,
     suppliers: state.suppliers,

@@ -3,38 +3,45 @@ import { GlobalContext } from '../../context/GlobalState'
 import { CButton, CCard, CCardBody, CCardHeader, CCol, CRow } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { useHistory } from "react-router-dom";
-import dateFormat from 'dateformat';
+import dateFormat from "dateformat"
 import { Route } from 'react-router-dom'
 
 // softwaresData.forEach(software => console.log(software))
 
 const Request = ({match}) => {
 
-  const { pendingRequests, updateRequest, getPendingRequests } = useContext(GlobalContext)
+  const { requests, updateRequest, getDeniedRequests, deleteRequest } = useContext(GlobalContext)
   useEffect(() => {
-    getPendingRequests()
+    getDeniedRequests()
       // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   let history = useHistory();
 
-  const request = pendingRequests.find( request => request._id.toString() === match.params.id)
+  const request = requests.find( request => request._id.toString() === match.params.id)
 
   const handleOnClick = (data) => {
     updateRequest(match.params.id, data)
     alert(`Request Successfully ${data.request_status}`)
     console.log(data)
-    setTimeout(()=>history.push('/views/requests'), 500);
+    setTimeout(()=>history.push('/views/archived-requests'), 500);
     // window.location.reload()
   }
 
-  var pretifyName = function pretifyName(name) {
-    return name.replace(/[-_.]/g, ' ').replace(/ +/g, ' ').replace(/([a-z0-9])([A-Z])/g, '$1 $2').split(' ').map(function (word) {
-      return word.charAt(0).toUpperCase() + word.slice(1);
-    }).join(' ');
-  };
+  const handleDelete = (data) => {
+    deleteRequest(match.params.id)
+    alert(`Request Successfully Deleted`)
+    setTimeout(()=>history.push('/views/archived-requests'), 500);
+    // window.location.reload()
+  }
 
-  const requestDetails = request ? Object.entries(request) : 
-    [['id', (<span><CIcon className="text-muted" name="cui-icon-ban" /> Not found</span>)]]
+  // var pretifyName = function pretifyName(name) {
+  //   return name.replace(/[-_.]/g, ' ').replace(/ +/g, ' ').replace(/([a-z0-9])([A-Z])/g, '$1 $2').split(' ').map(function (word) {
+  //     return word.charAt(0).toUpperCase() + word.slice(1);
+  //   }).join(' ');
+  // };
+
+  // const requestDetails = request ? Object.entries(request) : 
+  //   [['id', (<span><CIcon className="text-muted" name="cui-icon-ban" /> Not found</span>)]]
 
   return (
     <CRow>
@@ -80,17 +87,15 @@ const Request = ({match}) => {
                     <td><b> {dateFormat(request.request_date, "dddd, mmmm dd, yyyy hh:hh TT")} </b></td>
                   </tr>
                 </tbody>
-              </table>     
-          <CButton size="md" color="danger" className="mr-1 mt-2 float-right" onClick={()=> handleOnClick({"request_status": "Denied"})}>
-                    Deny
-          </CButton>
+              </table>        
+          <CButton size="md" color="danger" className="mr-1 mt-2 float-right" onClick={()=> handleOnClick({"request_status": "Denied"})}>Deny</CButton>
           <CButton size="md" color="primary" className="mr-1 mt-2 float-right" onClick={()=> handleOnClick({"request_status": "Approved"})}>Approve</CButton>
           <Route render={({ history}) => (
               <CButton
                 className="mr-1 mt-2 float-left"
                 color="info"
                 size="md"
-                onClick={() => { history.push('/views/requests') }}>
+                onClick={() => { history.push('/views/archived-requests') }}>
                 Back
               </CButton>
               )}/>

@@ -75,6 +75,8 @@ const BorrowConsumable = React.lazy(() => import('./views/consumables/borrowcons
 
 const Requests = React.lazy(() => import('./views/request/Requests'));
 const Request = React.lazy(() => import('./views/request/Request'));
+const ArchivedRequests = React.lazy(() => import('./views/request/ArchivedRequests'));
+const ArchivedRequest = React.lazy(() => import('./views/request/ArchivedRequest'));
 
 ////////////////////////////// Locations //////////////////////////////////
 
@@ -203,9 +205,14 @@ const routes = [
 
 
 
+  { path: '/views/requests', exact: true, name: 'Requests', component: Requests },
+  { path: '/views/requests/:id', exact: true, name: 'Request', component: Request },
+  { path: '/views/archived-requests', exact: true, name: 'ArchivedRequests', component: ArchivedRequests },
+  { path: '/views/archived-requests/:id', exact: true, name: 'ArchivedRequest', component: ArchivedRequest },
   // { path: '/views/status', exact: true, name: 'Status Lables', component: StatusLabels },
   // { path: '/views/status/:id', exact: true, name: 'Status Label', component: StatusLabel },
   // { path: '/status/addstatus', exact: true, name: 'Add Status', component: AddStatus },
+
 
 
   { path: '/views/components/updatecomponent', exact: true, name: 'Update Component', component: UpdateComponent },

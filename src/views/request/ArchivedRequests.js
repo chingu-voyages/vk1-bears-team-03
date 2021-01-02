@@ -16,9 +16,9 @@ import dateFormat from 'dateformat'
 
 const Requests = () => {
 
-  const { pendingRequests, getPendingRequests } = useContext(GlobalContext)
+  const { requests, getDeniedRequests } = useContext(GlobalContext)
   useEffect(() => {
-    trackPromise(getPendingRequests())
+    trackPromise(getDeniedRequests())
       // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -84,7 +84,7 @@ const Requests = () => {
           
       </CRow>
     }
-      items={pendingRequests} 
+      items={requests} 
       fields={fields}
       hover
       noItemsViewSlot={loading}
@@ -116,7 +116,7 @@ const Requests = () => {
               <CButton
                 color="primary"
                 size="sm"
-                onClick={() => { history.push(`requests/${item._id}`) }}>
+                onClick={() => { history.push(`archived-requests/${item._id}`) }}>
                 View Details
               </CButton>
               )}/>
@@ -126,7 +126,7 @@ const Requests = () => {
       }
     }
     />
-    )
+  )
   }
   
   export default Requests

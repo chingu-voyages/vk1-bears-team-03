@@ -64,11 +64,29 @@ export default [
   },
   
   {
-    _tag: 'CSidebarNavItem',
+    _tag: 'CSidebarNavDropdown',
     name: 'Requests',
-    to: '/views/requests',
     icon: <FontAwesomeIcon icon={faComment} className="fonticons"/>,
-  },
+
+    _children: [
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Pending Requests',
+        to: '/views/requests',
+        badge: {
+          color: 'success',
+        },
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Archived Requests',
+        to: '/views/archived-requests',
+        badge: {
+          color: 'success',
+      },
+    }
+    ]
+    },
   {
     _tag: 'CSidebarNavDropdown',
     name: 'Background Data',

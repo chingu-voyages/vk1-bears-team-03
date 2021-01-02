@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useContext, useEffect } from 'react'
+import { GlobalContext } from '../../context/GlobalState'
 import {
     CRow,
     CCol,
@@ -17,6 +18,14 @@ import MainChartExample from '../charts/MainChartExample.js'
 
 
   const Reports = () => {
+
+    const { requestCount, getRequestCount, userCount, getUserCount } = useContext(GlobalContext)
+    useEffect(() => {
+      getRequestCount()
+      getUserCount()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
     return (
       <>
         <CCard>
@@ -31,13 +40,13 @@ import MainChartExample from '../charts/MainChartExample.js'
                 <CCol col="12" sm="6">
                     <CCallout color="info" className={'bg-secondary'}>
                         <small className="text-muted">Total Requests</small><br />
-                        <strong className="h4">29,123</strong>
+                        <strong className="h4">{requestCount}</strong>
                     </CCallout>
                 </CCol>
                 <CCol col="12" sm="6">
                     <CCallout color="info" className={'bg-secondary'}>
                         <small className="text-muted">Total Members</small><br />
-                        <strong className="h4">2,643</strong>
+                        <strong className="h4">{userCount}</strong>
                     </CCallout>
                 </CCol>
             </CRow>
