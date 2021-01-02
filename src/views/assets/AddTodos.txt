@@ -1,0 +1,8 @@
+1. More Action option for checkboxes selected
+2. Photo for the pictures of the assets ---Done ->{ Update Asset to update image or as is?}
+3. Finalize schema of assets
+4. Filter buttons for "Borrow" and "Return"
+
+
+if (User) -> Show the Borrow and Return option
+else (Admin) -> View More, Update, Delete, Add

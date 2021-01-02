@@ -83,10 +83,11 @@ const TheHeaderDropdown = () => {
           <CBadge color="primary" className="mfs-auto">42</CBadge>
         </CDropdownItem>
         <CDropdownItem divider />
-        <CDropdownItem>
-          <CIcon name="cil-lock-locked" className="mfe-2" /> 
-          Log Out
-        </CDropdownItem>
+        <Route render={({ history}) => (
+            <CDropdownItem onClick={() => {history.push('/views/pages/login')}}>
+              <CIcon name="cil-lock-locked" className="mfe-2" />Log Out
+            </CDropdownItem>
+        )}/>
       </CDropdownMenu>
     </CDropdown>
   )

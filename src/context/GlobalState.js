@@ -13,6 +13,11 @@ const initialState = {
   archivedRequestCount: [],
   assetCount: [],
   userCount: [],
+  locations: [],
+  departments: [],
+  suppliers: [],
+  categories: [],
+
   error: null,
   loading: true
 }
@@ -24,18 +29,17 @@ export const GlobalContext = createContext(initialState);
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
-  // Actions
-  async function getTransactions() {
+  async function getAssets() {
     try {
-      const res = await axios.get('/api/v1/assets');
-
+      const res = await axios.get('http://localhost:5000/api/v1/assets');
+      
       dispatch({
-        type: 'GET_TRANSACTIONS',
+        type: 'GET_ASSETS',
         payload: res.data.data
       });
     } catch (err) {
       dispatch({
-        type: 'TRANSACTION_ERROR',
+        type: 'ASSET_ERROR',
         payload: err.response.data.error
       });
     }
@@ -43,15 +47,15 @@ export const GlobalProvider = ({ children }) => {
 
   async function deleteAsset(id) {
     try {
-      await axios.delete(`/api/v1/assets/${id}`);
+      await axios.delete(`http://localhost:5000/api/v1/assets/${id}`);
 
       dispatch({
-        type: 'DELETE_TRANSACTION',
+        type: 'DELETE_ASSET',
         payload: id
       });
     } catch (err) {
       dispatch({
-        type: 'TRANSACTION_ERROR',
+        type: 'ASSET_ERROR',
         payload: err.response.data.error
       });
     }
@@ -65,16 +69,16 @@ export const GlobalProvider = ({ children }) => {
     }
 
     try {
-      const res = await axios.post('/api/v1/assets', asset, config);
+      const res = await axios.post('http://localhost:5000/api/v1/assets', asset, config);
 
       dispatch({
-        type: 'ADD_TRANSACTION',
+        type: 'ADD_ASSET',
         payload: res.data.data
       });
 
     } catch (err) {
       dispatch({
-        type: 'TRANSACTION_ERROR',
+        type: 'ASSET_ERROR',
         payload: err.response.data.error
       });
     }
@@ -90,10 +94,186 @@ export const GlobalProvider = ({ children }) => {
     }
 
     try {
-      const res = await axios.put(`/api/v1/assets/updateasset/${id}`, asset, config);
+      const res = await axios.put(`http://localhost:5000/api/v1/assets/updateasset/${id}`, asset, config);
 
       dispatch({
         type: 'UPDATE_ASSET',
+        payload: res.data.data
+      });
+      console.log("This is from res.data", res.data.data)
+    } catch (err) {
+      dispatch({
+        type: 'ASSET_ERROR',
+        payload: err.response.data.error
+      });
+    }
+  }
+
+
+
+  async function getLocations() {
+    try {
+      const res = await axios.get('/api/v1/locations');
+
+      dispatch({
+        type: 'GET_LOCATIONS',
+        payload: res.data.data
+      });
+    } catch (err) {
+      dispatch({
+        type: 'TRANSACTION_ERROR',
+        payload: err.response.data.error
+      });
+    }
+  }
+
+  async function deleteLocation(id) {
+    try {
+      await axios.delete(`/api/v1/locations/${id}`);
+
+      dispatch({
+        type: 'DELETE_LOCATIONS',
+        payload: id
+      });
+    } catch (err) {
+      dispatch({
+        type: 'TRANSACTION_ERROR',
+        payload: err.response.data.error
+      });
+    }
+  }
+
+
+
+  async function addLocation(location) {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+
+    try {
+      const res = await axios.post('/api/v1/locations/addlocation', location, config);
+
+      dispatch({
+        type: 'ADD_LOCATIONS',
+        payload: res.data.data
+      });
+   
+    } catch (err) {
+      dispatch({
+        type: 'TRANSACTION_ERROR',
+        payload: err.response.data.error
+      });
+    }
+    
+  } 
+
+
+
+
+  async function updateLocation(id, location) {
+    console.log(id)
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+
+    try {
+      const res = await axios.put(`/api/v1/locations/updatelocation/${id}`, location, config);
+
+      dispatch({
+        type: 'UPDATE_LOCATIONS',
+        payload: res.data.data
+      });
+      console.log("This is from res.data", res.data.data)
+    } catch (err) {
+      dispatch({
+        type: 'TRANSACTION_ERROR',
+        payload: err.response.data.error
+      });
+    }
+  }
+ 
+
+
+
+  async function getDepartments() {
+    try {
+      const res = await axios.get('/api/v1/departments');
+
+      dispatch({
+        type: 'GET_DEPARTMENTS',
+        payload: res.data.data
+      });
+    } catch (err) {
+      dispatch({
+        type: 'TRANSACTION_ERROR',
+        payload: err.response.data.error
+      });
+    }
+  }
+
+
+
+  async function deleteDepartment(id) {
+    try {
+      await axios.delete(`/api/v1/departments/${id}`);
+
+      dispatch({
+        type: 'DELETE_DEPARTMENT',
+        payload: id
+      });
+    } catch (err) {
+      dispatch({
+        type: 'TRANSACTION_ERROR',
+        payload: err.response.data.error
+      });
+    }
+  }
+
+
+
+  async function addDepartment(department) {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+
+    try {
+      const res = await axios.post('/api/v1/departments/adddepartment', department, config);
+
+      dispatch({
+        type: 'ADD_DEPARTMENT',
+        payload: res.data.data
+      });
+   
+    } catch (err) {
+      dispatch({
+        type: 'TRANSACTION_ERROR',
+        payload: err.response.data.error
+      });
+    }
+    
+  } 
+
+
+
+  async function updateDepartment(id, department) {
+    console.log(id)
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+
+    try {
+      const res = await axios.put(`/api/v1/departments/updatedepartment/${id}`, department, config);
+
+      dispatch({
+        type: 'UPDATE_DEPARTMENT',
         payload: res.data.data
       });
       console.log("This is from res.data", res.data.data)
@@ -105,6 +285,97 @@ export const GlobalProvider = ({ children }) => {
     }
   }
 
+
+
+
+  async function getSuppliers() {
+    try {
+      const res = await axios.get('/api/v1/suppliers');
+
+      dispatch({
+        type: 'GET_SUPPLIERS',
+        payload: res.data.data
+      });
+    } catch (err) {
+      dispatch({
+        type: 'TRANSACTION_ERROR',
+        payload: err.response.data.error
+      });
+    }
+  }
+
+
+
+  async function deleteSupplier(id) {
+    try {
+      await axios.delete(`/api/v1/suppliers/${id}`);
+
+      dispatch({
+        type: 'DELETE_SUPPLIER',
+        payload: id
+      });
+    } catch (err) {
+      dispatch({
+        type: 'TRANSACTION_ERROR',
+        payload: err.response.data.error
+      });
+    }
+  }
+
+
+
+  async function addSupplier(supplier) {
+    console.log("This is supplier", supplier)
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+
+    try {
+      const res = await axios.post('/api/v1/suppliers/addsupplier', supplier, config);
+
+      dispatch({
+        type: 'ADD_SUPPLIER',
+        payload: res.data.data
+      });
+      console.log("This is from res.data", res.data.data)
+    } catch (err) {
+      dispatch({
+        type: 'TRANSACTION_ERROR',
+        payload: err.response.data.error
+      });
+    }
+    
+  }   
+
+
+
+  async function updateSupplier(id, supplier) {
+    console.log(id)
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+
+    try {
+      const res = await axios.put(`/api/v1/suppliers/updatesupplier/${id}`, supplier, config);
+
+      dispatch({
+        type: 'UPDATE_SUPPLIER',
+        payload: res.data.data
+      });
+      console.log("This is from res.data", res.data.data)
+    } catch (err) {
+      dispatch({
+        type: 'TRANSACTION_ERROR',
+        payload: err.response.data.error
+      });
+    }
+  }
+
+
   //<----Requests-related Functions----->
 
   async function getRequests() {
@@ -113,6 +384,15 @@ export const GlobalProvider = ({ children }) => {
 
       dispatch({
         type: 'GET_REQUESTS',
+
+
+  async function getCategories() {
+    try {
+      const res = await axios.get('/api/v1/categories');
+
+      dispatch({
+        type: 'GET_CATEGORIES',
+
         payload: res.data.data
       });
     } catch (err) {
@@ -130,6 +410,14 @@ export const GlobalProvider = ({ children }) => {
       dispatch({
         type: 'GET_REQUEST',
         payload: res.data.data
+
+  async function deleteCategory(id) {
+    try {
+      await axios.delete(`/api/v1/categories/${id}`);
+
+      dispatch({
+        type: 'DELETE_CATEGORY',
+        payload: id
       });
     } catch (err) {
       dispatch({
@@ -164,6 +452,23 @@ export const GlobalProvider = ({ children }) => {
         type: 'GET_DENIED_REQUESTS',
         payload: res.data.data
       });
+=======
+
+  async function addCategory(category) {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+
+    try {
+      const res = await axios.post('/api/v1/categories/addcategory', category, config);
+
+      dispatch({
+        type: 'ADD_CATEGORY',
+        payload: res.data.data
+      });
+   
     } catch (err) {
       dispatch({
         type: 'TRANSACTION_ERROR',
@@ -174,6 +479,12 @@ export const GlobalProvider = ({ children }) => {
 
 
   async function updateRequest(id, request) {
+    
+  } 
+
+
+
+  async function updateCategory(id, category) {
     console.log(id)
     const config = {
       headers: {
@@ -188,6 +499,13 @@ export const GlobalProvider = ({ children }) => {
         type: 'UPDATE_REQUEST',
         payload: res.data.data
       });
+      const res = await axios.put(`/api/v1/categories/updatecategory/${id}`, category, config);
+
+      dispatch({
+        type: 'UPDATE_CATEGORY',
+        payload: res.data.data
+      });
+      console.log("This is from res.data", res.data.data)
     } catch (err) {
       dispatch({
         type: 'TRANSACTION_ERROR',
@@ -325,6 +643,33 @@ async function getUserCount() {
     getArchivedRequestCount,
     getAssetCount,
     getUserCount,
+    locations: state.locations,
+    departments: state.departments,
+    suppliers: state.suppliers,
+    error: state.error,
+    loading: state.loading,
+    getAssets,
+    deleteAsset,
+    addAsset,
+    updateAsset,
+    getLocations,
+    deleteLocation,
+    addLocation,
+    updateLocation,
+    getDepartments,
+    addDepartment,
+    deleteDepartment,
+    updateDepartment,
+    getSuppliers,
+    addSupplier,
+    deleteSupplier,
+    updateSupplier,
+    addCategory,
+    updateCategory,
+    getCategories,
+    deleteCategory,
+
+
   }}>
     {children}
   </GlobalContext.Provider>);

@@ -8,26 +8,27 @@ import {
   CRow, CCol, 
   CCollapse, CModal, CModalHeader,CModalBody, CModalFooter, CSelect
 } from '@coreui/react'
-
+import Images from '../../uploads/images'
 import { Route } from 'react-router-dom'
 import AddButton from '../addButton/AddButton'
-import UpdateAsset from './updateassets/UpdateAsset'
+import defaultlogo from '../../uploads/defaultlogo.png'
+import dateFormat from 'dateformat'
 
 const Assets = () => {
-const { assets, getTransactions, deleteAsset } = useContext(GlobalContext)
+
+
+
+const { assets, getAssets, deleteAsset } = useContext(GlobalContext)
   useEffect(() => {
-    getTransactions()
+    getAssets()
       // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [])
 
-// const assetsData = assets.map((asset) => asset)
 const [details, setDetails] = useState([])
 
 const toggleDetails = (index) => {
+
   const position = details.indexOf(index)
-  // console.log("This is from position", position )
-  // console.log("This is from details", details )
-  // console.log("This is from index", index )
   let newDetails = details.slice()
   if (position !== -1) {
     newDetails.splice(position, 1)
@@ -42,24 +43,51 @@ const tableFilter = {
   placeholder: 'type here...'
 }
 const fields = [
-  { key: '_id'},
+  {
+    key: 'select',
+    label: 'Select',
+    _style: { width: '1%' },
+    sorter: false,
+    filter: false
+  },
+  {
+    key: 'asset_file',
+    label: 'Asset',
+    _style: { width: '1%' },
+    sorter: false,
+    filter: false
+  },
+  // { key: '_id'},
   { key: 'asset_name'},
-   'asset_serial', 'asset_category','asset_warrantydate', 'asset_status',
+   'asset_serial', 'asset_category',
+   {
+     key: 'warranty',
+     label: 'Warranty Date',
+     sorter: false,
+     filter: false
+   },
+   {
+    key: 'status',
+    label: 'Asset Status',
+    sorter: false,
+    filter: false
+  },
   {
     key: 'show_details',
     label: 'Actions',
     _style: { width: '1%' },
     sorter: false,
     filter: false
-  }
+  },
+
 ]
 
 const getBadge = (status)=>{
+  console.log("This is Status from getBadge", status)
   switch (status) {
-    case 'Active': return 'success'
-    case 'Inactive': return 'secondary'
-    case 'Pending': return 'warning'
-    case 'Banned': return 'danger'
+    case 'Available': return 'success'
+    case 'Borrowed': return 'secondary'
+    case 'Damaged': return 'danger'
     default: return 'primary'
   }
 }
@@ -70,18 +98,12 @@ const toggle = () => {
   setModal(!modal);
 }
 
-// const handleOnClick = (assetsData) => {
-//   console.log("This is item from assetsssss", assetsData)
-//   // return(
-//   //     <UpdateAsset assetsData={assetsData} /> 
-//   // )
-// }
 return (
   <>
   <CRow className="mb-3">
     
     <CCol className="d-flex justify-content-sm-start">
-      <AddButton location='/views/assets/addasset' />
+      <AddButton location='/assets/addasset' />
            
     </CCol>
     <CCol className="d-flex justify-content-sm-end">
@@ -102,10 +124,11 @@ return (
   </CRow>
   <CDataTable
     items={assets}
+    columnFilterSlot={assets.asset_category}
     tableFilter={tableFilter}
     itemsPerPage={5}
     itemsPerPageSelect
-    header
+    header  
     fields={fields}
     hover
     pagination
@@ -119,15 +142,26 @@ return (
         </div>
         )
       },
+      'asset_file' : (item) =>(
+         item.asset_file ? <Images item={item}/> : 
+         <td>
+            <img src={defaultlogo} alt="photo" style= { {height : '70px', widht: '70px'} }/>
+        </td>
+      ),
       'status':
       
         (item)=>(
           <td>
-            <CBadge color={getBadge(item.status)}>
-              {item.status}
+            <CBadge color={getBadge(item.asset_status)}>
+              {item.asset_status}
             </CBadge>
           </td>
         ),
+        'warranty': (item) =>{
+          return (
+            <td>{dateFormat(item.asset_warrantydate, "longDate")}</td>
+          )
+        },
       'show_details':
         (item, index)=>{
           return (
@@ -151,50 +185,20 @@ return (
             <CCollapse show={details.includes(index)}>
               <CCardBody>
                 <h4>
-                  {item.name}
+                  {item.asset_name}
                 </h4>
-                <p className="text-muted">Role: {item.user_role}</p>
                 <Route render={({ history}) => (
-              <CButton size="sm" color="dark" className="mr-1" onClick= {() => { history.push('/views/assets/viewmoreassets') }}>
+              <CButton size="sm" color="dark" className="mr-1" onClick= {() => { history.push(`/assets/viewmore/${item._id}`) }}>
                     View More
               </CButton>
                 )}/>
                  <Route render={({ history}) => (
                    <CButton size="sm" color="primary" className="mr-1" onClick= {() => { 
                     history.push(`/assets/updateasset/${item._id}`) 
-                    console.log("This is history", history)
                     }}>
                         Update
                   </CButton>
                   )}/>
-
-                {/*     <CButton size="sm" color="primary" className="mr-1" onClick={ () => {
-                //       history.push({
-                //         path: '/views/assets/updateasset',
-                //         state: { asset: assetsData[index] }
-                //       })
-                //     } }>
-                //             Update
-                //       </CButton>
-                //  )}/>
-                 <Route render={({ history}) => (
-                  { handleOnClick(item[index]) }
-                  () => 
-                  { history.push(pathname: '/template',
-                      search: '?query=abc',
-                      state: { assetsData[index]}
-                     )}}>
-                {console.log("This is from onClick item", assetsData[index])} 
-                
-                <CButton size="sm" color="primary" className="mr-1" onClick= {() => { 
-                  history.push('/views/assets/updateasset') 
-                  console.log("This is history", history)
-                  }}>
-                      Update
-                </CButton>
-                )}/> */}
-                
-                
                 <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>
                 <Route render={({ history}) => (
               <CButton size="sm" color="success" className="mr-1" onClick= {() => { history.push('/views/assets/borrowassets') }}>
@@ -213,7 +217,7 @@ return (
                 >
                   <CModalHeader closeButton>Delete User</CModalHeader>
                   <CModalBody>
-                    Are you sure you want to delete User?
+                    Are you sure you want to delete this item?
                   </CModalBody>
                   <CModalFooter>
                     <CButton color="primary"  onClick={() => {

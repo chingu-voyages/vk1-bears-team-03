@@ -2,12 +2,12 @@ import React, { useState }from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import BackButton from '../backButton/BackButton';
 import SinglePrintButton from '../printbutton/singleprint/SinglePrintButton';
+// import AppUpload from '../seeallassets/Upload'
 import { faBarcode, faSave, faFile, faKeyboard, faTint, faHistory, faUpload, faHdd} from "@fortawesome/free-solid-svg-icons";
 import {
   CCardBody, CCol, CCard, CCardHeader, CTabs, CNav, CTabContent, CTabPane, CNavItem, CNavLink, CInputFile
 
 } from '@coreui/react'
-
 
 const SeeAllAssets = () => {
     
@@ -74,6 +74,7 @@ const SeeAllAssets = () => {
                   <CNavLink>
                   <FontAwesomeIcon icon={faUpload} className="fonticons"/>
                   { active === 7 && 'File Upload'}
+                    
                   </CNavLink>
                  
                 </CNavItem>
@@ -117,7 +118,7 @@ const SeeAllAssets = () => {
                 <CTabPane>
                   <br/>
                   <CInputFile id="file-input" name="file-input"/>
-
+                  {/* <AppUpload /> */}
                 </CTabPane>
               </CTabContent>
             </CTabs>
