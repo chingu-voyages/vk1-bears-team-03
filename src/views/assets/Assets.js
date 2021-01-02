@@ -11,7 +11,7 @@ import {
 import Images from '../../uploads/images'
 import { Route } from 'react-router-dom'
 import AddButton from '../addButton/AddButton'
-
+import defaultlogo from '../../uploads/defaultlogo.png'
 import dateFormat from 'dateformat'
 
 const Assets = () => {
@@ -143,7 +143,10 @@ return (
         )
       },
       'asset_file' : (item) =>(
-        <Images item={item}/>
+         item.asset_file ? <Images item={item}/> : 
+         <td>
+            <img src={defaultlogo} alt="photo" style= { {height : '70px', widht: '70px'} }/>
+        </td>
       ),
       'status':
       
@@ -214,7 +217,7 @@ return (
                 >
                   <CModalHeader closeButton>Delete User</CModalHeader>
                   <CModalBody>
-                    Are you sure you want to delete User?
+                    Are you sure you want to delete this item?
                   </CModalBody>
                   <CModalFooter>
                     <CButton color="primary"  onClick={() => {

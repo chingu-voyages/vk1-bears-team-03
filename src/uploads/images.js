@@ -13,7 +13,6 @@ const Images = ({ item }) => {
 
   const asset = assets.find((asset) => asset._id === item._id)
   return (
-
     <td>
          <img src={require(`./${asset.asset_file.file_name}`)} alt="photo" style= { {height : '70px', widht: '70px'} }/>
 
