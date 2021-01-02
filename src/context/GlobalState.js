@@ -381,13 +381,18 @@ export const GlobalProvider = ({ children }) => {
   async function getRequests() {
     try {
       const res = await axios.get('/api/v1/requests');
-
       dispatch({
         type: 'GET_REQUESTS',
-
-      })
+        payload: res.data.data
+      });
+    } catch (err) {
+      dispatch({
+        type: 'TRANSACTION_ERROR',
+        payload: err.response.data.error
+      });
     }
   }
+
   async function getCategories() {
     try {
       const res = await axios.get('/api/v1/categories');
@@ -408,14 +413,21 @@ export const GlobalProvider = ({ children }) => {
   async function getRequest(id) {
     try {
       const res = await axios.get(`http://localhost:5000/api/v1/requests/${id}`);
-
       dispatch({
         type: 'GET_REQUEST',
         payload: res.data.data
-
+      });
+    } catch (err) {
+      dispatch({
+        type: 'TRANSACTION_ERROR',
+        payload: err.response.data.error
       });
     }
   }
+
+  //     });
+  //   }
+  // }
   
 
   async function deleteCategory(id) {
@@ -454,12 +466,17 @@ export const GlobalProvider = ({ children }) => {
   async function getDeniedRequests() {
     try {
       const res = await axios.get('/api/v1/requests');
-
       dispatch({
         type: 'GET_DENIED_REQUESTS',
         payload: res.data.data
       });
-
+    } catch (err) {
+      dispatch({
+        type: 'TRANSACTION_ERROR',
+        payload: err.response.data.error
+      });
+    }
+  }
 
   async function addCategory(category) {
     const config = {
@@ -486,8 +503,25 @@ export const GlobalProvider = ({ children }) => {
 
 
   async function updateRequest(id, request) {
-    
-  } 
+    console.log(id)
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+    try {
+      const res = await axios.patch(`http://localhost:5000/api/v1/requests/${id}`, request, config);
+      dispatch({
+        type: 'UPDATE_REQUEST',
+        payload: res.data.data
+      });
+    } catch (err) {
+      dispatch({
+        type: 'TRANSACTION_ERROR',
+        payload: err.response.data.error
+      });
+    }
+  }
 
 
 
@@ -498,16 +532,8 @@ export const GlobalProvider = ({ children }) => {
         'Content-Type': 'application/json'
       }
     }
-
-    try {
-      const res = await axios.patch(`http://localhost:5000/api/v1/requests/${id}`, request, config);
-
-      dispatch({
-        type: 'UPDATE_REQUEST',
-        payload: res.data.data
-      });
       const res = await axios.put(`/api/v1/categories/updatecategory/${id}`, category, config);
-
+    try {
       dispatch({
         type: 'UPDATE_CATEGORY',
         payload: res.data.data
@@ -635,7 +661,6 @@ async function getUserCount() {
     archivedRequestCount: state.archivedRequestCount,
     assetCount: state.assetCount,
     userCount: state.userCount,
-    getTransactions,
     deleteAsset,
     addAsset,
     updateAsset,
@@ -675,6 +700,8 @@ async function getUserCount() {
     updateCategory,
     getCategories,
     deleteCategory,
+    updateRequest,
+    updateCategory
 
 
   }}>

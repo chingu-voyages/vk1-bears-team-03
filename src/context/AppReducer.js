@@ -28,7 +28,12 @@ export default (state, action) => {
         ...state,
         assets: [...state.assets, action.payload]
       }
-    case 'GET_REQUESTS':
+      case 'GET_REQUESTS':
+      return {
+        ...state,
+        loading: false,
+        assets: action.payload
+      }
 
     case 'ASSET_ERROR':
       return {
