@@ -128,7 +128,7 @@ const Requests = () => {
         'request_date':
           (item)=>(
             <td>
-              {dateFormat(item.request_date, "mmmm dd yyyy")}
+              {dateFormat(item.request_date, "mmmm dd, yyyy")}
             </td>
           ),
         'show_details':
