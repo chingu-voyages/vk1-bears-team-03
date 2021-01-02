@@ -385,7 +385,9 @@ export const GlobalProvider = ({ children }) => {
       dispatch({
         type: 'GET_REQUESTS',
 
-
+      })
+    }
+  }
   async function getCategories() {
     try {
       const res = await axios.get('/api/v1/categories');
@@ -410,6 +412,11 @@ export const GlobalProvider = ({ children }) => {
       dispatch({
         type: 'GET_REQUEST',
         payload: res.data.data
+
+      });
+    }
+  }
+  
 
   async function deleteCategory(id) {
     try {
@@ -452,7 +459,7 @@ export const GlobalProvider = ({ children }) => {
         type: 'GET_DENIED_REQUESTS',
         payload: res.data.data
       });
-=======
+
 
   async function addCategory(category) {
     const config = {
