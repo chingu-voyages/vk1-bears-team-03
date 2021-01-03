@@ -9,6 +9,7 @@ import {
 import BackButton from '../../backButton/BackButton'
 import CancelButton from '../../cancelbutton/CancelButton'
 import dateFormat from 'dateformat'
+import { useHistory } from "react-router-dom";
 
 const AddAsset = () => {
   const [file, setFile] = useState('')
@@ -16,6 +17,9 @@ const AddAsset = () => {
   const [filename, setFileName] = useState('Choose File')
   const { register, handleSubmit, errors } = useForm()
   const { addAsset } = useContext(GlobalContext)
+
+  //SET CURRENT URL
+  let history = useHistory();
 
 
   // CLEARING FORM FIELDS
@@ -67,6 +71,7 @@ const AddAsset = () => {
         alert("Successfully Added!")
         console.log(newAsset)
         clearForm()
+        history.push('/assets')
     } catch (err) {
       alert(`${err}`)
     }

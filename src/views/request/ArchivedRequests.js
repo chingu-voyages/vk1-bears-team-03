@@ -3,7 +3,7 @@ import { GlobalContext } from '../../context/GlobalState'
 import {
   CDataTable,
   CButton,
-  CRow, CCol
+  CRow, CCol, CBadge
 } from '@coreui/react'
 import { Route } from 'react-router-dom'
 
@@ -53,7 +53,11 @@ const Requests = () => {
       key: 'item_name',
       label: 'Item Name'
     },
-    'request_type', 'request_status', 
+    'request_type',
+    { 
+      key: 'request_status', 
+      label: 'Request Status'
+    },
     {
       key: 'request_date',
       label: 'Request Date'
@@ -71,6 +75,17 @@ const Requests = () => {
   
   const toggle = () => {
     setModal(!modal);
+  }
+
+  const getBadge = (status)=>{
+    console.log("This is Status from getBadge", status)
+    switch (status) {
+      case 'Approved': return 'success'
+      case 'Pending': return 'primary'
+      case 'Denied': return 'danger'
+      case 'Archived': return 'secondary'
+      default: return 'primary'
+    }
   }
 
   return (
@@ -102,10 +117,18 @@ const Requests = () => {
               {item.item_name.asset_name}
             </td>
           ),
+        'request_status':
+          (item)=>(
+            <td>
+            <CBadge color={getBadge(item.request_status)}>
+              {item.request_status}
+            </CBadge>
+            </td>
+          ),  
         'request_date':
           (item)=>(
             <td>
-              {dateFormat(item.request_date, "mmmm dd yyyy")}
+              {dateFormat(item.request_date, "mmmm dd, yyyy")}
             </td>
           ),
         'show_details':

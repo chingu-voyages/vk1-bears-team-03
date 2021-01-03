@@ -207,6 +207,60 @@ export default (state, action) => {
             loading: false,
             userCount: action.payload
           }
+          case 'GET_USER_COUNT_7_DAYS':
+          return {
+            ...state,
+            loading: false,
+            userCount7Days: action.payload
+          }
+          case 'GET_ASSET_COUNT_7_DAYS':
+          return {
+            ...state,
+            loading: false,
+            assetCount7Days: action.payload
+          }
+          case 'GET_PENDING_REQUEST_COUNT_7_DAYS':
+          return {
+            ...state,
+            loading: false,
+            pendingRequestCount7Days: action.payload
+          }
+          case 'GET_ALL_ARCHIVED_REQUEST_COUNT_7_DAYS':
+          return {
+            ...state,
+            loading: false,
+            allRequestCount7Days: action.payload
+          }
+          case 'GET_LOCATIONS_COUNT_7_DAYS':
+          return {
+            ...state,
+            loading: false,
+            locationsCount7Days: action.payload
+          }
+          case 'GET_DEPARTMENTS_COUNT_7_DAYS':
+          return {
+            ...state,
+            loading: false,
+            departmentsCount7Days: action.payload
+          }
+          case 'GET_REQUEST_1_YEAR':
+            return {
+              ...state,
+              loading: false,
+              requestCount1Year: action.payload
+            }
+          case 'GET_MEMBER_1_YEAR':
+            return {
+              ...state,
+              loading: false,
+              memberCount1Year: action.payload
+            }
+          case 'GET_ASSET_1_YEAR':
+            return {
+              ...state,
+              loading: false,
+              assetCount1Year: action.payload
+            }
     default:
       return state;
   }

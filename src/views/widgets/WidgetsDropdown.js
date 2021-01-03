@@ -12,12 +12,40 @@ import ChartLineSimple from '../charts/ChartLineSimple'
 
 const WidgetsDropdown = () => {
 
-  const { pendingRequestCount, getPendingRequestCount, assetCount, getAssetCount, userCount, getUserCount, archivedRequestCount, getArchivedRequestCount } = useContext(GlobalContext)
+  const { 
+    pendingRequestCount, 
+    getPendingRequestCount, 
+    assetCount, 
+    getAssetCount, 
+    userCount, 
+    getUserCount, 
+    archivedRequestCount, 
+    getArchivedRequestCount,
+    userCount7Days,
+    getUserCount7Days,
+    assetCount7Days, 
+    getAssetCount7Days,
+    pendingRequestCount7Days,
+    getPendingRequestCount7Days,
+    allArchivedRequestCount7Days,
+    getAllArchivedRequestCount7Days,
+    locationsCount7Days,
+    getLocationsCount7Days,
+    departmentsCount7Days,
+    getDepartmentsCount7Days,
+  } = useContext(GlobalContext)
+
   useEffect(() => {
     getAssetCount()
     getUserCount()
     getPendingRequestCount()
     getArchivedRequestCount()
+    getUserCount7Days()
+    getAssetCount7Days()
+    getPendingRequestCount7Days()
+    getAllArchivedRequestCount7Days()
+    getLocationsCount7Days()
+    getDepartmentsCount7Days()
       // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -37,7 +65,7 @@ const WidgetsDropdown = () => {
               pointed
               className="c-chart-wrapper mt-3 mx-3"
               style={{height: '70px'}}
-              dataPoints={[assetCount]}
+              dataPoints={assetCount7Days}
               pointHoverBackgroundColor="primary"
               label="Total Assets"
               labels="months"
@@ -66,7 +94,7 @@ const WidgetsDropdown = () => {
               pointed
               className="mt-3 mx-3"
               style={{height: '70px'}}
-              dataPoints={[userCount]}
+              dataPoints={userCount7Days}
               pointHoverBackgroundColor="info"
               options={{ elements: { line: { tension: 0.00001 }}}}
               label="Total Members"
@@ -96,7 +124,7 @@ const WidgetsDropdown = () => {
               className="mt-3"
               style={{height: '70px'}}
               backgroundColor="rgba(255,255,255,.2)"
-              dataPoints={[pendingRequestCount]}
+              dataPoints={pendingRequestCount7Days}
               options={{ elements: { line: { borderWidth: 2.5 }}}}
               pointHoverBackgroundColor="warning"
               label="Total Pending Requests"
@@ -130,7 +158,7 @@ const WidgetsDropdown = () => {
               pointed
               className="c-chart-wrapper mt-3 mx-3"
               style={{height: '70px'}}
-              dataPoints={[archivedRequestCount]}
+              dataPoints={allArchivedRequestCount7Days}
               pointHoverBackgroundColor="success"
               label="Total Archived Requests"
               labels="months"

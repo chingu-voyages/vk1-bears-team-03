@@ -1,6 +1,7 @@
 import React, { createContext, useReducer } from 'react';
 import AppReducer from './AppReducer';
 import axios from 'axios';
+import moment from 'moment'
 
 // Initial state
 const initialState = {
@@ -17,6 +18,15 @@ const initialState = {
   departments: [],
   suppliers: [],
   categories: [],
+  userCount7Days: [],
+  assetCount7Days: [],
+  pendingRequestCount7Days: [],
+  allArchivedRequestCount7Days: [],
+  locationsCount7Days: [],
+  departmentsCount7Days: [],
+  requestCount1Year: [],
+  memberCount1Year: [],
+  assetCount1Year: [],
 
   error: null,
   loading: true
@@ -648,6 +658,276 @@ async function getUserCount() {
   }
 }
 
+//<----- FETCH DATA POINTS FOR CHART (Last 7 days) ----->//
+
+async function getUserCount7Days() {
+  try {
+    const res = await axios.get('/api/v1/users');
+    const result = res.data.data
+    let count = []
+    let subtrahend = 0
+
+    for (let i =0; i<=6; i++) {
+    const today = moment().endOf('day');
+    let newToday = today.subtract(subtrahend, 'days');
+    let data = result.filter(result => moment(result.createdAt) <= newToday)
+
+    count.unshift(data.length)
+    subtrahend += 1
+    }
+
+    dispatch({
+      type: 'GET_USER_COUNT_7_DAYS',
+      payload: count
+    });
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+}
+
+//** */
+
+async function getAssetCount7Days() {
+  try {
+    const res = await axios.get('/api/v1/assets');
+    const result = res.data.data
+    let count = []
+    let subtrahend = 0
+
+    for (let i =0; i<=6; i++) {
+    const today = moment().endOf('day');
+    let newToday = today.subtract(subtrahend, 'days');
+    let data = result.filter(result => moment(result.createdAt) <= newToday)
+
+    count.unshift(data.length)
+    subtrahend += 1
+    }
+
+    dispatch({
+      type: 'GET_ASSET_COUNT_7_DAYS',
+      payload: count
+    });
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+}
+
+//** */
+
+async function getPendingRequestCount7Days() {
+  try {
+    const res = await axios.get('/api/v1/assets');
+    const result = res.data.data
+    let count = []
+    let subtrahend = 0
+
+    for (let i =0; i<=6; i++) {
+    const today = moment().endOf('day');
+    let newToday = today.subtract(subtrahend, 'days');
+    let data = result.filter(result => moment(result.createdAt) <= newToday)
+
+    count.unshift(data.length)
+    subtrahend += 1
+    }
+
+    dispatch({
+      type: 'GET_PENDING_REQUEST_COUNT_7_DAYS',
+      payload: count
+    });
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+}
+
+//** */
+
+async function getAllArchivedRequestCount7Days() {
+  try {
+    const res = await axios.get('/api/v1/assets');
+    const result = res.data.data
+    let count = []
+    let subtrahend = 0
+
+    for (let i =0; i<=6; i++) {
+    const today = moment().endOf('day');
+    let newToday = today.subtract(subtrahend, 'days');
+    let data = result.filter(result => moment(result.createdAt) <= newToday)
+
+    count.unshift(data.length)
+    subtrahend += 1
+    }
+
+    dispatch({
+      type: 'GET_ALL_ARCHIVED_REQUEST_COUNT_7_DAYS',
+      payload: count
+    });
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+}
+
+//** */
+
+async function getLocationsCount7Days() {
+  try {
+    const res = await axios.get('/api/v1/assets');
+    const result = res.data.data
+    let count = []
+    let subtrahend = 0
+
+    for (let i =0; i<=6; i++) {
+    const today = moment().endOf('day');
+    let newToday = today.subtract(subtrahend, 'days');
+    let data = result.filter(result => moment(result.createdAt) <= newToday)
+
+    count.unshift(data.length)
+    subtrahend += 1
+    }
+
+    dispatch({
+      type: 'GET_LOCATIONS_COUNT_7_DAYS',
+      payload: count
+    });
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+}
+
+//** */
+
+async function getDepartmentsCount7Days() {
+  try {
+    const res = await axios.get('/api/v1/assets');
+    const result = res.data.data
+    let count = []
+    let subtrahend = 0
+
+    for (let i =0; i<=6; i++) {
+    const today = moment().endOf('day');
+    let newToday = today.subtract(subtrahend, 'days');
+    let data = result.filter(result => moment(result.createdAt) <= newToday)
+
+    count.unshift(data.length)
+    subtrahend += 1
+    }
+
+    dispatch({
+      type: 'GET_DEPARTMENTS_COUNT_7_DAYS',
+      payload: count
+    });
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+}
+
+
+async function getRequestCount1Year() {
+  try {
+    const res = await axios.get('/api/v1/requests');
+    const result = res.data.data
+    let count = []
+    let addend = 0
+
+    for (let i =0; i<=11; i++) {
+    const today = moment().startOf('year');
+    let newToday = today.add(addend, 'months');
+    let months = newToday.endOf('month')
+    let data = result.filter(result => moment(result.createdAt) <= months)
+
+    count.unshift(data.length)
+    addend += 1
+    }
+console.log(count)
+    dispatch({
+      type: 'GET_REQUEST_1_YEAR',
+      payload: count
+    });
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+}
+
+
+async function getMemberCount1Year() {
+  try {
+    const res = await axios.get('/api/v1/users');
+    const result = res.data.data
+    let count = []
+    let addend = 0
+
+    for (let i =0; i<=11; i++) {
+    const today = moment().startOf('year');
+    let newToday = today.add(addend, 'months');
+    let months = newToday.endOf('month')
+    let data = result.filter(result => moment(result.createdAt) <= months)
+
+    count.unshift(data.length)
+    addend += 1
+    }
+console.log(count)
+    dispatch({
+      type: 'GET_MEMBER_1_YEAR',
+      payload: count
+    });
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+}
+
+async function getAssetCount1Year() {
+  try {
+    const res = await axios.get('/api/v1/assets');
+    const result = res.data.data
+    let count = []
+    let addend = 0
+
+    for (let i =0; i<=11; i++) {
+    const today = moment().startOf('year');
+    let newToday = today.add(addend, 'months');
+    let months = newToday.endOf('month')
+    let data = result.filter(result => moment(result.createdAt) <= months)
+
+    count.unshift(data.length)
+    addend += 1
+    }
+console.log(count)
+    dispatch({
+      type: 'GET_ASSET_1_YEAR',
+      payload: count
+    });
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+}
+
+
 
   return (<GlobalContext.Provider value={{
     assets: state.assets,
@@ -661,6 +941,15 @@ async function getUserCount() {
     archivedRequestCount: state.archivedRequestCount,
     assetCount: state.assetCount,
     userCount: state.userCount,
+    userCount7Days: state.userCount7Days,
+    assetCount7Days: state.assetCount7Days,
+    pendingRequestCount7Days: state.pendingRequestCount7Days,
+    allArchivedRequestCount7Days: state.allRequestCount7Days,
+    locationsCount7Days: state.locationsCount7Days,
+    departmentsCount7Days: state.departmentsCount7Days,
+    requestCount1Year: state.requestCount1Year,
+    memberCount1Year: state.memberCount1Year,
+    assetCount1Year: state.assetCount1Year,
     deleteAsset,
     addAsset,
     updateAsset,
@@ -701,7 +990,16 @@ async function getUserCount() {
     getCategories,
     deleteCategory,
     updateRequest,
-    updateCategory
+    updateCategory,
+    getUserCount7Days,
+    getAssetCount7Days,
+    getPendingRequestCount7Days,
+    getAllArchivedRequestCount7Days,
+    getLocationsCount7Days,
+    getDepartmentsCount7Days,
+    getRequestCount1Year,
+    getMemberCount1Year,
+    getAssetCount1Year,
 
 
   }}>
