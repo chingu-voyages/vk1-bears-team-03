@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, {useContext, useEffect, useState} from 'react'
+import { GlobalContext } from '../../context/GlobalState'
 import { Route } from 'react-router-dom'
 import {
   CBadge,
@@ -12,6 +13,12 @@ import permitsData from "./PermitsData"
 import AddButton from '../addButton/AddButton'
 
 const Permits = () => {
+  const { permits, getPermits, deletePermit } = useContext(GlobalContext)
+    useEffect(() => {
+      getPermits()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+  
 const [details, setDetails] = useState([])
 
 const toggleDetails = (index) => {
@@ -33,8 +40,8 @@ const fields = [
     //   _style: { width: '1%'}
     // },
     { key: 'id'},
-    { key: 'name'},
-     'license_key', 'expiration_date','category', 'quantity','available',
+    { key: 'permit_name'},
+     'permit_key', 'permit_expirationdate','permit_category',
     {
       key: 'show_details',
       label: 'Actions',
@@ -67,9 +74,9 @@ const toggle = () => {
 
 return (
   <>
-  <AddButton location='/views/permits/addpermit' />
+  <AddButton location='/permits/addpermit' />
   <CDataTable
-    items={permitsData}
+    items={permits}
     header
     fields={fields}
     tableFilter={tableFilter}
@@ -120,10 +127,19 @@ return (
                 )}/>
              
              <Route render={({ history}) => (
+                  <CButton size="sm" color="primary" className="mr-1" onClick= {() => { 
+                    history.push(`/permits/updatepermit/${item._id}`) 
+                    console.log("This is history", history)
+                     }}> 
+                        Update
+                  </CButton>
+                )}/> 
+
+             {/* <Route render={({ history}) => (
                   <CButton type="reset" size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/permits/updatepermit') }}>
                         Update
                   </CButton>
-                )}/>
+                )}/> */}
                 
                 
                 <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>

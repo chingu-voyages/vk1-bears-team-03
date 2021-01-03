@@ -224,7 +224,7 @@ const routes = [
    ////////////////////////////// Permits //////////////////////////////////
 
   { path: '/views/permits', exact: true, name: 'Permits', component: Permits },
-  { path: '/views/permits/addpermit', exact: true, name: 'Add New Permit', component: AddPermit },
+  { path: '/permits/addpermit', exact: true, name: 'Add New Permit', component: AddPermit },
   { path: '/views/permits/viewmorepermit', exact: true, name: 'View More Permit', component: ViewMorePermit },
   { path: '/views/permits/updatepermit', exact: true, name: 'Update Permit', component: UpdatePermit },
   { path: '/views/permits/borrowpermit', exact: true, name: 'Update Permit', component: BorrowPermit },

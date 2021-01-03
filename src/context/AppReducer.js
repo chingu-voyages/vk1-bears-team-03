@@ -234,6 +234,81 @@ export default (state, action) => {
         ...state,
         error: action.payload
       }
+        // PERMITS
+      case 'GET_PERMITS':
+      return {
+        ...state,
+        loading: false,
+        permits: action.payload
+      }
+    case 'DELETE_PERMIT':
+      return {
+        ...state,
+        permits: state.permits.filter(permit => permit._id !== action.payload)
+      }
+    case 'ADD_PERMIT':
+      return {
+        ...state,
+        permits: [...state.permits, action.payload]
+      }
+    case 'UPDATE_PERMIT':
+      return {
+        ...state,
+        permits: [...state.permits, action.payload]
+      }
+
+
+      // SOFTWARES
+      case 'GET_SOFTWARES':
+      return {
+        ...state,
+        loading: false,
+        softwares: action.payload
+      }
+    case 'DELETE_SOFTWARE':
+      return {
+        ...state,
+        softwares: state.softwares.filter(software => software._id !== action.payload)
+      }
+    case 'ADD_SOFTWARE':
+      return {
+        ...state,
+        softwares: [...state.softwares, action.payload]
+      }
+    case 'UPDATE_SOFTWARE':
+      return {
+        ...state,
+        softwares: [...state.softwares, action.payload]
+      }
+    
+      // CONSUMABLES
+      case 'GET_CONSUMABLES':
+      return {
+        ...state,
+        loading: false,
+        consumables: action.payload
+      }
+    case 'DELETE_CONSUMABLE':
+      return {
+        ...state,
+        consumables: state.consumables.filter(consumable => consumable._id !== action.payload)
+      }
+    case 'ADD_CONSUMABLE':
+      return {
+        ...state,
+        consumables: [...state.consumables, action.payload]
+      }
+    case 'UPDATE_CONSUMABLE':
+      return {
+        ...state,
+        consumables: [...state.consumables, action.payload]
+      }
+      
+    case 'TRANSACTION_ERROR':
+      return {
+        ...state,
+        error: action.payload
+      }
     default:
       return state;
   }

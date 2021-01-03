@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, {useContext, useEffect, useState} from 'react'
+import { GlobalContext } from '../../context/GlobalState'
 import { Route } from 'react-router-dom'
 import {
   CBadge,
@@ -8,10 +9,15 @@ import {
   CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
 } from '@coreui/react'
 
-import consumablesData from "./ConsumablesData"
+// import consumablesData from "./ConsumablesData"
 import AddButton from '../addButton/AddButton'
 
 const Consumables = () => {
+  const { consumables, getConsumables, deleteConsumable } = useContext(GlobalContext)
+  useEffect(() => {
+    getConsumables()
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [])
 const [details, setDetails] = useState([])
 
 const toggleDetails = (index) => {
@@ -33,8 +39,8 @@ const fields = [
   //   _style: { width: '1%'}
   // },
   { key: 'id'},
-  { key: 'name'},
-   'category', 'quantity','remaining',
+  { key: 'consumable_name'},
+   'consumable_category', 'consumable_qty','consumable_remaining',
   {
     key: 'show_details',
     label: 'Actions',
@@ -66,11 +72,11 @@ const toggle = () => {
 
 return (
   <>
-  <AddButton location='/views/consumables/addconsumable' />
+  <AddButton location='/consumables/addconsumable' />
 
   <CDataTable
 
-    items={consumablesData}
+    items={consumables}
     header
     fields={fields}
     tableFilter={tableFilter}
@@ -120,9 +126,18 @@ return (
                   </CButton>
                 )}/>
                 
-                <Route render={({ history}) => (
+                {/* <Route render={({ history}) => (
                   <CButton type="reset" size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/consumables/updateconsumable') }}>
                        Update
+                  </CButton>
+                )}/> */}
+
+                  <Route render={({ history}) => (
+                  <CButton size="sm" color="primary" className="mr-1" onClick= {() => { 
+                    history.push(`/consumables/updateconsumablen/${item._id}`) 
+                    console.log("This is history", history)
+                     }}> 
+                        Update
                   </CButton>
                 )}/>
                 
@@ -143,7 +158,10 @@ return (
                     Are you sure you want to delete User?
                   </CModalBody>
                   <CModalFooter>
-                    <CButton color="primary">Yes</CButton>{' '}
+                    <CButton color="primary" onClick={() => {
+                      deleteConsumable(item._id)
+                      toggle()}}
+                      >Yes</CButton>{' '}
                     <CButton
                       color="secondary"
                       onClick={toggle}
