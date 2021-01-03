@@ -1,78 +1,88 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
 import {
-  CButton,
-  CCard,
-  CCardBody,
-  CCardGroup,
-  CCol,
-  CContainer,
-  CForm,
-  CInput,
-  CInputGroup,
-  CInputGroupPrepend,
-  CInputGroupText,
-  CRow
-} from '@coreui/react'
-import CIcon from '@coreui/icons-react'
+  fab,
+  faFacebookSquare,
+  faGooglePlusSquare,
+} from "@fortawesome/free-brands-svg-icons";
+import { faUser, faKey } from "@fortawesome/free-solid-svg-icons";
+
+import "./Login.css";
+
+library.add(fab, faFacebookSquare, faGooglePlusSquare, faUser, faKey);
 
 const Login = () => {
   return (
-    <div className="c-app c-default-layout flex-row align-items-center">
-      <CContainer>
-        <CRow className="justify-content-center">
-          <CCol md="8">
-            <CCardGroup>
-              <CCard className="p-4">
-                <CCardBody>
-                  <CForm>
-                    <h1>Login</h1>
-                    <p className="text-muted">Sign In to your account</p>
-                    <CInputGroup className="mb-3">
-                      <CInputGroupPrepend>
-                        <CInputGroupText>
-                          <CIcon name="cil-user" />
-                        </CInputGroupText>
-                      </CInputGroupPrepend>
-                      <CInput type="text" placeholder="Username" autoComplete="username" />
-                    </CInputGroup>
-                    <CInputGroup className="mb-4">
-                      <CInputGroupPrepend>
-                        <CInputGroupText>
-                          <CIcon name="cil-lock-locked" />
-                        </CInputGroupText>
-                      </CInputGroupPrepend>
-                      <CInput type="password" placeholder="Password" autoComplete="current-password" />
-                    </CInputGroup>
-                    <CRow>
-                      <CCol xs="6">
-                        <CButton color="primary" className="px-4">Login</CButton>
-                      </CCol>
-                      <CCol xs="6" className="text-right">
-                        <CButton color="link" className="px-0">Forgot password?</CButton>
-                      </CCol>
-                    </CRow>
-                  </CForm>
-                </CCardBody>
-              </CCard>
-              <CCard className="text-white bg-primary py-5 d-md-down-none" style={{ width: '44%' }}>
-                <CCardBody className="text-center">
-                  <div>
-                    <h2>Sign up</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                      labore et dolore magna aliqua.</p>
-                    <Link to="/register">
-                      <CButton color="primary" className="mt-3" active tabIndex={-1}>Register Now!</CButton>
-                    </Link>
-                  </div>
-                </CCardBody>
-              </CCard>
-            </CCardGroup>
-          </CCol>
-        </CRow>
-      </CContainer>
+    <div className="container-fluid login">
+      <div className="d-flex justify-content-center h-100">
+        <div className="card login__card">
+          <div className="card-header login__card__header">
+            <h3>Sign In</h3>
+            <div className="d-flex justify-content-end social__icon">
+              <span>
+                <FontAwesomeIcon icon={["fab", "facebook-square"]} />
+              </span>
+              <span>
+                <FontAwesomeIcon icon={["fab", "google-plus-square"]} />
+              </span>
+            </div>
+          </div>
+          <div className="card-body login__card__body">
+            <form>
+              <div className="input-group form-group">
+                <div className="input-group-prepend login__input__group__prepend">
+                  <span className="input-group-text">
+                    <FontAwesomeIcon icon="user" />
+                  </span>
+                </div>
+                <input
+                  type="text"
+                  className="form-control login__input"
+                  placeholder="username"
+                />
+              </div>
+              <div className="input-group form-group">
+                <div className="input-group-prepend login__input__group__prepend">
+                  <span className="input-group-text">
+                    <FontAwesomeIcon icon="key" />
+                  </span>
+                </div>
+                <input
+                  type="password"
+                  className="form-control login__input"
+                  placeholder="password"
+                />
+              </div>
+              <div className="row align-items-center remember">
+                <input type="checkbox" className="login__input" />
+                Remember Me
+              </div>
+              <div className="form-group">
+                <input
+                  type="submit"
+                  value="Login"
+                  className="btn float-right login__btn login__input"
+                />
+              </div>
+            </form>
+          </div>
+          <div className="card-footer login__card__footer">
+            <div className="d-flex justify-content-center links">
+              Don't have an account?
+              <Link to="/register"> Sign Up </Link>
+              {/* <a href="register/">Sign Up</a> */}
+            </div>
+            <div className="d-flex justify-content-center">
+              <a href="#link">Forgot your password?</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
