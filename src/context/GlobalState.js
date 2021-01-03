@@ -649,6 +649,99 @@ async function getUserCount() {
 }
 
 
+
+
+///////////////COMPONENTS/////////////
+
+async function getComponents() {
+  try {
+    const res = await axios.get('/api/v1/components');
+
+    dispatch({
+      type: 'GET_COMPONENTS',
+      payload: res.data.data
+    });
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+}
+
+async function deleteComponent(id) {
+  try {
+    await axios.delete(`/api/v1/components/${id}`);
+
+    dispatch({
+      type: 'DELETE_COMPONENT',
+      payload: id
+    });
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+}
+
+
+
+async function addComponent(component) {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
+
+  try {
+    const res = await axios.post('/api/v1/component/addcomponent', component, config);
+
+    dispatch({
+      type: 'ADD_COMPONENT',
+      payload: res.data.data
+    });
+ 
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+  
+} 
+
+
+
+
+async function updateComponent(id, component) {
+  console.log(id)
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
+
+  try {
+    const res = await axios.put(`/api/v1/components/updatecomponent/${id}`, component, config);
+
+    dispatch({
+      type: 'UPDATE_COMPONENT',
+      payload: res.data.data
+    });
+    console.log("This is from res.data", res.data.data)
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+}
+
+
+
+
+
   return (<GlobalContext.Provider value={{
     assets: state.assets,
     pendingRequests: state.pendingRequests,
@@ -661,6 +754,7 @@ async function getUserCount() {
     archivedRequestCount: state.archivedRequestCount,
     assetCount: state.assetCount,
     userCount: state.userCount,
+    component: state.components,
     deleteAsset,
     addAsset,
     updateAsset,
@@ -701,7 +795,11 @@ async function getUserCount() {
     getCategories,
     deleteCategory,
     updateRequest,
-    updateCategory
+    updateCategory,
+    getComponents,
+    deleteComponent,
+    addComponent,
+    updateComponent
 
 
   }}>

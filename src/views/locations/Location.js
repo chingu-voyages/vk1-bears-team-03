@@ -21,7 +21,6 @@ const Location = ({match}) => {
 
   // const location = locationsData.find( locations => locations.id.toString() === match.params.id)
 
-  
   const locationsDetails = location ? Object.entries(location) : 
     [['id', (<span><CIcon className="text-muted" name="cui-icon-ban" /> Not found</span>)]]
 

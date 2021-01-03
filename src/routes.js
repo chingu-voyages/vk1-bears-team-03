@@ -201,7 +201,7 @@ const routes = [
 
   { path: '/views/components', exact: true, name: 'Components', component: Components },
   { path: '/views/component/:id', exact: true, name: 'Component', component: ComponentAsset },
-  { path: '/views/components/addcomponent', exact: true, name: 'Add New Component', component: AddComponent },
+  { path: '/components/addcomponent', exact: true, name: 'Add New Component', component: AddComponent },
 
 
 

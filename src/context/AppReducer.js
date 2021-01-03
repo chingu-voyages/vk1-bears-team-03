@@ -207,6 +207,33 @@ export default (state, action) => {
             loading: false,
             userCount: action.payload
           }
+
+          case 'GET_COMPONENTS':
+      return {
+        ...state,
+        loading: false,
+        components: action.payload
+      }
+    case 'DELETE_COMPONENT':
+      return {
+        ...state,
+        components: state.components.filter(component => component._id !== action.payload)
+      }
+    case 'ADD_COMPONENT':
+      return {
+        ...state,
+        components: [...state.components, action.payload]
+      }
+    case 'UPDATE_COMPONENTS':
+      return {
+        ...state,
+        components: [...state.components, action.payload]
+      }
+    case 'TRANSACTION_ERROR':
+      return {
+        ...state,
+        error: action.payload
+      }
     default:
       return state;
   }

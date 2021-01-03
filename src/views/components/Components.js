@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
-
+import React, {useContext, useEffect, useState} from 'react'
+import { GlobalContext } from '../../context/GlobalState'
+// import { Route } from 'react-router-dom'
 import {
   CCardBody,
   CDataTable,
@@ -7,11 +8,18 @@ import {
   CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
 } from '@coreui/react'
 import { Route } from 'react-router-dom'
-
-import componentsData from './ComponentsData'
+//
+// import componentsData from './ComponentsData'
 import AddButton from '../addButton/AddButton'
 
 const Components = () => {
+  const { components, getComponents, deleteComponent } = useContext(GlobalContext)
+    useEffect(() => {
+      getComponents()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+  
+
 const [details, setDetails] = useState([])
 
 const toggleDetails = (index) => {
@@ -33,8 +41,8 @@ const fields = [
   //   _style: { width: '1%'}
   // },
   { key: 'id'},
-  { key: 'name'},
-   'serial_number', 'category','quantity', 'remaining',
+  { key: 'component_name'},
+   'component_serial', 'component_category','component_qty', 'remaining',
   {
     key: 'show_details',
     label: 'Actions',
@@ -56,11 +64,11 @@ const toggle = () => {
 
 return (
   <>
-  <AddButton location='/views/components/addcomponent' />
+  <AddButton location='/components/addcomponent' />
 
   <CDataTable
 
-    items={componentsData}
+    items={components}
     fields={fields}
     tableFilter={tableFilter}
     itemsPerPageSelect
@@ -100,11 +108,22 @@ return (
                 View More
               </CButton>
                 )}/>
-                <Route render={({ history}) => (
+
+
+                  <Route render={({ history}) => (
+                  <CButton size="sm" color="primary" className="mr-1" onClick= {() => { 
+                    history.push(`/components/updatecomponent/${item._id}`) 
+                    console.log("This is history", history)
+                     }}> 
+                        Update
+                  </CButton>
+                )}/>
+
+                {/* <Route render={({ history}) => (
                 <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/components/updatecomponent') }}>
                 Update
               </CButton>
-                )}/>
+                )}/> */}
 
                
                 
@@ -132,7 +151,12 @@ return (
                     Are you sure you want to delete User?
                   </CModalBody>
                   <CModalFooter>
-                    <CButton color="primary">Yes</CButton>{' '}
+                    <CButton color="primary"
+                    onClick={() => {
+                      deleteComponent(item._id)
+                      toggle()
+                  }}
+                    >Yes</CButton>{' '}
                     <CButton
                       color="secondary"
                       onClick={toggle}
