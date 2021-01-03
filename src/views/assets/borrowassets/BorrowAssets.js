@@ -17,7 +17,7 @@ const BorrowAssets = () => {
         <CCol xs="12" md="6" lg="12" className="mb-4">
         <CCard>
           <CCardHeader>
-          <BackButton location='/views/assets' />
+          <BackButton location='/assets' />
           <CButton type="reset" size="md" color="danger" className="mr-1"> Reset</CButton>
           </CCardHeader>
           <CCardBody>
@@ -110,7 +110,7 @@ const BorrowAssets = () => {
                 <CButton type="return" size="md" color="primary" className="mr-1"> Borrow</CButton>
               
                 <Route render={({ history}) => (
-            <CButton type="reset" size="md" color="danger" className="mr-1" onClick= {() => { history.push('/views/dashboard') }}>
+            <CButton type="submit" size="md" color="danger" className="mr-1" onClick= {() => { history.push('/views/dashboard') }}>
                   Cancel
             </CButton>
               )}/>

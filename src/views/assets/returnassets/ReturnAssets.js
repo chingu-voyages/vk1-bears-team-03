@@ -18,7 +18,7 @@ const ReturnAssets = () => {
         <CCard>
           <CCardHeader>
 
-          <BackButton location='/views/assets' />
+          <BackButton location='/assets' />
           <CButton type="reset" size="md" color="danger" className="mr-1"> Reset</CButton>
           </CCardHeader>
           <CCardBody>
@@ -101,7 +101,7 @@ const ReturnAssets = () => {
                 <CCol md="12" className="d-flex justify-content-sm-end">
                 <CButton type="return" size="md" color="primary" className="mr-1"> Return</CButton>
               
-                <CancelButton size='md' location='/views/assets' />  
+                <CancelButton size='md' location='/assets' />  
               </CCol>
             </CCardFooter>
           </CCardBody>
