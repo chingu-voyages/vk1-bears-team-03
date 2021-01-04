@@ -7,7 +7,7 @@ import CIcon from '@coreui/icons-react'
 // import locationsData from './LocationsData'
 
 // softwaresData.forEach(software => console.log(software))
-//
+////
 const Location = ({match}) => {
 
   const { locations, getLocations } = useContext(GlobalContext)

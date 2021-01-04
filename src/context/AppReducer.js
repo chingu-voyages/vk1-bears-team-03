@@ -303,7 +303,28 @@ export default (state, action) => {
         ...state,
         consumables: [...state.consumables, action.payload]
       }
-      
+        // ACCESSORIES
+      case 'GET_ACCESSORIES':
+        return {
+          ...state,
+          loading: false,
+          accessories: action.payload
+        }
+      case 'DELETE_ACCESSORY':
+        return {
+          ...state,
+          accessories: state.accessories.filter(accessory => accessory._id !== action.payload)
+        }
+      case 'ADD_ACCESSORY':
+        return {
+          ...state,
+          accessories: [...state.accessories, action.payload]
+        }
+      case 'UPDATE_ACCESSORY':
+        return {
+          ...state,
+          accessories: [...state.accessories, action.payload]
+        }     
     case 'TRANSACTION_ERROR':
       return {
         ...state,

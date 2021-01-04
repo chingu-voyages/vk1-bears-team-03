@@ -17,6 +17,11 @@ const initialState = {
   departments: [],
   suppliers: [],
   categories: [],
+  consumables: [],
+  components: [],
+  accessories: [],
+  softwares: [],
+  permits: [],
 
   error: null,
   loading: true
@@ -1004,6 +1009,93 @@ async function updateConsumable(id, consumable) {
 }
 
 
+///////////////ACCESSORIES/////////////
+
+async function getAccessories() {
+  try {
+    const res = await axios.get('/api/v1/accessories');
+
+    dispatch({
+      type: 'GET_ACCESSORIES',
+      payload: res.data.data
+    });
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+}
+
+async function deleteAccessory(id) {
+  try {
+    await axios.delete(`/api/v1/accessories/${id}`);
+
+    dispatch({
+      type: 'DELETE_ACCESSORY',
+      payload: id
+    });
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+}
+
+
+
+async function addAccessory(accessory) {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
+
+  try {
+    const res = await axios.post('/api/v1/accessories/addaccessory', accessory, config);
+
+    dispatch({
+      type: 'ADD_ACCESSORY',
+      payload: res.data.data
+    });
+ 
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+  
+} 
+
+
+
+
+async function updateAccessory(id, accessory) {
+  console.log(id)
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
+
+  try {
+    const res = await axios.put(`/api/v1/accessories/updateaccessory/${id}`, accessory, config);
+
+    dispatch({
+      type: 'UPDATE_ACCESSORY',
+      payload: res.data.data
+    });
+    console.log("This is from res.data", res.data.data)
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+}
+
 
 
   return (<GlobalContext.Provider value={{
@@ -1022,6 +1114,7 @@ async function updateConsumable(id, consumable) {
     permit: state.permits,
     software: state.softwares,
     consumable:state.consumables,
+    accessory:state.accessories,
     deleteAsset,
     addAsset,
     updateAsset,
@@ -1079,6 +1172,10 @@ async function updateConsumable(id, consumable) {
     updateConsumable,
     deleteConsumble,
     addConsumable,
+    getAccessories,
+    deleteAccessory,
+    updateAccessory,
+    addAccessory
 
   }}>
     {children}

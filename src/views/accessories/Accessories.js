@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-
+import React, {useContext, useEffect, useState} from 'react'
+import { GlobalContext } from '../../context/GlobalState'
 import { Route } from 'react-router-dom'
 import {
   CBadge,
@@ -9,10 +9,16 @@ import {
   CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
 } from '@coreui/react'
 
-import accessoriesData from "./AccessoriesData"
+// import accessoriesData from "./AccessoriesData"
 import AddButton from '../addButton/AddButton'
 
 const Accessories = () => {
+  const { accessories, getAccessories, deleteAccessory } = useContext(GlobalContext)
+  useEffect(() => {
+    getAccessories()
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [])
+
 const [details, setDetails] = useState([])
 
 const toggleDetails = (index) => {
@@ -34,8 +40,8 @@ const fields = [
   //   _style: { width: '1%'}
   // },
   { key: 'id'},
-  { key: 'name'},
-   'category', 'quantity','available', 
+  { key: 'accessory_name'},
+   'accessory_category', 'accessory_qty','accessory_available', 
   {
     key: 'show_details',
     label: 'Actions',
@@ -68,10 +74,10 @@ const toggle = () => {
 
 return (
   <>
-  <AddButton location='/views/accessories/addaccessory' />
+  <AddButton location='/accessories/addaccessory' />
 
   <CDataTable
-    items={accessoriesData}
+    items={accessories}
     header
     fields={fields}
     tableFilter={tableFilter}
@@ -121,10 +127,19 @@ return (
                 )}/>
                
 
-                <Route render={({ history}) => (
+                {/* <Route render={({ history}) => (
               <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/accessories/updateaccessory') }}>
                     Update
               </CButton>
+                )}/> */}
+
+                  <Route render={({ history}) => (
+                  <CButton size="sm" color="primary" className="mr-1" onClick= {() => { 
+                    history.push(`/accessories/updateaccessory/${item._id}`) 
+                    console.log("This is history", history)
+                     }}> 
+                        Update
+                  </CButton>
                 )}/>
                 
                 <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>
@@ -149,7 +164,10 @@ return (
                     Are you sure you want to delete User?
                   </CModalBody>
                   <CModalFooter>
-                    <CButton color="primary">Yes</CButton>{' '}
+                    <CButton color="primary" onClick={() => {
+                      deleteAccessory(item._id)
+                      toggle()
+                  }}>Yes</CButton>{' '}
                     <CButton
                       color="secondary"
                       onClick={toggle}
