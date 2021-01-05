@@ -9,7 +9,7 @@ import BackButton from '../../backButton/BackButton'
 import CancelButton from '../../cancelbutton/CancelButton'
 //
 const AddDepartment = () => {
-  const { register, handleSubmit, errors } = useForm()   
+  const { register, handleSubmit } = useForm()   
   const { addDepartment } = useContext(GlobalContext)
 
   const clearForm = () => {

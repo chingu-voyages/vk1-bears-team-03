@@ -9,7 +9,7 @@ import BackButton from '../../backButton/BackButton'
 import CancelButton from '../../cancelbutton/CancelButton'
 
 const UpdateConsumable = ({ match }) => {
-  const { register, handleSubmit, errors } = useForm()   
+  const { register, handleSubmit } = useForm()   
   const { consumables, updateConsumable, getConsumables } = useContext(GlobalContext)
 
   useEffect(() => {

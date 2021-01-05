@@ -9,11 +9,11 @@ import {
   CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
 } from '@coreui/react'
 
-import permitsData from "./PermitsData"
+// import permitsData from "./PermitsData"
 import AddButton from '../addButton/AddButton'
 
 const Permits = () => {
-  const { permits, getPermits, deletePermit } = useContext(GlobalContext)
+  const { permits, getPermits } = useContext(GlobalContext)
     useEffect(() => {
       getPermits()
         // eslint-disable-next-line react-hooks/exhaustive-deps

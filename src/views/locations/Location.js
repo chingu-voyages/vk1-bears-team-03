@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useContext, useEffect} from 'react'
 import { GlobalContext } from '../../context/GlobalState'
 import { CCard, CCardBody, CCardHeader, CCol, CRow } from '@coreui/react'
 import CIcon from '@coreui/icons-react'

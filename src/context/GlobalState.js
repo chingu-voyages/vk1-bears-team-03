@@ -1132,12 +1132,11 @@ async function updateAccessory(id, accessory) {
     locations: state.locations,
     departments: state.departments,
     suppliers: state.suppliers,
-    error: state.error,
-    loading: state.loading,
+    
+    
     getAssets,
-    deleteAsset,
-    addAsset,
-    updateAsset,
+    
+    
     getLocations,
     deleteLocation,
     addLocation,
@@ -1155,8 +1154,7 @@ async function updateAccessory(id, accessory) {
     getCategories,
     deleteCategory,
     updateRequest,
-    updateCategory,
-    getComponents,
+  
     deleteComponent,
     addComponent,
     updateComponent,

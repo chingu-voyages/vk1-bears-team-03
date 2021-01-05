@@ -9,7 +9,7 @@ import {
 import BackButton from '../../backButton/BackButton'
 //
 const UpdateSoftware = ({ match }) => {
-  const { register, handleSubmit, errors } = useForm()   
+  const { register, handleSubmit } = useForm()   
   const { softwares, updateSoftware, getSoftwares } = useContext(GlobalContext)
 
   useEffect(() => {

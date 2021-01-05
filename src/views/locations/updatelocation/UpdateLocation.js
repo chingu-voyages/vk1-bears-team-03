@@ -10,7 +10,7 @@ import CancelButton from '../../cancelbutton/CancelButton'
 
 
 const UpdateLocation = ({ match }) => {
-  const { register, handleSubmit, errors } = useForm()   
+  const { register, handleSubmit } = useForm()   
   const { locations, updateLocation, getLocations } = useContext(GlobalContext)
 
   useEffect(() => {

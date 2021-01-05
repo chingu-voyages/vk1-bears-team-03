@@ -2,15 +2,15 @@ import React, {useContext} from 'react'
 import { GlobalContext } from '../../../context/GlobalState'
 import { useForm } from 'react-hook-form'
 import {
-  CCardBody, CCol, CCard, CCardHeader, CFormGroup, CLabel, CInput, CSelect, CTextarea, CInputGroupText, CInputGroupAppend, CInputGroupPrepend, CInputGroup, CButton, CCardFooter, CForm
+  CCardBody, CCol, CCard, CCardHeader, CFormGroup, CLabel, CInput,  CTextarea, CInputGroupText, CInputGroupAppend, CInputGroupPrepend, CInputGroup, CButton, CCardFooter, CForm
 
 } from '@coreui/react'
 import BackButton from '../../backButton/BackButton'
 import CancelButton from '../../cancelbutton/CancelButton'
 
 const AddConsumable = () => {
-  const { register, handleSubmit, errors } = useForm()   
-  const { consumables, addConsumable } = useContext(GlobalContext)
+  const { register, handleSubmit } = useForm()   
+  const {  addConsumable } = useContext(GlobalContext)
   
   const clearForm = () => {
     document.getElementById("consumableForm").reset();

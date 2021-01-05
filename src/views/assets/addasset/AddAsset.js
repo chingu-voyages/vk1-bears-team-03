@@ -14,7 +14,7 @@ const AddAsset = () => {
   const [file, setFile] = useState('')
   // const [uploadedFile, setUploadedFile] = useState({})
   const [filename, setFileName] = useState('Choose File')
-  const { register, handleSubmit, errors } = useForm()
+  const { register, handleSubmit } = useForm()
   const { addAsset } = useContext(GlobalContext)
 
 

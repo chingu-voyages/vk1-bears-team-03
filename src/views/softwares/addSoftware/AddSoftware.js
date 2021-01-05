@@ -3,14 +3,14 @@ import { GlobalContext } from '../../../context/GlobalState'
 import { useForm } from 'react-hook-form'
 import { Route } from 'react-router-dom'
 import {
-  CCardBody, CCol, CCard, CCardHeader, CFormGroup, CLabel, CInput, CSelect, CTextarea, CInputGroupText, CInputGroupAppend, CInputGroupPrepend, CInputGroup, CButton, CCardFooter, CForm
+  CCardBody, CCol, CCard, CCardHeader, CFormGroup, CLabel, CTextarea, CInputGroupText, CInputGroupAppend, CInputGroupPrepend, CInputGroup, CButton, CCardFooter, CForm
 
 } from '@coreui/react'
 import BackButton from '../../backButton/BackButton'
 
 const AddSoftware = () => {
-  const { register, handleSubmit, errors } = useForm()   
-  const { softwares, addSoftware } = useContext(GlobalContext)
+  const { register, handleSubmit } = useForm()   
+  const {  addSoftware } = useContext(GlobalContext)
 
   // const onSubmit = data => console.log("This is from onSubmit", data);
   const clearForm = () => {

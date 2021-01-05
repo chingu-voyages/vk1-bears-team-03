@@ -11,7 +11,7 @@ import CancelButton from '../../cancelbutton/CancelButton'
 
 const UpdateAccessory = ({ match }) => {
 
-  const { register, handleSubmit, errors } = useForm()   
+  const { register, handleSubmit } = useForm()   
   const { accessories, updateAccessory, getAccessories } = useContext(GlobalContext)
    
   useEffect(() => {

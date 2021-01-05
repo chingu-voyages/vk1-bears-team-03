@@ -32,36 +32,36 @@ export default [
     to: '/assets',
     icon: <FontAwesomeIcon icon={faBarcode} className="fonticons"/>,
   },
-  {
-    _tag: 'CSidebarNavItem',
-    name: 'Components',
-    to: '/views/components',
-    icon: <FontAwesomeIcon icon={faHdd} className="fonticons"/>,
-  },
-  {
-    _tag: 'CSidebarNavItem',
-    name: 'Software Licenses',
-    to: '/views/softwares',
-    icon: <FontAwesomeIcon icon={faSave} className="fonticons"/>,
-  },
-  {
-    _tag: 'CSidebarNavItem',
-    name: 'Government Permits',
-    to: '/views/permits',
-    icon: <FontAwesomeIcon icon={faFile} className="fonticons"/>,
-  },
-  {
-    _tag: 'CSidebarNavItem',
-    name: 'Accessories',
-    to: '/views/accessories',
-    icon: <FontAwesomeIcon icon={faKeyboard} className="fonticons"/>,
-  },
-  {
-    _tag: 'CSidebarNavItem',
-    name: 'Consumables',
-    to: '/views/consumables',
-    icon: <FontAwesomeIcon icon={faTint} className="fonticons"/>,
-  },
+  // {
+  //   _tag: 'CSidebarNavItem',
+  //   name: 'Components',
+  //   to: '/views/components',
+  //   icon: <FontAwesomeIcon icon={faHdd} className="fonticons"/>,
+  // },
+  // {
+  //   _tag: 'CSidebarNavItem',
+  //   name: 'Software Licenses',
+  //   to: '/views/softwares',
+  //   icon: <FontAwesomeIcon icon={faSave} className="fonticons"/>,
+  // },
+  // {
+  //   _tag: 'CSidebarNavItem',
+  //   name: 'Government Permits',
+  //   to: '/views/permits',
+  //   icon: <FontAwesomeIcon icon={faFile} className="fonticons"/>,
+  // },
+  // {
+  //   _tag: 'CSidebarNavItem',
+  //   name: 'Accessories',
+  //   to: '/views/accessories',
+  //   icon: <FontAwesomeIcon icon={faKeyboard} className="fonticons"/>,
+  // },
+  // {
+  //   _tag: 'CSidebarNavItem',
+  //   name: 'Consumables',
+  //   to: '/views/consumables',
+  //   icon: <FontAwesomeIcon icon={faTint} className="fonticons"/>,
+  // },
   
   {
     _tag: 'CSidebarNavDropdown',
@@ -121,13 +121,13 @@ export default [
         to: '/categories',
         icon: '',
       },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Status Labels',
-        to: '/views/status',
-        icon: '',
+      // {
+      //   _tag: 'CSidebarNavItem',
+      //   name: 'Status Labels',
+      //   to: '/views/status',
+      //   icon: '',
         
-      },
+      // },
     ],
   },
   {

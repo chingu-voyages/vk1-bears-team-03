@@ -10,8 +10,8 @@ import CancelButton from '../../cancelbutton/CancelButton'
 //
 const AddPermit = () => {
     
-  const { register, handleSubmit, errors } = useForm()   
-  const { permits, addPermit } = useContext(GlobalContext)
+  const { register, handleSubmit } = useForm()   
+  const {  addPermit } = useContext(GlobalContext)
 
   const clearForm = () => {
     document.getElementById("permitForm").reset();

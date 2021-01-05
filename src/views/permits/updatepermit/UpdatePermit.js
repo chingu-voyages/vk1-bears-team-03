@@ -2,14 +2,14 @@ import React, {useEffect, useContext} from 'react'
 import { GlobalContext } from '../../../context/GlobalState'
 import { useForm } from 'react-hook-form'
 import {
-  CCardBody, CCol, CCard, CCardHeader, CFormGroup, CLabel, CInput, CSelect, CTextarea, CInputGroupText, CInputGroupAppend, CInputGroupPrepend, CInputGroup, CButton, CCardFooter, CForm
+  CCardBody, CCol, CCard, CCardHeader, CFormGroup, CLabel, CSelect, CTextarea, CInputGroupText, CInputGroupAppend, CInputGroupPrepend, CInputGroup, CButton, CCardFooter, CForm
 
 } from '@coreui/react'
 import BackButton from '../../backButton/BackButton'
 import CancelButton from '../../cancelbutton/CancelButton'
 
 const UpdatePermit = ({match}) => {
-  const { register, handleSubmit, errors } = useForm()   
+  const { register, handleSubmit } = useForm()   
   const { permits, updatePermit, getPermits } = useContext(GlobalContext)
   useEffect(() => {
     getPermits()
