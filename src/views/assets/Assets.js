@@ -44,13 +44,13 @@ const tableFilter = {
   placeholder: 'type here...'
 }
 const fields = [
-  {
-    key: 'select',
-    label: 'Select',
-    _style: { width: '1%' },
-    sorter: false,
-    filter: false
-  },
+  // {
+  //   key: 'select',
+  //   label: 'Select',
+  //   _style: { width: '1%' },
+  //   sorter: false,
+  //   filter: false
+  // },
   {
     key: 'asset_file',
     label: 'Asset',
@@ -106,11 +106,11 @@ return (
       <AddButton location='/assets/addasset' />
            
     </CCol>
-    <CCol className="d-flex justify-content-sm-end">
+    {/* <CCol className="d-flex justify-content-sm-end">
               <CCol xs="12" md="4">
                     <CSelect custom name="select" id="select">
                       <option value="0">Generate Labels</option>
-                      {/* <option value="1">Bulk Borrow</option> */}
+                      <option value="1">Bulk Borrow</option>
                     </CSelect>
                     
                   </CCol>
@@ -119,7 +119,7 @@ return (
                         Go
                   </CButton>
                 )}/>
-    </CCol>
+    </CCol> */}
               
   </CRow>
   <CDataTable 
@@ -134,16 +134,16 @@ return (
     pagination
     
     scopedSlots = {{
-      'select' : () =>{
-        return (
-        <div className="d-flex justify-content-center align-items-center mt-3">
-          <input id ="select" type="checkbox">
-          </input>
-        </div>
+      // 'select' : () =>{
+      //   return (
+      //   <div className="d-flex justify-content-center align-items-center mt-3">
+      //     <input id ="select" type="checkbox">
+      //     </input>
+      //   </div>
         
-        )
+      //   )
         
-      },
+      // },
       'asset_file' : (item) =>(
          item.asset_file ? <Images item={item}/> : 
          <td>

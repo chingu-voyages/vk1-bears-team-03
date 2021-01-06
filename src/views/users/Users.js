@@ -82,7 +82,7 @@ const toggle = () => {
 
 return (
   <>
-  <AddButton location='/users/adduser' />
+  {/* <AddButton location='/users/adduser' /> */}
 
   <CDataTable
     items={users}
