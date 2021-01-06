@@ -9,7 +9,7 @@ const Asset = ({match}) => {
 
 
   useEffect(() => {
-      etgAssets()
+      getAssets()
       // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 

@@ -6,3 +6,5 @@
 
 if (User) -> Show the Borrow and Return option
 else (Admin) -> View More, Update, Delete, Add
+
+Focus feature for error

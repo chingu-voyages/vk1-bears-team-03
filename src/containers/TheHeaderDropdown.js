@@ -84,7 +84,7 @@ const TheHeaderDropdown = () => {
         </CDropdownItem>
         <CDropdownItem divider />
         <Route render={({ history}) => (
-            <CDropdownItem onClick={() => {history.push('/views/pages/login')}}>
+            <CDropdownItem onClick={() => {history.push('/login')}}>
               <CIcon name="cil-lock-locked" className="mfe-2" />Log Out
             </CDropdownItem>
         )}/>

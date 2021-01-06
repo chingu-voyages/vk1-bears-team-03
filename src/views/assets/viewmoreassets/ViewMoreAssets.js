@@ -18,9 +18,13 @@ const ViewMoreAssets = ({ match }) => {
   return (
 
     <CContainer fluid>
-    <CRow>
-      <CCol sm = "4">
+          
+    <CRow> 
+      <CCol>
         <CCardHeader className="text-center">
+          <CRow className = "mx-1 d-flex justify-content-start">
+              <BackButton location='/assets' />
+          </CRow> 
           <CCol className="d-flex justify-content-center">
             <Images item={asset}/>
           </CCol>
@@ -29,15 +33,16 @@ const ViewMoreAssets = ({ match }) => {
           <p><strong>Asset ID: </strong>{asset._id}</p>
         </CCardHeader>
 
-      </CCol>
-      <CCol>
+      {/* </CCol>
+      <CCol> */}
         <CCard>
         
-        <CCardHeader>
-          <CRow><h3 className='px-3'>Asset Details</h3></CRow>
-        </CCardHeader>
+        {/* <CCardHeader>
+         
+        </CCardHeader> */}
 
         <CCardBody>
+          <CRow><h3 className='px-3 mx-auto mb-4'>Asset Details</h3></CRow>
           <CFormGroup row>
                   <CCol md="2" className="d-flex justify-content-sm-end">
                     <CLabel htmlFor="asset_name">Asset Name</CLabel>
@@ -110,9 +115,6 @@ const ViewMoreAssets = ({ match }) => {
                     </select>
                   </CCol>
           </CFormGroup>
-          <CRow className = "my-4 mx-1 d-flex justify-content-end">
-            <BackButton location='/assets' />
-          </CRow>
         </CCardBody>
         </CCard>
       </CCol>
