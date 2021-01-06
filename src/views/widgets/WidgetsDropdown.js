@@ -67,7 +67,7 @@ const WidgetsDropdown = () => {
             <CButton
               color = "outline-secondary"
               className="text-white"
-              to="/views/assets"
+              to="assets"
             >
               More Info
             </CButton>
