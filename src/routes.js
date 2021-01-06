@@ -180,7 +180,6 @@ const routes = [
 
   { path: '/assets/viewmore/:id', exact: true, name: 'View More Assets', component: ViewMoreAssets },
   { path: '/assets/updateasset/:id', exact: true, name: 'Update Assets', component: UpdateAsset },
-  { path: '/assets/borrowasset/:id', exact: true, name: 'Borrow Asset', component: BorrowAsset },
   { path: '/views/assets/returnassets', exact: true, name: 'Return Assets', component: ReturnAssets },
 
 
@@ -204,7 +203,7 @@ const routes = [
   { path: '/components/addcomponent', exact: true, name: 'Add New Component', component: AddComponent },
 
 
-
+  { path: '/request/:id', exact: true, name: 'Borrow Asset', component: BorrowAsset },
   { path: '/views/requests', exact: true, name: 'Requests', component: Requests },
   { path: '/views/requests/:id', exact: true, name: 'Request', component: Request },
   { path: '/views/archived-requests', exact: true, name: 'ArchivedRequests', component: ArchivedRequests },

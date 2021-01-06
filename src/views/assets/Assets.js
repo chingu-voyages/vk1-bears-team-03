@@ -203,7 +203,7 @@ return (
                   )}/>
                 <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>
                 <Route render={({ history}) => (
-              <CButton size="sm" color="success" className="mr-1" onClick= {() => { history.push(`/assets/borrowasset/${item._id}`) }}>
+              <CButton size="sm" color="success" className="mr-1" onClick= {() => { history.push(`/request/${item._id}`) }}>
                     Borrow
               </CButton>
                 )}/>

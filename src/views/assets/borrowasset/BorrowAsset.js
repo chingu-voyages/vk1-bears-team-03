@@ -1,136 +1,149 @@
-import React from 'react'
-import { GlobalContext } from '../../../context/GlobalState'
-import { Route } from 'react-router-dom'
+import React, {useContext, useEffect} from 'react'
+import { Route, useHistory } from 'react-router-dom'
 import {
-  CCardBody, CCol, CCard, CCardHeader, CFormGroup, CLabel, CInput, CSelect, CTextarea, CButton, CCardFooter
+  CCardBody, CCol, CCard, CCardHeader, CFormGroup, CLabel, CForm, CButton, CCardFooter
 
 } from '@coreui/react'
-
-// import CIcon from '@coreui/icons-react'
-
+import { GlobalContext } from '../../../context/GlobalState'
+import { useForm } from 'react-hook-form'
+import dateFormat from 'dateformat'
 import BackButton from '../../backButton/BackButton'
-import { useContext, useEffect } from 'react'
-
+import CancelButton from '../../cancelbutton/CancelButton'
 
 const BorrowAsset = ( { match }) => {
-  const { assets, getAssets} = useContext(GlobalContext)
+  const { register, handleSubmit } = useForm()
+  const { assets, getAssets, users, getUsers, addRequest} = useContext(GlobalContext)
   useEffect(() => {
+    getUsers()
     getAssets()
       // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])  
+  const history = useHistory();
+  const asset = assets.find( asset => asset._id === match.params.id)
 
+  const clearForm = () => {
+    document.getElementById("assetForm").reset();
 
+  }
+  const onSubmit = (data) => {
+        console.log("This is from Submitted data", data.user_name)
+        const assetAvailability =  assets.find(asset => asset.asset_status === "Available")
+        
+        const user = users.find(user => user._id === data.user_name)
+        console.log("This is from user data", user)
+        let borrowedAsset = {}
+
+        if(!assetAvailability) {
+            alert(`Something went wrong. ${assetAvailability.asset_name} might be borrowed already`)
+          }else if(!user){
+            alert(`Something went wrong. User cannot be found. Please check again.`)
+
+          }else{
+              borrowedAsset= {
+              user_name: user._id,
+              item_name: asset._id,
+              request_type: "Borrow",
+              request_status: "Pending"
+              }
+              addRequest(borrowedAsset)
+              console.log(borrowedAsset)
+              alert("Successfully Added!")
+              clearForm()
+              history.push('/assets')
+          }
+}    
+
+  
 
     return(
-        
-        <CCol xs="12" md="6" lg="12" className="mb-4">
-        <CCard>
-          <CCardHeader>
-          <BackButton location='/assets' />
-          <CButton type="reset" size="md" color="danger" className="mr-1"> Reset</CButton>
-          </CCardHeader>
-          <CCardBody>
-          <CFormGroup row>
-                  <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="text-input">Asset Name</CLabel>
-                  </CCol>
-                  <CCol xs="12" md="9">
-                    <CInput id="text-input" name="text-input" placeholder="" />
-                  </CCol>
-                 
-                </CFormGroup>
+      <>
+      <CCol xs="12" md="6" lg="12" className="mb-4">
+       <CCard>
+       <CCardHeader>
+        <BackButton location='/assets' />
+       </CCardHeader>
+       <CForm id='assetForm' onSubmit = {handleSubmit(onSubmit) } >
+        <CCardBody>
                 <CFormGroup row>
                   <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="text-input">Asset Tag</CLabel>
+                    <CLabel htmlFor="user_name">Enter your User Name: </CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
-                    <CInput id="text-input" name="text-input" placeholder="" />
+                    <input className = 'form-control' type="text" name="user_name" ref={register} />
                   </CCol>
-                </CFormGroup>
-                <CFormGroup row>
-                  <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="text-input">Serial Number</CLabel>
-                  </CCol>
-                  <CCol xs="12" md="9">
-                    <CInput id="text-input" name="text-input" placeholder="" />
-                  </CCol>
-                </CFormGroup>
-                <CFormGroup row>
-                <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="select">Status</CLabel>
-                  </CCol>
-                  <CCol xs="12" md="9">
-                    <CSelect custom name="select" id="select">
-                      <option value="0">Please select</option>
-                      <option value="1">Option #1</option>
-                      <option value="2">Option #2</option>
-                      <option value="3">Option #3</option>
-                    </CSelect>
-                  </CCol>
-                  
-                </CFormGroup>
-                <CFormGroup row>
-                <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="select">User</CLabel>
-                  </CCol>
-                  <CCol xs="12" md="9">
-                    <CSelect custom name="select" id="select">
-                      <option value="0">Please select</option>
-                      <option value="1">Option #1</option>
-                      <option value="2">Option #2</option>
-                      <option value="3">Option #3</option>
-                    </CSelect>
-                  </CCol>
-                  
-                </CFormGroup>
-                <CFormGroup row>
-                  <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="text-input">Borrow Date</CLabel>
-                  </CCol>
-                  <CCol xs="12" md="9">
-                  <CInput type="date" id="date-input" name="date-input" placeholder="date" />
-                  </CCol>
-                </CFormGroup>
-                <CFormGroup row>
-                  <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="text-input">Expected Return Date</CLabel>
-                  </CCol>
-                  <CCol xs="12" md="9">
-                  <CInput type="date" id="date-input" name="date-input" placeholder="date" />
-                  </CCol>
-                </CFormGroup>
-                    
                 
+                </CFormGroup>
+
                 <CFormGroup row>
-                <CCol md="2" className="d-flex justify-content-sm-end">
-                    <CLabel htmlFor="textarea-input">Notes</CLabel>
+                  <CCol md="2" className="d-flex justify-content-sm-end">
+                    <CLabel htmlFor="asset_name">Asset Name</CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
-                    <CTextarea 
-                      name="textarea-input" 
-                      id="textarea-input" 
-                      rows="2"
-                      placeholder="Content..." 
-                    />
+                    <input className = 'form-control' type="text" name="asset_name" defaultValue={asset.asset_name} ref={register} disabled/>
+                  </CCol>
+                
+                </CFormGroup>
+                <CFormGroup row>
+                  <CCol md="2" className="d-flex justify-content-sm-end">
+                    <CLabel htmlFor="asset_category">Asset Category</CLabel>
+                  </CCol>
+                  <CCol xs="12" md="9">
+                    <select className = 'form-control' custom name="asset_category" id="asset_category" defaultValue={asset.asset_category} ref={register} disabled>
+                      <option >Please select</option>
+                      <option value="Electronics">Electronics</option>
+                      <option value="Software">Software</option>
+                      <option value="License">License</option>
+                    </select>
                   </CCol>
                 </CFormGroup>
+                <CFormGroup row>
+                  <CCol md="2" className="d-flex justify-content-sm-end">
+                    <CLabel htmlFor="asset_serial">Serial Number</CLabel>
+                  </CCol>
+                  <CCol xs="12" md="9">
+                    <input id="asset_serial" className = 'form-control' name="asset_serial" defaultValue={asset.asset_serial} ref={register} disabled/>
+                  </CCol>
+                </CFormGroup>
+                <CFormGroup row>
+                <CCol md="2" className="d-flex justify-content-sm-end">
+                    <CLabel htmlFor="asset_purchasecost">Purchase Cost</CLabel>
+                  </CCol>
+                  <CCol xs="12" md="9">
+                    <input id="asset_purchasecost" className = 'form-control' name="asset_purchasecost" defaultValue={asset.asset_purchasecost} ref={register} disabled/>
+                  </CCol>
+                </CFormGroup>              
+                <CFormGroup row>
+                  <CCol md="2" className="d-flex justify-content-sm-end">
+                    <CLabel htmlFor="asset_warrantydate">Warranty</CLabel>
+                  </CCol>
+                  <CCol xs="12" md="9">
+                    <input type='Date' id='asset_warrantydate' className = 'form-control' name='asset_warrantydate' defaultValue={dateFormat(asset.asset_warrantydate, "yyyy-mm-dd")} ref={register} disabled/>
+                  </CCol>
+                </CFormGroup>
+                {/* <CFormGroup row>
+                  <CCol md="2" className="d-flex justify-content-sm-end">
+                    <CLabel htmlFor="asset_status">Asset Status</CLabel>
+                  </CCol>
+                  <CCol xs="12" md="9">
+                    <select className = 'form-control' custom name="asset_status" id="asset_status" defaultValue={asset.asset_status} ref={register}>
+                      <option >Please select</option>
+                      <option value="Available">Available</option>
+                      <option value="Borrowed">Borrowed</option>
+                      <option value="Damaged">Damaged</option>
+                    </select>
+                  </CCol>
+                </CFormGroup> */}
                 <CCardFooter row>
                 <CCol md="12" className="d-flex justify-content-sm-end">
-                <CButton type="return" size="md" color="primary" className="mr-1"> Borrow</CButton>
-              
-                <Route render={({ history}) => (
-            <CButton type="submit" size="md" color="danger" className="mr-1" onClick= {() => { history.push('/views/dashboard') }}>
-                  Cancel
-            </CButton>
-              )}/>
-                
+                <CButton type="submit" size="md" color="primary" className="mr-1 px-4" >Submit Request</CButton>
+                <CancelButton size='md' location='/assets' />              
               </CCol>
             </CCardFooter>
           </CCardBody>
+          </CForm>
         </CCard>
       </CCol>
-
-      
+    </>
     )
 }
 
