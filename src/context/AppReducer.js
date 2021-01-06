@@ -207,129 +207,60 @@ export default (state, action) => {
             loading: false,
             userCount: action.payload
           }
-
-          case 'GET_COMPONENTS':
-      return {
-        ...state,
-        loading: false,
-        components: action.payload
-      }
-    case 'DELETE_COMPONENT':
-      return {
-        ...state,
-        components: state.components.filter(component => component._id !== action.payload)
-      }
-    case 'ADD_COMPONENT':
-      return {
-        ...state,
-        components: [...state.components, action.payload]
-      }
-    case 'UPDATE_COMPONENTS':
-      return {
-        ...state,
-        components: [...state.components, action.payload]
-      }
-    case 'TRANSACTION_ERROR':
-      return {
-        ...state,
-        error: action.payload
-      }
-        // PERMITS
-      case 'GET_PERMITS':
-      return {
-        ...state,
-        loading: false,
-        permits: action.payload
-      }
-    case 'DELETE_PERMIT':
-      return {
-        ...state,
-        permits: state.permits.filter(permit => permit._id !== action.payload)
-      }
-    case 'ADD_PERMIT':
-      return {
-        ...state,
-        permits: [...state.permits, action.payload]
-      }
-    case 'UPDATE_PERMIT':
-      return {
-        ...state,
-        permits: [...state.permits, action.payload]
-      }
-
-
-      // SOFTWARES
-      case 'GET_SOFTWARES':
-      return {
-        ...state,
-        loading: false,
-        softwares: action.payload
-      }
-    case 'DELETE_SOFTWARE':
-      return {
-        ...state,
-        softwares: state.softwares.filter(software => software._id !== action.payload)
-      }
-    case 'ADD_SOFTWARE':
-      return {
-        ...state,
-        softwares: [...state.softwares, action.payload]
-      }
-    case 'UPDATE_SOFTWARE':
-      return {
-        ...state,
-        softwares: [...state.softwares, action.payload]
-      }
-    
-      // CONSUMABLES
-      case 'GET_CONSUMABLES':
-      return {
-        ...state,
-        loading: false,
-        consumables: action.payload
-      }
-    case 'DELETE_CONSUMABLE':
-      return {
-        ...state,
-        consumables: state.consumables.filter(consumable => consumable._id !== action.payload)
-      }
-    case 'ADD_CONSUMABLE':
-      return {
-        ...state,
-        consumables: [...state.consumables, action.payload]
-      }
-    case 'UPDATE_CONSUMABLE':
-      return {
-        ...state,
-        consumables: [...state.consumables, action.payload]
-      }
-        // ACCESSORIES
-      case 'GET_ACCESSORIES':
-        return {
-          ...state,
-          loading: false,
-          accessories: action.payload
-        }
-      case 'DELETE_ACCESSORY':
-        return {
-          ...state,
-          accessories: state.accessories.filter(accessory => accessory._id !== action.payload)
-        }
-      case 'ADD_ACCESSORY':
-        return {
-          ...state,
-          accessories: [...state.accessories, action.payload]
-        }
-      case 'UPDATE_ACCESSORY':
-        return {
-          ...state,
-          accessories: [...state.accessories, action.payload]
-        }     
-    case 'TRANSACTION_ERROR':
-      return {
-        ...state,
-        error: action.payload
-      }
+          case 'GET_USER_COUNT_7_DAYS':
+          return {
+            ...state,
+            loading: false,
+            userCount7Days: action.payload
+          }
+          case 'GET_ASSET_COUNT_7_DAYS':
+          return {
+            ...state,
+            loading: false,
+            assetCount7Days: action.payload
+          }
+          case 'GET_PENDING_REQUEST_COUNT_7_DAYS':
+          return {
+            ...state,
+            loading: false,
+            pendingRequestCount7Days: action.payload
+          }
+          case 'GET_ALL_ARCHIVED_REQUEST_COUNT_7_DAYS':
+          return {
+            ...state,
+            loading: false,
+            allRequestCount7Days: action.payload
+          }
+          case 'GET_LOCATIONS_COUNT_7_DAYS':
+          return {
+            ...state,
+            loading: false,
+            locationsCount7Days: action.payload
+          }
+          case 'GET_DEPARTMENTS_COUNT_7_DAYS':
+          return {
+            ...state,
+            loading: false,
+            departmentsCount7Days: action.payload
+          }
+          case 'GET_REQUEST_1_YEAR':
+            return {
+              ...state,
+              loading: false,
+              requestCount1Year: action.payload
+            }
+          case 'GET_MEMBER_1_YEAR':
+            return {
+              ...state,
+              loading: false,
+              memberCount1Year: action.payload
+            }
+          case 'GET_ASSET_1_YEAR':
+            return {
+              ...state,
+              loading: false,
+              assetCount1Year: action.payload
+            }
     default:
       return state;
   }
