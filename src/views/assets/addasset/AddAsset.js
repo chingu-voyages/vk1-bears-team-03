@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import { GlobalContext } from '../../../context/GlobalState'
 import { useForm } from 'react-hook-form'
 import axios from 'axios'
@@ -15,13 +15,22 @@ const AddAsset = () => {
   const [file, setFile] = useState('')
   // const [uploadedFile, setUploadedFile] = useState({})
   const [filename, setFileName] = useState('Choose File')
+<<<<<<< HEAD
+  const { register, handleSubmit, errors } = useForm()
+  const { assets, addAsset, getAssets } = useContext(GlobalContext)
+=======
   const { register, handleSubmit } = useForm()
   const { addAsset } = useContext(GlobalContext)
+>>>>>>> 80a54babe92dba28afc902dc6ce52c64092eb93c
 
   //SET CURRENT URL
   let history = useHistory();
 
-
+  useEffect(() => {
+    getAssets()
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [])
+  
   // CLEARING FORM FIELDS
   const clearForm = () => {
     document.getElementById("assetForm").reset();
@@ -39,39 +48,43 @@ const AddAsset = () => {
     const formData = new FormData()
 
     formData.append('file', file)
-    
+    const asset = assets.find(asset => asset.asset_serial === data.asset_serial)
     try {
-      const res = await axios.post('/upload', formData, {
-        headers: {
-            "Content-Type": "multipart/form-data"
-        },
-        // onUploadProgress: ProgressEvent =>{
-        // setUploadPercentage(parseInt(Math.round((ProgressEvent.loaded * 100) / ProgressEvent.total)))
-
-        //Clear percentage
-        // setTimeout(() => setUploadPercentage(0), 10000)
-        // }
-        
-      })
-      const { fileName, filePath } = res.data
-      const newAsset= {
-            asset_name: data.asset_name,
-            asset_category:data.asset_category,
-            asset_status:data.asset_status,
-            asset_serial:data.asset_serial,
-            asset_purchasecost:data.asset_purchasecost,
-            asset_warrantydate: dateFormat(data.asset_warrantydate, "mm/dd/yyyy"),
-            asset_file: {
-              file_name: fileName,
-              file_path: filePath
-            }
-        }
-        
-        addAsset(newAsset)
-        alert("Successfully Added!")
-        console.log(newAsset)
-        clearForm()
-        history.push('/assets')
+      if(asset) {
+        alert("Asset is already added! Please enter the correct data.")
+      }else {
+        const res = await axios.post('/upload', formData, {
+          headers: {
+              "Content-Type": "multipart/form-data"
+          },
+          // onUploadProgress: ProgressEvent =>{
+          // setUploadPercentage(parseInt(Math.round((ProgressEvent.loaded * 100) / ProgressEvent.total)))
+  
+          //Clear percentage
+          // setTimeout(() => setUploadPercentage(0), 10000)
+          // }
+          
+        })
+        const { fileName, filePath } = res.data
+        const newAsset= {
+              asset_name: data.asset_name,
+              asset_category:data.asset_category,
+              asset_status:data.asset_status,
+              asset_serial:data.asset_serial,
+              asset_purchasecost:data.asset_purchasecost,
+              asset_warrantydate: dateFormat(data.asset_warrantydate, "mm/dd/yyyy"),
+              asset_file: {
+                file_name: fileName,
+                file_path: filePath
+              }
+          }
+          
+          addAsset(newAsset)
+          alert("Successfully Added!")
+          clearForm()
+          history.push('/assets')
+      }
+      
     } catch (err) {
       alert(`${err}`)
     }

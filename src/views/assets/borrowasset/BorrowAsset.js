@@ -10,8 +10,15 @@ import {
 import BackButton from '../../backButton/BackButton'
 
 
-const BorrowAssets = () => {
-    
+const BorrowAsset = ( { match }) => {
+  const { assets, getAssets} = useContext(GlobalContext)
+  useEffect(() => {
+    getAssets()
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])  
+
+
+
     return(
         
         <CCol xs="12" md="6" lg="12" className="mb-4">
@@ -125,4 +132,4 @@ const BorrowAssets = () => {
     )
 }
 
-export default BorrowAssets
+export default BorrowAsset

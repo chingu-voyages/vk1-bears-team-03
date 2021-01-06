@@ -13,6 +13,7 @@ import { Route } from 'react-router-dom'
 import AddButton from '../addButton/AddButton'
 import defaultlogo from '../../uploads/defaultlogo.png'
 import dateFormat from 'dateformat'
+import "src/scss/_custom.scss"
 
 const Assets = () => {
 
@@ -83,7 +84,6 @@ const fields = [
 ]
 
 const getBadge = (status)=>{
-  console.log("This is Status from getBadge", status)
   switch (status) {
     case 'Available': return 'success'
     case 'Borrowed': return 'secondary'
@@ -115,15 +115,15 @@ return (
                     
                   </CCol>
               <Route render={({ history}) => (
-                  <CButton size="md" color="primary" className="mr-1" onClick= {() => { history.push('/views/assets/createnewassets') }}>
+                  <CButton size="md" color="primary" className="mr-1" onClick= {() => { history.push('/assets/createnewassets') }}>
                         Go
                   </CButton>
                 )}/>
     </CCol>
               
   </CRow>
-  <CDataTable
-    items={assets}
+  <CDataTable 
+    items= {assets}
     columnFilterSlot={assets.asset_category}
     tableFilter={tableFilter}
     itemsPerPage={5}
@@ -147,7 +147,7 @@ return (
       'asset_file' : (item) =>(
          item.asset_file ? <Images item={item}/> : 
          <td>
-            <img src={defaultlogo} alt="photo" style= { {height : '70px', widht: '70px'} }/>
+            <img src={defaultlogo} alt="photo" style= { {height : '70px', widht: '70px'}}/>
         </td>
       ),
       'status':
@@ -203,7 +203,7 @@ return (
                   )}/>
                 <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>
                 <Route render={({ history}) => (
-              <CButton size="sm" color="success" className="mr-1" onClick= {() => { history.push('/views/assets/borrowassets') }}>
+              <CButton size="sm" color="success" className="mr-1" onClick= {() => { history.push(`/assets/borrowasset/${item._id}`) }}>
                     Borrow
               </CButton>
                 )}/>
@@ -239,9 +239,7 @@ return (
         
     }}
         
-  />
-
-          
+    addTableClasses="table-class"/>   
   </>
 )
 }

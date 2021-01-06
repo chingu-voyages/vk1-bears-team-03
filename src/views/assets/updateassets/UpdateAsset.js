@@ -30,13 +30,19 @@ const UpdateAsset = ({ match }) => {
 
   }
   const onSubmit = (data) => {
-        updateAsset(asset._id, data)
-        alert("Successfully Updated")
-        console.log(data)
-        clearForm()
-        
-        //REDIRECT TO ASSETS PAGE
-        history.push('/assets')
+        const assetDetails =  assets.find(asset => asset.asset_serial === data.asset_serial)
+ 
+          if(assetDetails) {
+            alert("Asset is already added! Please enter the correct data.")
+          }else{
+            updateAsset(asset._id, data)
+            alert("Successfully Updated")
+            console.log(data)
+            clearForm()
+            
+            //REDIRECT TO ASSETS PAGE
+            history.push('/assets')
+          }    
 
   }
 
@@ -48,7 +54,6 @@ const UpdateAsset = ({ match }) => {
        <CCard>
        <CCardHeader>
         <BackButton location='/assets' />
-        <CButton type="reset" size="md" color="danger" className="mr-1"> Reset</CButton>
        </CCardHeader>
        <CForm id='assetForm' onSubmit = {handleSubmit(onSubmit) } >
         <CCardBody>
