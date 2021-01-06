@@ -101,18 +101,18 @@ const Profile = ({match}) => {
             <CCardBody>
               <CRow className = "my-2">
                 <CCol>
-                  <CInput label="fName" placeholder={user.first_name}/>
+                  <CInput label="fName" placeholder={user.first_name} disabled />
                 </CCol>
                 <CCol>
-                  <CInput label="lName" placeholder={user.last_name}/>
+                  <CInput label="lName" placeholder={user.last_name} disabled/>
                 </CCol>
               </CRow>
               <CRow className = "my-2">
                 <CCol>
-                  <CInput label="email" placeholder={user.email}/>
+                  <CInput label="email" placeholder={user.email} disabled/>
                 </CCol>
                 <CCol>
-                  <CInput label="username" placeholder={user.username}/>
+                  <CInput label="username" placeholder={user.username} disabled/>
                 </CCol>
               </CRow>
             </CCardBody>
