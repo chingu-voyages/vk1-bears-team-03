@@ -29,10 +29,6 @@ const WidgetsDropdown = () => {
     getPendingRequestCount7Days,
     allArchivedRequestCount7Days,
     getAllArchivedRequestCount7Days,
-    locationsCount7Days,
-    getLocationsCount7Days,
-    departmentsCount7Days,
-    getDepartmentsCount7Days,
   } = useContext(GlobalContext)
 
   useEffect(() => {
@@ -44,8 +40,6 @@ const WidgetsDropdown = () => {
     getAssetCount7Days()
     getPendingRequestCount7Days()
     getAllArchivedRequestCount7Days()
-    getLocationsCount7Days()
-    getDepartmentsCount7Days()
       // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -54,7 +48,7 @@ const WidgetsDropdown = () => {
   return (
     <>
     <CRow>
-      <CCol sm="6" lg="4">
+      <CCol sm="6" lg="6">
         <CWidgetDropdown
           color="gradient-primary"
           header={assetCount}
@@ -83,7 +77,7 @@ const WidgetsDropdown = () => {
         </CWidgetDropdown>
       </CCol>
 
-      <CCol sm="6" lg="4">
+      <CCol sm="6" lg="6">
         <CWidgetDropdown
           color="gradient-info"
           header={userCount}
@@ -112,8 +106,12 @@ const WidgetsDropdown = () => {
         >
         </CWidgetDropdown>
       </CCol>
+      </CRow>
 
-      <CCol sm="6" lg="4">
+{/*-------2nd Row-------*/}
+<CRow>
+
+      <CCol sm="6" lg="6">
         <CWidgetDropdown
           color="gradient-warning"
           header={pendingRequestCount}
@@ -142,12 +140,9 @@ const WidgetsDropdown = () => {
         >
         </CWidgetDropdown>
       </CCol>
-    </CRow>
 
-{/*-------2nd Row-------*/}
-
-    <CRow>
-      <CCol sm="6" lg="4">
+  
+      <CCol sm="6" lg="6">
         <CWidgetDropdown
           color="gradient-success"
           header={archivedRequestCount}
@@ -167,66 +162,6 @@ const WidgetsDropdown = () => {
               color = "outline-secondary"
               className="text-white"
               to="/views/archived-requests"
-            >
-              More Info
-            </CButton>
-          </>
-          }
-        >
-        </CWidgetDropdown>
-      </CCol>
-
-      <CCol sm="6" lg="4">
-        <CWidgetDropdown
-          color="gradient-danger"
-          header="90"
-          text="All Locations"
-          footerSlot={
-          <>
-            <ChartLineSimple
-              pointed
-              className="mt-3 mx-3"
-              style={{height: '70px'}}
-              dataPoints={[1, 15, 9, 22, 14, 20, 25]}
-              pointHoverBackgroundColor="danger"
-              options={{ elements: { line: { tension: 0.00001 }}}}
-              label="Total Members"
-              labels="months"
-            />
-            <CButton
-              color = "outline-secondary"
-              className="text-white"
-              to="/views/permits"
-            >
-              More Info
-            </CButton>
-          </>
-          }
-        >
-        </CWidgetDropdown>
-      </CCol>
-
-      <CCol sm="6" lg="4">
-        <CWidgetDropdown
-          color="gradient-dark"
-          header="205"
-          text="All Departments"
-          footerSlot={
-          <>
-            <ChartLineSimple
-              className="mt-3"
-              style={{height: '70px'}}
-              backgroundColor="rgba(255,255,255,.2)"
-              dataPoints={[55, 50, 45, 30, 24, 12, 10]}
-              options={{ elements: { line: { borderWidth: 2.5 }}}}
-              pointHoverBackgroundColor="dark"
-              label="Total Requests"
-              labels="months"
-            />
-            <CButton
-              color = "outline-secondary"
-              className="text-white"
-              to="/views/consumables"
             >
               More Info
             </CButton>
