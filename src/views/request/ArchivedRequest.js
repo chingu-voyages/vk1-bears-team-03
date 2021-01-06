@@ -89,7 +89,7 @@ const Request = ({match}) => {
                 </tbody>
               </table>        
           <CButton size="md" color="danger" className="mr-1 mt-2 float-right" onClick={()=> handleOnClick({"request_status": "Denied"})}>Deny</CButton>
-          <CButton size="md" color="primary" className="mr-1 mt-2 float-right" onClick={()=> handleOnClick({"request_status": "Approved"})}>Approve</CButton>
+          <CButton size="md" color="primary" className="mr-1 mt-2 float-right" onClick={()=> handleOnClick({"request_status": "Pending"})}>Unarchive</CButton>
           <Route render={({ history}) => (
               <CButton
                 className="mr-1 mt-2 float-left"
