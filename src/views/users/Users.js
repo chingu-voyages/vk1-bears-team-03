@@ -1,20 +1,26 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 
 import {
-  
-
   CCardBody,
   CDataTable,
   CButton, 
   CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
 } from '@coreui/react'
-import { Route } from 'react-router-dom'
-
+import { Route, useHistory } from 'react-router-dom'
+import { GlobalContext } from '../../context/GlobalState'
+import { trackPromise } from 'react-promise-tracker';
+import LoadingIndicator from '../../context/LoadingIndicator'
 import AddButton from '../addButton/AddButton'
-import usersData from "./UsersData"
-import PrintButton from '../printbutton/PrintButton'
 
 const Users = () => {
+
+  const { users, getUsers, deleteUser } = useContext(GlobalContext)
+  useEffect(() => {
+    trackPromise(getUsers())
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])  
+  
+
 const [details, setDetails] = useState([])
 
 const toggleDetails = (index) => {
@@ -33,15 +39,33 @@ const tableFilter = {
   placeholder: 'type here...'
 }
 
+const loading = LoadingIndicator()
+
+const handleDelete = (data) => {
+  deleteUser(data)
+  toggle()
+  alert(`User Successfully Deleted`)
+  window.location.reload()
+}
+
 const fields = [
-  // {
-  //   key: 'select',
-  //   // label: 'Select',
-  //   _style: { width: '1%'}
-  // },
-  { key: 'id'},
-  { key: 'name'},
-   'user_name', 'employee_number','phone_number',  'email_address','departmentg',
+  {
+    key: 'id',
+    label: 'User ID',
+    _style: { width: '20%' },
+  },
+  {
+    key: 'name',
+    label: 'Name'
+  },
+  {
+    key: 'username',
+    label: 'Username'
+  },
+  {
+    key: 'email_address',
+    label: 'Email Address'
+  },
   {
     key: 'show_details',
     label: 'Actions',
@@ -61,23 +85,39 @@ return (
   <AddButton location='/users/adduser' />
 
   <CDataTable
-    items={usersData}
+    items={users}
     tableFilter={tableFilter}
     itemsPerPage={5}
     itemsPerPageSelect
     fields={fields}
+    noItemsViewSlot={loading}
     hover
     pagination
     scopedSlots = {{
-      'select' : () =>{
-        return (
-        <div className="d-flex justify-content-center align-items-center mt-3">
-          {/* <input id ="select" type="checkbox">
-          </input> */}
-        </div>
-        )
-        
-      },
+      'id':
+          (item)=>(
+            <td>
+              {item._id}
+            </td>
+          ),
+      'name':
+          (item)=>(
+            <td>
+              {item.first_name} {item.last_name}
+            </td>
+          ),
+      'username':
+          (item)=>(
+            <td>
+              {item.username}
+              </td>
+          ),
+      'email_address':
+          (item)=>(
+            <td>
+              {item.email}
+            </td>
+          ),
       'show_details':
         (item, index)=>{
           return (
@@ -100,30 +140,24 @@ return (
             <CCollapse show={details.includes(index)}>
               <CCardBody>
                 <h4>
-                  {item.name}
+                  {item.first_name} {item.last_name}
                 </h4>
                 <p className="text-muted">Role: {item.user_role}</p>
                 <Route render={({ history}) => (
-              <CButton size="sm" color="info" className="mr-1" onClick= {() => { history.push('/views/seeallassets') }}>
-                    See All Issued
-              </CButton>
-                )}/>
-                <Route render={({ history}) => (
                   <CButton size="sm" color="dark" className="mr-1" onClick={() => { 
-                    history.push(`user/${item.id}`) }
+                    history.push(`user/${item._id}`) }
                     }>
                       View Profile
                   </CButton>  
                  )}/>
-                <Route render={({ history}) => (
+                {/* <Route render={({ history}) => (
                 <CButton size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/users/profile/updateuser') }}>
                 Update
               </CButton>
-                )}/>
+                )}/> */}
                
                 
                 <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>
-                <PrintButton/>
                 <CModal
                   show={modal}
                   onClose={toggle}
@@ -133,7 +167,7 @@ return (
                     Are you sure you want to delete User?
                   </CModalBody>
                   <CModalFooter>
-                    <CButton color="primary">Yes</CButton>{' '}
+                    <CButton color="primary" onClick={()=>handleDelete(item._id)}>Yes</CButton>{' '}
                     <CButton
                       color="secondary"
                       onClick={toggle}

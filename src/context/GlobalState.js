@@ -850,9 +850,9 @@ async function getRequestCount1Year() {
     const today = moment().startOf('year');
     let newToday = today.add(addend, 'months');
     let months = newToday.endOf('month')
-    let data = result.filter(result => moment(result.createdAt) <= months)
+    let data = result.filter(result => moment(result.createdAt).isSame(months, 'month'))
 
-    count.unshift(data.length)
+    count.push(data.length)
     addend += 1
     }
 console.log(count)
@@ -880,9 +880,9 @@ async function getMemberCount1Year() {
     const today = moment().startOf('year');
     let newToday = today.add(addend, 'months');
     let months = newToday.endOf('month')
-    let data = result.filter(result => moment(result.createdAt) <= months)
+    let data = result.filter(result => moment(result.createdAt).isSame(months, 'month'))
 
-    count.unshift(data.length)
+    count.push(data.length)
     addend += 1
     }
 console.log(count)
@@ -909,9 +909,9 @@ async function getAssetCount1Year() {
     const today = moment().startOf('year');
     let newToday = today.add(addend, 'months');
     let months = newToday.endOf('month')
-    let data = result.filter(result => moment(result.createdAt) <= months)
+    let data = result.filter(result => moment(result.createdAt).isSame(months, 'month'))
 
-    count.unshift(data.length)
+    count.push(data.length)
     addend += 1
     }
 console.log(count)
@@ -928,17 +928,12 @@ console.log(count)
 }
 
 
-
-
-
-///////////////COMPONENTS/////////////
-
-async function getComponents() {
+async function getUsers() {
   try {
-    const res = await axios.get('/api/v1/components');
+    const res = await axios.get('/api/v1/users');
 
     dispatch({
-      type: 'GET_COMPONENTS',
+      type: 'GET_USERS',
       payload: res.data.data
     });
   } catch (err) {
@@ -947,422 +942,16 @@ async function getComponents() {
       payload: err.response.data.error
     });
   }
-}
-
-async function deleteComponent(id) {
-  try {
-    await axios.delete(`/api/v1/components/${id}`);
-
-    dispatch({
-      type: 'DELETE_COMPONENT',
-      payload: id
-    });
-  } catch (err) {
-    dispatch({
-      type: 'TRANSACTION_ERROR',
-      payload: err.response.data.error
-    });
-  }
-}
-
-
-
-async function addComponent(component) {
-  const config = {
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  }
-
-  try {
-    const res = await axios.post('/api/v1/component/addcomponent', component, config);
-
-    dispatch({
-      type: 'ADD_COMPONENT',
-      payload: res.data.data
-    });
- 
-  } catch (err) {
-    dispatch({
-      type: 'TRANSACTION_ERROR',
-      payload: err.response.data.error
-    });
-  }
-  
 } 
 
-
-
-
-async function updateComponent(id, component) {
-  console.log(id)
-  const config = {
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  }
-
+async function deleteUser(id) {
   try {
-    const res = await axios.put(`/api/v1/components/updatecomponent/${id}`, component, config);
+    await axios.delete(`http://localhost:5000/api/v1/users/${id}`);
 
     dispatch({
-      type: 'UPDATE_COMPONENT',
-      payload: res.data.data
-    });
-    console.log("This is from res.data", res.data.data)
-  } catch (err) {
-    dispatch({
-      type: 'TRANSACTION_ERROR',
-      payload: err.response.data.error
-    });
-  }
-}
-
-
-
-///////////////PERMITS/////////////
-
-async function getPermits() {
-  try {
-    const res = await axios.get('/api/v1/permits');
-
-    dispatch({
-      type: 'GET_PERMITS',
-      payload: res.data.data
-    });
-  } catch (err) {
-    dispatch({
-      type: 'TRANSACTION_ERROR',
-      payload: err.response.data.error
-    });
-  }
-}
-
-async function deletePermit(id) {
-  try {
-    await axios.delete(`/api/v1/permits/${id}`);
-
-    dispatch({
-      type: 'DELETE_PERMIT',
+      type: 'DELETE_USER',
       payload: id
     });
-  } catch (err) {
-    dispatch({
-      type: 'TRANSACTION_ERROR',
-      payload: err.response.data.error
-    });
-  }
-}
-
-
-
-async function addPermit(permit) {
-  const config = {
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  }
-
-  try {
-    const res = await axios.post('/api/v1/permits/addpermit', permit, config);
-
-    dispatch({
-      type: 'ADD_PERMIT',
-      payload: res.data.data
-    });
- 
-  } catch (err) {
-    dispatch({
-      type: 'TRANSACTION_ERROR',
-      payload: err.response.data.error
-    });
-  }
-  
-} 
-
-
-
-
-async function updatePermit(id, permit) {
-  console.log(id)
-  const config = {
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  }
-
-  try {
-    const res = await axios.put(`/api/v1/permits/updatepermit/${id}`, permit, config);
-
-    dispatch({
-      type: 'UPDATE_PERMIT',
-      payload: res.data.data
-    });
-    console.log("This is from res.data", res.data.data)
-  } catch (err) {
-    dispatch({
-      type: 'TRANSACTION_ERROR',
-      payload: err.response.data.error
-    });
-  }
-}
-
-///////////////SOFTWARES/////////////
-
-async function getSoftwares() {
-  try {
-    const res = await axios.get('/api/v1/softwares');
-
-    dispatch({
-      type: 'GET_SOFTWARES',
-      payload: res.data.data
-    });
-  } catch (err) {
-    dispatch({
-      type: 'TRANSACTION_ERROR',
-      payload: err.response.data.error
-    });
-  }
-}
-
-async function deleteSoftware(id) {
-  try {
-    await axios.delete(`/api/v1/software/${id}`);
-
-    dispatch({
-      type: 'DELETE_SOFTWARE',
-      payload: id
-    });
-  } catch (err) {
-    dispatch({
-      type: 'TRANSACTION_ERROR',
-      payload: err.response.data.error
-    });
-  }
-}
-
-
-
-async function addSoftware(software) {
-  const config = {
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  }
-
-  try {
-    const res = await axios.post('/api/v1/softwares/addsoftware', software, config);
-
-    dispatch({
-      type: 'ADD_SOFTWARE',
-      payload: res.data.data
-    });
- 
-  } catch (err) {
-    dispatch({
-      type: 'TRANSACTION_ERROR',
-      payload: err.response.data.error
-    });
-  }
-  
-} 
-
-
-
-
-async function updateSoftware(id, software) {
-  console.log(id)
-  const config = {
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  }
-
-  try {
-    const res = await axios.put(`/api/v1/softwares/updatesoftware/${id}`, software, config);
-
-    dispatch({
-      type: 'UPDATE_SOFTWARE',
-      payload: res.data.data
-    });
-    console.log("This is from res.data", res.data.data)
-  } catch (err) {
-    dispatch({
-      type: 'TRANSACTION_ERROR',
-      payload: err.response.data.error
-    });
-  }
-}
-
-
-
-///////////////CONSUMABLES/////////////
-
-async function getConsumables() {
-  try {
-    const res = await axios.get('/api/v1/consumables');
-
-    dispatch({
-      type: 'GET_CONSUMABLES',
-      payload: res.data.data
-    });
-  } catch (err) {
-    dispatch({
-      type: 'TRANSACTION_ERROR',
-      payload: err.response.data.error
-    });
-  }
-}
-
-async function deleteConsumble(id) {
-  try {
-    await axios.delete(`/api/v1/consumables/${id}`);
-
-    dispatch({
-      type: 'DELETE_CONSUMABLE',
-      payload: id
-    });
-  } catch (err) {
-    dispatch({
-      type: 'TRANSACTION_ERROR',
-      payload: err.response.data.error
-    });
-  }
-}
-
-
-
-async function addConsumable(consumable) {
-  const config = {
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  }
-
-  try {
-    const res = await axios.post('/api/v1/consumables/addconsumable', consumable, config);
-
-    dispatch({
-      type: 'ADD_CONSUMABLE',
-      payload: res.data.data
-    });
- 
-  } catch (err) {
-    dispatch({
-      type: 'TRANSACTION_ERROR',
-      payload: err.response.data.error
-    });
-  }
-  
-} 
-
-
-
-
-async function updateConsumable(id, consumable) {
-  console.log(id)
-  const config = {
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  }
-
-  try {
-    const res = await axios.put(`/api/v1/consumables/updateconsumable/${id}`, consumable, config);
-
-    dispatch({
-      type: 'UPDATE_CONSUMABLE',
-      payload: res.data.data
-    });
-    console.log("This is from res.data", res.data.data)
-  } catch (err) {
-    dispatch({
-      type: 'TRANSACTION_ERROR',
-      payload: err.response.data.error
-    });
-  }
-}
-
-
-///////////////ACCESSORIES/////////////
-
-async function getAccessories() {
-  try {
-    const res = await axios.get('/api/v1/accessories');
-
-    dispatch({
-      type: 'GET_ACCESSORIES',
-      payload: res.data.data
-    });
-  } catch (err) {
-    dispatch({
-      type: 'TRANSACTION_ERROR',
-      payload: err.response.data.error
-    });
-  }
-}
-
-async function deleteAccessory(id) {
-  try {
-    await axios.delete(`/api/v1/accessories/${id}`);
-
-    dispatch({
-      type: 'DELETE_ACCESSORY',
-      payload: id
-    });
-  } catch (err) {
-    dispatch({
-      type: 'TRANSACTION_ERROR',
-      payload: err.response.data.error
-    });
-  }
-}
-
-
-
-async function addAccessory(accessory) {
-  const config = {
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  }
-
-  try {
-    const res = await axios.post('/api/v1/accessories/addaccessory', accessory, config);
-
-    dispatch({
-      type: 'ADD_ACCESSORY',
-      payload: res.data.data
-    });
- 
-  } catch (err) {
-    dispatch({
-      type: 'TRANSACTION_ERROR',
-      payload: err.response.data.error
-    });
-  }
-  
-} 
-
-
-
-
-async function updateAccessory(id, accessory) {
-  console.log(id)
-  const config = {
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  }
-
-  try {
-    const res = await axios.put(`/api/v1/accessories/updateaccessory/${id}`, accessory, config);
-
-    dispatch({
-      type: 'UPDATE_ACCESSORY',
-      payload: res.data.data
-    });
-    console.log("This is from res.data", res.data.data)
   } catch (err) {
     dispatch({
       type: 'TRANSACTION_ERROR',
@@ -1414,26 +1003,6 @@ async function updateAccessory(id, accessory) {
     
     
     getAssets,
-    
-    
-    getLocations,
-    deleteLocation,
-    addLocation,
-    updateLocation,
-    getDepartments,
-    addDepartment,
-    deleteDepartment,
-    updateDepartment,
-    getSuppliers,
-    addSupplier,
-    deleteSupplier,
-    updateSupplier,
-    addCategory,
-    updateCategory,
-    getCategories,
-    deleteCategory,
-    updateRequest,
-    updateCategory,
     getUserCount7Days,
     getAssetCount7Days,
     getPendingRequestCount7Days,
@@ -1443,6 +1012,9 @@ async function updateAccessory(id, accessory) {
     getRequestCount1Year,
     getMemberCount1Year,
     getAssetCount1Year,
+    getUsers,
+    users: state.users,
+    deleteUser,
 
 
   }}>
