@@ -29,6 +29,7 @@ const initialState = {
   assetCount1Year: [],
   userRequests: [],
   users: [],
+  user: [],
 
   error: null,
   loading: true
@@ -946,6 +947,27 @@ async function getUsers() {
   }
 } 
 
+async function getUser(id) {
+  try {
+    const res = await axios.get('/api/v1/users');
+
+    const result = res.data.data
+    const filteredUser = result.filter(user => user._id === id)
+
+    console.log(filteredUser)
+
+    dispatch({
+      type: 'GET_USER',
+      payload: filteredUser
+    });
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+} 
+
 async function deleteUser(id) {
   try {
     await axios.delete(`http://localhost:5000/api/v1/users/${id}`);
@@ -1038,6 +1060,8 @@ async function getUserRequests(id) {
     deleteUser,
     getUserRequests,
     userRequests: state.userRequests,
+    getUser,
+    user: state.user,
 
 
   }}>

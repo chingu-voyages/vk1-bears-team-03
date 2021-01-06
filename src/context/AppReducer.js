@@ -267,6 +267,12 @@ export default (state, action) => {
                 loading: false,
                 users: action.payload
               }
+              case 'GET_USER':
+                return {
+                  ...state,
+                  loading: false,
+                  user: action.payload
+                }
               case 'DELETE_USER':
                 return {
                   ...state,

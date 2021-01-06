@@ -8,13 +8,18 @@ import dateFormat from 'dateformat'
 
 const Profile = ({match}) => {
 
-  const { userRequests, getUserRequests } = useContext(GlobalContext)
+  const { userRequests, getUserRequests, user, getUser } = useContext(GlobalContext)
+
+
 
 
   useEffect(() => {
       getUserRequests(match.params.id)
+      getUser(match.params.id)
       // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  const userData = user
 
   const [details, setDetails] = useState([])
 
@@ -65,12 +70,12 @@ const Profile = ({match}) => {
       key: 'request_date',
       label: 'Request Date'
     }, 
-    {
-      key: 'show_details',
-      _style: { width: '1%' },
-      sorter: false,
-      filter: false
-    }
+    // {
+    //   key: 'show_details',
+    //   _style: { width: '1%' },
+    //   sorter: false,
+    //   filter: false
+    // }
   ]
   
   const [modal, setModal] = useState(false)
@@ -84,7 +89,7 @@ const Profile = ({match}) => {
           <CCol sm = "4">
             <CCardHeader className="text-center">
               <img src={profile} className="rounded mx-auto d-block" alt="Profile"></img>
-              <h3 className="my-1"> User ID: {match.params.id} </h3>
+              <h3 className="my-1"> Name: {user.first_name} </h3>
               <p>email@email.com</p>
             </CCardHeader>
 
@@ -158,62 +163,62 @@ const Profile = ({match}) => {
                       {dateFormat(item.request_date, "mmmm dd, yyyy")}
                     </td>
                   ),
-                  'show_details':
-                    (item, index)=>{
-                      return (
-                        <td className="py-2">
-                          <CButton
-                            color="primary"
-                            variant="outline"
-                            shape="square"
-                            size="sm"
-                            onClick={()=>{toggleDetails(index)}}
-                          >
-                            {details.includes(index) ? 'Hide' : 'Show'}
-                          </CButton>
-                        </td>
-                        )
-                    },
-                  'details':
-                      (item, index)=>{
-                        return (
-                        <CCollapse show={details.includes(index)}>
-                          <CCardBody>
-                            <h4>
-                              {item.name}
-                            </h4>
-                            <p className="text-muted">Role: <b>{item.user_role}</b></p>
-                            <CButton size="sm" color="info" className="mr-1">
-                              More Details
-                            </CButton>
-                            <CButton size="sm" color="warning" className="mr-1" onClick={toggle}>Process Return</CButton>
+                  // 'show_details':
+                  //   (item, index)=>{
+                  //     return (
+                  //       <td className="py-2">
+                  //         <CButton
+                  //           color="primary"
+                  //           variant="outline"
+                  //           shape="square"
+                  //           size="sm"
+                  //           onClick={()=>{toggleDetails(index)}}
+                  //         >
+                  //           {details.includes(index) ? 'Hide' : 'Show'}
+                  //         </CButton>
+                  //       </td>
+                  //       )
+                  //   },
+                  // 'details':
+                  //     (item, index)=>{
+                  //       return (
+                  //       <CCollapse show={details.includes(index)}>
+                  //         <CCardBody>
+                  //           <h4>
+                  //             {item.name}
+                  //           </h4>
+                  //           <p className="text-muted">Role: <b>{item.user_role}</b></p>
+                  //           <CButton size="sm" color="info" className="mr-1">
+                  //             More Details
+                  //           </CButton>
+                  //           <CButton size="sm" color="warning" className="mr-1" onClick={toggle}>Process Return</CButton>
                             
-                            <Route render={({ history}) => (
-                            <CButton type="accept" size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/profile/acceptance') }}>
-                            Accept Assets
-                            </CButton>
-                             )}/>
+                  //           <Route render={({ history}) => (
+                  //           <CButton type="accept" size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/profile/acceptance') }}>
+                  //           Accept Assets
+                  //           </CButton>
+                  //            )}/>
                             
-                            <CModal
-                              show={modal}
-                              onClose={toggle}
-                            >
-                              <CModalHeader closeButton>Delete User</CModalHeader>
-                              <CModalBody>
-                                Are you sure you want to delete User?
-                              </CModalBody>
-                              <CModalFooter>
-                                <CButton color="primary">Yes</CButton>{' '}
-                                <CButton
-                                  color="secondary"
-                                  onClick={toggle}
-                                >Cancel</CButton>
-                              </CModalFooter>
-                            </CModal>
-                          </CCardBody>
-                        </CCollapse>
-                      )
-                    }
+                  //           <CModal
+                  //             show={modal}
+                  //             onClose={toggle}
+                  //           >
+                  //             <CModalHeader closeButton>Delete User</CModalHeader>
+                  //             <CModalBody>
+                  //               Are you sure you want to delete User?
+                  //             </CModalBody>
+                  //             <CModalFooter>
+                  //               <CButton color="primary">Yes</CButton>{' '}
+                  //               <CButton
+                  //                 color="secondary"
+                  //                 onClick={toggle}
+                  //               >Cancel</CButton>
+                  //             </CModalFooter>
+                  //           </CModal>
+                  //         </CCardBody>
+                  //       </CCollapse>
+                  //     )
+                  //   }
                 }}
               />
 
