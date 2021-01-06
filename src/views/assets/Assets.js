@@ -208,11 +208,11 @@ return (
               </CButton>
                 )}/>
                 
-                <Route render={({ history}) => (
-              <CButton size="sm" color="warning" className="mr-1" onClick= {() => { history.push('/views/assets/returnassets') }}>
-                    Return
-              </CButton>
-                )}/>
+                {/* <Route render={({ history}) => (
+              // <CButton size="sm" color="warning" className="mr-1" onClick= {() => { history.push('/views/assets/returnassets') }}>
+              //       Return
+              // </CButton>
+                )}/> */}
                 <CModal
                   show={modal}
                   onClose={toggle}
