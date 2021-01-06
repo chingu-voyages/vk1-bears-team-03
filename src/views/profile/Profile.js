@@ -9,7 +9,7 @@ import "src/scss/_custom.scss"
 
 const Profile = ({match}) => {
 
-  const { userRequests, getUserRequests, user, getUser, updateRequest } = useContext(GlobalContext)
+  const { userRequests, getUserRequests, user, getUser, updateRequest, completedRequests, getCompletedRequests } = useContext(GlobalContext)
 
 
 
@@ -17,6 +17,7 @@ const Profile = ({match}) => {
   useEffect(() => {
       getUserRequests(match.params.id)
       getUser(match.params.id)
+      getCompletedRequests(match.params.id)
       // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -29,6 +30,7 @@ const Profile = ({match}) => {
       case 'Pending': return 'primary'
       case 'Denied': return 'danger'
       case 'Archived': return 'secondary'
+      case 'Returned': return 'info'
       default: return 'primary'
     }
   }
@@ -77,6 +79,34 @@ const Profile = ({match}) => {
       filter: false
     }
   ]
+
+  const fields2 = [
+    { 
+      key: '_id',
+      label: 'Request ID',
+      _style: { width: '15%' },
+    },
+    { 
+      key: 'user_name',
+      label: 'Requested By',
+      sorter: false,
+      filter: true
+    },
+    {
+      key: 'item_name',
+      label: 'Item Name'
+    },
+    'request_type', 
+    { 
+      key: 'request_status', 
+      label: 'Request Status'
+    },
+    {
+      key: 'request_date',
+      label: 'Request Date'
+    }, 
+  ]
+  
   
   const [modal, setModal] = useState(false)
   
@@ -120,7 +150,8 @@ const Profile = ({match}) => {
             </CCard>
           </CCol>
         </CRow>
-        <CRow>
+
+        <CRow className='mt-3'>
           <CCol>
             <CCardFooter>
               <CCardTitle>
@@ -263,6 +294,54 @@ const Profile = ({match}) => {
 
           </CCol>
         </CRow>
+
+        <CRow className='mt-4'>
+          <CCol>
+            <CCardFooter>
+              <CCardTitle>
+                Completed Requests (Returned)
+              </CCardTitle>
+              <CDataTable
+                items={completedRequests}
+                fields={fields2}
+                hover
+                pagination
+                scopedSlots = {{
+                  'user_name':
+                  (item)=>(
+                    <td>
+                      {item.user_name.first_name} {item.user_name.last_name}
+                    </td>
+                  ),
+                'item_name':
+                  (item)=>(
+                    <td>
+                      {item.item_name.asset_name}
+                    </td>
+                  ),
+                'request_status':
+                  (item)=>(
+                    <td>
+                    <CBadge color={getBadge(item.request_status)}>
+                      {item.request_status}
+                    </CBadge>
+                    </td>
+                  ),  
+                'request_date':
+                  (item)=>(
+                    <td>
+                      {dateFormat(item.request_date, "mmmm dd, yyyy")}
+                    </td>
+                  ),
+                }}
+                addTableClasses="table-class" />
+
+            </CCardFooter>
+
+          </CCol>
+        </CRow>
+
+
       </CContainer>
       )
 }

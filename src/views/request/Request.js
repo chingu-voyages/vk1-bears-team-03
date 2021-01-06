@@ -23,6 +23,12 @@ const Request = ({match}) => {
     setModal(!modal);
   }
 
+  const [modal2, setModal2] = useState(false)
+  
+  const toggle2 = () => {
+    setModal2(!modal2);
+  }
+
   const request = pendingRequests.find( request => request._id.toString() === match.params.id)
 
 
@@ -65,7 +71,7 @@ const Request = ({match}) => {
     }
     
     updateRequest(match.params.id, data)
-    toggle()
+    toggle2()
     setTimeout(()=>alert(`${message}`), 200);
     console.log(data)
     setTimeout(()=>history.push('/views/requests'), 500);
@@ -135,7 +141,7 @@ const Request = ({match}) => {
             >
             <CModalHeader closeButton>Deny This Request?</CModalHeader>
               <CModalBody>
-                Are you sure you want to deny this request?
+                Are you sure that you want to deny this request?
               </CModalBody>
             <CModalFooter>
               <CButton color="primary"  onClick={() => handleDenyClick()}>Yes</CButton>
@@ -146,10 +152,10 @@ const Request = ({match}) => {
             </CModalFooter>
           </CModal>
 
-          <CButton size="md" color="primary" className="mr-1 mt-2 float-right" onClick={()=> toggle()}>Approve</CButton>
+          <CButton size="md" color="primary" className="mr-1 mt-2 float-right" onClick={()=> toggle2()}>Approve</CButton>
           <CModal
-              show={modal}
-              onClose={toggle}
+              show={modal2}
+              onClose={toggle2}
             >
             <CModalHeader closeButton>Approve This Request?</CModalHeader>
               <CModalBody>
@@ -159,7 +165,7 @@ const Request = ({match}) => {
               <CButton color="primary"  onClick={() => handleApproveClick()}>Yes</CButton>
               <CButton
                 color="secondary"
-                onClick={toggle}
+                onClick={toggle2}
               >Cancel</CButton>
             </CModalFooter>
           </CModal>

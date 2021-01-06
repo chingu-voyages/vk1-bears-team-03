@@ -23,6 +23,12 @@ const Request = ({match}) => {
     setModal(!modal);
   }
 
+  const [modal2, setModal2] = useState(false)
+  
+  const toggle2 = () => {
+    setModal2(!modal2);
+  }
+
   const request = requests.find( request => request._id.toString() === match.params.id)
 
   const handleOnClick = (data) => {
@@ -36,7 +42,7 @@ const Request = ({match}) => {
 
   const handleDelete = () => {
     deleteRequest(match.params.id)
-    toggle()
+    toggle2()
     setTimeout(()=>alert('Request Successfully Deleted'), 200);
     setTimeout(()=>history.push('/views/archived-requests'), 500);
     // window.location.reload()
@@ -114,10 +120,10 @@ const Request = ({match}) => {
             </CModalFooter>
           </CModal>
 
-          <CButton size="md" color="primary" className="mr-1 mt-2 float-right" onClick={()=> toggle()}>Unarchive</CButton>
+          <CButton size="md" color="primary" className="mr-1 mt-2 float-right" onClick={()=> toggle2()}>Unarchive</CButton>
           <CModal
-              show={modal}
-              onClose={toggle}
+              show={modal2}
+              onClose={toggle2}
             >
             <CModalHeader closeButton>Unarchive This Request?</CModalHeader>
               <CModalBody>
@@ -127,7 +133,7 @@ const Request = ({match}) => {
               <CButton color="primary"  onClick={() => handleOnClick()}>Yes</CButton>
               <CButton
                 color="secondary"
-                onClick={toggle}
+                onClick={toggle2}
               >Cancel</CButton>
             </CModalFooter>
           </CModal>

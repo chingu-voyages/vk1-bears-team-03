@@ -30,6 +30,7 @@ const initialState = {
   userRequests: [],
   users: [],
   user: [],
+  completedRequests: [],
 
   error: null,
   loading: true
@@ -863,6 +864,25 @@ async function getUserRequests(id) {
   }
 }
 
+async function getCompletedRequests(id) {
+  try {
+    const res = await axios.get('/api/v1/requests');
+    const results = res.data.data
+    const filteredResults = results.filter(result => result.user_name._id === id)
+    const requests = filteredResults.filter(request => request.request_status === 'Returned')
+
+    dispatch({
+      type: 'COMPLETED_REQUESTS',
+      payload: requests
+    });
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+}
+
 async function addRequest(borrowedList) {
   const config = {
     headers: {
@@ -946,6 +966,8 @@ async function addRequest(borrowedList) {
     getUser,
     user: state.user,
     addRequest,
+    completedRequests: state.completedRequests,
+    getCompletedRequests,
 
 
   }}>

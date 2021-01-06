@@ -290,6 +290,12 @@ export default (state, action) => {
                 ...state,
                 requests: [...state.requests, action.payload]
             }
+            case 'COMPLETED_REQUESTS':
+              return {
+                ...state,
+                loading: false,
+                completedRequests: action.payload
+              } 
     default:
       return state;
   }
