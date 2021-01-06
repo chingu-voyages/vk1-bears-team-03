@@ -5,10 +5,11 @@ import { Route } from 'react-router-dom'
 import profile from './profile.png'
 import dateFormat from 'dateformat'
 
+import "src/scss/_custom.scss"
 
 const Profile = ({match}) => {
 
-  const { userRequests, getUserRequests, user, getUser } = useContext(GlobalContext)
+  const { userRequests, getUserRequests, user, getUser, updateRequest } = useContext(GlobalContext)
 
 
 
@@ -20,7 +21,6 @@ const Profile = ({match}) => {
   }, [])
 
   const userData = user
-
   const [details, setDetails] = useState([])
 
   const getBadge = (status)=>{
@@ -69,12 +69,13 @@ const Profile = ({match}) => {
       key: 'request_date',
       label: 'Request Date'
     }, 
-    // {
-    //   key: 'show_details',
-    //   _style: { width: '1%' },
-    //   sorter: false,
-    //   filter: false
-    // }
+    {
+      key: 'show_details',
+      label: 'Action',
+      _style: { width: '1%' },
+      sorter: false,
+      filter: false
+    }
   ]
   
   const [modal, setModal] = useState(false)
@@ -157,6 +158,45 @@ const Profile = ({match}) => {
                       {dateFormat(item.request_date, "mmmm dd, yyyy")}
                     </td>
                   ),
+                  'show_details':
+                  (item, index)=>( 
+                    <td>
+                      <CButton
+                            color="primary"
+                            variant="outline"
+                            shape="square"
+                            size="sm"
+                            onClick={toggle}
+                          >
+                            Return
+                          </CButton>
+                          <CModal
+                            show={modal}
+                            onClose={toggle}
+                          >
+                          <CModalHeader closeButton>Return this Asset</CModalHeader>
+                            <CModalBody>
+                              Are you sure you want to return this item?
+                            </CModalBody>
+                          <CModalFooter>
+                            <CButton color="primary"  onClick={() => {
+                                
+                                const updatedRequest = {
+                                  request_type: 'Return',
+                                  request_status: 'Pending'
+                                }
+                                console.log("This is the selected item", item)
+                                updateRequest(item._id, updatedRequest)
+                                toggle()
+                              }}>Yes</CButton>{' '}
+                            <CButton
+                              color="secondary"
+                              onClick={toggle}
+                            >Cancel</CButton>
+                        </CModalFooter>
+                      </CModal>
+                    </td>
+                  ),
                   // 'show_details':
                   //   (item, index)=>{
                   //     return (
@@ -214,7 +254,7 @@ const Profile = ({match}) => {
                   //     )
                   //   }
                 }}
-              />
+                addTableClasses="table-class" />
 
             </CCardFooter>
 

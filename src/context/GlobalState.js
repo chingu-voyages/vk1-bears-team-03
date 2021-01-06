@@ -99,7 +99,6 @@ export const GlobalProvider = ({ children }) => {
   }
 
   async function updateAsset(id, asset) {
-    console.log(id)
     const config = {
       headers: {
         'Content-Type': 'application/json'
@@ -113,7 +112,6 @@ export const GlobalProvider = ({ children }) => {
         type: 'UPDATE_ASSET',
         payload: res.data.data
       });
-      console.log("This is from res.data", res.data.data)
     } catch (err) {
       dispatch({
         type: 'ASSET_ERROR',
@@ -181,37 +179,6 @@ export const GlobalProvider = ({ children }) => {
     }
     
   } 
-
-
-
-
-  async function updateLocation(id, location) {
-    console.log(id)
-    const config = {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }
-
-    try {
-      const res = await axios.put(`/api/v1/locations/updatelocation/${id}`, location, config);
-
-      dispatch({
-        type: 'UPDATE_LOCATIONS',
-        payload: res.data.data
-      });
-      console.log("This is from res.data", res.data.data)
-    } catch (err) {
-      dispatch({
-        type: 'TRANSACTION_ERROR',
-        payload: err.response.data.error
-      });
-    }
-  }
- 
-
-
-
   async function getDepartments() {
     try {
       const res = await axios.get('/api/v1/departments');
@@ -272,35 +239,6 @@ export const GlobalProvider = ({ children }) => {
     
   } 
 
-
-
-  async function updateDepartment(id, department) {
-    console.log(id)
-    const config = {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }
-
-    try {
-      const res = await axios.put(`/api/v1/departments/updatedepartment/${id}`, department, config);
-
-      dispatch({
-        type: 'UPDATE_DEPARTMENT',
-        payload: res.data.data
-      });
-      console.log("This is from res.data", res.data.data)
-    } catch (err) {
-      dispatch({
-        type: 'TRANSACTION_ERROR',
-        payload: err.response.data.error
-      });
-    }
-  }
-
-
-
-
   async function getSuppliers() {
     try {
       const res = await axios.get('/api/v1/suppliers');
@@ -327,59 +265,6 @@ export const GlobalProvider = ({ children }) => {
         type: 'DELETE_SUPPLIER',
         payload: id
       });
-    } catch (err) {
-      dispatch({
-        type: 'TRANSACTION_ERROR',
-        payload: err.response.data.error
-      });
-    }
-  }
-
-
-
-  async function addSupplier(supplier) {
-    console.log("This is supplier", supplier)
-    const config = {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }
-
-    try {
-      const res = await axios.post('/api/v1/suppliers/addsupplier', supplier, config);
-
-      dispatch({
-        type: 'ADD_SUPPLIER',
-        payload: res.data.data
-      });
-      console.log("This is from res.data", res.data.data)
-    } catch (err) {
-      dispatch({
-        type: 'TRANSACTION_ERROR',
-        payload: err.response.data.error
-      });
-    }
-    
-  }   
-
-
-
-  async function updateSupplier(id, supplier) {
-    console.log(id)
-    const config = {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }
-
-    try {
-      const res = await axios.put(`/api/v1/suppliers/updatesupplier/${id}`, supplier, config);
-
-      dispatch({
-        type: 'UPDATE_SUPPLIER',
-        payload: res.data.data
-      });
-      console.log("This is from res.data", res.data.data)
     } catch (err) {
       dispatch({
         type: 'TRANSACTION_ERROR',
@@ -516,7 +401,6 @@ export const GlobalProvider = ({ children }) => {
 
 
   async function updateRequest(id, request) {
-    console.log(id)
     const config = {
       headers: {
         'Content-Type': 'application/json'
@@ -528,30 +412,6 @@ export const GlobalProvider = ({ children }) => {
         type: 'UPDATE_REQUEST',
         payload: res.data.data
       });
-    } catch (err) {
-      dispatch({
-        type: 'TRANSACTION_ERROR',
-        payload: err.response.data.error
-      });
-    }
-  }
-
-
-
-  async function updateCategory(id, category) {
-    console.log(id)
-    const config = {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }
-      const res = await axios.put(`/api/v1/categories/updatecategory/${id}`, category, config);
-    try {
-      dispatch({
-        type: 'UPDATE_CATEGORY',
-        payload: res.data.data
-      });
-      console.log("This is from res.data", res.data.data)
     } catch (err) {
       dispatch({
         type: 'TRANSACTION_ERROR',
@@ -1026,7 +886,6 @@ async function addRequest(borrowedList) {
   }
 
 }
-
 
 
   return (<GlobalContext.Provider value={{
