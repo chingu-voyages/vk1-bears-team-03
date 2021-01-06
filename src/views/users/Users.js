@@ -145,7 +145,7 @@ return (
                 <p className="text-muted">Role: {item.user_role}</p>
                 <Route render={({ history}) => (
                   <CButton size="sm" color="dark" className="mr-1" onClick={() => { 
-                    history.push(`user/${item._id}`) }
+                    history.push(`users/profile/${item._id}`) }
                     }>
                       View Profile
                   </CButton>  

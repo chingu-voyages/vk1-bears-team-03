@@ -171,7 +171,7 @@ const routes = [
 
   ////////////////////////////// Profile //////////////////////////////////
 
-  { path: '/users/profile', exact: true, name: 'Profile', component: Profile },
+  { path: '/users/profile/:id', exact: true, name: 'Profile', component: Profile },
 
   ////////////////////////////// Assets //////////////////////////////////
 
