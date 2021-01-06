@@ -159,7 +159,7 @@ export default (state, action) => {
       return {
         ...state,
         loading: false,
-        pendingRequests: action.payload.filter(request => request.request_status === 'Approved' || request.request_status === 'Pending')
+        pendingRequests: action.payload.filter(request => request.request_status === 'Pending')
       }
       case 'GET_DENIED_REQUESTS':
         return {
@@ -273,6 +273,12 @@ export default (state, action) => {
                   loading: false,
                   users: action.payload
                 }
+            case 'USER_REQUESTS':
+              return {
+                ...state,
+                loading: false,
+                userRequests: action.payload
+              }
     default:
       return state;
   }

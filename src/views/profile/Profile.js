@@ -1,21 +1,33 @@
 import React, {useContext, useEffect, useState} from 'react'
 import { GlobalContext } from '../../context/GlobalState'
-import {CContainer, CRow, CCol, CCardHeader, CCardBody, CCardFooter, CInput, CCard, CButton, CModal, CModalHeader, CModalBody, CModalFooter, CDataTable, CCollapse, CCardTitle} from '@coreui/react'
+import {CBadge, CContainer, CRow, CCol, CCardHeader, CCardBody, CCardFooter, CInput, CCard, CButton, CModal, CModalHeader, CModalBody, CModalFooter, CDataTable, CCollapse, CCardTitle} from '@coreui/react'
 import { Route } from 'react-router-dom'
 import profile from './profile.png'
+import dateFormat from 'dateformat'
 
 
-const Profile = () => {
+const Profile = ({match}) => {
 
-  const { assets, getAssets } = useContext(GlobalContext)
+  const { userRequests, getUserRequests } = useContext(GlobalContext)
 
 
   useEffect(() => {
-      getAssets()
+      getUserRequests(match.params.id)
       // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const [details, setDetails] = useState([])
+
+  const getBadge = (status)=>{
+    console.log("This is Status from getBadge", status)
+    switch (status) {
+      case 'Approved': return 'success'
+      case 'Pending': return 'primary'
+      case 'Denied': return 'danger'
+      case 'Archived': return 'secondary'
+      default: return 'primary'
+    }
+  }
  
   
   const toggleDetails = (index) => {
@@ -29,9 +41,30 @@ const Profile = () => {
     setDetails(newDetails)
   }
   const fields = [
-    { key: '_id'},
-    { key: 'asset_name'},
-     'asset_serial', 'asset_category','asset_warrantydate', 'asset_status',
+    { 
+      key: '_id',
+      label: 'Request ID',
+      _style: { width: '15%' },
+    },
+    { 
+      key: 'user_name',
+      label: 'Requested By',
+      sorter: false,
+      filter: true
+    },
+    {
+      key: 'item_name',
+      label: 'Item Name'
+    },
+    'request_type', 
+    { 
+      key: 'request_status', 
+      label: 'Request Status'
+    },
+    {
+      key: 'request_date',
+      label: 'Request Date'
+    }, 
     {
       key: 'show_details',
       _style: { width: '1%' },
@@ -39,19 +72,6 @@ const Profile = () => {
       filter: false
     }
   ]
-
-  // const fields = [
-  //   { key: '_id'},
-  //   { key: 'name'},
-  //    'serial_number', 'asset_tag', 'status',
-  //   {
-  //     key: 'show_details',
-  //     label: '',
-  //     _style: { width: '1%' },
-  //     sorter: false,
-  //     filter: false
-  //   }
-  // ]
   
   const [modal, setModal] = useState(false)
   
@@ -64,7 +84,7 @@ const Profile = () => {
           <CCol sm = "4">
             <CCardHeader className="text-center">
               <img src={profile} className="rounded mx-auto d-block" alt="Profile"></img>
-              <h3 className="my-1"> This is my name </h3>
+              <h3 className="my-1"> User ID: {match.params.id} </h3>
               <p>email@email.com</p>
             </CCardHeader>
 
@@ -96,11 +116,6 @@ const Profile = () => {
                   <CInput label="address" placeholder="Enter your recent address"/>
                 </CCol>
               </CRow>
-              <CRow className = "my-4 mx-1 d-flex justify-content-end">
-                <CButton size="md" color="primary" className="mr-1">
-                  Save Changes
-                </CButton>
-              </CRow>
             </CCardBody>
             </CCard>
           </CCol>
@@ -109,14 +124,40 @@ const Profile = () => {
           <CCol>
             <CCardFooter>
               <CCardTitle>
-                Borrowed Assets
+                Approved Requests
               </CCardTitle>
               <CDataTable
-                items={assets}
+                items={userRequests}
                 fields={fields}
                 hover
                 pagination
                 scopedSlots = {{
+                  'user_name':
+                  (item)=>(
+                    <td>
+                      {item.user_name.first_name} {item.user_name.last_name}
+                    </td>
+                  ),
+                'item_name':
+                  (item)=>(
+                    <td>
+                      {item.item_name.asset_name}
+                    </td>
+                  ),
+                'request_status':
+                  (item)=>(
+                    <td>
+                    <CBadge color={getBadge(item.request_status)}>
+                      {item.request_status}
+                    </CBadge>
+                    </td>
+                  ),  
+                'request_date':
+                  (item)=>(
+                    <td>
+                      {dateFormat(item.request_date, "mmmm dd, yyyy")}
+                    </td>
+                  ),
                   'show_details':
                     (item, index)=>{
                       return (
@@ -141,7 +182,7 @@ const Profile = () => {
                             <h4>
                               {item.name}
                             </h4>
-                            <p className="text-muted">Role: {item.user_role}</p>
+                            <p className="text-muted">Role: <b>{item.user_role}</b></p>
                             <CButton size="sm" color="info" className="mr-1">
                               More Details
                             </CButton>

@@ -27,6 +27,8 @@ const initialState = {
   requestCount1Year: [],
   memberCount1Year: [],
   assetCount1Year: [],
+  userRequests: [],
+  users: [],
 
   error: null,
   loading: true
@@ -960,6 +962,25 @@ async function deleteUser(id) {
   }
 }
 
+async function getUserRequests(id) {
+  try {
+    const res = await axios.get('/api/v1/requests');
+    const results = res.data.data
+    const filteredResults = results.filter(result => result.user_name._id === id)
+    const requests = filteredResults.filter(request => request.request_status === 'Approved')
+
+    dispatch({
+      type: 'USER_REQUESTS',
+      payload: requests
+    });
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+}
+
 
 
   return (<GlobalContext.Provider value={{
@@ -1015,6 +1036,8 @@ async function deleteUser(id) {
     getUsers,
     users: state.users,
     deleteUser,
+    getUserRequests,
+    userRequests: state.userRequests,
 
 
   }}>

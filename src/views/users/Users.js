@@ -142,9 +142,9 @@ return (
                 <h4>
                   {item.first_name} {item.last_name}
                 </h4>
-                <p className="text-muted">Role: {item.user_role}</p>
+                <p className="text-muted">Role: <b>{item.user_role}</b></p>
                 <Route render={({ history}) => (
-                  <CButton size="sm" color="dark" className="mr-1" onClick={() => { 
+                  <CButton size="sm" color="primary" className="mr-1" onClick={() => { 
                     history.push(`users/profile/${item._id}`) }
                     }>
                       View Profile
