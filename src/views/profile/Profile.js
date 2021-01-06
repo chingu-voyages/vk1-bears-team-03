@@ -187,6 +187,7 @@ const Profile = ({match}) => {
                                 }
                                 console.log("This is the selected item", item)
                                 updateRequest(item._id, updatedRequest)
+                                toggle()
                                 alert("Return request successfully submitted!")
                                 window.location.reload()
                                 toggle()

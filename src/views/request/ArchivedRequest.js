@@ -1,6 +1,6 @@
-import React, {useContext, useEffect} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import { GlobalContext } from '../../context/GlobalState'
-import { CButton, CCard, CCardBody, CCardHeader, CCol, CRow } from '@coreui/react'
+import { CButton, CCard, CCardBody, CCardHeader, CCol, CRow, CModal, CModalHeader, CModalBody, CModalFooter, } from '@coreui/react'
 // import CIcon from '@coreui/icons-react'
 import { useHistory } from "react-router-dom";
 import dateFormat from "dateformat"
@@ -17,19 +17,27 @@ const Request = ({match}) => {
   }, [])
   let history = useHistory();
 
+  const [modal, setModal] = useState(false)
+  
+  const toggle = () => {
+    setModal(!modal);
+  }
+
   const request = requests.find( request => request._id.toString() === match.params.id)
 
   const handleOnClick = (data) => {
     updateRequest(match.params.id, data)
-    alert(`Request Successfully ${data.request_status}`)
+    toggle()
+    setTimeout(()=>alert('Request Successfully Unarchived'), 200);
     console.log(data)
     setTimeout(()=>history.push('/views/archived-requests'), 500);
     // window.location.reload()
   }
 
-  const handleDelete = (data) => {
+  const handleDelete = () => {
     deleteRequest(match.params.id)
-    alert(`Request Successfully Deleted`)
+    toggle()
+    setTimeout(()=>alert('Request Successfully Deleted'), 200);
     setTimeout(()=>history.push('/views/archived-requests'), 500);
     // window.location.reload()
   }
@@ -88,8 +96,43 @@ const Request = ({match}) => {
                   </tr>
                 </tbody>
               </table>        
-          <CButton size="md" color="danger" className="mr-1 mt-2 float-right" onClick={()=> handleOnClick({"request_status": "Denied"})}>Deny</CButton>
-          <CButton size="md" color="primary" className="mr-1 mt-2 float-right" onClick={()=> handleOnClick({"request_status": "Pending"})}>Unarchive</CButton>
+          <CButton size="md" color="danger" className="mr-1 mt-2 float-right" onClick={()=> toggle()}>Delete</CButton>
+          <CModal
+              show={modal}
+              onClose={toggle}
+            >
+            <CModalHeader closeButton>Delete This Request?</CModalHeader>
+              <CModalBody>
+                Are you sure you want to delete this request? This action cannot be reversed.
+              </CModalBody>
+            <CModalFooter>
+              <CButton color="primary"  onClick={() => handleDelete()}>Yes</CButton>
+              <CButton
+                color="secondary"
+                onClick={toggle}
+              >Cancel</CButton>
+            </CModalFooter>
+          </CModal>
+
+          <CButton size="md" color="primary" className="mr-1 mt-2 float-right" onClick={()=> toggle()}>Unarchive</CButton>
+          <CModal
+              show={modal}
+              onClose={toggle}
+            >
+            <CModalHeader closeButton>Unarchive This Request?</CModalHeader>
+              <CModalBody>
+                Are you sure you want to unarchive this request? This will set the Request's status to Pending, and will move it back to the Pending Requests page.
+              </CModalBody>
+            <CModalFooter>
+              <CButton color="primary"  onClick={() => handleOnClick()}>Yes</CButton>
+              <CButton
+                color="secondary"
+                onClick={toggle}
+              >Cancel</CButton>
+            </CModalFooter>
+          </CModal>
+
+
           <Route render={({ history}) => (
               <CButton
                 className="mr-1 mt-2 float-left"
