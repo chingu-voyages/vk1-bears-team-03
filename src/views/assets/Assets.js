@@ -110,7 +110,7 @@ return (
               <CCol xs="12" md="4">
                     <CSelect custom name="select" id="select">
                       <option value="0">Generate Labels</option>
-                      <option value="1">Bulk Borrow</option>
+                      {/* <option value="1">Bulk Borrow</option> */}
                     </CSelect>
                     
                   </CCol>
@@ -140,7 +140,9 @@ return (
           <input id ="select" type="checkbox">
           </input>
         </div>
+        
         )
+        
       },
       'asset_file' : (item) =>(
          item.asset_file ? <Images item={item}/> : 

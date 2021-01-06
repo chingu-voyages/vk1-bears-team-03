@@ -87,40 +87,40 @@ export default [
     }
     ]
     },
-  {
-    _tag: 'CSidebarNavDropdown',
-    name: 'Background Data',
-    icon: <FontAwesomeIcon icon={faDatabase} className="fonticons"/>,
+  // {
+  //   _tag: 'CSidebarNavDropdown',
+  //   name: 'Background Data',
+  //   icon: <FontAwesomeIcon icon={faDatabase} className="fonticons"/>,
     
-    _children: [
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Locations',
-        to: '/locations',
-        icon: '',
-        badge: {
-          color: 'success',
-          text: '',
-        },
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Departments',
-        to: '/departments',
-        icon: '',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Suppliers',
-        to: '/suppliers',
-        icon: '',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Categories',
-        to: '/categories',
-        icon: '',
-      },
+  //   _children: [
+  //     {
+  //       _tag: 'CSidebarNavItem',
+  //       name: 'Locations',
+  //       to: '/locations',
+  //       icon: '',
+  //       badge: {
+  //         color: 'success',
+  //         text: '',
+  //       },
+  //     },
+  //     {
+  //       _tag: 'CSidebarNavItem',
+  //       name: 'Departments',
+  //       to: '/departments',
+  //       icon: '',
+  //     },
+  //     {
+  //       _tag: 'CSidebarNavItem',
+  //       name: 'Suppliers',
+  //       to: '/suppliers',
+  //       icon: '',
+  //     },
+  //     {
+  //       _tag: 'CSidebarNavItem',
+  //       name: 'Categories',
+  //       to: '/categories',
+  //       icon: '',
+  //     },
       // {
       //   _tag: 'CSidebarNavItem',
       //   name: 'Status Labels',
@@ -128,8 +128,8 @@ export default [
       //   icon: '',
         
       // },
-    ],
-  },
+  //   ],
+  // },
   {
     _tag: 'CSidebarNavItem',
     name: 'Reports',
