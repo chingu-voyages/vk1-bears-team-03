@@ -101,23 +101,18 @@ const Profile = ({match}) => {
             <CCardBody>
               <CRow className = "my-2">
                 <CCol>
-                  <CInput label="fName" placeholder="First Name"/>
+                  <CInput label="fName" placeholder={user.first_name}/>
                 </CCol>
                 <CCol>
-                  <CInput label="lName" placeholder="Last Name"/>
-                </CCol>
-              </CRow>
-              <CRow className = "my-2">
-                <CCol>
-                  <CInput label="email" placeholder="Enter your email address"/>
-                </CCol>
-                <CCol>
-                  <CInput label="phone" placeholder="Enter your phone number"/>
+                  <CInput label="lName" placeholder={user.last_name}/>
                 </CCol>
               </CRow>
               <CRow className = "my-2">
                 <CCol>
-                  <CInput label="address" placeholder="Enter your recent address"/>
+                  <CInput label="email" placeholder={user.email}/>
+                </CCol>
+                <CCol>
+                  <CInput label="username" placeholder={user.username}/>
                 </CCol>
               </CRow>
             </CCardBody>
