@@ -15,16 +15,12 @@ const AddAsset = () => {
   const [file, setFile] = useState('')
   // const [uploadedFile, setUploadedFile] = useState({})
   const [filename, setFileName] = useState('Choose File')
-<<<<<<< HEAD
-  const { register, handleSubmit, errors } = useForm()
-  const { assets, addAsset, getAssets } = useContext(GlobalContext)
-=======
   const { register, handleSubmit } = useForm()
   const { addAsset } = useContext(GlobalContext)
->>>>>>> 80a54babe92dba28afc902dc6ce52c64092eb93c
 
   //SET CURRENT URL
   let history = useHistory();
+  const { assets, getAssets} = useContext(GlobalContext)
 
   useEffect(() => {
     getAssets()

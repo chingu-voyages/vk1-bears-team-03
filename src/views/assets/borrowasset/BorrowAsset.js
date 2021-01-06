@@ -1,4 +1,5 @@
 import React from 'react'
+import { GlobalContext } from '../../../context/GlobalState'
 import { Route } from 'react-router-dom'
 import {
   CCardBody, CCol, CCard, CCardHeader, CFormGroup, CLabel, CInput, CSelect, CTextarea, CButton, CCardFooter
@@ -8,6 +9,7 @@ import {
 // import CIcon from '@coreui/icons-react'
 
 import BackButton from '../../backButton/BackButton'
+import { useContext, useEffect } from 'react'
 
 
 const BorrowAsset = ( { match }) => {
