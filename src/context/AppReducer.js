@@ -285,6 +285,11 @@ export default (state, action) => {
                 loading: false,
                 userRequests: action.payload
               }
+              case 'ADD_REQUEST':
+              return {
+                ...state,
+                requests: [...state.requests, action.payload]
+            }
     default:
       return state;
   }

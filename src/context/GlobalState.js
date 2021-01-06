@@ -1003,6 +1003,30 @@ async function getUserRequests(id) {
   }
 }
 
+async function addRequest(borrowedList) {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
+
+  try {
+    const res = await axios.post('http://localhost:5000/api/v1/requests', borrowedList, config);
+
+    dispatch({
+      type: 'ADD_REQUEST',
+      payload: res.data.data
+    });
+
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+
+}
+
 
 
   return (<GlobalContext.Provider value={{
@@ -1062,6 +1086,7 @@ async function getUserRequests(id) {
     userRequests: state.userRequests,
     getUser,
     user: state.user,
+    addRequest,
 
 
   }}>
