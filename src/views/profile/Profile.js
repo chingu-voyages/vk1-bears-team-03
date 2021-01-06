@@ -24,7 +24,6 @@ const Profile = ({match}) => {
   const [details, setDetails] = useState([])
 
   const getBadge = (status)=>{
-    console.log("This is Status from getBadge", status)
     switch (status) {
       case 'Approved': return 'success'
       case 'Pending': return 'primary'
@@ -89,8 +88,8 @@ const Profile = ({match}) => {
           <CCol sm = "4">
             <CCardHeader className="text-center">
               <img src={profile} className="rounded mx-auto d-block" alt="Profile"></img>
-              <h3 className="my-1"> Name: {user.first_name} </h3>
-              <p>email@email.com</p>
+              <h3 className="my-1"> Name: {user.first_name} {user.last_name} </h3>
+              <p>{user.email}</p>
             </CCardHeader>
 
           </CCol>

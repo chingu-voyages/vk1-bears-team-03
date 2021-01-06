@@ -952,7 +952,7 @@ async function getUser(id) {
     const res = await axios.get('/api/v1/users');
 
     const result = res.data.data
-    const filteredUser = result.filter(user => user._id === id)
+    const filteredUser = result.find(user => user._id === id)
 
     console.log(filteredUser)
 
