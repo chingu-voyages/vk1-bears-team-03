@@ -96,7 +96,7 @@ const Profile = ({match}) => {
           <CCol>
             <CCard>
             <CCardHeader>
-                Profile
+                Profile Details
             </CCardHeader>
             <CCardBody>
               <CRow className = "my-2">
