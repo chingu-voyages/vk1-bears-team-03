@@ -261,9 +261,22 @@ export default (state, action) => {
               loading: false,
               assetCount1Year: action.payload
             }
+            case 'GET_USERS':
+              return {
+                ...state,
+                loading: false,
+                users: action.payload
+              }
+              case 'DELETE_USER':
+                return {
+                  ...state,
+                  loading: false,
+                  users: action.payload
+                }
     default:
       return state;
   }
+  
 
 
   

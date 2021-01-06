@@ -2,14 +2,14 @@ import React, {useContext} from 'react'
 import { GlobalContext } from '../../../context/GlobalState'
 import { useForm } from 'react-hook-form'
 import {
-  CCardBody, CCol, CCard, CCardHeader, CFormGroup, CLabel, CInput, CSelect, CTextarea, CButton, CCardFooter, CForm
+  CCardBody, CCol, CCard, CCardHeader, CFormGroup, CLabel, CButton, CCardFooter, CForm
 
 } from '@coreui/react'
 import BackButton from '../../backButton/BackButton'
 import CancelButton from '../../cancelbutton/CancelButton'
 
 const AddSupplier = () => {
-  const { register, handleSubmit, errors } = useForm()   
+  const { register, handleSubmit } = useForm()   
   const { addSupplier } = useContext(GlobalContext)
 
   

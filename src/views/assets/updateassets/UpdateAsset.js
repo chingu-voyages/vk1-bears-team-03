@@ -3,7 +3,7 @@ import { GlobalContext } from '../../../context/GlobalState'
 import { useForm } from 'react-hook-form'
 import dateFormat from 'dateformat'
 import {
-  CForm,CCardBody, CCol, CCard, CCardHeader, CFormGroup, CLabel, CInput, CSelect, CTextarea, CInputGroupText, CInputGroupAppend, CInputGroupPrepend, CInputGroup, CButton, CCardFooter
+  CForm,CCardBody, CCol, CCard, CCardHeader, CFormGroup, CLabel, CButton, CCardFooter
 
 } from '@coreui/react'
 import BackButton from '../../backButton/BackButton'
@@ -11,7 +11,7 @@ import CancelButton from '../../cancelbutton/CancelButton'
 import { useHistory } from "react-router-dom";
 
 const UpdateAsset = ({ match }) => {
-  const { register, handleSubmit, errors } = useForm()
+  const { register, handleSubmit } = useForm()
   const { assets, updateAsset, getAssets } = useContext(GlobalContext)
 
 

@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, {useContext, useEffect, useState} from 'react'
+import { GlobalContext } from '../../context/GlobalState'
 import { Route } from 'react-router-dom'
 import {
   CCardBody,
@@ -6,11 +7,19 @@ import {
   CButton,
   CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
 } from '@coreui/react'
-
-import softwaresData from './SoftwaresData'
+//
+// import softwaresData from './SoftwaresData'
 import AddButton from '../addButton/AddButton'
 
 const Softwares = () => {
+
+  const { softwares, getSoftwares, deleteSoftware } = useContext(GlobalContext)
+  useEffect(() => {
+    getSoftwares()
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [])
+
+
   const [details, setDetails] = useState([])
 
   const toggleDetails = (index) => {
@@ -31,8 +40,8 @@ const Softwares = () => {
     //   _style: { width: '1%'}
     // },
     { key: 'id'},
-    { key: 'name'},
-     'license_key', 'expiration_date','category', 'quantity','available',
+    { key: 'software_name'},
+     'software_key', 'software_expirationdate','software_category', 'software_qty','software_available',
     {
       key: 'show_details',
       label: 'Actions',
@@ -54,10 +63,10 @@ const Softwares = () => {
 
   return (
     <>
-    <AddButton location='/views/softwares/addsoftware' />
+    <AddButton location='/softwares/addsoftware' />
 
     <CDataTable
-      items={softwaresData}
+      items={softwares}
       fields={fields}
       hover
       tableFilter={tableFilter}
@@ -97,13 +106,20 @@ const Softwares = () => {
                   </CButton>
                 )}/>
                   
-
-
                   <Route render={({ history}) => (
-                  <CButton type="reset" size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/softwares/updatesoftware') }}>
+                  <CButton size="sm" color="primary" className="mr-1" onClick= {() => { 
+                    history.push(`/softwares/updatesoftware/${item._id}`) 
+                    console.log("This is history", history)
+                     }}> 
                         Update
                   </CButton>
                 )}/>
+
+                  {/* <Route render={({ history}) => (
+                  <CButton type="reset" size="sm" color="primary" className="mr-1" onClick= {() => { history.push('/views/softwares/updatesoftware') }}>
+                        Update
+                  </CButton>
+                )}/> */}
                   <CButton size="sm" color="danger" className="mr-1" onClick={toggle}>Delete</CButton>
                   <Route render={({ history}) => (
                   <CButton type="reset" size="sm" color="success" className="mr-1" onClick= {() => { history.push('/views/softwares/borrowsoftware') }}>
@@ -126,7 +142,10 @@ const Softwares = () => {
                       Are you sure you want to delete User?
                     </CModalBody>
                     <CModalFooter>
-                      <CButton color="primary">Yes</CButton>{' '}
+                      <CButton color="primary" onClick={() => {
+                      deleteSoftware(item._id)
+                      toggle()
+                  }}>Yes</CButton>{' '}
                       <CButton
                         color="secondary"
                         onClick={toggle}

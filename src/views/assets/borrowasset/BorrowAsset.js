@@ -117,7 +117,7 @@ const BorrowAsset = ( { match }) => {
                 <CButton type="return" size="md" color="primary" className="mr-1"> Borrow</CButton>
               
                 <Route render={({ history}) => (
-            <CButton type="reset" size="md" color="danger" className="mr-1" onClick= {() => { history.push('/views/dashboard') }}>
+            <CButton type="submit" size="md" color="danger" className="mr-1" onClick= {() => { history.push('/views/dashboard') }}>
                   Cancel
             </CButton>
               )}/>

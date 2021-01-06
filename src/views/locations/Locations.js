@@ -2,14 +2,14 @@ import React, {useContext, useEffect, useState} from 'react'
 import { GlobalContext } from '../../context/GlobalState'
 import { Route } from 'react-router-dom'
 // import { useHistory, useLocation } from 'react-router-dom'
-// import { CIcon } from '@coreui/icons-react'
+// import { CIcon } from '@coreui/icons-react'//
 import {
   CCardBody,
   CDataTable,
   CButton,
   CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
 } from '@coreui/react'
-//
+///
 // import locationsData from './LocationsData'
 import AddButton from '../addButton/AddButton'
 

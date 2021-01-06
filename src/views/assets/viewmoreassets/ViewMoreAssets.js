@@ -1,7 +1,7 @@
 
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useContext, useEffect} from 'react'
 import { GlobalContext } from '../../../context/GlobalState'
-import  {CContainer, CRow, CCol, CCardHeader, CCardBody, CCardFooter, CInput, CCard, CButton, CLabel, CFormGroup} from '@coreui/react'
+import  {CContainer, CRow, CCol, CCardHeader, CCardBody, CCard, CLabel, CFormGroup} from '@coreui/react'
 import dateFormat from 'dateformat'
 import Images from '../../../uploads/images'
 import BackButton from '../../backButton/BackButton'

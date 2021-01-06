@@ -32,36 +32,36 @@ export default [
     to: '/assets',
     icon: <FontAwesomeIcon icon={faBarcode} className="fonticons"/>,
   },
-  {
-    _tag: 'CSidebarNavItem',
-    name: 'Components',
-    to: '/views/components',
-    icon: <FontAwesomeIcon icon={faHdd} className="fonticons"/>,
-  },
-  {
-    _tag: 'CSidebarNavItem',
-    name: 'Software Licenses',
-    to: '/views/softwares',
-    icon: <FontAwesomeIcon icon={faSave} className="fonticons"/>,
-  },
-  {
-    _tag: 'CSidebarNavItem',
-    name: 'Government Permits',
-    to: '/views/permits',
-    icon: <FontAwesomeIcon icon={faFile} className="fonticons"/>,
-  },
-  {
-    _tag: 'CSidebarNavItem',
-    name: 'Accessories',
-    to: '/views/accessories',
-    icon: <FontAwesomeIcon icon={faKeyboard} className="fonticons"/>,
-  },
-  {
-    _tag: 'CSidebarNavItem',
-    name: 'Consumables',
-    to: '/views/consumables',
-    icon: <FontAwesomeIcon icon={faTint} className="fonticons"/>,
-  },
+  // {
+  //   _tag: 'CSidebarNavItem',
+  //   name: 'Components',
+  //   to: '/views/components',
+  //   icon: <FontAwesomeIcon icon={faHdd} className="fonticons"/>,
+  // },
+  // {
+  //   _tag: 'CSidebarNavItem',
+  //   name: 'Software Licenses',
+  //   to: '/views/softwares',
+  //   icon: <FontAwesomeIcon icon={faSave} className="fonticons"/>,
+  // },
+  // {
+  //   _tag: 'CSidebarNavItem',
+  //   name: 'Government Permits',
+  //   to: '/views/permits',
+  //   icon: <FontAwesomeIcon icon={faFile} className="fonticons"/>,
+  // },
+  // {
+  //   _tag: 'CSidebarNavItem',
+  //   name: 'Accessories',
+  //   to: '/views/accessories',
+  //   icon: <FontAwesomeIcon icon={faKeyboard} className="fonticons"/>,
+  // },
+  // {
+  //   _tag: 'CSidebarNavItem',
+  //   name: 'Consumables',
+  //   to: '/views/consumables',
+  //   icon: <FontAwesomeIcon icon={faTint} className="fonticons"/>,
+  // },
   
   {
     _tag: 'CSidebarNavDropdown',
@@ -87,49 +87,49 @@ export default [
     }
     ]
     },
-  {
-    _tag: 'CSidebarNavDropdown',
-    name: 'Background Data',
-    icon: <FontAwesomeIcon icon={faDatabase} className="fonticons"/>,
+  // {
+  //   _tag: 'CSidebarNavDropdown',
+  //   name: 'Background Data',
+  //   icon: <FontAwesomeIcon icon={faDatabase} className="fonticons"/>,
     
-    _children: [
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Locations',
-        to: '/locations',
-        icon: '',
-        badge: {
-          color: 'success',
-          text: '',
-        },
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Departments',
-        to: '/departments',
-        icon: '',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Suppliers',
-        to: '/suppliers',
-        icon: '',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Categories',
-        to: '/categories',
-        icon: '',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Status Labels',
-        to: '/views/status',
-        icon: '',
+  //   _children: [
+  //     {
+  //       _tag: 'CSidebarNavItem',
+  //       name: 'Locations',
+  //       to: '/locations',
+  //       icon: '',
+  //       badge: {
+  //         color: 'success',
+  //         text: '',
+  //       },
+  //     },
+  //     {
+  //       _tag: 'CSidebarNavItem',
+  //       name: 'Departments',
+  //       to: '/departments',
+  //       icon: '',
+  //     },
+  //     {
+  //       _tag: 'CSidebarNavItem',
+  //       name: 'Suppliers',
+  //       to: '/suppliers',
+  //       icon: '',
+  //     },
+  //     {
+  //       _tag: 'CSidebarNavItem',
+  //       name: 'Categories',
+  //       to: '/categories',
+  //       icon: '',
+  //     },
+      // {
+      //   _tag: 'CSidebarNavItem',
+      //   name: 'Status Labels',
+      //   to: '/views/status',
+      //   icon: '',
         
-      },
-    ],
-  },
+      // },
+  //   ],
+  // },
   {
     _tag: 'CSidebarNavItem',
     name: 'Reports',

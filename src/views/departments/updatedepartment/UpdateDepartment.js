@@ -2,14 +2,14 @@ import React, {useEffect, useContext} from 'react'
 import { GlobalContext } from '../../../context/GlobalState'
 import { useForm } from 'react-hook-form'
 import {
-  CCardBody, CCol, CCard, CCardHeader, CFormGroup, CLabel, CTextarea, CButton, CCardFooter, CForm
+  CCardBody, CCol, CCard, CCardHeader, CFormGroup, CLabel,  CButton, CCardFooter, CForm
 
 } from '@coreui/react'
 import BackButton from '../../backButton/BackButton'
 import CancelButton from '../../cancelbutton/CancelButton'
 
 const UpdateDepartment = ({ match }) => {
-  const { register, handleSubmit, errors } = useForm()
+  const { register, handleSubmit } = useForm()
   const { departments, updateDepartment, getDepartments } = useContext(GlobalContext)
 
   useEffect(() => {

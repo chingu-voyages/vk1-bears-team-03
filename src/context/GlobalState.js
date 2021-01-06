@@ -850,9 +850,9 @@ async function getRequestCount1Year() {
     const today = moment().startOf('year');
     let newToday = today.add(addend, 'months');
     let months = newToday.endOf('month')
-    let data = result.filter(result => moment(result.createdAt) <= months)
+    let data = result.filter(result => moment(result.createdAt).isSame(months, 'month'))
 
-    count.unshift(data.length)
+    count.push(data.length)
     addend += 1
     }
 console.log(count)
@@ -880,9 +880,9 @@ async function getMemberCount1Year() {
     const today = moment().startOf('year');
     let newToday = today.add(addend, 'months');
     let months = newToday.endOf('month')
-    let data = result.filter(result => moment(result.createdAt) <= months)
+    let data = result.filter(result => moment(result.createdAt).isSame(months, 'month'))
 
-    count.unshift(data.length)
+    count.push(data.length)
     addend += 1
     }
 console.log(count)
@@ -909,15 +909,48 @@ async function getAssetCount1Year() {
     const today = moment().startOf('year');
     let newToday = today.add(addend, 'months');
     let months = newToday.endOf('month')
-    let data = result.filter(result => moment(result.createdAt) <= months)
+    let data = result.filter(result => moment(result.createdAt).isSame(months, 'month'))
 
-    count.unshift(data.length)
+    count.push(data.length)
     addend += 1
     }
 console.log(count)
     dispatch({
       type: 'GET_ASSET_1_YEAR',
       payload: count
+    });
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+}
+
+
+async function getUsers() {
+  try {
+    const res = await axios.get('/api/v1/users');
+
+    dispatch({
+      type: 'GET_USERS',
+      payload: res.data.data
+    });
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+} 
+
+async function deleteUser(id) {
+  try {
+    await axios.delete(`http://localhost:5000/api/v1/users/${id}`);
+
+    dispatch({
+      type: 'DELETE_USER',
+      payload: id
     });
   } catch (err) {
     dispatch({
@@ -967,30 +1000,9 @@ console.log(count)
     locations: state.locations,
     departments: state.departments,
     suppliers: state.suppliers,
-    error: state.error,
-    loading: state.loading,
+    
+    
     getAssets,
-    deleteAsset,
-    addAsset,
-    updateAsset,
-    getLocations,
-    deleteLocation,
-    addLocation,
-    updateLocation,
-    getDepartments,
-    addDepartment,
-    deleteDepartment,
-    updateDepartment,
-    getSuppliers,
-    addSupplier,
-    deleteSupplier,
-    updateSupplier,
-    addCategory,
-    updateCategory,
-    getCategories,
-    deleteCategory,
-    updateRequest,
-    updateCategory,
     getUserCount7Days,
     getAssetCount7Days,
     getPendingRequestCount7Days,
@@ -1000,6 +1012,9 @@ console.log(count)
     getRequestCount1Year,
     getMemberCount1Year,
     getAssetCount1Year,
+    getUsers,
+    users: state.users,
+    deleteUser,
 
 
   }}>

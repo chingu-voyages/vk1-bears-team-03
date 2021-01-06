@@ -1,11 +1,23 @@
-import React from 'react'
+import React, {useContext, useEffect, useState} from 'react'
+import { GlobalContext } from '../../context/GlobalState'
 import { CCard, CCardBody, CCardHeader, CCol, CRow } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-
-import permitsData from './PermitsData'
+//
+// import permitsData from './PermitsData'
 
 const Permit = ({match}) => {
-  const permit = permitsData.find( permit => permit.id.toString() === match.params.id)
+  
+  const { permit, getPermits } = useContext(GlobalContext)
+
+  useEffect(() => {
+    getPermits()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [])
+
+
+  // const permit = permitsData.find( permit => permit.id.toString() === match.params.id)
+  const permit = permits.find( permits => permits.id.toString() === match.params.id)
+
   const permitDetails = permit ? Object.entries(permit) : 
     [['id', (<span><CIcon className="text-muted" name="cui-icon-ban" /> Not found</span>)]]
 

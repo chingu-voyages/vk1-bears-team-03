@@ -1,14 +1,24 @@
-import React from 'react'
+import React, {useContext, useEffect} from 'react'
+import { GlobalContext } from '../../context/GlobalState'
 import { CCard, CCardBody, CCardHeader, CCol, CRow } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
+//
 
-
-import softwaresData from './SoftwaresData'
+// import softwaresData from './SoftwaresData'
 
 
 const Software = ({match}) => {
 
-  const software = softwaresData.find( software => software.id.toString() === match.params.id)
+  const { softwares, getSoftwares } = useContext(GlobalContext)
+
+   useEffect(() => {
+    getSoftwares()
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const software = softwares.find( softwares => softwares.id.toString() === match.params.id)
+
+  // const software = softwaresData.find( software => software.id.toString() === match.params.id)
 
   const softwareDetails = software ? Object.entries(software) : 
     [['id', (<span><CIcon className="text-muted" name="cui-icon-ban" /> Not found</span>)]]

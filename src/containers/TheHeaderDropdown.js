@@ -26,7 +26,7 @@ const TheHeaderDropdown = () => {
         </div>
       </CDropdownToggle>
       <CDropdownMenu className="pt-0" placement="bottom-end">
-        <CDropdownItem
+        {/* <CDropdownItem
           header
           tag="div"
           color="light"
@@ -53,7 +53,7 @@ const TheHeaderDropdown = () => {
           <CIcon name="cil-comment-square" className="mfe-2" /> 
           Comments
           <CBadge color="warning" className="mfs-auto">42</CBadge>
-        </CDropdownItem>
+        </CDropdownItem> */}
         <CDropdownItem
           header
           tag="div"
@@ -72,7 +72,7 @@ const TheHeaderDropdown = () => {
           <CIcon name="cil-settings" className="mfe-2" /> 
           Settings
         </CDropdownItem>
-        <CDropdownItem>
+        {/* <CDropdownItem>
           <CIcon name="cil-credit-card" className="mfe-2" /> 
           Payments
           <CBadge color="secondary" className="mfs-auto">42</CBadge>
@@ -81,7 +81,7 @@ const TheHeaderDropdown = () => {
           <CIcon name="cil-file" className="mfe-2" /> 
           Projects
           <CBadge color="primary" className="mfs-auto">42</CBadge>
-        </CDropdownItem>
+        </CDropdownItem> */}
         <CDropdownItem divider />
         <Route render={({ history}) => (
             <CDropdownItem onClick={() => {history.push('/login')}}>

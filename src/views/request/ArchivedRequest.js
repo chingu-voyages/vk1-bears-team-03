@@ -1,7 +1,7 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useContext, useEffect} from 'react'
 import { GlobalContext } from '../../context/GlobalState'
 import { CButton, CCard, CCardBody, CCardHeader, CCol, CRow } from '@coreui/react'
-import CIcon from '@coreui/icons-react'
+// import CIcon from '@coreui/icons-react'
 import { useHistory } from "react-router-dom";
 import dateFormat from "dateformat"
 import { Route } from 'react-router-dom'
