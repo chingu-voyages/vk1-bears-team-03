@@ -100,10 +100,12 @@ const Requests = () => {
       </CRow>
     }
       items={pendingRequests} 
-      fields={fields}
       hover
       noItemsViewSlot={loading}
+      itemsPerPageSelect
+      itemsPerPage={5}
       pagination
+      fields={fields}
       scopedSlots = {{
         'user_name':
           (item)=>(

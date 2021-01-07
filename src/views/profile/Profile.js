@@ -161,6 +161,8 @@ const Profile = ({match}) => {
                 items={userRequests}
                 fields={fields}
                 hover
+                itemsPerPageSelect
+                itemsPerPage={5}
                 pagination
                 scopedSlots = {{
                   'user_name':
@@ -305,6 +307,8 @@ const Profile = ({match}) => {
                 items={completedRequests}
                 fields={fields2}
                 hover
+                itemsPerPageSelect
+                itemsPerPage={5}
                 pagination
                 scopedSlots = {{
                   'user_name':
