@@ -31,6 +31,7 @@ const initialState = {
   users: [],
   user: [],
   completedRequests: [],
+  newUser: [],
 
   error: null,
   loading: true
@@ -904,6 +905,30 @@ async function addRequest(borrowedList) {
       payload: err.response.data.error
     });
   }
+}
+
+
+async function addNewUser(user) {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
+
+  try {
+    const res = await axios.post('/api/v1/users/register', user, config);
+
+    dispatch({
+      type: 'ADD_USER',
+      payload: res.data.data
+    });
+
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
 
 }
 
@@ -968,6 +993,8 @@ async function addRequest(borrowedList) {
     addRequest,
     completedRequests: state.completedRequests,
     getCompletedRequests,
+    addNewUser,
+    newUser: state.newUser,
 
 
   }}>
