@@ -12,6 +12,12 @@ import { useHistory } from "react-router-dom";
 const AddUser = () => {
   const { register, handleSubmit } = useForm()
 
+  const pretifyName = function pretifyName(name) {
+    return name.replace(/[-_.]/g, ' ').replace(/ +/g, ' ').replace(/([a-z0-9])([A-Z])/g, '$1 $2').split(' ').map(function (word) {
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    }).join(' ');
+  };
+
   //SET CURRENT URL
   let history = useHistory();
   const { users, getUsers, addNewUser} = useContext(GlobalContext)
@@ -52,9 +58,9 @@ const AddUser = () => {
           }
           
           addNewUser(newUser)
-          alert("User successfully created")
+          alert(`${pretifyName(data.user_role)} successfully created`)
           clearForm()
-          setTimeout(()=>history.push('/users'), 700);
+          setTimeout(()=>history.push('/users'), 200);
       }
       
     } catch (err) {

@@ -51,8 +51,8 @@ const loading = LoadingIndicator()
 const handleDelete = (data) => {
   deleteUser(data)
   toggle()
-  setTimeout(()=>alert('User Successfully Deleted'), 200);
-  setTimeout(()=>window.location.reload(), 400)
+  setTimeout(()=>alert('User Successfully Deleted'), 50);
+  setTimeout(()=>window.location.reload(), 200);
 }
 
 const fields = [

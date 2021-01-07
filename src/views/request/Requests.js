@@ -78,7 +78,6 @@ const Requests = () => {
   }
 
   const getBadge = (status)=>{
-    console.log("This is Status from getBadge", status)
     switch (status) {
       case 'Approved': return 'success'
       case 'Pending': return 'primary'
@@ -94,7 +93,6 @@ const Requests = () => {
       <CRow>
         <CCol className="d-flex justify-content-sm-start mb-2">
               {/* <Search /> */}
-              <Itemspage/>
           </CCol>
           
       </CRow>

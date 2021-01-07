@@ -94,7 +94,6 @@ const Requests = () => {
       <CRow>
         <CCol className="d-flex justify-content-sm-start mb-2">
               {/* <Search /> */}
-              <Itemspage/>
           </CCol>
           
       </CRow>
@@ -103,6 +102,8 @@ const Requests = () => {
       fields={fields}
       hover
       noItemsViewSlot={loading}
+      itemsPerPageSelect
+      itemsPerPage={5}
       pagination
       scopedSlots = {{
         'user_name':
