@@ -299,7 +299,7 @@ export default (state, action) => {
             case 'ADD_USER':
               return {
                 ...state,
-                newUser: [...state.newUser, action.payload]
+                users: [...state.users, action.payload]
               } 
     default:
       return state;

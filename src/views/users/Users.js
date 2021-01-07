@@ -52,7 +52,7 @@ const handleDelete = (data) => {
   deleteUser(data)
   toggle()
   setTimeout(()=>alert('User Successfully Deleted'), 50);
-  setTimeout(()=>window.location.reload(), 200);
+  window.location.reload()
 }
 
 const fields = [

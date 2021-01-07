@@ -31,7 +31,6 @@ const initialState = {
   users: [],
   user: [],
   completedRequests: [],
-  newUser: [],
 
   error: null,
   loading: true
@@ -994,7 +993,6 @@ async function addNewUser(user) {
     completedRequests: state.completedRequests,
     getCompletedRequests,
     addNewUser,
-    newUser: state.newUser,
 
 
   }}>
