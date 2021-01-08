@@ -137,7 +137,7 @@ let colors = [
                         pointHoverBackgroundColor: '#fff',
                         pointHoverBorderColor: 'rgba(255,99,132,1)',
                         tooltipLabelColor: 'rgba(255,99,132,1)',
-                        data: assetCount1Year
+                        data: memberCount1Year
                         }
                     ]}
                     options={{
