@@ -1,184 +1,157 @@
-import React from 'react'
-import {CCol, CFormGroup, CLabel, CInput, CButton, CCard, CCardHeader, CCardBody, CSwitch, CSelect, CTextarea, CCardFooter} from '@coreui/react'
+import React, {useContext, useEffect, useState} from 'react'
+import { GlobalContext } from '../../../context/GlobalState'
+import { useForm } from 'react-hook-form'
+import {
+  CForm,CCardBody, CCol, CCard, CCardHeader, CFormGroup, CLabel, CButton, CCardFooter
 
-import CancelButton from '../../cancelbutton/CancelButton'
+} from '@coreui/react'
 import BackButton from '../../backButton/BackButton'
+import CancelButton from '../../cancelbutton/CancelButton'
+import { useHistory } from "react-router-dom";
 
-const AddUser = () =>{
-  return(
-        
-    <CCol xs="12" md="6" lg="12" className="mb-4">
-    <CCard>
-      <CCardHeader>
-      <BackButton location='/users'/>
-     
-      <CButton type="reset" size="md" color="danger" className="mr-1"> Reset</CButton>
-      </CCardHeader>
-      <CCardBody>
-      <CFormGroup row>
-              <CCol md="2" className="d-flex justify-content-sm-end">
-                <CLabel htmlFor="text-input">First Name</CLabel>
-              </CCol>
-              <CCol xs="12" md="9">
-                <CInput id="text-input" name="text-input" placeholder="" />
-              </CCol>
-             
-            </CFormGroup>
-            <CFormGroup row>
-              <CCol md="2" className="d-flex justify-content-sm-end">
-                <CLabel htmlFor="text-input">Last Name</CLabel>
-              </CCol>
-              <CCol xs="12" md="9">
-                <CInput id="text-input" name="text-input" placeholder="" />
-              </CCol>
-            </CFormGroup>
-            <CFormGroup row>
-              <CCol md="2" className="d-flex justify-content-sm-end">
-                <CLabel htmlFor="text-input">Username</CLabel>
-              </CCol>
-              <CCol xs="12" md="9">
-                <CInput id="text-input" name="text-input" placeholder="" />
-              </CCol>
-            </CFormGroup>
-            <CFormGroup row>
-                <CCol tag="label" md="2" className="col-form-label d-flex justify-content-sm-end" >
-                  Active User Log In
+const AddUser = () => {
+  const { register, handleSubmit } = useForm()
+
+  const pretifyName = function pretifyName(name) {
+    return name.replace(/[-_.]/g, ' ').replace(/ +/g, ' ').replace(/([a-z0-9])([A-Z])/g, '$1 $2').split(' ').map(function (word) {
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    }).join(' ');
+  };
+
+  //SET CURRENT URL
+  let history = useHistory();
+  const { users, getUsers, addNewUser} = useContext(GlobalContext)
+
+  useEffect(() => {
+    getUsers()
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [])
+  
+  // CLEARING FORM FIELDS
+  const clearForm = () => {
+    document.getElementById("userForm").reset();
+
+  }
+
+  //HANDLE ON SUBMIT
+  const onSubmit = async (data) => {
+
+    const username = users.find(user => user.username === data.username)
+    const email = users.find(user => user.email === data.email)
+    let newUser = {}
+
+    try {
+      if(username) {
+        alert("Username already exists! Please enter a different username.")
+      }else if (email) {
+        alert("Email already exists! Please enter a different email.")
+      } else {
+
+      newUser = {
+              first_name: data.first_name,
+              last_name: data.last_name,
+              username: data.username,
+              password: data.password,
+              email: data.email,
+              user_role: data.user_role,
+              is_active: true
+          }
+          
+          addNewUser(newUser)
+          alert(`${pretifyName(data.user_role)} successfully created`)
+          clearForm()
+          setTimeout(()=>history.push('/users'), 200);
+      }
+      
+    } catch (err) {
+      alert(`${err}`)
+    }
+    console.log(data)
+    console.log(newUser)
+  }
+  
+    return (
+          <CCol xs="12" md="6" lg="12" className="mb-4">
+             <CCard>
+             <CCardHeader>
+              <BackButton location='/users' />
+              <CButton type="reset" size="md" color="danger" className="mr-1" onClick={clearForm}> Reset</CButton>
+             </CCardHeader>
+             <CForm id='userForm' onSubmit = {handleSubmit(onSubmit) } >
+              <CCardBody>
+
+                <CFormGroup row>
+                    <CCol md="2" className="d-flex justify-content-sm-end">
+                      <CLabel htmlFor="first_name">First Name</CLabel>
+                    </CCol>
+                    <CCol xs="12" md="9">
+                      <input className = 'form-control' type="text" name="first_name" ref={register} required='true'/>
+                    </CCol>
+                </CFormGroup>
+
+                <CFormGroup row>
+                    <CCol md="2" className="d-flex justify-content-sm-end">
+                      <CLabel htmlFor="last_name">Last Name</CLabel>
+                    </CCol>
+                    <CCol xs="12" md="9">
+                      <input className = 'form-control' type="text" name="last_name" ref={register} required='true' />
+                    </CCol>
+                </CFormGroup>
+
+                <CFormGroup row>
+                    <CCol md="2" className="d-flex justify-content-sm-end">
+                      <CLabel htmlFor="username">Username</CLabel>
+                    </CCol>
+                    <CCol xs="12" md="9">
+                      <input className = 'form-control' type="text" name="username" ref={register} required='true'/>
+                    </CCol>
+                </CFormGroup>
+
+                <CFormGroup row>
+                    <CCol md="2" className="d-flex justify-content-sm-end">
+                      <CLabel htmlFor="password">Password</CLabel>
+                    </CCol>
+                    <CCol xs="12" md="9">
+                      <input className = 'form-control' type="password" name="password" ref={register} required='true'/>
+                    </CCol>
+                </CFormGroup>
+
+                <CFormGroup row>
+                    <CCol md="2" className="d-flex justify-content-sm-end">
+                      <CLabel htmlFor="email">Email Address</CLabel>
+                    </CCol>
+                    <CCol xs="12" md="9">
+                      <input className = 'form-control' type="email" name="email" ref={register} required='true'/>
+                    </CCol>  
+                </CFormGroup>
+
+                <CFormGroup row>
+                    <CCol md="2" className="d-flex justify-content-sm-end">
+                      <CLabel htmlFor="user_role">User Role</CLabel>
+                    </CCol>
+                    <CCol xs="12" md="9">
+                      <select className = 'form-control' custom name="user_role" id="user_role" ref={register} required='true'>
+                        <option >Please select</option>
+                        <option value="user">User</option>
+                        <option value="admin">Admin</option>
+                      </select>
+                    </CCol>
+                </CFormGroup>
+
+              <CCardFooter row>
+                <CCol md="12" className="d-flex justify-content-sm-end">
+                  <CButton type="submit" size="md" color="primary" className="mr-1 px-4" >Save</CButton>
+                  <CancelButton size='md' location='/users' />              
                 </CCol>
-                <CCol sm="9">
-                  <CSwitch
-                    className="mr-1"
-                    color="primary"
-                    defaultChecked
-                    labelOn="yes"
-                    labelOff="no"
-                  />
-                  
-                </CCol>
-              </CFormGroup>
-            <CFormGroup row>
-                <CCol tag="label" md="2" className="col-form-label d-flex justify-content-sm-end" >
-                  Email Credentials
-                </CCol>
-                <CCol sm="9">
-                  <CSwitch
-                    className="mr-1"
-                    color="primary"
-                    defaultChecked
-                    labelOn="yes"
-                    labelOff="no"
-                  />
-                  
-                </CCol>
-              </CFormGroup>
-            <CFormGroup row>
-              <CCol md="2" className="d-flex justify-content-sm-end">
-                <CLabel htmlFor="text-input">Password</CLabel>
-              </CCol>
-              <CCol xs="12" md="9">
-                <CInput id="text-input" name="text-input" placeholder="" />
-              </CCol>
-            </CFormGroup>
-            <CFormGroup row>
-              <CCol md="2" className="d-flex justify-content-sm-end">
-                <CLabel htmlFor="text-input">Confirm Password</CLabel>
-              </CCol>
-              <CCol xs="12" md="9">
-                <CInput id="text-input" name="text-input" placeholder="" />
-              </CCol>
-            </CFormGroup>
-            <CFormGroup row>
-              <CCol md="2" className="d-flex justify-content-sm-end">
-                <CLabel htmlFor="text-input">Email Address</CLabel>
-              </CCol>
-              <CCol xs="12" md="9">
-                <CInput id="text-input" name="text-input" placeholder="" />
-              </CCol>
-            </CFormGroup>
-            <CFormGroup row>
-              <CCol md="2" className="d-flex justify-content-sm-end">
-                <CLabel htmlFor="text-input">Employee Number</CLabel>
-              </CCol>
-              <CCol xs="12" md="9">
-                <CInput id="text-input" name="text-input" placeholder="" />
-              </CCol>
-            </CFormGroup>
-            <CFormGroup row>
-              <CCol md="2" className="d-flex justify-content-sm-end">
-                <CLabel htmlFor="text-input">Job Title</CLabel>
-              </CCol>
-              <CCol xs="12" md="9">
-                <CInput id="text-input" name="text-input" placeholder="" />
-              </CCol>
-            </CFormGroup>
-            <CFormGroup row>
-              <CCol md="2" className="d-flex justify-content-sm-end">
-                <CLabel htmlFor="text-input">Address</CLabel>
-              </CCol>
-              <CCol xs="12" md="9">
-                <CInput id="text-input" name="text-input" placeholder="" />
-              </CCol>
-            </CFormGroup>
-            <CFormGroup row>
-              <CCol md="2" className="d-flex justify-content-sm-end">
-                <CLabel htmlFor="text-input">Zip Code</CLabel>
-              </CCol>
-              <CCol xs="12" md="9">
-                <CInput id="text-input" name="text-input" placeholder="" />
-              </CCol>
-            </CFormGroup>
-            <CFormGroup row>
-              <CCol md="2" className="d-flex justify-content-sm-end">
-                  <CLabel htmlFor="select">Country</CLabel>
-                </CCol>
-                <CCol xs="12" md="9">
-                  <CSelect custom name="select" id="select">
-                    <option value="0">Please select</option>
-                    <option value="1">Option #1</option>
-                    <option value="2">Option #2</option>
-                    <option value="3">Option #3</option>
-                  </CSelect>
-                </CCol>
-                
-              </CFormGroup>
-              
-                  <CFormGroup row>
-              <CCol md="2" className="d-flex justify-content-sm-end">
-                  <CLabel htmlFor="textarea-input">Notes</CLabel>
-                </CCol>
-                <CCol xs="12" md="9">
-                  <CTextarea 
-                    name="textarea-input" 
-                    id="textarea-input" 
-                    rows="2"
-                    placeholder="Content..." 
-                  />
-                </CCol>
-              </CFormGroup>
-              <CFormGroup row>
-              <CCol md="2" className="d-flex justify-content-sm-end">
-                  <CLabel htmlFor="select">User Role</CLabel>
-                </CCol>
-                <CCol xs="12" md="9">
-                  <CSelect custom name="select" id="select">
-                    <option value="0">Please select</option>
-                    <option value="1">Option #1</option>
-                    <option value="2">Option #2</option>
-                    <option value="3">Option #3</option>
-                  </CSelect>
-                </CCol>
-                
-              </CFormGroup>
-            <CCardFooter row>
-            <CCol md="12" className="d-flex justify-content-sm-end">
-              <CButton type="save" size="md" color="primary" className="mr-1">  Save</CButton>
-              <CancelButton size="md" location='/users'/>
-            </CCol>
-        </CCardFooter>
-      </CCardBody>
-    </CCard>
-  </CCol>
- 
-  )
+              </CCardFooter>
+
+            </CCardBody>
+          </CForm>
+        </CCard>
+      </CCol>
+          
+      )
+          
 }
 
 export default AddUser

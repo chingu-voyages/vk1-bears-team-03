@@ -287,6 +287,17 @@ export default (state, action) => {
                 ...state,
                 requests: [...state.requests, action.payload]
             }
+            case 'COMPLETED_REQUESTS':
+              return {
+                ...state,
+                loading: false,
+                completedRequests: action.payload
+              }
+            case 'ADD_USER':
+              return {
+                ...state,
+                users: [...state.users, action.payload]
+              } 
     default:
       return state;
   }

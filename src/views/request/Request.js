@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react'
 import { GlobalContext } from '../../context/GlobalState'
-import { CButton, CCard, CCardBody, CCardHeader, CCol, CRow } from '@coreui/react'
+import { CButton, CCard, CCardBody, CCardHeader, CCol, CRow, CModal, CModalHeader, CModalBody, CModalFooter, } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { useHistory } from "react-router-dom";
 import dateFormat from 'dateformat';
@@ -17,21 +17,71 @@ const Request = ({match}) => {
   }, [])
   let history = useHistory();
 
-  const request = pendingRequests.find( request => request._id.toString() === match.params.id)
-
-  const handleOnClick = (data) => {
-    updateRequest(match.params.id, data)
-    alert(`Request Successfully ${data.request_status}`)
-    console.log(data)
-    setTimeout(()=>history.push('/views/requests'), 500);
-    // window.location.reload()
+  const [modal, setModal] = useState(false)
+  
+  const toggle = () => {
+    setModal(!modal);
   }
 
-  var pretifyName = function pretifyName(name) {
-    return name.replace(/[-_.]/g, ' ').replace(/ +/g, ' ').replace(/([a-z0-9])([A-Z])/g, '$1 $2').split(' ').map(function (word) {
-      return word.charAt(0).toUpperCase() + word.slice(1);
-    }).join(' ');
-  };
+  const [modal2, setModal2] = useState(false)
+  
+  const toggle2 = () => {
+    setModal2(!modal2);
+  }
+
+  const request = pendingRequests.find( request => request._id.toString() === match.params.id)
+
+
+//Deny Button Logic
+  const handleDenyClick = () => {
+
+    let data = {}
+    let message = ""
+
+    if (request.request_type === 'Borrow') {
+      data = {"request_status": "Denied"}
+      message = "Borrow Request has been Denied." 
+    } else {
+      data = {"request_status": "Approved"}
+      message = "Return Request Denied. This request will now go back to the User's profile page. To retry returning the asset, the User must submit a new Return request."
+    }
+    
+    updateRequest(match.params.id, data)
+    toggle()
+    setTimeout(()=>alert(`${message}`), 200);
+    // alert(`${message}`)
+    console.log(data)
+    setTimeout(()=>history.push('/views/requests'), 500);
+  }
+
+
+
+  //Approve Button Logic
+  const handleApproveClick = () => {
+
+    let data = {}
+    let message = ""
+
+    if (request.request_type === 'Borrow') {
+      data = {"request_status": "Approved"}
+      message = "Request successfully Approved" 
+    } else {
+      data = {"request_status": "Returned"}
+      message = "Request accepted. Asset Successfully Returned"
+    }
+    
+    updateRequest(match.params.id, data)
+    toggle2()
+    setTimeout(()=>alert(`${message}`), 200);
+    console.log(data)
+    setTimeout(()=>history.push('/views/requests'), 500);
+  }
+
+  // var pretifyName = function pretifyName(name) {
+  //   return name.replace(/[-_.]/g, ' ').replace(/ +/g, ' ').replace(/([a-z0-9])([A-Z])/g, '$1 $2').split(' ').map(function (word) {
+  //     return word.charAt(0).toUpperCase() + word.slice(1);
+  //   }).join(' ');
+  // };
 
   const requestDetails = request ? Object.entries(request) : 
     [['id', (<span><CIcon className="text-muted" name="cui-icon-ban" /> Not found</span>)]]
@@ -81,10 +131,45 @@ const Request = ({match}) => {
                   </tr>
                 </tbody>
               </table>     
-          <CButton size="md" color="danger" className="mr-1 mt-2 float-right" onClick={()=> handleOnClick({"request_status": "Denied"})}>
+          
+          <CButton size="md" color="danger" className="mr-1 mt-2 float-right" onClick={()=> toggle()}>
                     Deny
           </CButton>
-          <CButton size="md" color="primary" className="mr-1 mt-2 float-right" onClick={()=> handleOnClick({"request_status": "Approved"})}>Approve</CButton>
+          <CModal
+              show={modal}
+              onClose={toggle}
+            >
+            <CModalHeader closeButton>Deny This Request?</CModalHeader>
+              <CModalBody>
+                Are you sure that you want to deny this request?
+              </CModalBody>
+            <CModalFooter>
+              <CButton color="primary"  onClick={() => handleDenyClick()}>Yes</CButton>
+              <CButton
+                color="secondary"
+                onClick={toggle}
+              >Cancel</CButton>
+            </CModalFooter>
+          </CModal>
+
+          <CButton size="md" color="primary" className="mr-1 mt-2 float-right" onClick={()=> toggle2()}>Approve</CButton>
+          <CModal
+              show={modal2}
+              onClose={toggle2}
+            >
+            <CModalHeader closeButton>Approve This Request?</CModalHeader>
+              <CModalBody>
+                Are you sure you want to approve this request?
+              </CModalBody>
+            <CModalFooter>
+              <CButton color="primary"  onClick={() => handleApproveClick()}>Yes</CButton>
+              <CButton
+                color="secondary"
+                onClick={toggle2}
+              >Cancel</CButton>
+            </CModalFooter>
+          </CModal>
+
           <Route render={({ history}) => (
               <CButton
                 className="mr-1 mt-2 float-left"

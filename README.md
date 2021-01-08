@@ -1,1 +1,1 @@
-This is our Asset Management System
+Asset Spartan is an asset management system that tracks your asset with ease in a cost-effective manner.

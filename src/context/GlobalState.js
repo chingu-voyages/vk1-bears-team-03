@@ -30,6 +30,8 @@ const initialState = {
   userRequests: [],
   users: [],
   user: [],
+  completedRequests: [],
+
   error: null,
   loading: true
 }
@@ -585,7 +587,7 @@ async function getAssetCount7Days() {
 
 async function getPendingRequestCount7Days() {
   try {
-    const res = await axios.get('/api/v1/assets');
+    const res = await axios.get('/api/v1/requests');
     const result = res.data.data
     let count = []
     let subtrahend = 0
@@ -594,8 +596,9 @@ async function getPendingRequestCount7Days() {
     const today = moment().endOf('day');
     let newToday = today.subtract(subtrahend, 'days');
     let data = result.filter(result => moment(result.createdAt) <= newToday)
+    let filteredData = data.filter(data => data.request_status === 'Pending')
 
-    count.unshift(data.length)
+    count.unshift(filteredData.length)
     subtrahend += 1
     }
 
@@ -615,7 +618,7 @@ async function getPendingRequestCount7Days() {
 
 async function getAllArchivedRequestCount7Days() {
   try {
-    const res = await axios.get('/api/v1/assets');
+    const res = await axios.get('/api/v1/requests');
     const result = res.data.data
     let count = []
     let subtrahend = 0
@@ -624,8 +627,10 @@ async function getAllArchivedRequestCount7Days() {
     const today = moment().endOf('day');
     let newToday = today.subtract(subtrahend, 'days');
     let data = result.filter(result => moment(result.createdAt) <= newToday)
+    let filteredData = data.filter(data => data.request_status === 'Denied')
 
-    count.unshift(data.length)
+    count.unshift(filteredData.length)
+    console.log(count)
     subtrahend += 1
     }
 
@@ -869,6 +874,25 @@ async function getUserRequests(id) {
   }
 }
 
+async function getCompletedRequests(id) {
+  try {
+    const res = await axios.get('/api/v1/requests');
+    const results = res.data.data
+    const filteredResults = results.filter(result => result.user_name._id === id)
+    const requests = filteredResults.filter(request => request.request_status === 'Returned')
+
+    dispatch({
+      type: 'COMPLETED_REQUESTS',
+      payload: requests
+    });
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+}
+
 async function addRequest(borrowedList) {
   const config = {
     headers: {
@@ -881,6 +905,30 @@ async function addRequest(borrowedList) {
 
     dispatch({
       type: 'ADD_REQUEST',
+      payload: res.data.data
+    });
+
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    });
+  }
+}
+
+
+async function addNewUser(user) {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
+
+  try {
+    const res = await axios.post('/api/v1/users/register', user, config);
+
+    dispatch({
+      type: 'ADD_USER',
       payload: res.data.data
     });
 
@@ -951,7 +999,16 @@ async function addRequest(borrowedList) {
     userRequests: state.userRequests,
     getUser,
     user: state.user,
+<<<<<<< HEAD
     addRequest
+=======
+    addRequest,
+    completedRequests: state.completedRequests,
+    getCompletedRequests,
+    addNewUser,
+
+
+>>>>>>> 721c714105ade43c89d0a802fab6838e88b12677
   }}>
     {children}
   </GlobalContext.Provider>);

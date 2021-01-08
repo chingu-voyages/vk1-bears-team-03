@@ -11,6 +11,7 @@ import { GlobalContext } from '../../context/GlobalState'
 import { trackPromise } from 'react-promise-tracker';
 import LoadingIndicator from '../../context/LoadingIndicator'
 import AddButton from '../addButton/AddButton'
+import dateFormat from 'dateformat'
 
 const Users = () => {
   const { users, getUsers, deleteUser, checkAuth } = useContext(GlobalContext)
@@ -35,6 +36,12 @@ const toggleDetails = (index) => {
   setDetails(newDetails)
 }
 
+  const pretifyName = function pretifyName(name) {
+    return name.replace(/[-_.]/g, ' ').replace(/ +/g, ' ').replace(/([a-z0-9])([A-Z])/g, '$1 $2').split(' ').map(function (word) {
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    }).join(' ');
+  };
+
 const tableFilter = {
   label: 'Search',
   placeholder: 'type here...'
@@ -45,7 +52,7 @@ const loading = LoadingIndicator()
 const handleDelete = (data) => {
   deleteUser(data)
   toggle()
-  alert(`User Successfully Deleted`)
+  setTimeout(()=>alert('User Successfully Deleted'), 50);
   window.location.reload()
 }
 
@@ -65,7 +72,18 @@ const fields = [
   },
   {
     key: 'email_address',
-    label: 'Email Address'
+    label: 'Email Address',
+    _style: { width: '20%' }
+  },
+  {
+    key: 'user_role',
+    label: 'User Role',
+    _style: { width: '10%' }
+  },
+  {
+    key: 'member_since',
+    label: 'Member Since',
+    _style: { width: '15%' }
   },
   {
     key: 'show_details',
@@ -83,7 +101,7 @@ const toggle = () => {
 
 return (
   <>
-  {/* <AddButton location='/users/adduser' /> */}
+  <AddButton location='/users/adduser' />
 
   <CDataTable
     items={users}
@@ -118,6 +136,18 @@ return (
             <td>
               {item.email}
             </td>
+          ),
+      'user_role':
+          (item)=>(
+            <td>
+              {`${pretifyName(item.user_role)}`}
+            </td>
+          ),
+      'member_since':
+          (item)=>(
+            <td>
+              {`${dateFormat(item.createdAt, "mmmm dd, yyyy")}`}
+              </td>
           ),
       'show_details':
         (item, index)=>{
