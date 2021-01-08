@@ -586,7 +586,7 @@ async function getAssetCount7Days() {
 
 async function getPendingRequestCount7Days() {
   try {
-    const res = await axios.get('/api/v1/assets');
+    const res = await axios.get('/api/v1/requests');
     const result = res.data.data
     let count = []
     let subtrahend = 0
@@ -595,8 +595,9 @@ async function getPendingRequestCount7Days() {
     const today = moment().endOf('day');
     let newToday = today.subtract(subtrahend, 'days');
     let data = result.filter(result => moment(result.createdAt) <= newToday)
+    let filteredData = data.filter(data => data.request_status === 'Pending')
 
-    count.unshift(data.length)
+    count.unshift(filteredData.length)
     subtrahend += 1
     }
 
@@ -616,7 +617,7 @@ async function getPendingRequestCount7Days() {
 
 async function getAllArchivedRequestCount7Days() {
   try {
-    const res = await axios.get('/api/v1/assets');
+    const res = await axios.get('/api/v1/requests');
     const result = res.data.data
     let count = []
     let subtrahend = 0
@@ -625,8 +626,10 @@ async function getAllArchivedRequestCount7Days() {
     const today = moment().endOf('day');
     let newToday = today.subtract(subtrahend, 'days');
     let data = result.filter(result => moment(result.createdAt) <= newToday)
+    let filteredData = data.filter(data => data.request_status === 'Denied')
 
-    count.unshift(data.length)
+    count.unshift(filteredData.length)
+    console.log(count)
     subtrahend += 1
     }
 
