@@ -507,9 +507,13 @@ async function getAssetCount() {
 }
 
 //** */
-async function getUserCount() {
+async function getUserCount(token) {
   try {
-    const res = await axios.get('/api/v1/users');
+    const res = await axios.get('/api/v1/users',{
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
     dispatch({
       type: 'GET_USER_COUNT',
@@ -525,9 +529,13 @@ async function getUserCount() {
 
 //<----- FETCH DATA POINTS FOR CHART (Last 7 days) ----->//
 
-async function getUserCount7Days() {
+async function getUserCount7Days(token) {
   try {
-    const res = await axios.get('/api/v1/users');
+    const res = await axios.get('/api/v1/users', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     const result = res.data.data
     let count = []
     let subtrahend = 0
@@ -737,9 +745,13 @@ console.log(count)
 }
 
 
-async function getMemberCount1Year() {
+async function getMemberCount1Year(token) {
   try {
-    const res = await axios.get('/api/v1/users');
+    const res = await axios.get('/api/v1/users', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     const result = res.data.data
     let count = []
     let addend = 0
@@ -999,16 +1011,12 @@ async function addNewUser(user) {
     userRequests: state.userRequests,
     getUser,
     user: state.user,
-<<<<<<< HEAD
-    addRequest
-=======
     addRequest,
     completedRequests: state.completedRequests,
     getCompletedRequests,
     addNewUser,
 
 
->>>>>>> 721c714105ade43c89d0a802fab6838e88b12677
   }}>
     {children}
   </GlobalContext.Provider>);

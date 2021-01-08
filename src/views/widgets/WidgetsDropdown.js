@@ -10,6 +10,8 @@ import {
 import { CButton } from '@coreui/react'
 import ChartLineSimple from '../charts/ChartLineSimple'
 
+const temp = localStorage.getItem('token');
+
 const WidgetsDropdown = () => {
 
   const { 
@@ -33,10 +35,10 @@ const WidgetsDropdown = () => {
 
   useEffect(() => {
     getAssetCount()
-    getUserCount()
+    getUserCount(temp)
     getPendingRequestCount()
     getArchivedRequestCount()
-    getUserCount7Days()
+    getUserCount7Days(temp)
     getAssetCount7Days()
     getPendingRequestCount7Days()
     getAllArchivedRequestCount7Days()

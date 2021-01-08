@@ -114,11 +114,6 @@ const Login = () => {
             </CForm>
           </div>
           <div className="card-footer login__card__footer">
-            <div className="d-flex justify-content-center links">
-              Don't have an account?
-              <Link to="/register"> Sign Up </Link>
-              {/* <a href="register/">Sign Up</a> */}
-            </div>
             <div className="d-flex justify-content-center">
               <a href="#link">Forgot your password?</a>
             </div>

@@ -20,12 +20,14 @@ import MainChartExample from '../charts/MainChartExample.js'
 
   const Reports = () => {
 
+    const temp = localStorage.getItem('token');
+
     const { requestCount, getRequestCount, userCount, getUserCount, requestCount1Year, getRequestCount1Year, memberCount1Year, getMemberCount1Year, assetCount1Year, getAssetCount1Year } = useContext(GlobalContext)
     useEffect(() => {
       getRequestCount()
       getUserCount()
       getRequestCount1Year()
-      getMemberCount1Year()
+      getMemberCount1Year(temp)
       getAssetCount1Year()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
@@ -135,7 +137,7 @@ let colors = [
                         pointHoverBackgroundColor: '#fff',
                         pointHoverBorderColor: 'rgba(255,99,132,1)',
                         tooltipLabelColor: 'rgba(255,99,132,1)',
-                        data: memberCount1Year
+                        data: assetCount1Year
                         }
                     ]}
                     options={{
@@ -173,7 +175,7 @@ let colors = [
                         pointHoverBackgroundColor: '#fff',
                         pointHoverBorderColor: 'rgba(255,99,132,1)',
                         tooltipLabelColor: 'rgba(255,99,132,1)',
-                        data: memberCount1Year
+                        data: assetCount1Year
                         }
                     ]}
                     options={{
