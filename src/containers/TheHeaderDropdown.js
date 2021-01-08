@@ -17,6 +17,13 @@ const TheHeaderDropdown = () => {
       direction="down"
     >
       <CDropdownToggle className="c-header-nav-link" caret={false}>
+        <div className="c-avatar">
+          <CImg
+            src={'avatars/6.jpg'}
+            className="c-avatar-img"
+            alt="admin@bootstrapmaster.com"
+          />
+        </div>
       </CDropdownToggle>
       <CDropdownMenu className="pt-0" placement="bottom-end">
         {/* <CDropdownItem
@@ -77,7 +84,10 @@ const TheHeaderDropdown = () => {
         </CDropdownItem> */}
         <CDropdownItem divider />
         <Route render={({ history}) => (
-            <CDropdownItem onClick={() => {history.push('/login')}}>
+            <CDropdownItem onClick={() => {
+              localStorage.removeItem("token")
+              history.push('/')
+              }}>
               <CIcon name="cil-lock-locked" className="mfe-2" />Log Out
             </CDropdownItem>
         )}/>

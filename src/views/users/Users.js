@@ -13,10 +13,11 @@ import LoadingIndicator from '../../context/LoadingIndicator'
 import AddButton from '../addButton/AddButton'
 
 const Users = () => {
-
-  const { users, getUsers, deleteUser } = useContext(GlobalContext)
+  const { users, getUsers, deleteUser, checkAuth } = useContext(GlobalContext)
+  const token = localStorage.getItem("token")
   useEffect(() => {
-    trackPromise(getUsers())
+    
+    trackPromise(getUsers(token))
       // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])  
   

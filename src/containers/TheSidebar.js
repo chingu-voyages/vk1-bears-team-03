@@ -1,5 +1,5 @@
 import React from 'react'
-// import useHistory from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import {
   CCreateElement,
@@ -21,6 +21,8 @@ import navigation from './_nav'
 const TheSidebar = () => {
   const dispatch = useDispatch()
   const show = useSelector(state => state.sidebarShow)
+  const token = localStorage.getItem("token")
+  const history = useHistory()
 
   return (
     <CSidebar
@@ -42,7 +44,7 @@ const TheSidebar = () => {
       <CSidebarNav>
 
         <CCreateElement
-          items={navigation}
+          items={ token ? navigation : history.push("/")}
           components={{
             CSidebarNavDivider,
             CSidebarNavDropdown,

@@ -30,10 +30,11 @@ const initialState = {
   userRequests: [],
   users: [],
   user: [],
-
   error: null,
   loading: true
 }
+
+
 
 // Create context
 export const GlobalContext = createContext(initialState);
@@ -41,12 +42,11 @@ export const GlobalContext = createContext(initialState);
 // Provider component
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
-
+  
   async function getAssets() {
     try {
-      const res = await axios.get('http://localhost:5000/api/v1/assets');
-      
-      dispatch({
+    const res = await axios.get('http://localhost:5000/api/v1/assets')
+    dispatch({
         type: 'GET_ASSETS',
         payload: res.data.data
       });
@@ -791,22 +791,28 @@ console.log(count)
 }
 
 
-async function getUsers() {
-  try {
-    const res = await axios.get('/api/v1/users');
+async function getUsers(token) {
+    try {
+      const res = await axios.get('/api/v1/users',
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      dispatch({
+        type: 'GET_USERS',
+        payload: res.data.data
+      });
+    } catch (err) {
+      dispatch({
+        type: 'TRANSACTION_ERROR',
+        payload: err.response.data.error
+      });
+    }
 
-    dispatch({
-      type: 'GET_USERS',
-      payload: res.data.data
-    });
-  } catch (err) {
-    dispatch({
-      type: 'TRANSACTION_ERROR',
-      payload: err.response.data.error
-    });
-  }
+  
 } 
-
+ 
 async function getUser(id) {
   try {
     const res = await axios.get('/api/v1/users');
@@ -945,9 +951,7 @@ async function addRequest(borrowedList) {
     userRequests: state.userRequests,
     getUser,
     user: state.user,
-    addRequest,
-
-
+    addRequest
   }}>
     {children}
   </GlobalContext.Provider>);

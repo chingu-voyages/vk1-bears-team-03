@@ -1,37 +1,74 @@
-import React from "react";
+import React, {useContext, useEffect, useState} from 'react'
 import { Link } from "react-router-dom";
-
+import { useHistory } from 'react-router-dom'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { toast } from "react-toastify";
+import { useForm } from 'react-hook-form'
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   fab,
   faFacebookSquare,
   faGooglePlusSquare,
 } from "@fortawesome/free-brands-svg-icons";
+import { CForm } from '@coreui/react'
 import { faUser, faKey } from "@fortawesome/free-solid-svg-icons";
-
+import { GlobalContext } from '../../../context/GlobalState'
 import "./Login.css";
-
+import axios from 'axios';
 library.add(fab, faFacebookSquare, faGooglePlusSquare, faUser, faKey);
 
 const Login = () => {
+  // const { getUsers } = useContext(GlobalContext)
+  // useEffect(() => {
+  //   getUsers()
+  //     // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []) 
+  const history = useHistory();
+  const { register, handleSubmit } = useForm()
+  const [loading, setLoading] = useState(false);
+
+  const userLogin = async (data) => {
+
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    }
+    try {
+      const res = await axios.post('http://localhost:5000/api/v1/users/login', data, config);
+      console.log("This is res", res)
+        localStorage.setItem("token", res.data.access_token);
+        history.push("/dashboard");
+        setLoading(false);
+     } catch (err) {
+      alert(`Something went wrong. ${err}`)
+      setLoading(false);
+    }
+  }
+
+  const onSubmit = (data) => {
+      setLoading(true);
+      userLogin(data)
+  }
+
+
   return (
     <div className="container-fluid login">
       <div className="d-flex justify-content-center h-100">
         <div className="card login__card">
           <div className="card-header login__card__header">
             <h3>Sign In</h3>
-            <div className="d-flex justify-content-end social__icon">
+            {/* <div className="d-flex justify-content-end social__icon">
               <span>
                 <FontAwesomeIcon icon={["fab", "facebook-square"]} />
               </span>
               <span>
                 <FontAwesomeIcon icon={["fab", "google-plus-square"]} />
               </span>
-            </div>
+            </div> */}
           </div>
           <div className="card-body login__card__body">
-            <form>
+            <CForm id='assetForm' onSubmit = {handleSubmit(onSubmit) } >
               <div className="input-group form-group">
                 <div className="input-group-prepend login__input__group__prepend">
                   <span className="input-group-text">
@@ -41,7 +78,9 @@ const Login = () => {
                 <input
                   type="text"
                   className="form-control login__input"
-                  placeholder="username"
+                  name="email"
+                  placeholder="email"
+                  ref={register} 
                 />
               </div>
               <div className="input-group form-group">
@@ -53,7 +92,9 @@ const Login = () => {
                 <input
                   type="password"
                   className="form-control login__input"
+                  name="password"                  
                   placeholder="password"
+                  ref={register} 
                 />
               </div>
               <div className="row align-items-center remember">
@@ -63,11 +104,14 @@ const Login = () => {
               <div className="form-group">
                 <input
                   type="submit"
-                  value="Login"
+                  value={loading ? "Loading..." : "Submit"}
                   className="btn float-right login__btn login__input"
                 />
+                {/* <CButton variant="primary" type="submit" disabled={loading}>
+                  {loading ? "Loading..." : "Submit"}
+                </CButton> */}
               </div>
-            </form>
+            </CForm>
           </div>
           <div className="card-footer login__card__footer">
             <div className="d-flex justify-content-center links">
@@ -83,6 +127,6 @@ const Login = () => {
       </div>
     </div>
   );
-};
+}  
 
 export default Login;

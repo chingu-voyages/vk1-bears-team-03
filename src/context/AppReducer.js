@@ -1,5 +1,3 @@
-// import Category from "src/views/categories/Category"
-
 export default (state, action) => {
   switch(action.type) {
     case 'GET_ASSETS':
@@ -267,13 +265,12 @@ export default (state, action) => {
                 loading: false,
                 users: action.payload
               }
-              case 'GET_USER':
-                return {
-                  ...state,
-                  loading: false,
-                  user: action.payload
-                }
-              case 'DELETE_USER':
+          case 'LOGIN_USER':
+             return {
+                 ...state,
+                 users: [...state.users, action.payload]
+              }
+          case 'DELETE_USER':
                 return {
                   ...state,
                   loading: false,

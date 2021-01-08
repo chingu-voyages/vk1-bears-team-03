@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "src/containers/_nav.css"
 
-
 export default [
   {
     _tag: 'CSidebarNavItem',

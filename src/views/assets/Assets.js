@@ -13,6 +13,7 @@ import { Route } from 'react-router-dom'
 import AddButton from '../addButton/AddButton'
 import defaultlogo from '../../uploads/defaultlogo.png'
 import dateFormat from 'dateformat'
+import { trackPromise } from 'react-promise-tracker';
 import "src/scss/_custom.scss"
 
 const Assets = () => {
@@ -21,7 +22,7 @@ const Assets = () => {
 
 const { assets, getAssets, deleteAsset } = useContext(GlobalContext)
   useEffect(() => {
-    getAssets()
+    trackPromise(getAssets())
       // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [])
 

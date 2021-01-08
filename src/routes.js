@@ -129,6 +129,8 @@ const AddCategory = React.lazy(() => import('./views/categories/addcategory/AddC
 // const ViewMoreCategory = React.lazy(() => import('./views/categories/viewmorecategory/ViewMoreCategory'));
 const UpdateCategory = React.lazy(() => import('./views/categories/updatecategory/UpdateCategory'));
 
+///LOGIN PAGE///
+const Login = React.lazy(() => import('./views/pages/login/Login'));
 
 
 
@@ -155,7 +157,7 @@ const Profile = React.lazy(() => import('./views/profile/Profile'));
 const routes = [
   
 
-  { path: '/', exact: true, name: 'Home' },
+  { path: '/', exact: true, name: 'Home', component: Login },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
   { path: '/theme', name: 'Theme', component: Colors, exact: true },
   { path: '/theme/colors', name: 'Colors', component: Colors },
