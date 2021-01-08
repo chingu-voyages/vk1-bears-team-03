@@ -8,9 +8,12 @@ import {
   CHeaderNavLink,
   CSubheader,
   CBreadcrumbRouter,
+  CHeaderBrand,
+  CImg,
   
 } from '@coreui/react'
 // import CIcon from '@coreui/icons-react'
+
 
 // routes config
 import routes from '../routes'
@@ -48,16 +51,16 @@ const TheHeader = () => {
         className="ml-3 d-md-down-none"
         onClick={toggleSidebar}
       />
+
       {/* <CHeaderBrand className="mx-auto d-lg-none" to="/">
+
+
         <CIcon name="logo" height="48" alt="Logo"/>
       </CHeaderBrand> */}
 
       <CHeaderNav className="d-md-down-none mr-auto">
         <CHeaderNavItem className="px-3" >
           <CHeaderNavLink to="/dashboard">Dashboard</CHeaderNavLink>
-        </CHeaderNavItem>
-        <CHeaderNavItem className="px-3">
-          <CHeaderNavLink>Settings</CHeaderNavLink>
         </CHeaderNavItem>
       </CHeaderNav>
 
