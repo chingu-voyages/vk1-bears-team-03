@@ -19,13 +19,14 @@ import {
 
 
   const Reports = () => {
-
-    const { requestCount, getRequestCount, userCount, getUserCount, requestCount1Year, getRequestCount1Year, memberCount1Year, getMemberCount1Year, getAssetCount1Year } = useContext(GlobalContext)
+    const temp = localStorage.getItem('token');
+    const { requestCount, getRequestCount, assetCount1Year, userCount, getUserCount, requestCount1Year, getRequestCount1Year, memberCount1Year, getMemberCount1Year, getAssetCount1Year } = useContext(GlobalContext)
     useEffect(() => {
       getRequestCount()
-      getUserCount()
+      getUserCount(temp)
       getRequestCount1Year()
       getMemberCount1Year(temp)
+      
       getAssetCount1Year()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])

@@ -47,7 +47,7 @@ export const GlobalProvider = ({ children }) => {
   
   async function getAssets() {
     try {
-    const res = await axios.get('http://localhost:5000/api/v1/assets')
+    const res = await axios.get('https://asset-spartan-api.herokuapp.com/api/v1/assets')
     dispatch({
         type: 'GET_ASSETS',
         payload: res.data.data
@@ -62,7 +62,7 @@ export const GlobalProvider = ({ children }) => {
 
   async function deleteAsset(id) {
     try {
-      await axios.delete(`http://localhost:5000/api/v1/assets/${id}`);
+      await axios.delete(`https://asset-spartan-api.herokuapp.com/api/v1/assets/${id}`);
 
       dispatch({
         type: 'DELETE_ASSET',
@@ -84,7 +84,7 @@ export const GlobalProvider = ({ children }) => {
     }
 
     try {
-      const res = await axios.post('http://localhost:5000/api/v1/assets', asset, config);
+      const res = await axios.post('https://asset-spartan-api.herokuapp.com/api/v1/assets', asset, config);
 
       dispatch({
         type: 'ADD_ASSET',
@@ -108,7 +108,7 @@ export const GlobalProvider = ({ children }) => {
     }
 
     try {
-      const res = await axios.put(`http://localhost:5000/api/v1/assets/updateasset/${id}`, asset, config);
+      const res = await axios.put(`https://asset-spartan-api.herokuapp.com/api/v1/assets/updateasset/${id}`, asset, config);
 
       dispatch({
         type: 'UPDATE_ASSET',
@@ -140,7 +140,7 @@ export const GlobalProvider = ({ children }) => {
 
   async function getRequest(id) {
     try {
-      const res = await axios.get(`http://localhost:5000/api/v1/requests/${id}`);
+      const res = await axios.get(`https://asset-spartan-api.herokuapp.com/api/v1/requests/${id}`);
       dispatch({
         type: 'GET_REQUEST',
         payload: res.data.data
@@ -190,7 +190,7 @@ export const GlobalProvider = ({ children }) => {
       }
     }
     try {
-      const res = await axios.patch(`http://localhost:5000/api/v1/requests/${id}`, request, config);
+      const res = await axios.patch(`https://asset-spartan-api.herokuapp.com/api/v1/requests/${id}`, request, config);
       dispatch({
         type: 'UPDATE_REQUEST',
         payload: res.data.data
@@ -634,7 +634,7 @@ async function getUser(id) {
 
 async function deleteUser(id) {
   try {
-    await axios.delete(`http://localhost:5000/api/v1/users/${id}`);
+    await axios.delete(`https://asset-spartan-api.herokuapp.com/api/v1/users/${id}`);
 
     dispatch({
       type: 'DELETE_USER',
@@ -694,7 +694,7 @@ async function addRequest(borrowedList) {
   }
 
   try {
-    const res = await axios.post('http://localhost:5000/api/v1/requests', borrowedList, config);
+    const res = await axios.post('https://asset-spartan-api.herokuapp.com/api/v1/requests', borrowedList, config);
 
     dispatch({
       type: 'ADD_REQUEST',

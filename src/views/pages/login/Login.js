@@ -33,7 +33,7 @@ const Login = () => {
       },
     }
     try {
-      const res = await axios.post('http://localhost:5000/api/v1/users/login', data, config);
+      const res = await axios.post('https://asset-spartan-api.herokuapp.com/api/v1/users/login', data, config);
       console.log("This is res", res)
 
         localStorage.setItem("token", res.data.access_token);
