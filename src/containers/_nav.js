@@ -1,5 +1,5 @@
 import React from 'react'
-import { faUsers, faBarcode, faPrint, faDatabase, faSave, faTachometerAlt, faFile, faKeyboard, faTint, faComment, faHdd} from "@fortawesome/free-solid-svg-icons";
+import { faUsers, faBarcode, faPrint, faTachometerAlt,faComment} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "src/containers/_nav.css"

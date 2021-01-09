@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useContext, useEffect} from 'react'
 import { GlobalContext } from '../../context/GlobalState'
 import {
   CDataTable,
@@ -6,9 +6,6 @@ import {
   CRow, CCol, CBadge
 } from '@coreui/react'
 import { Route } from 'react-router-dom'
-
-// import Search from "../search/Search"
-import Itemspage from '../itemspage/Itemspage'
 import { trackPromise } from 'react-promise-tracker';
 import LoadingIndicator from '../../context/LoadingIndicator'
 import dateFormat from 'dateformat'
@@ -22,18 +19,18 @@ const Requests = () => {
       // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const [details, setDetails] = useState([])
+  // const [details, setDetails] = useState([])
 
-  const toggleDetails = (index) => {
-    const position = details.indexOf(index)
-    let newDetails = details.slice()
-    if (position !== -1) {
-      newDetails.splice(position, 1)
-    } else {
-      newDetails = [...details, index]
-    }
-    setDetails(newDetails)
-  }
+  // const toggleDetails = (index) => {
+  //   const position = details.indexOf(index)
+  //   let newDetails = details.slice()
+  //   if (position !== -1) {
+  //     newDetails.splice(position, 1)
+  //   } else {
+  //     newDetails = [...details, index]
+  //   }
+  //   setDetails(newDetails)
+  // }
 
   const loading = LoadingIndicator()
 
@@ -71,11 +68,11 @@ const Requests = () => {
     }
   ]
 
-  const [modal, setModal] = useState(false)
+  // const [modal, setModal] = useState(false)
   
-  const toggle = () => {
-    setModal(!modal);
-  }
+  // const toggle = () => {
+  //   setModal(!modal);
+  // }
 
   const getBadge = (status)=>{
     console.log("This is Status from getBadge", status)

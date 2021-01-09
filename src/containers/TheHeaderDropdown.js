@@ -1,6 +1,5 @@
 import React from 'react'
 import {
-  CBadge,
   CDropdown,
   CDropdownItem,
   CDropdownMenu,
@@ -9,7 +8,11 @@ import {
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { Route } from 'react-router-dom'
+
+
 const TheHeaderDropdown = () => {
+  
+ 
   return (
     <CDropdown
       inNav
@@ -26,34 +29,6 @@ const TheHeaderDropdown = () => {
         </div>
       </CDropdownToggle>
       <CDropdownMenu className="pt-0" placement="bottom-end">
-        {/* <CDropdownItem
-          header
-          tag="div"
-          color="light"
-          className="text-center"
-        >
-          <strong>Account</strong>
-        </CDropdownItem>
-        <CDropdownItem>
-          <CIcon name="cil-bell" className="mfe-2" /> 
-          Updates
-          <CBadge color="info" className="mfs-auto">42</CBadge>
-        </CDropdownItem>
-        <CDropdownItem>
-          <CIcon name="cil-envelope-open" className="mfe-2" /> 
-          Messages
-          <CBadge color="success" className="mfs-auto">42</CBadge>
-        </CDropdownItem>
-        <CDropdownItem>
-          <CIcon name="cil-task" className="mfe-2" /> 
-          Tasks
-          <CBadge color="danger" className="mfs-auto">42</CBadge>
-        </CDropdownItem>
-        <CDropdownItem>
-          <CIcon name="cil-comment-square" className="mfe-2" /> 
-          Comments
-          <CBadge color="warning" className="mfs-auto">42</CBadge>
-        </CDropdownItem> */}
         <CDropdownItem
           header
           tag="div"
@@ -62,16 +37,16 @@ const TheHeaderDropdown = () => {
         >
           <strong>Settings</strong>
         </CDropdownItem>
-        <Route render={({ history}) => (
-            <CDropdownItem onClick={() => {history.push('/users/profile')}}>
+        {/* <Route render={({ history}) => (
+            <CDropdownItem onClick={() => {history.push(`users/profile/${user._id}`)}}>
               <CIcon name="cil-user" className="mfe-2" />Profile
             </CDropdownItem>
-        )}/>
-
+        )}/> */}
+{/* 
         <CDropdownItem>
           <CIcon name="cil-settings" className="mfe-2" /> 
           Settings
-        </CDropdownItem>
+        </CDropdownItem> */}
         {/* <CDropdownItem>
           <CIcon name="cil-credit-card" className="mfe-2" /> 
           Payments

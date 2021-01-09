@@ -1,7 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react'
 import { GlobalContext } from '../../context/GlobalState'
 import { CButton, CCard, CCardBody, CCardHeader, CCol, CRow, CModal, CModalHeader, CModalBody, CModalFooter, } from '@coreui/react'
-import CIcon from '@coreui/icons-react'
 import { useHistory } from "react-router-dom";
 import dateFormat from 'dateformat';
 import { Route } from 'react-router-dom'
@@ -83,8 +82,8 @@ const Request = ({match}) => {
   //   }).join(' ');
   // };
 
-  const requestDetails = request ? Object.entries(request) : 
-    [['id', (<span><CIcon className="text-muted" name="cui-icon-ban" /> Not found</span>)]]
+  // const requestDetails = request ? Object.entries(request) : 
+  //   [['id', (<span><CIcon className="text-muted" name="cui-icon-ban" /> Not found</span>)]]
 
   return (
     <CRow>

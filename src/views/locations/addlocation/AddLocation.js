@@ -2,10 +2,7 @@
 import React, {useContext} from 'react'
 import { GlobalContext } from '../../../context/GlobalState'
 import { useForm } from 'react-hook-form'
-import {
-  CCardBody, CCol, CCard, CCardHeader, CFormGroup, CLabel, CButton, CCardFooter, CForm, Cselect
-
-} from '@coreui/react'
+import { CCardBody, CCol, CCard, CCardHeader, CFormGroup, CLabel, CButton, CCardFooter, CForm } from '@coreui/react'
 import BackButton from '../../backButton/BackButton'
 import CancelButton from '../../cancelbutton/CancelButton'
 
@@ -25,7 +22,7 @@ const AddLocation = () => {
     // if(assetID){
     //   alert("Asset is already registered! Check Serial number")
     // }
-    console.log(data)
+
     try {
       const newLocation= {
             location_name: data.location_name,
@@ -41,7 +38,7 @@ const AddLocation = () => {
     } catch (err) {
       alert(`$err`)
     }
-    console.log(data)
+
   }
     
     return(

@@ -6,7 +6,7 @@ import {
   CDataTable,
   CButton,
   CRow, CCol, 
-  CCollapse, CModal, CModalHeader,CModalBody, CModalFooter, CSelect
+  CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
 } from '@coreui/react'
 import Images from '../../uploads/images'
 import { Route } from 'react-router-dom'
@@ -148,7 +148,7 @@ return (
       'asset_file' : (item) =>(
          item.asset_file ? <Images item={item}/> : 
          <td>
-            <img src={defaultlogo} alt="photo" style= { {height : '70px', widht: '70px'}}/>
+            <img src={defaultlogo} alt="Asset" style= { {height : '70px', widht: '70px'}}/>
         </td>
       ),
       'status':

@@ -23,7 +23,7 @@ const AddAccessory = () => {
     // if(assetID){
     //   alert("Asset is already registered! Check Serial number")
     // }
-    console.log(data)
+    // console.log(data)
     try {
       const newAccessory= {
             accessory_name: data.accessory_name,
@@ -48,7 +48,7 @@ const AddAccessory = () => {
     } catch (err) {
       alert(`$err`)
     }
-    console.log(data)
+    // console.log(data)
   }
 
 

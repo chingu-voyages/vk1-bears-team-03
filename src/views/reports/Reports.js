@@ -15,12 +15,12 @@ import {
     CChartHorizontalBar,
   } from '@coreui/react-chartjs'
 
-import MainChartExample from '../charts/MainChartExample.js'
+// import MainChartExample from '../charts/MainChartExample.js'
 
 
   const Reports = () => {
 
-    const { requestCount, getRequestCount, userCount, getUserCount, requestCount1Year, getRequestCount1Year, memberCount1Year, getMemberCount1Year, assetCount1Year, getAssetCount1Year } = useContext(GlobalContext)
+    const { requestCount, getRequestCount, userCount, getUserCount, requestCount1Year, getRequestCount1Year, memberCount1Year, getMemberCount1Year, getAssetCount1Year } = useContext(GlobalContext)
     useEffect(() => {
       getRequestCount()
       getUserCount()

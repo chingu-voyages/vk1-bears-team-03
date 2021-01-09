@@ -121,161 +121,6 @@ export const GlobalProvider = ({ children }) => {
       });
     }
   }
-
-
-
-  async function getLocations() {
-    try {
-      const res = await axios.get('/api/v1/locations');
-
-      dispatch({
-        type: 'GET_LOCATIONS',
-        payload: res.data.data
-      });
-    } catch (err) {
-      dispatch({
-        type: 'TRANSACTION_ERROR',
-        payload: err.response.data.error
-      });
-    }
-  }
-
-  async function deleteLocation(id) {
-    try {
-      await axios.delete(`/api/v1/locations/${id}`);
-
-      dispatch({
-        type: 'DELETE_LOCATIONS',
-        payload: id
-      });
-    } catch (err) {
-      dispatch({
-        type: 'TRANSACTION_ERROR',
-        payload: err.response.data.error
-      });
-    }
-  }
-
-
-
-  async function addLocation(location) {
-    const config = {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }
-
-    try {
-      const res = await axios.post('/api/v1/locations/addlocation', location, config);
-
-      dispatch({
-        type: 'ADD_LOCATIONS',
-        payload: res.data.data
-      });
-   
-    } catch (err) {
-      dispatch({
-        type: 'TRANSACTION_ERROR',
-        payload: err.response.data.error
-      });
-    }
-    
-  } 
-  async function getDepartments() {
-    try {
-      const res = await axios.get('/api/v1/departments');
-
-      dispatch({
-        type: 'GET_DEPARTMENTS',
-        payload: res.data.data
-      });
-    } catch (err) {
-      dispatch({
-        type: 'TRANSACTION_ERROR',
-        payload: err.response.data.error
-      });
-    }
-  }
-
-
-
-  async function deleteDepartment(id) {
-    try {
-      await axios.delete(`/api/v1/departments/${id}`);
-
-      dispatch({
-        type: 'DELETE_DEPARTMENT',
-        payload: id
-      });
-    } catch (err) {
-      dispatch({
-        type: 'TRANSACTION_ERROR',
-        payload: err.response.data.error
-      });
-    }
-  }
-
-
-
-  async function addDepartment(department) {
-    const config = {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }
-
-    try {
-      const res = await axios.post('/api/v1/departments/adddepartment', department, config);
-
-      dispatch({
-        type: 'ADD_DEPARTMENT',
-        payload: res.data.data
-      });
-   
-    } catch (err) {
-      dispatch({
-        type: 'TRANSACTION_ERROR',
-        payload: err.response.data.error
-      });
-    }
-    
-  } 
-
-  async function getSuppliers() {
-    try {
-      const res = await axios.get('/api/v1/suppliers');
-
-      dispatch({
-        type: 'GET_SUPPLIERS',
-        payload: res.data.data
-      });
-    } catch (err) {
-      dispatch({
-        type: 'TRANSACTION_ERROR',
-        payload: err.response.data.error
-      });
-    }
-  }
-
-
-
-  async function deleteSupplier(id) {
-    try {
-      await axios.delete(`/api/v1/suppliers/${id}`);
-
-      dispatch({
-        type: 'DELETE_SUPPLIER',
-        payload: id
-      });
-    } catch (err) {
-      dispatch({
-        type: 'TRANSACTION_ERROR',
-        payload: err.response.data.error
-      });
-    }
-  }
-
-
   //<----Requests-related Functions----->
 
   async function getRequests() {
@@ -283,23 +128,6 @@ export const GlobalProvider = ({ children }) => {
       const res = await axios.get('/api/v1/requests');
       dispatch({
         type: 'GET_REQUESTS',
-        payload: res.data.data
-      });
-    } catch (err) {
-      dispatch({
-        type: 'TRANSACTION_ERROR',
-        payload: err.response.data.error
-      });
-    }
-  }
-
-  async function getCategories() {
-    try {
-      const res = await axios.get('/api/v1/categories');
-
-      dispatch({
-        type: 'GET_CATEGORIES',
-
         payload: res.data.data
       });
     } catch (err) {
@@ -324,29 +152,6 @@ export const GlobalProvider = ({ children }) => {
       });
     }
   }
-
-  //     });
-  //   }
-  // }
-  
-
-  async function deleteCategory(id) {
-    try {
-      await axios.delete(`/api/v1/categories/${id}`);
-
-      dispatch({
-        type: 'DELETE_CATEGORY',
-        payload: id
-      });
-    } catch (err) {
-      dispatch({
-        type: 'TRANSACTION_ERROR',
-        payload: err.response.data.error
-      });
-    }
-  }
-
-
   async function getPendingRequests() {
     try {
       const res = await axios.get('/api/v1/requests');
@@ -377,30 +182,6 @@ export const GlobalProvider = ({ children }) => {
       });
     }
   }
-
-  async function addCategory(category) {
-    const config = {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }
-
-    try {
-      const res = await axios.post('/api/v1/categories/addcategory', category, config);
-
-      dispatch({
-        type: 'ADD_CATEGORY',
-        payload: res.data.data
-      });
-   
-    } catch (err) {
-      dispatch({
-        type: 'TRANSACTION_ERROR',
-        payload: err.response.data.error
-      });
-    }
-  }
-
 
   async function updateRequest(id, request) {
     const config = {
@@ -630,7 +411,7 @@ async function getAllArchivedRequestCount7Days() {
     let filteredData = data.filter(data => data.request_status === 'Denied')
 
     count.unshift(filteredData.length)
-    console.log(count)
+    // console.log(count)
     subtrahend += 1
     }
 
@@ -723,7 +504,7 @@ async function getRequestCount1Year() {
     count.push(data.length)
     addend += 1
     }
-console.log(count)
+// console.log(count)
     dispatch({
       type: 'GET_REQUEST_1_YEAR',
       payload: count
@@ -753,7 +534,7 @@ async function getMemberCount1Year() {
     count.push(data.length)
     addend += 1
     }
-console.log(count)
+// console.log(count)
     dispatch({
       type: 'GET_MEMBER_1_YEAR',
       payload: count
@@ -782,7 +563,7 @@ async function getAssetCount1Year() {
     count.push(data.length)
     addend += 1
     }
-console.log(count)
+// console.log(count)
     dispatch({
       type: 'GET_ASSET_1_YEAR',
       payload: count
@@ -825,7 +606,7 @@ async function getUser(id) {
     const result = res.data.data
     const filteredUser = result.find(user => user._id === id)
 
-    console.log(filteredUser)
+    // console.log(filteredUser)
 
     dispatch({
       type: 'GET_USER',
@@ -999,16 +780,12 @@ async function addNewUser(user) {
     userRequests: state.userRequests,
     getUser,
     user: state.user,
-<<<<<<< HEAD
-    addRequest
-=======
     addRequest,
     completedRequests: state.completedRequests,
     getCompletedRequests,
     addNewUser,
 
 
->>>>>>> 721c714105ade43c89d0a802fab6838e88b12677
   }}>
     {children}
   </GlobalContext.Provider>);

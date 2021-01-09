@@ -1,7 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react'
 import { GlobalContext } from '../../context/GlobalState'
-import {CBadge, CContainer, CRow, CCol, CCardHeader, CCardBody, CCardFooter, CInput, CCard, CButton, CModal, CModalHeader, CModalBody, CModalFooter, CDataTable, CCollapse, CCardTitle} from '@coreui/react'
-import { Route } from 'react-router-dom'
+import {CBadge, CContainer, CRow, CCol, CCardHeader, CCardBody, CCardFooter, CInput, CCard, CButton, CModal, CModalHeader, CModalBody, CModalFooter, CDataTable, CCardTitle} from '@coreui/react'
 import profile from './profile.png'
 import dateFormat from 'dateformat'
 
@@ -12,7 +11,7 @@ const Profile = ({match}) => {
   const { userRequests, getUserRequests, user, getUser, updateRequest, completedRequests, getCompletedRequests } = useContext(GlobalContext)
 
 
-
+  
 
   useEffect(() => {
       getUserRequests(match.params.id)
@@ -21,8 +20,8 @@ const Profile = ({match}) => {
       // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const userData = user
-  const [details, setDetails] = useState([])
+  // const userData = user
+  // const [details, setDetails] = useState([])
 
   const getBadge = (status)=>{
     switch (status) {
@@ -36,16 +35,16 @@ const Profile = ({match}) => {
   }
  
   
-  const toggleDetails = (index) => {
-    const position = details.indexOf(index)
-    let newDetails = details.slice()
-    if (position !== -1) {
-      newDetails.splice(position, 1)
-    } else {
-      newDetails = [...details, index]
-    }
-    setDetails(newDetails)
-  }
+  // const toggleDetails = (index) => {
+  //   const position = details.indexOf(index)
+  //   let newDetails = details.slice()
+  //   if (position !== -1) {
+  //     newDetails.splice(position, 1)
+  //   } else {
+  //     newDetails = [...details, index]
+  //   }
+  //   setDetails(newDetails)
+  // }
   const fields = [
     { 
       key: '_id',

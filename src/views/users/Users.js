@@ -6,7 +6,7 @@ import {
   CButton, 
   CCollapse, CModal, CModalHeader,CModalBody, CModalFooter
 } from '@coreui/react'
-import { Route, useHistory } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import { GlobalContext } from '../../context/GlobalState'
 import { trackPromise } from 'react-promise-tracker';
 import LoadingIndicator from '../../context/LoadingIndicator'
@@ -14,7 +14,7 @@ import AddButton from '../addButton/AddButton'
 import dateFormat from 'dateformat'
 
 const Users = () => {
-  const { users, getUsers, deleteUser, checkAuth } = useContext(GlobalContext)
+  const { users, getUsers, deleteUser } = useContext(GlobalContext)
   const token = localStorage.getItem("token")
   useEffect(() => {
     

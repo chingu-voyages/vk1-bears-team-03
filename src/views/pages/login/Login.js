@@ -1,5 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react'
-import { Link } from "react-router-dom";
+import React, {useState} from 'react'
 import { useHistory } from 'react-router-dom'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { toast } from "react-toastify";
@@ -12,7 +11,6 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { CForm } from '@coreui/react'
 import { faUser, faKey } from "@fortawesome/free-solid-svg-icons";
-import { GlobalContext } from '../../../context/GlobalState'
 import "./Login.css";
 import axios from 'axios';
 library.add(fab, faFacebookSquare, faGooglePlusSquare, faUser, faKey);
@@ -37,6 +35,7 @@ const Login = () => {
     try {
       const res = await axios.post('http://localhost:5000/api/v1/users/login', data, config);
       console.log("This is res", res)
+
         localStorage.setItem("token", res.data.access_token);
         history.push("/dashboard");
         setLoading(false);
@@ -113,16 +112,16 @@ const Login = () => {
               </div>
             </CForm>
           </div>
-          <div className="card-footer login__card__footer">
+          {/* <div className="card-footer login__card__footer">
             <div className="d-flex justify-content-center links">
               Don't have an account?
               <Link to="/register"> Sign Up </Link>
-              {/* <a href="register/">Sign Up</a> */}
+              <a href="register/">Sign Up</a>
             </div>
             <div className="d-flex justify-content-center">
               <a href="#link">Forgot your password?</a>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

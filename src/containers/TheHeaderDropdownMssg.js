@@ -1,16 +1,8 @@
 import React from 'react'
-import {
-  CBadge,
-  CDropdown,
-  CDropdownItem,
-  CDropdownMenu,
-  CDropdownToggle,
-  CImg
-} from '@coreui/react'
-import CIcon from '@coreui/icons-react'
+import {CDropdown} from '@coreui/react'
 
 const TheHeaderDropdownMssg = () => {
-  const itemsCount = 4
+  // const itemsCount = 4
   return (
     <CDropdown
       inNav

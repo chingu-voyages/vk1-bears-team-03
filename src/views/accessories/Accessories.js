@@ -136,7 +136,7 @@ return (
                   <Route render={({ history}) => (
                   <CButton size="sm" color="primary" className="mr-1" onClick= {() => { 
                     history.push(`/accessories/updateaccessory/${item._id}`) 
-                    console.log("This is history", history)
+                    // console.log("This is history", history)
                      }}> 
                         Update
                   </CButton>
