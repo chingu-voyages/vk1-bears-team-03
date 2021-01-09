@@ -25,7 +25,7 @@ import {
       getRequestCount()
       getUserCount()
       getRequestCount1Year()
-      getMemberCount1Year()
+      getMemberCount1Year(temp)
       getAssetCount1Year()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
@@ -173,7 +173,7 @@ let colors = [
                         pointHoverBackgroundColor: '#fff',
                         pointHoverBorderColor: 'rgba(255,99,132,1)',
                         tooltipLabelColor: 'rgba(255,99,132,1)',
-                        data: memberCount1Year
+                        data: assetCount1Year
                         }
                     ]}
                     options={{
