@@ -31,7 +31,7 @@ const TheSidebar = () => {
       show={show}
       onShowChange={(val) => dispatch({type: 'set', sidebarShow: val })}
     >
-      <CSidebarBrand className="d-md-down-none" to="/">
+      <CSidebarBrand className="d-md-down-none" to="/dashboard">
       <img src={Logo} width="150" height="50"/>
         {/* <CIcon
           className="c-sidebar-brand-minimized"
